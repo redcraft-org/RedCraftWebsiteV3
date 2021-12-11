@@ -1,19 +1,26 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Player\PlayerList;
+use App\Http\Controllers\Player\PlayerCreate;
+use App\Http\Controllers\Player\PlayerUpdate;
+use App\Http\Controllers\Player\PlayerRetrieve;
+use App\Http\Controllers\Player\PlayerAddLanguage;
+use App\Http\Controllers\Player\PlayerAddProvider;
+use App\Http\Controllers\Player\PlayerGetLanguage;
+use App\Http\Controllers\Player\PlayerGetProvider;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function () {
+    Route::prefix('player')->group(function () {
+        Route::get('/', PlayerList::class);
+        Route::get('{id}', PlayerRetrieve::class);
+        Route::get('{id}/language', PlayerGetLanguage::class);
+        Route::get('{id}/provider', PlayerGetProvider::class);
+
+        Route::post('/', PlayerCreate::class);
+        Route::post('{id}', PlayerUpdate::class);
+        Route::post('{id}/language', PlayerAddLanguage::class);
+        Route::post('{id}/provider', PlayerAddProvider::class);
+    });
 });
