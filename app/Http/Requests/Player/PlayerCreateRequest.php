@@ -62,6 +62,10 @@ class PlayerCreateRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        throw new ValidationException($validator, response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY ));
+        throw new ValidationException($validator, response()->json([
+                'errors' => $validator->errors()
+            ],
+            Response::HTTP_UNPROCESSABLE_ENTITY
+        ));
     }
 }
