@@ -13,9 +13,9 @@ class CreatePlayerLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('player_languages', function (Blueprint $table) {
+        Schema::create('language_player', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->boolean('is_main_language')->default(false);
             $table->bigInteger('player_id')->unsigned();
             $table->bigInteger('language_id')->unsigned();
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');

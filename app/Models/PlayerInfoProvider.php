@@ -10,11 +10,17 @@ class PlayerInfoProvider extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['provider', 'provider_uuid', 'last_username', 'previous_username'];
+
+    protected $fillable = ['provider_id', 'provider_uuid', 'last_username', 'previous_username'];
 
     public function player()
     {
         return $this->belongsTo(Player::class);
+    }
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
     }
 
 }

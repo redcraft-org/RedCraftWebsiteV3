@@ -16,9 +16,9 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('email');
-            $table->string('slug')->unique()->index();
+            $table->string('email')->unique()->nullable();
         });
+
     }
 
     /**

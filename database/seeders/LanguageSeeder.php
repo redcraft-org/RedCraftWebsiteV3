@@ -15,17 +15,12 @@ class LanguageSeeder extends Seeder
      */
     public function run()
     {
-        //get available-languages.json file
         $availableLanguages = json_decode(file_get_contents(public_path('available-languages.json')), true);
 
-        //get all languages keys
-        $languagesKeys = array_keys($availableLanguages);
-        $languages = array_map(function ($item) use (&$availableLanguages) {
-            return [
-                'name' => $item,
-                'code' => $availableLanguages[$item],
-            ];
-        }, $languagesKeys);
+        $languages = array_map(function ($key, $value) {
+            return ['code' => $key, 'name' => $value];
+        }, array_keys($availableLanguages), $availableLanguages);
+
         DB::table('languages')->insert($languages);
     }
 }

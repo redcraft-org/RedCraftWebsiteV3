@@ -17,11 +17,13 @@ class CreatePlayerInfoProvidersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('player_id')->unsigned()->unique();
-            $table->enum('provider', ['minecraft', 'discord']);
+            $table->bigInteger('provider_id')->unsigned()->unique()->index();
             $table->uuid('provider_uuid')->index();
             $table->string('last_username');
             $table->string('previous_username')->nullable();
+
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
         });
     }
 

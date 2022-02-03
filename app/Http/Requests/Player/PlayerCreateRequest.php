@@ -28,11 +28,11 @@ class PlayerCreateRequest extends FormRequest
     {
         return [
             'main_language' => 'required|string|exists:languages,code',
-            'email' => 'nullable|email',
+            'email' => 'nullable|email|unique:players',
             'languages' => 'required|array',
             'languages.*' => 'required|string|exists:languages,code',
             'providers' => 'required|array',
-            'providers.*.provider_type' => 'required|string|exists:player_info_providers,provider',
+            'providers.*.provider_name' => 'required|string|exists:providers,name',
             'providers.*.uuid' => 'required|string|unique:player_info_providers,provider_uuid',
             'providers.*.last_username' => 'required|string',
             'providers.*.previous_username' => 'nullable|string',
