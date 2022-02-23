@@ -16,14 +16,16 @@ class CreatePlayerInfoProvidersTable extends Migration
         Schema::create('player_info_providers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('player_id')->unsigned()->unique();
-            $table->bigInteger('provider_id')->unsigned()->unique()->index();
+            $table->bigInteger('player_id')->unsigned()->index();
+            $table->bigInteger('provider_id')->unsigned();
             $table->uuid('provider_uuid')->index();
             $table->string('last_username');
             $table->string('previous_username')->nullable();
 
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
             $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
+
+            $table->unique(['player_id', 'provider_id']);
         });
     }
 

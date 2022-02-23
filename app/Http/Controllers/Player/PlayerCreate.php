@@ -26,12 +26,12 @@ class PlayerCreate extends Controller
             'email' => Arr::get($request->validated(), 'email')
         ]);
 
-        $player->languages()->attach(Language::getIdFromCode($request->validated('main_language')), ['is_main_language' => true]);
+        $player->languagesTrait()->attach(Language::getIdFromCode($request->validated('main_language')), ['is_main_language' => true]);
 
-        $player->languages()->attach(Language::whereIn('code', Arr::get($request->validated(), 'languages'))->pluck('id'));
-
-        foreach (Arr::get($request->validated(), 'providers', []) as $provider) {
-            $providerId = Provider::where('name', Arr::get($request->validated(), 'providers.0.provider_name'))->first()->id;
+        $player->languagesTrait()->attach(Language::whereIn('code', Arr::get($request->validated(), 'languages'))->pluck('id'));
+        $providers = Arr::get($request->validated(), 'providers', []);
+        foreach ($providers as $provider) {
+            $providerId = Provider::where('name', $provider["provider_name"])->first()->id;
             $player->playerInfoProviders()->create([
                 'provider_id' => $providerId,
                 'provider_uuid' => $provider['uuid'],
@@ -39,7 +39,7 @@ class PlayerCreate extends Controller
                 'previous_username' => $provider['previous_username'] ?? null,
             ]);
         }
-
-        return response()->json($player->save(), 201);
+        $player->save();
+        return response()->json(json_decode($player->toJson()), 201);
     }
 }
