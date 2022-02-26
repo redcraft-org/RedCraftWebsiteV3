@@ -10,10 +10,9 @@ use Illuminate\Validation\ValidationException;
 
 use Illuminate\Validation\Factory as ValidationFactory;
 
-class PlayerCreateRequest extends FormRequest
+class PlayerUpdateRequest extends FormRequest
 {
-
-    /**
+       /**
      * Constructor
      *
      * @return bool
@@ -21,16 +20,13 @@ class PlayerCreateRequest extends FormRequest
     public function __construct(ValidationFactory $validationFactory)
     {
         parent::__construct();
-        $validationFactory->extend('unique_provider_uuid', function ($attribute, $value, $parameters, $validator) {
-            $player = Player::getPlayerByProviderUuid($value);
-            if ($player) {
-                return false;
-            }
-            return true;
-        });
     }
 
 
+    public function passedValidation()
+    {
+        $this->replace($this->except('uuid'));
+    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -50,18 +46,23 @@ class PlayerCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_language' => 'required|string|exists:languages,code',
-            'email' => 'nullable|email|unique:players',
-            'languages' => 'required|array',
-            'languages.*' => 'required|string|exists:languages,code',
-            'providers' => 'required|array',
-            'providers.*.provider_name' => 'required|string|exists:providers,name',
-            'providers.*.uuid' => 'required|string|unique_provider_uuid',
-            'providers.*.last_username' => 'required|string',
+            'email' => 'nullable',
+            'main_language' => 'nullable|string|exists:languages,code',
+            'languages' => 'nullable|array',
+            'languages.*' => 'nullable|string|exists:languages,code',
+            'providers' => 'nullable|array',
+            'providers.*.provider_name' => 'required_if:providers.*.uuid,!null|string|exists:providers,name',
+            'providers.*.uuid' => 'required_if:providers.*.uuid,!null|string',
+            'providers.*.last_username' => 'required_if:providers.*.uuid,!null|string',
             'providers.*.previous_username' => 'nullable|string',
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
     public function  messages()
     {
         return [
@@ -83,9 +84,18 @@ class PlayerCreateRequest extends FormRequest
         ];
     }
 
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     protected function failedValidation(Validator $validator)
     {
-        throw new ValidationException($validator, response()->json([
+        throw new ValidationException($validator, response()->json(
+            [
                 'errors' => $validator->errors()
             ],
             Response::HTTP_UNPROCESSABLE_ENTITY

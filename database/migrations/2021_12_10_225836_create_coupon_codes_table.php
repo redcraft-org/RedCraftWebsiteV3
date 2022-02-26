@@ -18,7 +18,7 @@ class CreateCouponCodesTable extends Migration
             $table->timestamps();
             $table->string('code');
             $table->bigInteger('coupon_id')->unsigned();
-            $table->bigInteger('player_id')->unsigned()->nullable();
+            $table->uuid('player_id')->nullable();
             $table->timestamp('claimed_at')->nullable();
 
             $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');

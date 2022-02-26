@@ -16,7 +16,7 @@ class CreatePlayerLanguagesTable extends Migration
         Schema::create('language_player', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_main_language')->default(false);
-            $table->bigInteger('player_id')->unsigned();
+            $table->uuid('player_id');
             $table->bigInteger('language_id')->unsigned();
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');

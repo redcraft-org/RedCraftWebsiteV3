@@ -22,13 +22,30 @@ class PlayerCreate extends Controller
      */
     public function __invoke(PlayerCreateRequest $request)
     {
+        $providers = Arr::get($request->validated(), 'providers');
+        $provider_uuids = array_column($providers, 'uuid');
+        $player = Player::getTrashedPlayerByProviderUuids($provider_uuids);
+        if ($player) {
+            $player->restore();
+            return response()->json(json_decode($player->toJson()), 200);
+        }
+
+
         $player = Player::create([
             'email' => Arr::get($request->validated(), 'email')
         ]);
 
-        $player->languagesTrait()->attach(Language::getIdFromCode($request->validated('main_language')), ['is_main_language' => true]);
+        $main_language = Language::getIdFromCode($request->validated('main_language'));
+        $player->languagesTrait()->attach($main_language, ['is_main_language' => true]);
+        $language_list = Language::whereIn('code', Arr::get($request->validated(), 'languages'))->pluck('id');
+        //  TODO check with lulu if we should return an error if the language is not found
+        if ($language_list->contains($main_language)) {
+            $language_list = $language_list->diff([$main_language]);
 
-        $player->languagesTrait()->attach(Language::whereIn('code', Arr::get($request->validated(), 'languages'))->pluck('id'));
+        }
+        $player->languagesTrait()->attach($language_list);
+
+
         $providers = Arr::get($request->validated(), 'providers', []);
         foreach ($providers as $provider) {
             $providerId = Provider::where('name', $provider["provider_name"])->first()->id;

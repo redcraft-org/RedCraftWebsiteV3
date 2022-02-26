@@ -6,7 +6,7 @@ use App\Models\Player;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PlayerRetrieve extends Controller
+class PlayerDelete extends Controller
 {
     /**
      * Handle the incoming request.
@@ -14,13 +14,14 @@ class PlayerRetrieve extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, $uuid)
+    public function __invoke($uuid)
     {
-        $isProvider = $request->has('is-provider');
-        $player = Player::getPlayerByUuid($uuid, $isProvider);
+        $player = Player::getPlayerByUuid($uuid);
         if ($player) {
+            $player->delete();
             return response()->json(json_decode($player->toJson()), 200);
         }
-        return response()->json(['error' => 'Player not found'], 404);
+        abort(404, 'Player not found');
+
     }
 }

@@ -16,8 +16,8 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('receiver_player_id')->unsigned()->nullable();
-            $table->bigInteger('donor_player_id')->unsigned()->nullable();
+            $table->uuid('receiver_player_id')->nullable();
+            $table->uuid('donor_player_id')->nullable();
             $table->bigInteger('discount_id')->unsigned()->nullable();
             $table->integer('amount')->unsigned();
             $table->string('currency')->default('EUR');

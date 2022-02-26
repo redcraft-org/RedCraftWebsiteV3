@@ -10,7 +10,8 @@ use Illuminate\Validation\ValidationException;
 
 use Illuminate\Validation\Factory as ValidationFactory;
 
-class PlayerCreateRequest extends FormRequest
+
+class PlayerReplaceRequest extends FormRequest
 {
 
     /**
@@ -21,16 +22,13 @@ class PlayerCreateRequest extends FormRequest
     public function __construct(ValidationFactory $validationFactory)
     {
         parent::__construct();
-        $validationFactory->extend('unique_provider_uuid', function ($attribute, $value, $parameters, $validator) {
-            $player = Player::getPlayerByProviderUuid($value);
-            if ($player) {
-                return false;
-            }
-            return true;
-        });
     }
 
 
+    public function passedValidation()
+    {
+        $this->replace($this->except('uuid'));
+    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -50,18 +48,23 @@ class PlayerCreateRequest extends FormRequest
     public function rules()
     {
         return [
+            'email' => 'nullable',
             'main_language' => 'required|string|exists:languages,code',
-            'email' => 'nullable|email|unique:players',
             'languages' => 'required|array',
             'languages.*' => 'required|string|exists:languages,code',
             'providers' => 'required|array',
             'providers.*.provider_name' => 'required|string|exists:providers,name',
-            'providers.*.uuid' => 'required|string|unique_provider_uuid',
+            'providers.*.uuid' => 'required|string',
             'providers.*.last_username' => 'required|string',
             'providers.*.previous_username' => 'nullable|string',
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
     public function  messages()
     {
         return [
@@ -83,9 +86,18 @@ class PlayerCreateRequest extends FormRequest
         ];
     }
 
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     protected function failedValidation(Validator $validator)
     {
-        throw new ValidationException($validator, response()->json([
+        throw new ValidationException($validator, response()->json(
+            [
                 'errors' => $validator->errors()
             ],
             Response::HTTP_UNPROCESSABLE_ENTITY

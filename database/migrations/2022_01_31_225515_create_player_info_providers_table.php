@@ -16,7 +16,7 @@ class CreatePlayerInfoProvidersTable extends Migration
         Schema::create('player_info_providers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('player_id')->unsigned()->index();
+            $table->uuid('player_id')->index();
             $table->bigInteger('provider_id')->unsigned();
             $table->uuid('provider_uuid')->index();
             $table->string('last_username');
