@@ -1,0 +1,36 @@
+name: Test project
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0"
+          tools: composer:v2
+          extensions: sqlite3
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Use default .env
+        run: cp .env.example .env
+
+      - name: clear cache
+        run: php artisan config:clear
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Apply migrations on local database
+        run: php artisan migrate
+
+      - name: Run tests
+        run: php artisan test --env=testing
