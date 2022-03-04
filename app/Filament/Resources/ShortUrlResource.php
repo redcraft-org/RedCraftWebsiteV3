@@ -26,7 +26,7 @@ class ShortUrlResource extends Resource
             ->schema([
                 TextInput::make('source')->nullable(),
                 TextInput::make('url')->url()->required(),
-                TextInput::make('shortened_url')->url()->required()
+                TextInput::make('shortened_url')->required()
             ]);
     }
 
