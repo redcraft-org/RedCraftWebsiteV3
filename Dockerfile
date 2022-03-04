@@ -1,9 +1,25 @@
-FROM bitnami/laravel:9
+FROM php:8
 
-WORKDIR /app
+RUN apt update
+
+RUN apt-get install -y libxml2-dev
+
+RUN pecl install redis
+
+RUN docker-php-ext-enable redis
+
+RUN docker-php-ext-install sockets bcmath pcntl
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
+WORKDIR /var/www
 
 ADD . .
 
 RUN composer install
 
-ENTRYPOINT php artisan octane:start
+RUN touch storage/logs/laravel.log
+
+EXPOSE 8000 8000
+
+ENTRYPOINT php artisan octane:start --host 0.0.0.0 --port 8000

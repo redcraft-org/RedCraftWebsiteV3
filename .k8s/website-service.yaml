@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: website
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: website
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      hostname: website
+      containers:
+      - image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
+        imagePullPolicy: Always
+        name: website
+        envFrom:
+        - secretRef:
+            name: dotenv
+        ports:
+        - containerPort: 8000
+          name: http
+        volumeMounts:
+        - name: logs
+          mountPath: /app/storage/logs
+        resources:
+          requests:
+            memory: 256Mi
+            cpu: 500m
+          limits:
+            memory: 1Gi
+            cpu: 1000m
+      - name: website-logs
+        image: busybox
+        args: [/bin/sh, -c, 'touch /var/log/laravel.log && tail -n+1 -f /var/log/laravel.log']
+        volumeMounts:
+        - name: logs
+          mountPath: /var/log
+        resources:
+          requests:
+            memory: 16Mi
+            cpu: 100m
+          limits:
+            memory: 64Mi
+            cpu: 250m
+      volumes:
+      - name: logs
+        emptyDir: {}
