@@ -25,10 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('donation', function () {
-    return response('Rend l\'argent!');
-});
 
-// Route::domain('')->group(function () {
-    Route::get('r/{shortened}', ShortUrlController::class)->name('short-url');
-// });
+Route::get('r/{shortened}', ShortUrlController::class)->name('short-url');
