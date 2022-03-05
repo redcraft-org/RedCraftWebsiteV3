@@ -83,5 +83,7 @@ jobs:
           echo "$KUBE_CONFIG" | base64 -d > ~/.kube/config
 
           kubectl set image deployment/website website-http=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
+          sleep 1
           kubectl set image cronjob/website-cronjob website-cron=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
+          sleep 1
           kubectl set image job/website-queue website-queue=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
