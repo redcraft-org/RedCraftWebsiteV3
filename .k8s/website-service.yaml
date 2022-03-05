@@ -56,6 +56,21 @@ spec:
           limits:
             memory: 1Gi
             cpu: 2000m
+      - name: website-queue
+        image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
+        imagePullPolicy: Always
+        command: ["php"]
+        args: ["artisan", "queue:work"]
+        envFrom:
+        - secretRef:
+            name: dotenv
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 250m
+          limits:
+            memory: 256Mi
+            cpu: 500m
       - name: website-logs
         image: busybox
         args: [/bin/sh, -c, 'touch /var/log/laravel.log && tail -n+1 -f /var/log/laravel.log']
@@ -106,33 +121,3 @@ spec:
                   memory: 256Mi
                   cpu: 500m
           restartPolicy: OnFailure
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: website-queue
-spec:
-  selector:
-    matchLabels:
-      app: website-queue
-  template:
-    metadata:
-      labels:
-        app: website-queue
-    spec:
-      containers:
-      - name: website-queue
-        image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
-        imagePullPolicy: Always
-        command: ["php"]
-        args: ["artisan", "queue:work"]
-        envFrom:
-        - secretRef:
-            name: dotenv
-        resources:
-          requests:
-            memory: 128Mi
-            cpu: 250m
-          limits:
-            memory: 256Mi
-            cpu: 500m
