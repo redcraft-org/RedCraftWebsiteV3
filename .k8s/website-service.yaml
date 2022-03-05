@@ -107,12 +107,18 @@ spec:
                   cpu: 500m
           restartPolicy: OnFailure
 ---
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: website-queue
 spec:
+  selector:
+    matchLabels:
+      app: website-queue
   template:
+    metadata:
+      labels:
+        app: website-queue
     spec:
       containers:
       - name: website-queue
@@ -130,4 +136,3 @@ spec:
           limits:
             memory: 256Mi
             cpu: 500m
-      restartPolicy: OnFailure

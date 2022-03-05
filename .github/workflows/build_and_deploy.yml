@@ -84,6 +84,4 @@ jobs:
 
           kubectl set image deployment/website website-http=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
           kubectl set image cronjob/website-cronjob website-cron=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
-          sleep 15
-          echo "kubectl set image job/website-queue website-queue=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}"
-          kubectl set image job/website-queue website-queue=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
+          kubectl set image deployment/website-queue website-queue=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
