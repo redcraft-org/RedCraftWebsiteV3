@@ -31,7 +31,7 @@ spec:
       containers:
       - image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
         imagePullPolicy: Always
-        name: website
+        name: website-http
         envFrom:
         - secretRef:
             name: dotenv
@@ -47,7 +47,7 @@ spec:
             cpu: 500m
           limits:
             memory: 1Gi
-            cpu: 1000m
+            cpu: 2000m
       - name: website-logs
         image: busybox
         args: [/bin/sh, -c, 'touch /var/log/laravel.log && tail -n+1 -f /var/log/laravel.log']
@@ -64,3 +64,37 @@ spec:
       volumes:
       - name: logs
         emptyDir: {}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: website-cronjob
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  startingDeadlineSeconds: 60
+  jobTemplate:
+    spec:
+      parallelism: 1
+      completions: 1
+      template:
+        spec:
+          containers:
+            - name: website-cron
+              image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
+              imagePullPolicy: Always
+              command: ["php"]
+              args: ["artisan", "schedule:run"]
+              envFrom:
+              - secretRef:
+                  name: dotenv
+              resources:
+                requests:
+                  memory: 128Mi
+                  cpu: 250m
+                limits:
+                  memory: 256Mi
+                  cpu: 500m
+          restartPolicy: Never
