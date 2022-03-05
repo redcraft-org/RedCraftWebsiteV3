@@ -8,7 +8,7 @@ RUN pecl install redis
 
 RUN docker-php-ext-enable redis
 
-RUN docker-php-ext-install sockets bcmath pcntl
+RUN docker-php-ext-install sockets bcmath pcntl zip
 
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
