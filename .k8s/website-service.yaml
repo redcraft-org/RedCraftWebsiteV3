@@ -28,6 +28,14 @@ spec:
         app: website
     spec:
       hostname: website
+      initContainers:
+      - image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
+        imagePullPolicy: Always
+        name: website-migrations
+        command: ['sh', '-c', "php artisan migrate --force && php artisan event:cache && php artisan cache:clear"]
+        envFrom:
+        - secretRef:
+            name: dotenv
       containers:
       - image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
         imagePullPolicy: Always
@@ -97,7 +105,7 @@ spec:
                 limits:
                   memory: 256Mi
                   cpu: 500m
-          restartPolicy: Never
+          restartPolicy: OnFailure
 ---
 apiVersion: batch/v1
 kind: Job
