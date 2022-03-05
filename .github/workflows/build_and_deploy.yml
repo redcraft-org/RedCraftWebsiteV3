@@ -6,7 +6,6 @@ on:
     branches:
       - development
       - master
-      - feature/kubernetes
 
 jobs:
   deploy:
