@@ -2,7 +2,7 @@ FROM php:8
 
 RUN apt update
 
-RUN apt-get install -y libxml2-dev
+RUN apt-get install -y libxml2-dev git
 
 RUN pecl install redis
 

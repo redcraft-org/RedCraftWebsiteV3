@@ -1,4 +1,4 @@
-name: Deploy to AWS EKS
+name: Deploy to Kubernetes
 
 on:
   workflow_dispatch:
