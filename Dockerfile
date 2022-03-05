@@ -2,13 +2,13 @@ FROM php:8
 
 RUN apt update
 
-RUN apt-get install -y libxml2-dev git
+RUN apt-get install -y libxml2-dev libzip-dev git
 
-RUN pecl install redis
+RUN pecl install redis zip
 
-RUN docker-php-ext-enable redis
+RUN docker-php-ext-enable redis zip
 
-RUN docker-php-ext-install sockets bcmath pcntl zip
+RUN docker-php-ext-install sockets bcmath pcntl
 
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
