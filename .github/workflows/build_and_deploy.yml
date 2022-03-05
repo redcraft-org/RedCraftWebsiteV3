@@ -39,7 +39,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           echo "KUBE_NAMESPACE=production" >> $GITHUB_ENV
-          echo "GENERIC_IMAGE_TAG=production" >> $GITHUB_ENV
+          echo "GENERIC_IMAGE_TAG=latest" >> $GITHUB_ENV
 
       - name: Login to Container Registry
         run: docker login rg.fr-par.scw.cloud/redcraft -u nologin -p "$AWS_SECRET_ACCESS_KEY"
