@@ -1,0 +1,8 @@
+rr
+.env
+.env.testing
+.env.staging
+.env.production
+storage/app/public/*
+storage/debugbar/*
+storage/logs/*
