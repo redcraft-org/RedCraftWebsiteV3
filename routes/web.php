@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShortUrlController;
 
 Route::get('/', function () {
+    return view('home');
     //Get a chuck noris joke from a api and send it as a json response
-    $response = Http::get('https://api.chucknorris.io/jokes/random');
-    return response()->json($response->json()['value'], 200);
+    // $response = Http::get('https://api.chucknorris.io/jokes/random');
+    // return response()->json($response->json()['value'], 200);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
