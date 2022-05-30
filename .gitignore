@@ -16,3 +16,4 @@ yarn-error.log
 /.vscode
 rr
 .rr.yaml
+.history
