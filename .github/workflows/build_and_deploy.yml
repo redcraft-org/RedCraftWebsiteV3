@@ -18,26 +18,8 @@ jobs:
       KUBE_NAMESPACE: testing
       IMAGE_NAME: rg.fr-par.scw.cloud/redcraft/redcraft-website
       GENERIC_IMAGE_TAG: testing
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: root
-          MYSQL_DATABASE: redcraft
-          MYSQL_ROOT_PASSWORD: root
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
 
     steps:
-    - name: Set up MySQL
-      run: |
-        sudo /etc/init.d/mysql start
-        mysql -e 'CREATE DATABASE redcraft' -uroot -proot
-
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.4.1
         with:
