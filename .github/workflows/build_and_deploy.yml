@@ -33,6 +33,11 @@ jobs:
 
 
     steps:
+    - name: Set up MySQL
+      run: |
+        sudo /etc/init.d/mysql start
+        mysql -e 'CREATE DATABASE redcraft' -uroot -proot
+
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.4.1
         with:
