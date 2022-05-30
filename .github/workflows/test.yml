@@ -20,9 +20,9 @@ jobs:
 
     steps:
       - name: Set up MySQL
-          run: |
-            sudo /etc/init.d/mysql start
-            mysql -e 'CREATE DATABASE redcraft' -uroot -proot
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE redcraft' -uroot -proot
 
       - name: Checkout code
         uses: actions/checkout@master
