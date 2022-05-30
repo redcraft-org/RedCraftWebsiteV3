@@ -18,7 +18,6 @@ jobs:
       KUBE_NAMESPACE: testing
       IMAGE_NAME: rg.fr-par.scw.cloud/redcraft/redcraft-website
       GENERIC_IMAGE_TAG: testing
-
     services:
       mysql:
         image: mysql:5.7
