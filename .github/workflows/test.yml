@@ -34,6 +34,9 @@ jobs:
           tools: composer:v2
           extensions: sqlite3
 
+      - name: Update dependencies
+        run: composer update
+
       - name: Install dependencies
         run: composer install
 
