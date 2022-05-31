@@ -31,6 +31,10 @@
     ```bash
         sail up -d
     ```
+- Run key generation
+    ```bash
+        sail artisan key:generate
+    ```
 - Run migration
     ```bash
         sail artisan migrate
