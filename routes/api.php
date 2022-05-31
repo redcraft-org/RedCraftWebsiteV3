@@ -11,6 +11,8 @@ use App\Http\Controllers\Player\PlayerAddLanguage;
 use App\Http\Controllers\Player\PlayerAddProvider;
 use App\Http\Controllers\Player\PlayerGetLanguage;
 use App\Http\Controllers\Player\PlayerGetProvider;
+use App\Http\Controllers\Post\PostCreate;
+use App\Http\Controllers\Post\PostList;
 
 
 Route::prefix('v1')->group(function () {
@@ -28,5 +30,10 @@ Route::prefix('v1')->group(function () {
         Route::delete('{uuid}', PlayerDelete::class);
         Route::put('{uuid}', PlayerReplace::class);
         Route::patch('{uuid}', PlayerUpdate::class);
+    });
+
+    Route::prefix('post')->group(function () {
+        Route::get('/', PostList::class);
+        Route::post('/', PostCreate::class);
     });
 });
