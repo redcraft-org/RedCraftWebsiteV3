@@ -42,5 +42,5 @@ jobs:
 
       - name: Run tests
         run: |
-          cat .env
+          cp .env .env.testing
           php artisan test
