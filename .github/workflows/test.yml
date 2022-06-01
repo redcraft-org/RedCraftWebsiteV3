@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Set up MySQL
         run: |
@@ -29,7 +29,7 @@ jobs:
         run: composer install
 
       - name: Use default .env
-        run: cp .env.example .env
+        run: cp .env.testing .env
 
       - name: clear cache
         run: php artisan config:clear
