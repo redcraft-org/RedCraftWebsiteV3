@@ -41,4 +41,4 @@ jobs:
         run: php artisan migrate
 
       - name: Run tests
-        run: php artisan test --env=testing
+        run: php artisan test
