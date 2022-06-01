@@ -1,15 +1,23 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Dashboard') }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
+    <x-jet-section id="header">
+        Bienvenue sur RedCraft !
+    </x-jet-section>
+    <section id="a-propos">
+        <button class="btn btn-warning">Bouton</button>
+        <x-jet-button type="error">CLIQUE</x-jet-button>
+    </section>
+    <section id="news">
 
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
+    </section>
+    <section id="servers">
+
+    </section>
+    <section id="staff">
+
+    </section>
 </x-app-layout>
