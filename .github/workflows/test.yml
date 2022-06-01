@@ -5,23 +5,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: root
-          MYSQL_DATABASE: redcraft
-          MYSQL_ROOT_PASSWORD: root
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Set up MySQL
         run: |
-          sudo /etc/init.d/mysql start
+          sudo systemctl start mysql
           mysql -e 'CREATE DATABASE redcraft' -uroot -proot
 
       - name: Checkout code
@@ -41,7 +29,7 @@ jobs:
         run: composer install
 
       - name: Use default .env
-        run: cp .env.example .env
+        run: cp .env.testing .env
 
       - name: clear cache
         run: php artisan config:clear
@@ -53,4 +41,6 @@ jobs:
         run: php artisan migrate
 
       - name: Run tests
-        run: php artisan test --env=testing
+        run: |
+          cp .env .env.testing
+          php artisan test

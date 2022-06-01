@@ -15,9 +15,9 @@ jobs:
       KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      KUBE_NAMESPACE: testing
+      KUBE_NAMESPACE: staging
       IMAGE_NAME: rg.fr-par.scw.cloud/redcraft/redcraft-website
-      GENERIC_IMAGE_TAG: testing
+      GENERIC_IMAGE_TAG: staging
 
     steps:
       - name: Cancel previous runs
@@ -27,12 +27,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Staging settings
-        if: github.ref == 'refs/heads/development'
-        run: |
-          echo "KUBE_NAMESPACE=staging" >> $GITHUB_ENV
-          echo "GENERIC_IMAGE_TAG=staging" >> $GITHUB_ENV
 
       - name: Production settings
         if: github.ref == 'refs/heads/master'

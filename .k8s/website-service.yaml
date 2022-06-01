@@ -32,7 +32,7 @@ spec:
       - image: rg.fr-par.scw.cloud/redcraft/redcraft-website:latest
         imagePullPolicy: Always
         name: website-migrations
-        command: ['sh', '-c', "php artisan migrate --force && php artisan event:cache && php artisan cache:clear"]
+        command: ['sh', '-c', "php artisan migrate --force && php artisan db:seed --force && php artisan event:cache && php artisan cache:clear"]
         envFrom:
         - secretRef:
             name: dotenv
