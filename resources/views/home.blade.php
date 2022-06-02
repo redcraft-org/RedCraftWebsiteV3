@@ -1,23 +1,31 @@
+<link rel="stylesheet" href="css/home.css">
+
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot> --}}
-    <x-jet-section id="header">
-        Bienvenue sur RedCraft !
-    </x-jet-section>
-    <section id="a-propos">
-        <button class="btn btn-warning">Bouton</button>
-        <x-jet-button type="error">CLIQUE</x-jet-button>
-    </section>
-    <section id="news">
+    <x-section id="header">
+        <div class="flex flex-row">
+            <img src="/images/red_white_grey_none_none_296.png">
+            <div>
+                <h1>Bienvenue sur RedCraft !</h1>
+                <p>Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle
+                    infrastructure Open Source.<br>Partage et Innovation seront notre crédo ! </p>
+            </div>
+        </div>
+        <div>
+            <x-jet-button type="warning">Call to action Discord</x-jet-button>
+            <x-jet-button type="warning">Call to action IP</x-jet-button>
+        </div>
 
-    </section>
-    <section id="servers">
+    </x-section>
+    <x-section id="a-propos" title="À propos">
 
-    </section>
-    <section id="staff">
+    </x-section>
+    <x-section id="news" title="News">
 
-    </section>
+    </x-section>
+    <x-section id="servers" title="Serveurs">
+
+    </x-section>
+    <x-section id="staff" title="Staff">
+
+    </x-section>
 </x-app-layout>
