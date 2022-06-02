@@ -11,8 +11,8 @@
             </div>
         </div>
         <div>
-            <x-jet-button type="warning">Call to action Discord</x-jet-button>
-            <x-jet-button type="warning">Call to action IP</x-jet-button>
+            <x-jet-button type="primary">Call to action Discord</x-jet-button>
+            <x-jet-button type="secondary">Call to action IP</x-jet-button>
         </div>
 
     </x-section>
