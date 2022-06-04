@@ -1,0 +1,6 @@
+.btn {
+    &.btn-primary {
+        @apply bg-primary;
+        @apply border-primary;
+    }
+}

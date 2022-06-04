@@ -2,14 +2,5 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
-section {
-    padding: 80px;
-}
-
-.btn {
-    &.btn-primary {
-        @apply bg-primary;
-        @apply border-primary;
-    }
-}
+@import "./button.scss";
+@import "./home.scss";
