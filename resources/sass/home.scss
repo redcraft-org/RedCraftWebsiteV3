@@ -14,6 +14,31 @@ section {
 
     }
 
+    
+    .about-posts {
+        @apply flex flex-col;
+
+        .post {
+            @apply flex justify-evenly;
+            &.reverse {
+                @apply flex-row-reverse;
+            }
+            * {
+                @apply w-3/6;
+                @apply flex justify-center;
+            }
+            .post-text {
+                
+               @apply flex-col justify-center; 
+            }
+
+            .post-image {
+
+            }
+        }
+    }
+
+
     .staff-members {
         @apply flex self-center mt-8;
         .staff-member {

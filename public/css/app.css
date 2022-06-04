@@ -2251,6 +2251,9 @@ body[dir="rtl"] .checkbox:checked,
 .list-disc {
 	list-style-type: disc;
 }
+.grid-flow-col {
+	grid-auto-flow: column;
+}
 .grid-cols-6 {
 	grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -10419,6 +10422,26 @@ section#header {
 }
 section#header img {
   filter: drop-shadow(5px 5px 5px #222);
+}
+section .about-posts {
+	display: flex;
+	flex-direction: column;
+}
+section .about-posts .post {
+	display: flex;
+	justify-content: space-evenly;
+}
+section .about-posts .post.reverse {
+	flex-direction: row-reverse;
+}
+section .about-posts .post * {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+section .about-posts .post .post-text {
+	flex-direction: column;
+	justify-content: center;
 }
 section .staff-members {
 	margin-top: 2rem;

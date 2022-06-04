@@ -16,9 +16,9 @@
         </div>
 
     </x-section>
-    <x-section id="a-propos" title="À propos">
 
-    </x-section>
+    <x-home-about-section />
+
     <x-section id="news" title="News">
 
     </x-section>
