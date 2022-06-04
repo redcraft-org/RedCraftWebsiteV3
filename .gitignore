@@ -19,3 +19,4 @@ rr
 .rr.yaml
 .history
 package-lock.json
+composer.lock
