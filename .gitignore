@@ -20,3 +20,4 @@ rr
 .history
 package-lock.json
 composer.lock
+/public/css/*.css
