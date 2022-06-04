@@ -26,6 +26,9 @@ module.exports = {
             "success": "#4FC270",
             "warning": "#FFC547",
             "error": "#9558C7",
+        },
+        borderRadius: {
+            'lg': '1.5rem'
         }
     },
     daisyui: {

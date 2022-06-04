@@ -1,5 +1,5 @@
 section {
-  color: blue;
+  color: white;
 }
 section#header {
   background-image: linear-gradient(0, transparent, rgba(41, 43, 45, 0.7098039216) 0%), url("/images/banner_empty.png");
@@ -8,4 +8,44 @@ section#header {
 }
 section#header img {
   filter: drop-shadow(5px 5px 5px #222);
+}
+section .staff-members {
+  margin-top: 2rem;
+  display: flex;
+  align-self: center;
+}
+section .staff-members .staff-member {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+section .staff-members .staff-member .staff-member-image {
+  border-radius: 1.5rem;
+  border-width: 4px;
+  width: 96px;
+}
+section .staff-members .staff-member .staff-member-name {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+section .staff-members .staff-member .staff-member-socials {
+  display: flex;
+  justify-content: space-evenly;
+}
+section .staff-members .staff-member .staff-member-socials .staff-member-social {
+  display: flex;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-delay: 150ms;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+section .staff-members .staff-member .staff-member-socials .staff-member-social:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: var(--tw-transform);
 }

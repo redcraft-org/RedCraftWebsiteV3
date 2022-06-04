@@ -25,7 +25,6 @@
     <x-section id="servers" title="Serveurs">
 
     </x-section>
-    <x-section id="staff" title="Staff">
+    <x-home-staff-section />
 
-    </x-section>
 </x-app-layout>
