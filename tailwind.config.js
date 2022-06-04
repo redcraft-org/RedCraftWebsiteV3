@@ -16,6 +16,17 @@ module.exports = {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            "primary": "#c24f4f",
+            "secondary": "#7a8185",
+            "accent": "#8f3b3b",
+            "neutral": "#f2f2f3",
+            "base-100": "#2b2d2f",
+            "info": "#4F96C2",
+            "success": "#4FC270",
+            "warning": "#FFC547",
+            "error": "#9558C7",
+        }
     },
     daisyui: {
         styled: true,

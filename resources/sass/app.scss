@@ -1,10 +1,15 @@
-// @layer base {
-//     h1 {
-//         @apply text-2xl;
-//         color: blue;
-//     }
-// }
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 
 section {
     padding: 80px;
+}
+
+.btn {
+    &.btn-primary {
+        @apply bg-primary;
+        @apply border-primary;
+    }
 }
