@@ -18,7 +18,4 @@ yarn-error.log
 rr
 .rr.yaml
 .history
-<<<<<<< HEAD
 package-lock.json
-=======
->>>>>>> master
