@@ -2555,6 +2555,10 @@ body[dir="rtl"] .checkbox:checked,
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+.ring-black {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(0, 0, 0, var(--tw-ring-opacity));
+}
 .ring-opacity-5 {
 	--tw-ring-opacity: 0.05;
 }
@@ -10459,6 +10463,29 @@ section .staff-members .staff-member .staff-member-socials .staff-member-social:
 	--tw-scale-x: 1.1;
 	--tw-scale-y: 1.1;
 	transform: var(--tw-transform);
+}
+section#servers {
+	background-color: D9DCDD;
+}
+section#servers .servers-viewer {
+	display: flex;
+	flex-direction: row;
+}
+section#servers .servers-viewer .servers-list {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+section#servers .servers-viewer .servers-list .server .server-title, section#servers .servers-viewer .servers-list .server .server-text {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+section#servers .servers-viewer .servers-detail {
+	width: 50%;
+}
+section#servers .servers-viewer .servers-detail .server-title, section#servers .servers-viewer .servers-detail .server-text {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 section {
 	padding: 2rem;

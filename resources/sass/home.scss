@@ -38,4 +38,44 @@ section {
 
         }
     }
+
+    &#servers {
+        @apply bg-light;
+        .servers-viewer {
+            @apply flex flex-row;
+
+            .servers-list {
+                @apply flex flex-col;
+                @apply w-3/6;
+
+                .server {
+                    .server-title, .server-text {
+                        @apply text-black;
+                    }
+
+                    .server-title {
+
+                    }
+
+                    .server-text {
+                    }
+                }
+            }
+
+            .servers-detail {
+                @apply w-3/6;
+
+                .server-title, .server-text {
+                    @apply text-black;
+                }
+
+                .server-title {
+
+                }
+
+                .server-text {
+                }
+            }
+        }
+    }
 }

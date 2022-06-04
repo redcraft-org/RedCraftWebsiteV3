@@ -49,3 +49,26 @@ section .staff-members .staff-member .staff-member-socials .staff-member-social:
   --tw-scale-y: 1.1;
   transform: var(--tw-transform);
 }
+section#servers {
+  background-color: D9DCDD;
+}
+section#servers .servers-viewer {
+  display: flex;
+  flex-direction: row;
+}
+section#servers .servers-viewer .servers-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+section#servers .servers-viewer .servers-list .server .server-title, section#servers .servers-viewer .servers-list .server .server-text {
+  --tw-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+section#servers .servers-viewer .servers-detail {
+  width: 50%;
+}
+section#servers .servers-viewer .servers-detail .server-title, section#servers .servers-viewer .servers-detail .server-text {
+  --tw-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
