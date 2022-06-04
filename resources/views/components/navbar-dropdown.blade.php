@@ -1,8 +1,8 @@
+@auth
 <div class="hidden sm:flex sm:items-center sm:ml-6">
 
     <!-- Settings Dropdown -->
     <div class="relative ml-3">
-        @auth
 
             <x-jet-dropdown align="right" width="48">
                 <x-slot name="trigger">
@@ -59,6 +59,6 @@
                     </form>
                 </x-slot>
             </x-jet-dropdown>
-        @endauth
+        </div>
     </div>
-</div>
+@endauth
