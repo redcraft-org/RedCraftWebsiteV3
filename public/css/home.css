@@ -1,0 +1,11 @@
+section {
+  color: blue;
+}
+section#header {
+  background-image: linear-gradient(0, transparent, rgba(41, 43, 45, 0.7098039216) 0%), url("/images/banner_empty.png");
+  background-position: center;
+  background-size: cover;
+}
+section#header img {
+  filter: drop-shadow(5px 5px 5px #222);
+}

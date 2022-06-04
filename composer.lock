@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "1a5539bb05f6e2d3ea9305674887bd4b",
+=======
     "content-hash": "83755d02095f7785df1ee37e2b715fee",
+>>>>>>> master
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -7411,6 +7415,8 @@
     ],
     "packages-dev": [
         {
+<<<<<<< HEAD
+=======
             "name": "barryvdh/laravel-debugbar",
             "version": "v3.6.7",
             "source": {
@@ -7496,6 +7502,7 @@
             "time": "2022-02-09T07:52:32+00:00"
         },
         {
+>>>>>>> master
             "name": "doctrine/instantiator",
             "version": "1.4.1",
             "source": {
@@ -7952,6 +7959,18 @@
         },
         {
             "name": "laravel/sail",
+<<<<<<< HEAD
+            "version": "v1.14.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "f00f3a8f83e71436d473cda7700ae7b4b68d26cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/f00f3a8f83e71436d473cda7700ae7b4b68d26cc",
+                "reference": "f00f3a8f83e71436d473cda7700ae7b4b68d26cc",
+=======
             "version": "v1.14.8",
             "source": {
                 "type": "git",
@@ -7962,6 +7981,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/04b425968c6a76940bddd2cfa40bf9e9ce78eee8",
                 "reference": "04b425968c6a76940bddd2cfa40bf9e9ce78eee8",
+>>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -8008,6 +8028,9 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+<<<<<<< HEAD
+            "time": "2022-05-18T15:56:59+00:00"
+=======
             "time": "2022-05-31T14:48:21+00:00"
         },
         {
@@ -8075,6 +8098,7 @@
                 "source": "https://github.com/maximebf/php-debugbar/tree/v1.18.0"
             },
             "time": "2021-12-27T18:49:48+00:00"
+>>>>>>> master
         },
         {
             "name": "mockery/mockery",
@@ -10018,6 +10042,8 @@
             "time": "2020-09-28T06:39:44+00:00"
         },
         {
+<<<<<<< HEAD
+=======
             "name": "symfony/debug",
             "version": "v4.4.41",
             "source": {
@@ -10086,6 +10112,7 @@
             "time": "2022-04-12T15:19:55+00:00"
         },
         {
+>>>>>>> master
             "name": "theseer/tokenizer",
             "version": "1.2.1",
             "source": {
@@ -10145,5 +10172,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
