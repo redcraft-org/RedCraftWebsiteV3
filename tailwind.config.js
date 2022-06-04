@@ -26,6 +26,8 @@ module.exports = {
             "success": "#4FC270",
             "warning": "#FFC547",
             "error": "#9558C7",
+            "white": "#ffffff",
+            "gray": "#f2f2f3",
         },
         borderRadius: {
             'lg': '1.5rem'
