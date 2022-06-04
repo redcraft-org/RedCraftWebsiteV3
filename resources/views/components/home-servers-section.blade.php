@@ -1,8 +1,12 @@
 @php
 // TODO translate navigation menu names
+
+$defaultKey = 'crea_build';
+
 $servers = [
-    [
-        'name' => 'Creatif Build',
+    'crea_build' => [
+        'displayName' => 'Creatif Build',
+        'img' => 'mc-img.jpeg',
         'short-description' => '
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Duis feugiat, ex ac cursus imperdiet, tortor dolor blandit diam,
@@ -13,8 +17,9 @@ $servers = [
             Ta mere
         '
     ],
-    [
-        'name' => 'Creatif Redstone',
+    'crea_red' => [
+        'displayName' => 'Creatif Redstone',
+        'img' => 'mc-img.jpeg',
         'short-description' => '
             Fusce ac molestie tortor, nec suscipit dolor. Proin quis massa dapibus,
             tempus nisi ac, egestas urna. In non leo tincidunt, iaculis ex convallis,
@@ -26,8 +31,9 @@ $servers = [
             Ta mere
         '
     ],
-    [
-        'name' => 'Survie',
+    'survie' => [
+        'displayName' => 'Survie',
+        'img' => 'mc-img.jpeg',
         'short-description' => '
             Morbi sed nunc dictum, interdum elit at, vulputate turpis. Aenean
             at finibus magna. Aliquam mollis mollis tempus. Quisque suscipit
@@ -43,27 +49,28 @@ $servers = [
 @endphp
 
 <x-section id="servers" title="Serveurs">
-    <div class="servers-viewer">
+    <div class="servers-viewer" x-data="{ open: '{{ $defaultKey }}' }">
         <div class="servers-list">
-            @foreach ($servers as $server)
-            <div class="server">
-                <h3 class="server-title">{{ $server['name'] }}</h3>
+            @foreach ($servers as $key => $server)
+            <div class="server" x-on:click="open = '{{ $key }}'">
+                <h3 class="server-title">{{ $server['displayName'] }}</h3>
                 <p class="server-text">
                     {{ $server['short-description'] }}
                 </p>
+                @if (!$loop->last)
+                    <hr class="separator">
+                @endif
             </div>
             @endforeach
         </div>
-        <div class="servers-detail">
-            <p class="server-title">Creatif Build</p>
+        @foreach ($servers as $key => $server)
+        <div class="servers-detail" x-show="open == '{{ $key }}'">
+            <p class="server-title">{{ $server['displayName'] }}</p>
             <p class="server-text">
-                Vivamus erat sem, facilisis eu nulla non, porta mollis nibh.
-                Duis ultricies dictum nibh in ullamcorper. Nulla porttitor blandit
-                justo. Integer dapibus lorem sed massa gravida egestas. Vivamus eget
-                ultrices lorem. Aenean malesuada pellentesque congue. Integer diam orci,
-                lobortis nec nibh nec, convallis placerat leo.
+            {{ $server['description'] }}
             </p>
-            <img class="server-img" alt="" src="">
+            <img class="server-img" alt="Image du serveur " src="">
         </div>
+        @endforeach
     </div>
 </x-section>

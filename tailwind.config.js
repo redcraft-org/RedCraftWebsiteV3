@@ -28,6 +28,7 @@ module.exports = {
             "error": "#9558C7",
             "light": "D9DCDD",
             "gray": "#f2f2f3",
+            "light-gray": "#6A6F73",
             "white": "#ffffff",
             "black": "#000000",
         },

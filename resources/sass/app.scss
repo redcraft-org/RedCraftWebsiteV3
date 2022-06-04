@@ -12,5 +12,11 @@
 @import "./navbar.scss";
 
 section {
-    @apply p-8;
+    @apply px-8;
+
+    div {
+        @apply max-w-screen-lg mx-auto;
+    }
 }
+
+

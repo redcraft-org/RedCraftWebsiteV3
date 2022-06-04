@@ -41,6 +41,12 @@ section {
 
     &#servers {
         @apply bg-light;
+        @apply py-10;
+
+        .title {
+            @apply text-black font-bold text-3xl;
+        }
+
         .servers-viewer {
             @apply flex flex-row;
 
@@ -54,10 +60,18 @@ section {
                     }
 
                     .server-title {
-
+                        @apply font-bold text-xl;
+                        @apply mb-3;
                     }
 
                     .server-text {
+                        
+                    }
+
+                    .separator {
+                        @apply border-t border-black;
+                        @apply w-11/12;
+                        @apply my-3;
                     }
                 }
             }
@@ -65,12 +79,17 @@ section {
             .servers-detail {
                 @apply w-3/6;
 
+                &.show {
+                    @apply block;
+                }
+
                 .server-title, .server-text {
-                    @apply text-black;
+                    @apply text-black text-right;
                 }
 
                 .server-title {
-
+                    @apply font-bold text-xl text-light-gray;
+                    @apply text-4xl mb-3;
                 }
 
                 .server-text {
