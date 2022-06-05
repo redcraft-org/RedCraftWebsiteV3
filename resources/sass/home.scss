@@ -1,0 +1,41 @@
+section {
+
+    color: white; //temp for test
+
+    &#header {
+        background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner_empty.png");
+        background-position: center;
+        background-size: cover;
+
+        img {
+            -webkit-filter: drop-shadow(5px 5px 5px #222);
+            filter: drop-shadow(5px 5px 5px #222);
+        }
+
+    }
+
+    .staff-members {
+        @apply flex self-center mt-8;
+        .staff-member {
+            @apply mx-4;
+            .staff-member-image {
+                @apply rounded-lg border-4;
+                width: 96px;
+            }
+
+            .staff-member-name {
+                @apply flex justify-evenly my-2;
+            }
+
+            .staff-member-socials {
+
+                @apply flex justify-evenly;
+
+                .staff-member-social {
+                    @apply flex transition ease-in-out delay-150 hover:scale-110 duration-300;
+                }
+            }
+
+        }
+    }
+}

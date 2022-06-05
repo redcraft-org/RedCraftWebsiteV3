@@ -6,6 +6,7 @@
 .env
 .env.*
 !.env.example
+!.env.testing
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
@@ -17,3 +18,5 @@ yarn-error.log
 rr
 .rr.yaml
 .history
+package-lock.json
+composer.lock
