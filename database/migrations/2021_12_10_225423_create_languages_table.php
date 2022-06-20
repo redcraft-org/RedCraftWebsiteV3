@@ -15,6 +15,7 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            // TODO check if the iso code really should have 5 characters
             $table->char('code', 5)->unique()->index();
             $table->string('name');
         });

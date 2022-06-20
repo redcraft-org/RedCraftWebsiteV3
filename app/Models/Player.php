@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Attribute;
-use App\Traits\Uuids;
-use App\Models\PlayerLanguage;
 use App\Models\PlayerInfoProvider;
+use App\Traits\Uuids;
+use Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Player extends Model
 {
@@ -19,6 +18,36 @@ class Player extends Model
     protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'playerInfoProviders', 'mainLanguageTrait', 'languagesTrait'];
     protected $appends = ['providers', 'main_language', 'languages'];
     protected $fillable = ['email'];
+
+    public static $validationRules = [
+        'main_language' => 'required|string|exists:languages,code',
+        'email' => 'nullable|email|unique:players',
+        'languages' => 'required|array',
+        'languages.*' => 'required|string|exists:languages,code',
+        'providers' => 'required|array',
+        'providers.*.provider_name' => 'required|string|exists:providers,name',
+        'providers.*.uuid' => 'required|string|unique_provider_uuid',
+        'providers.*.last_username' => 'required|string',
+        'providers.*.previous_username' => 'nullable|string',
+    ];
+
+    public static $validationMessages = [
+        'main_language.required' => 'The main language is required.',
+        'main_language.exists' => 'The main language is invalid.',
+        'email.email' => 'The email is invalid.',
+        'languages.required' => 'The languages are required.',
+        'languages.array' => 'The languages must be an array.',
+        'languages.*.required' => 'The languages must be an array.',
+        'languages.*.exists' => 'The languages are invalid.',
+        'providers.required' => 'The providers are required.',
+        'providers.array' => 'The providers must be an array.',
+        'providers.*.provider_type.required' => 'The provider type is required.',
+        'providers.*.provider_type.exists' => 'The provider type is invalid.',
+        'providers.*.uuid.required' => 'The provider uuid is required.',
+        'providers.*.uuid.unique' => 'The provider uuid is already in use.',
+        'providers.*.last_username.required' => 'The provider last username is required.',
+        'providers.*.previous_username.string' => 'The provider previous username must be a string.',
+    ];
 
     /**
      * Get the value of the model's route key.
@@ -47,7 +76,6 @@ class Player extends Model
         })->first();
         return $player;
     }
-
 
     /**
      * Get the value of the model's route key.
@@ -143,7 +171,5 @@ class Player extends Model
             return $language->code;
         });
     }
-
-
 
 }

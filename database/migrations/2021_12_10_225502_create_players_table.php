@@ -29,6 +29,7 @@ class CreatePlayersTable extends Migration
      */
     public function down()
     {
+        // TODO check if the foreign keys should be dropped and fix migration rollback
         Schema::dropIfExists('players');
     }
 }
