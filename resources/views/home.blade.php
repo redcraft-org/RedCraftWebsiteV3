@@ -22,9 +22,7 @@
     <x-section id="news" title="News">
 
     </x-section>
-    <x-section id="servers" title="Serveurs">
-
-    </x-section>
+    <x-home-servers-section />
     <x-home-staff-section />
 
 </x-app-layout>
