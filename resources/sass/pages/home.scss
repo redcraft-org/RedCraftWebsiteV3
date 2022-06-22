@@ -41,6 +41,10 @@ section {
         }
     }
 
+    &#news {
+        @apply bg-primary;
+    }
+
     &#servers {
         @apply bg-light py-10;
 
