@@ -2,11 +2,11 @@
 
 <x-app-layout>
 
-    <x-home.header id="header" />
+    <x-home.header />
 
     <x-home.about />
 
-    <x-section id="news" title="News"></x-section>
+    <x-home.news />
 
     <x-home.servers />
 
