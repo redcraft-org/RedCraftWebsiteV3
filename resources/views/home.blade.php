@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="{{ mix('css/home.css') }}">
 
 <x-app-layout>
     <x-section id="header">
