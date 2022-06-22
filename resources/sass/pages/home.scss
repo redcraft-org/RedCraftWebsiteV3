@@ -42,8 +42,7 @@ section {
     }
 
     &#servers {
-        @apply bg-light;
-        @apply py-10;
+        @apply bg-light py-10;
 
         .title {
             @apply text-primary font-bold text-3xl;
@@ -110,7 +109,7 @@ section {
                 .staff-member-image {
                     border-color: hex(var(--p));
                     width: 96px;
-                    @apply border-4 rounded-lg;
+                    @apply border-4 rounded-md;
                 }
 
                 .staff-member-name {
