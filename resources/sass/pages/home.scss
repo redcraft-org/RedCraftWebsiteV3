@@ -14,53 +14,28 @@ section {
 
     }
 
-    
+
     .about-posts {
         @apply flex flex-col;
 
         .post {
             @apply flex justify-evenly;
+
             &.reverse {
                 @apply flex-row-reverse;
             }
+
             * {
                 @apply w-3/6;
                 @apply flex justify-center;
             }
+
             .post-text {
-                
-               @apply flex-col items-center; 
+
+                @apply flex-col items-center;
             }
 
-            .post-image {
-
-            }
-        }
-    }
-
-
-    .staff-members {
-        @apply flex self-center mt-8;
-        .staff-member {
-            @apply mx-4;
-            .staff-member-image {
-                @apply rounded-lg border-4;
-                width: 96px;
-            }
-
-            .staff-member-name {
-                @apply flex justify-evenly my-2;
-            }
-
-            .staff-member-socials {
-
-                @apply flex justify-evenly;
-
-                .staff-member-social {
-                    @apply flex transition ease-in-out delay-150 hover:scale-110 duration-300;
-                }
-            }
-
+            .post-image {}
         }
     }
 
@@ -80,7 +55,9 @@ section {
                 @apply w-3/6;
 
                 .server {
-                    .server-title, .server-text {
+
+                    .server-title,
+                    .server-text {
                         @apply text-black;
                     }
 
@@ -89,9 +66,7 @@ section {
                         @apply mb-3;
                     }
 
-                    .server-text {
-                        
-                    }
+                    .server-text {}
 
                     .separator {
                         @apply border-t border-black;
@@ -108,7 +83,8 @@ section {
                     @apply block;
                 }
 
-                .server-title, .server-text {
+                .server-title,
+                .server-text {
                     @apply text-black text-right;
                 }
 
@@ -117,8 +93,36 @@ section {
                     @apply text-4xl mb-3;
                 }
 
-                .server-text {
+                .server-text {}
+            }
+        }
+    }
+
+    &#staff {
+        .staff-members {
+            @apply flex self-center mt-8;
+
+            .staff-member {
+                @apply mx-4;
+
+                .staff-member-image {
+                    @apply rounded-lg border-4;
+                    width: 96px;
                 }
+
+                .staff-member-name {
+                    @apply flex justify-evenly my-2;
+                }
+
+                .staff-member-socials {
+
+                    @apply flex justify-evenly;
+
+                    .staff-member-social {
+                        @apply flex transition ease-in-out delay-150 hover: scale-110 duration-300;
+                    }
+                }
+
             }
         }
     }

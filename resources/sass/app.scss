@@ -8,15 +8,12 @@
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 @import "./button.scss";
-@import "./home.scss";
 @import "./navbar.scss";
 
 section {
-    @apply px-8;
+    @apply py-32;
 
     div {
         @apply max-w-screen-lg mx-auto;
     }
 }
-
-

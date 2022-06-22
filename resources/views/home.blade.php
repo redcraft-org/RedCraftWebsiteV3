@@ -17,12 +17,12 @@
 
     </x-section>
 
-    <x-home-about-section />
+    <x-home.about-section />
 
     <x-section id="news" title="News">
 
     </x-section>
-    <x-home-servers-section />
-    <x-home-staff-section />
+    <x-home.servers-section />
+    <x-home.staff-section />
 
 </x-app-layout>
