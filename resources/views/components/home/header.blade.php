@@ -8,7 +8,7 @@
         </div>
     </div>
     <div>
-        <x-jet-button type="primary">Call to action IP</x-jet-button>
-        <x-jet-button type="secondary">Call to action Discord</x-jet-button>
+        <x-jet-button type="btn-primary">Call to action IP</x-jet-button>
+        <x-jet-button type="btn-secondary">Call to action Discord</x-jet-button>
     </div>
 </x-section>
