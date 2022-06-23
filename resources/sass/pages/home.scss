@@ -1,6 +1,6 @@
 section {
 
-    color: white; //temp for test
+    // color: white; //temp for test
 
     &#header {
         background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner_empty.png");
@@ -15,31 +15,9 @@ section {
     }
 
 
-    &#about {
-        .about-posts {
-            @apply flex flex-col;
+    // &#about {
 
-            .post {
-                @apply flex justify-evenly;
-
-                &.reverse {
-                    @apply flex-row-reverse;
-                }
-
-                * {
-                    @apply w-3/6;
-                    @apply flex justify-center;
-                }
-
-                .post-text {
-
-                    @apply flex-col items-center;
-                }
-
-                .post-image {}
-            }
-        }
-    }
+    // }
 
     &#news {
         @apply bg-primary;

@@ -10,11 +10,3 @@
 @import "./rebase.scss";
 @import "./button.scss";
 @import "./navbar.scss";
-
-section {
-    @apply py-32;
-
-    div {
-        @apply max-w-screen-lg mx-auto;
-    }
-}

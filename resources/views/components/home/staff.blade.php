@@ -74,7 +74,7 @@ $staffMembers = [
 @endphp
 
 <x-section id="staff" title="Staff">
-    <div class="staff-members">
+    <div class="staff-members flex-wrap">
         @foreach ($staffMembers as $staffMember)
             <div class="staff-member">
                 <img class="staff-member-image" alt="Membre du staff : {{ $staffMember['displayName'] }}"
