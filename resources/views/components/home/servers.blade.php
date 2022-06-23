@@ -11,7 +11,7 @@ $servers = [
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Duis feugiat, ex ac cursus imperdiet, tortor dolor blandit diam,
             et imperdiet dui ex vitae odio. Fusce vel dolor ac turpis rutrum
-            varius a at orci. 
+            varius a at orci.
         ',
         'description' => '
             Ta mere

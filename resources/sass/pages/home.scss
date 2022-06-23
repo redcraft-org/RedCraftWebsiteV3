@@ -16,19 +16,14 @@ section {
 
 
     // &#about {
-
     // }
 
     &#news {
-        @apply bg-primary;
+        @apply bg-primary text-neutral;
     }
 
     &#servers {
-        @apply bg-light py-10;
-
-        .title {
-            @apply text-primary font-bold text-3xl;
-        }
+         @apply bg-light text-base-100;
 
         .servers-viewer {
             @apply flex flex-row;
@@ -75,8 +70,6 @@ section {
                     @apply font-bold text-xl text-light-gray;
                     @apply text-4xl mb-3;
                 }
-
-                .server-text {}
             }
         }
     }

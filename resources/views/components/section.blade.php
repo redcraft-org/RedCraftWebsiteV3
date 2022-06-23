@@ -5,7 +5,7 @@
 
         {{-- Section title --}}
         @if ($attributes['title'])
-            <div class="flex justify-center mb-5">
+            <div class="flex justify-center mb-16">
                 <h4 class="title">
                     {{ $attributes['title'] }}
                 </h4>
