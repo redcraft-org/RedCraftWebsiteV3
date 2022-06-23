@@ -1,7 +1,12 @@
 <x-section id="header" title="">
-    <div class="flex flex-col sm:flex-row">
-        <img src="/images/red_white_grey_none_none_296.png">
-        <div>
+    <div class="flex flex-col sm:flex-row pb-12 gap-8">
+
+        {{-- RedCraft animated logo --}}
+        <div class="sm:w-1/2 h-fit flex justify-center my-auto">
+            <img src="{{ asset('images/home/rc-logo-animated.gif'); }}">
+        </div>
+
+        <div class="sm:w-1/2 flex flex-col justify-center">
             <h1>Bienvenue sur RedCraft !</h1>
             <p>Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle
                 infrastructure Open Source.<br>Partage et Innovation seront notre crédo ! </p>
