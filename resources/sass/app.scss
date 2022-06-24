@@ -10,3 +10,6 @@
 @import "./rebase.scss";
 @import "./button.scss";
 @import "./navbar.scss";
+
+// Alpine JS cloak directive
+[x-cloak] { display: none !important; }

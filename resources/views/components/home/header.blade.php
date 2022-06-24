@@ -18,19 +18,23 @@
 
     {{-- Call to action buttons --}}
 
-    <div class="flex flex-wrap justify-center gap-3">
-        <button class="btn btn-lg btn-primary flex flex-col gap-5">
-            <div>
+    <div class="flex flex-wrap justify-center gap-3" x-data="{ show: false }">
+
+        <button class="btn btn-lg btn-primary flex flex-col gap-5"
+            x-on:click="navigator.clipboard.writeText('coooopy').then(function() { show = true; setTimeout(() => show = false, 3000) });">
+            <div :class="show ? 'invisible' : ''" x-transition>
                 <div class="text-xl">Rejoindre le <b>serveur</b></div>
                 <div class="text-sm">69 joueurs en ligne</div>
             </div>
-            <div class="text-sm">Adresse IP copiée !</div>
+            <div class="text-sm absolute" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
         </button>
+
         <a class="btn btn-lg btn-secondary flex flex-col gap-5" href="https://discord.gg/xkWE4uJ" target="_blank">
             <div>
                 <div class="text-xl">Rejoindre le <b>Discord</b></div>
                 <div class="text-sm">420 joueurs connectés</div>
             </div>
         </a>
+
     </div>
 </x-section>
