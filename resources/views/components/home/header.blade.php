@@ -10,9 +10,10 @@
         </div>
 
         <div class="sm:w-1/2 flex flex-col justify-center">
-            <h1>Bienvenue sur RedCraft !</h1>
+            <h1>Bienvenue sur <span class="text-6xl">RedCraft</span> !</h1>
             <p>Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle
                 infrastructure Open Source.<br>Partage et Innovation seront notre crédo ! </p>
+            <b>Version : 1.xx - 1.xx</b>
         </div>
     </div>
 
@@ -21,7 +22,7 @@
     <div class="flex flex-wrap justify-center gap-3" x-data="{ show: false }">
 
         <button class="btn btn-lg btn-primary flex flex-col gap-5"
-            x-on:click="navigator.clipboard.writeText('coooopy').then(function() { show = true; setTimeout(() => show = false, 3000) });">
+            x-on:click="navigator.clipboard.writeText('play.redcraft.org').then(function() { show = true; setTimeout(() => show = false, 3000) });">
             <div :class="show ? 'invisible' : ''" x-transition>
                 <div class="text-xl">Rejoindre le <b>serveur</b></div>
                 <div class="text-sm">69 joueurs en ligne</div>
