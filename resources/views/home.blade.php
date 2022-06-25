@@ -1,8 +1,4 @@
 <link rel="stylesheet" href="{{ mix('css/home.css') }}">
-@push('scripts')
-    <script src="{{ mix('js/pages/home.js') }}" type="text/javascript" defer></script>
-@endpush
-
 
 <x-app-layout>
 
