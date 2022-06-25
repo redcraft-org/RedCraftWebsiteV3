@@ -3,8 +3,7 @@ require('./bootstrap');
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
-Alpine.magic('clipboard', () => {
-    return subject => navigator.clipboard.writeText(subject)
-})
+
+require('./alpineFunctions.js');
 
 Alpine.start();
