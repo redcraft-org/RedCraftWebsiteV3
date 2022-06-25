@@ -21,8 +21,7 @@
 
     <div class="flex flex-wrap justify-center gap-3" x-data="{ show: false }">
 
-        <button class="btn btn-lg btn-primary flex flex-col gap-5"
-            x-on:click="navigator.clipboard.writeText('play.redcraft.org').then(function() { show = true; setTimeout(() => show = false, 3000) });">
+        <button class="btn btn-lg btn-primary flex flex-col gap-5" x-on:click="$clipboard('play.redcraft.org')">
             <div :class="show ? 'invisible' : ''" x-transition>
                 <div class="text-xl">Rejoindre le <b>serveur</b></div>
                 <div class="text-sm">69 joueurs en ligne</div>

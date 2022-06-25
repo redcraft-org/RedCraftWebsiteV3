@@ -44,6 +44,8 @@
         </div>
 
         @stack('modals')
+        @stack('scripts')
+        <script src="{{ mix('js/last.js') }}" defer></script>
 
         @livewireScripts
     </body>

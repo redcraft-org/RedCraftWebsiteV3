@@ -12,7 +12,10 @@ const mix = require('laravel-mix');
  */
 
 
+//  TODO : Use dynamic path if possible
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/last.js', 'public/js')
+    .js('resources/js/pages/home.js', 'public/js/pages')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/pages/home.scss', 'public/css')
     .options({
