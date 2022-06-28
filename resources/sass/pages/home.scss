@@ -1,0 +1,106 @@
+section {
+
+    // color: white; //temp for test
+
+    &#header {
+        background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner_empty.png");
+        background-position: center;
+        background-size: cover;
+
+        img {
+            -webkit-filter: drop-shadow(5px 5px 5px #222);
+            filter: drop-shadow(5px 5px 5px #222);
+        }
+
+    }
+
+
+    // &#about {
+    // }
+
+    &#news {
+        @apply bg-primary text-neutral;
+    }
+
+    &#servers {
+         @apply bg-light text-base-100;
+
+        .servers-viewer {
+            @apply flex flex-row;
+
+            .servers-list {
+                @apply flex flex-col;
+                @apply w-3/6;
+
+                .server {
+
+                    .server-title,
+                    .server-text {
+                        @apply text-black;
+                    }
+
+                    .server-title {
+                        @apply font-bold text-xl;
+                        @apply mb-3;
+                    }
+
+                    .server-text {}
+
+                    .separator {
+                        @apply border-t border-black;
+                        @apply w-11/12;
+                        @apply my-3;
+                    }
+                }
+            }
+
+            .servers-detail {
+                @apply w-3/6;
+
+                &.show {
+                    @apply block;
+                }
+
+                .server-title,
+                .server-text {
+                    @apply text-black text-right;
+                }
+
+                .server-title {
+                    @apply font-bold text-xl text-light-gray;
+                    @apply text-4xl mb-3;
+                }
+            }
+        }
+    }
+
+    &#staff {
+        .staff-members {
+            @apply flex self-center mt-8;
+
+            .staff-member {
+                @apply mx-4;
+
+                .staff-member-image {
+                    border-color: hex(var(--p));
+                    width: 96px;
+                    @apply border-4 rounded-md;
+                }
+
+                .staff-member-name {
+                    @apply flex justify-evenly my-2;
+                }
+
+                .staff-member-socials {
+
+                    @apply flex justify-evenly;
+
+                    .staff-member-social {
+                        @apply flex transition ease-in-out delay-150 hover:scale-110 duration-300;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -2,8 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 
 module.exports = {
-    mode: 'jit',
-    purge: [
+    content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
@@ -15,23 +14,23 @@ module.exports = {
             fontFamily: {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                "primary": "#c24f4f",
+                "secondary": "#7a8185",
+                "accent": "#8f3b3b",
+                "neutral": "#f2f2f3",
+                "base-100": "#2b2d2f",
+                "info": "#4F96C2",
+                "success": "#4FC270",
+                "warning": "#FFC547",
+                "error": "#9558C7",
+                "light": "D9DCDD",
+                "gray": "#f2f2f3",
+                "light-gray": "#6A6F73",
+                "white": "#ffffff",
+                "black": "#000000",
+            }
         },
-        colors: {
-            "primary": "#c24f4f",
-            "secondary": "#7a8185",
-            "accent": "#8f3b3b",
-            "neutral": "#f2f2f3",
-            "base-100": "#2b2d2f",
-            "info": "#4F96C2",
-            "success": "#4FC270",
-            "warning": "#FFC547",
-            "error": "#9558C7",
-            "white": "#ffffff",
-            "gray": "#f2f2f3",
-        },
-        borderRadius: {
-            'lg': '1.5rem'
-        }
     },
     daisyui: {
         styled: true,

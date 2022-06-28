@@ -7,10 +7,6 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
+@import "./rebase.scss";
 @import "./button.scss";
-@import "./home.scss";
 @import "./navbar.scss";
-
-section {
-    @apply p-8;
-}
