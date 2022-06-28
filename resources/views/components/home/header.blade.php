@@ -19,15 +19,9 @@
 
     {{-- Call to action buttons --}}
 
-    <div class="flex flex-wrap justify-center gap-3" x-data="{ show: false }">
+    <div class="flex flex-wrap justify-center gap-3">
 
-        <button class="btn btn-lg btn-primary flex flex-col gap-5" x-on:click="$clipboard('play.redcraft.org')">
-            <div :class="show ? 'invisible' : ''" x-transition>
-                <div class="text-xl">Rejoindre le <b>serveur</b></div>
-                <div class="text-sm">69 joueurs en ligne</div>
-            </div>
-            <div class="text-sm absolute" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
-        </button>
+        <x-home.ctaIpCopy></x-home.ctaIpCopy>
 
         <a class="btn btn-lg btn-secondary flex flex-col gap-5" href="https://discord.gg/xkWE4uJ" target="_blank">
             <div>
