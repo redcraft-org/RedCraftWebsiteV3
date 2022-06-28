@@ -24,11 +24,11 @@ $aPropos = [
 <x-section id="about" title="À propos">
     <div class="flex flex-col gap-y-16">
         @foreach ($aPropos as $e)
-            <div x-data="{ shown: false }" x-intersect:enter="shown = true">
+            <div x-data="{ shown: false }" x-intersect.half="shown = true">
                 <div :class="shown ? 'opacity-100' : 'opacity-0 translate-y-8'"
                     {{ $attributes->merge([
                         'class' => 'flex justify-evenly gap-x-8 flex-col duration-1000 delay-300 ' . ($loop->iteration % 2 ? 'md:flex-row-reverse' : 'md:flex-row'),
-                    ]) }}>
+                    ]) }} x-cloak>
 
                     {{-- Image --}}
                     <div class="rounded-md shrink-0 w-full sm:w-96 h-64 mx-auto mb-4 md:mb-0 bg-no-repeat bg-center {{ $e['image-size'] }}"
