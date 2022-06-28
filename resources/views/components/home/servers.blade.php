@@ -55,10 +55,10 @@ $servers = [
 @endphp
 
 <x-section id="servers" title="Serveurs">
-    <div class="flex flex-col sm:flex-row gap-16" x-data="{ open: '{{ $defaultKey }}' }">
-        <div class="flex flex-col md:w-1/2">
+    <div id="dynamic-height" class="flex flex-col sm:flex-row gap-16 duration-300" x-data="{ open: '{{ $defaultKey }}' }">
+        <div class="flex flex-col sm:w-1/2">
             @foreach ($servers as $key => $server)
-                <div class="cursor-pointer my-8" x-on:click="open = '{{ $key }}'">
+                <div class="cursor-pointer my-8" x-on:click="open = '{{ $key }}'; expandSection();">
                     <h4 :class="open == '{{ $key }}' ? 'text-primary' : ''">{{ $server['displayName'] }}</h4>
                     <p>{{ $server['short-description'] }}</p>
                 </div>
@@ -67,13 +67,13 @@ $servers = [
                 @endif
             @endforeach
         </div>
-        <div class="md:w-1/2 relative">
+        <div id="servers-list" class="sm:w-1/2 relative">
             @foreach ($servers as $key => $server)
-                <div class="text-right w-full" x-show="open == '{{ $key }}'" x-cloak
-                    x-transition:enter="transition ease-out duration-300 delay-200 absolute"
+                <div class="server-description text-right w-full" x-show="open == '{{ $key }}'" x-cloak
+                    x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
                     x-transition:enter-start="opacity-0 translate-y-5 scale-100"
                     x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                    x-transition:leave="transition ease-in duration-300 absolute"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
 
                     <h1 class="text-secondary">{{ $server['displayName'] }}</h1>
@@ -84,3 +84,17 @@ $servers = [
         </div>
     </div>
 </x-section>
+
+@push('scripts')
+    <script>
+        let serversListHeight = document.getElementById("servers-list").clientHeight;
+
+
+        function expandSection() {
+            setTimeout(() => {
+                let expandHeight = document.getElementsByClassName(" desc-expand")[0].clientHeight;
+                document.getElementById('dynamic-height').style.height = Math.max(expandHeight, serversListHeight) + "px";
+            }, 3);
+        }
+    </script>
+@endpush
