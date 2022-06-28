@@ -7,13 +7,17 @@
     <div class="text-sm absolute" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
 </button>
 
-<script>
-    window.ctaAnimate = {
-        ctaIpCopy() {
-            this.show = true;
-            setTimeout(() => {
-                this.show = false;
-            }, 3000);
-        }
-    }
-</script>
+@once
+    @push('scripts')
+        <script>
+            window.ctaAnimate = {
+                ctaIpCopy() {
+                    this.show = true;
+                    setTimeout(() => {
+                        this.show = false;
+                    }, 3000);
+                }
+            }
+        </script>
+    @endpush
+@endonce
