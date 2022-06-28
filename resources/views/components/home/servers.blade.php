@@ -69,7 +69,7 @@ $servers = [
         </div>
         <div class=" w-1/2 relative">
             @foreach ($servers as $key => $server)
-                <div class="text-right w-full" x-show="open == '{{ $key }}'"
+                <div class="text-right w-full" x-show="open == '{{ $key }}'" x-cloak
                     x-transition:enter="transition ease-out duration-300 delay-200 absolute"
                     x-transition:enter-start="opacity-0 translate-y-5 scale-100"
                     x-transition:enter-end="opacity-100 translate-y-0 scale-100"
@@ -78,8 +78,8 @@ $servers = [
 
                     <h1 class="text-secondary">{{ $server['displayName'] }}</h1>
                     <p class="mt-8">{{ $server['description'] }}</p>
+                    <img alt="Image du serveur" src="{{ $server['img'] }}">
                 </div>
-                <img alt="Image du serveur" src="{{ $server['img'] }}">
             @endforeach
         </div>
     </div>
