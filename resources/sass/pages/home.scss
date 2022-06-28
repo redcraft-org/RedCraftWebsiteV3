@@ -24,52 +24,6 @@ section {
 
     &#servers {
          @apply bg-light text-base-100;
-
-        .servers-viewer {
-            @apply flex flex-row;
-
-            .servers-list {
-                @apply flex flex-col;
-                @apply w-3/6;
-
-                .server {
-
-                    .server-title,
-                    .server-text {
-                        @apply text-black;
-                    }
-
-                    .server-title {
-                        @apply font-bold text-xl;
-                        @apply mb-3;
-                    }
-
-                    .separator {
-                        @apply border-t border-black;
-                        @apply w-11/12;
-                        @apply my-3;
-                    }
-                }
-            }
-
-            .servers-detail {
-                @apply w-3/6;
-
-                &.show {
-                    @apply block;
-                }
-
-                .server-title,
-                .server-text {
-                    @apply text-black text-right;
-                }
-
-                .server-title {
-                    @apply font-bold text-xl text-light-gray;
-                    @apply text-4xl mb-3;
-                }
-            }
-        }
     }
 
     &#staff {
