@@ -1,11 +1,3 @@
-// .btn {
-//     &.btn-primary {
-//         @apply bg-primary;
-//         @apply border-primary;
-//     }
-
-//     &.btn-secondary {
-//         @apply bg-secondary;
-//         @apply border-secondary;
-//     }
-// }
+.btn {
+    @apply no-animation normal-case font-normal;
+}
