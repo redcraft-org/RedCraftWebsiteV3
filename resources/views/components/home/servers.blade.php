@@ -55,11 +55,11 @@ $servers = [
 @endphp
 
 <x-section id="servers" title="Serveurs">
-    <div class="flex gap-16" x-data="{ open: '{{ $defaultKey }}' }">
-        <div class="flex flex-col w-1/2">
+    <div class="flex flex-col sm:flex-row gap-16" x-data="{ open: '{{ $defaultKey }}' }">
+        <div class="flex flex-col md:w-1/2">
             @foreach ($servers as $key => $server)
                 <div class="cursor-pointer my-8" x-on:click="open = '{{ $key }}'">
-                    <h4>{{ $server['displayName'] }}</h4>
+                    <h4 :class="open == '{{ $key }}' ? 'text-primary' : ''">{{ $server['displayName'] }}</h4>
                     <p>{{ $server['short-description'] }}</p>
                 </div>
                 @if (!$loop->last)
@@ -67,7 +67,7 @@ $servers = [
                 @endif
             @endforeach
         </div>
-        <div class=" w-1/2 relative">
+        <div class="md:w-1/2 relative">
             @foreach ($servers as $key => $server)
                 <div class="text-right w-full" x-show="open == '{{ $key }}'" x-cloak
                     x-transition:enter="transition ease-out duration-300 delay-200 absolute"
@@ -78,7 +78,7 @@ $servers = [
 
                     <h1 class="text-secondary">{{ $server['displayName'] }}</h1>
                     <p class="mt-8">{{ $server['description'] }}</p>
-                    <img alt="Image du serveur" src="{{ $server['img'] }}">
+                    <img class="m-auto" alt="Image du serveur" src="{{ $server['img'] }}">
                 </div>
             @endforeach
         </div>
