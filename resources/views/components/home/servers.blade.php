@@ -36,7 +36,7 @@ $servers = [
             venenatis tellus.
         ',
         'description' => '
-            Ta mere
+            Lorem ipsum dolor sit amet
         ',
     ],
     'survie' => [
@@ -48,7 +48,7 @@ $servers = [
             fringilla elit.
         ',
         'description' => '
-            Ta mere
+            https://bit.ly/3QTWxlk.
         ',
     ],
 ];
@@ -91,18 +91,21 @@ $servers = [
 
 @push('scripts')
     <script>
-        let innerHeight = document.getElementById("inner-height");
+        // The `inner-height` element sets the height from it's content
+        // The `dynamic-height?` element animates it with a transition
+        let innerElement = document.getElementById("inner-height");
+        let dynamicElement = document.getElementById('dynamic-height')
 
         function expandSection() {
+            // The timeout is needed in order to wait for the animation to start
+            // and prevents long elements from overflowing to the next section
             setTimeout(() => {
-                let newHeight = innerHeight.clientHeight;
-                console.log(newHeight);
-                document.getElementById('dynamic-height').style.height = newHeight + "px";
-            }, 100);
+                dynamicElement.style.height = innerElement.clientHeight + "px";
+            }, 150);
         }
 
         expandSection();
 
-        new ResizeObserver(expandSection).observe(innerHeight);
+        new ResizeObserver(expandSection).observe(innerElement);
     </script>
 @endpush
