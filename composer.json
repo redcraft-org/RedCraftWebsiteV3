@@ -11,7 +11,7 @@
         "filament/tables": "^2.10",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.65",
+        "laravel/framework": "^9.21.0",
         "laravel/jetstream": "^2.4",
         "laravel/octane": "^1.2",
         "laravel/sanctum": "^2.11",
@@ -20,11 +20,10 @@
         "spiral/roadrunner": "^2.8.2"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.13.7",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^5.10",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
