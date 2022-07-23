@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Player;
 
-use App\Models\Player;
-use App\Models\Language;
-use App\Models\Provider;
-use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Player\PlayerReplaceRequest;
+use App\Models\Language;
+use App\Models\Player;
+use App\Models\Provider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class PlayerReplace extends Controller
 {
@@ -25,18 +25,13 @@ class PlayerReplace extends Controller
             return response()->json(['error' => 'Player not found'], 404);
         }
         $player->update([
-            'email' => Arr::get($request->validated(), 'email')
+            'email' => Arr::get($request->validated(), 'email'),
         ]);
         $main_language_id = Language::getIdFromCode(Arr::get($request->validated(), 'main_language'));
         $language_list = Language::whereIn('code', Arr::get($request->validated(), 'languages'))->pluck('id');
-        if ($language_list->contains($main_language_id)) {
-            $language_list = $language_list->diff([$main_language_id]);
-        }
         $languages = [$main_language_id => ['is_main_language' => true]];
-        foreach($language_list as $language) {
-            if (!$player->languagesTrait->contains($language)) {
-                $languages[$language] = ['is_main_language' => false];
-            }
+        foreach ($language_list as $language) {
+            $languages[$language] = ['is_main_language' => $language == $main_language_id];
         }
         $player->languagesTrait()->sync($languages);
         $providers = Arr::get($request->validated(), 'providers', []);
