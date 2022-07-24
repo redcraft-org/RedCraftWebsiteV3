@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Language;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Player\PlayerList;
 use App\Http\Controllers\Player\PlayerCreate;
@@ -15,7 +16,7 @@ use App\Http\Controllers\Player\PlayerGetProvider;
 
 Route::prefix('v1')->group(function () {
     Route::prefix('player')->group(function () {
-        Route::get('/', PlayerList::class);
+        Route::get('/list', PlayerList::class);
         Route::get('{uuid}{isProvider?}', PlayerRetrieve::class);
         Route::get('{id}/language', PlayerGetLanguage::class);
         Route::get('{id}/provider', PlayerGetProvider::class);
@@ -28,5 +29,10 @@ Route::prefix('v1')->group(function () {
         Route::delete('{uuid}', PlayerDelete::class);
         Route::put('{uuid}', PlayerReplace::class);
         Route::patch('{uuid}', PlayerUpdate::class);
+    });
+    Route::prefix('language')->group(function () {
+        Route::get('/list', function () {
+            return response()->json(Language::all(), 200);
+        });
     });
 });
