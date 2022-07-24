@@ -29,4 +29,9 @@ Route::prefix('v1')->group(function () {
         Route::put('{uuid}', PlayerReplace::class);
         Route::patch('{uuid}', PlayerUpdate::class);
     });
+    Route::prefix('language')->group(function () {
+        Route::get('/', function () {
+            return response()->json(Language::all(), 200);
+        });
+    });
 });
