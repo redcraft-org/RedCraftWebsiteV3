@@ -35,7 +35,7 @@ class PlayerReplace extends Controller
         }
         $player->languagesTrait()->sync($languages);
         $providers = Arr::get($request->validated(), 'providers', []);
-        foreach ($player->playerInfoProviders()->delete() as $provider) {
+        foreach ($player->playerInfoProviders() as $provider) {
             $provider->delete();
         }
         foreach ($providers as $provider) {
