@@ -35,11 +35,17 @@ class PlayerReplace extends Controller
         }
         $player->languagesTrait()->sync($languages);
         $providers = Arr::get($request->validated(), 'providers', []);
-        foreach ($player->playerInfoProviders() as $provider) {
-            $provider->delete();
+        $providerIds = [];
+        foreach ($providers as $provider) {
+            $providerIds[] = Provider::getIdFromName($provider['provider_name']);
+        }
+        foreach ($player->playerInfoProviders()->get() as $provider) {
+            if (!in_array($provider->provider_id, $providerIds)) {
+                $provider->delete();
+            }
         }
         foreach ($providers as $provider) {
-            $providerId = Provider::where('name', $provider["provider_name"])->first()->id;
+            $providerId = Provider::getIdFromName($provider["provider_name"]);
             $player->playerInfoProviders()->updateOrCreate([
                 'provider_id' => $providerId,
                 'provider_uuid' => $provider['uuid'],
