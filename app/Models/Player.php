@@ -13,7 +13,6 @@ class Player extends Model
 {
     use HasFactory;
     use Uuids;
-    use SoftDeletes;
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'playerInfoProviders', 'mainLanguageTrait', 'languagesTrait'];
     protected $appends = ['providers', 'main_language', 'languages'];
@@ -90,18 +89,7 @@ class Player extends Model
         return $player;
     }
 
-    /**
-     * Get the value of the model's route key.
-     *
-     * @return mixed
-     */
-    public static function getTrashedPlayerByProviderUuids($provider_uuids)
-    {
-        $player = self::onlyTrashed()->whereHas('playerInfoProviders', function ($query) use ($provider_uuids) {
-            $query->whereIn('provider_uuid', $provider_uuids);
-        })->first();
-        return $player;
-    }
+
 
     /**
      * Get the player info providers associated with the player.

@@ -45,17 +45,7 @@ class PlayerUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => 'nullable',
-            'main_language' => 'nullable|string|exists:languages,code',
-            'languages' => 'nullable|array',
-            'languages.*' => 'nullable|string|exists:languages,code',
-            'providers' => 'nullable|array',
-            'providers.*.provider_name' => 'required_if:providers.*.uuid,!null|string|exists:providers,name',
-            'providers.*.uuid' => 'required_if:providers.*.uuid,!null|string',
-            'providers.*.last_username' => 'required_if:providers.*.uuid,!null|string',
-            'providers.*.previous_username' => 'nullable|string',
-        ];
+        return Player::$validationRules;
     }
 
     /**

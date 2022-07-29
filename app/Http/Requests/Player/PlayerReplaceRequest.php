@@ -47,17 +47,7 @@ class PlayerReplaceRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => 'nullable',
-            'main_language' => 'required|string|exists:languages,code',
-            'languages' => 'required|array',
-            'languages.*' => 'required|string|exists:languages,code',
-            'providers' => 'required|array',
-            'providers.*.provider_name' => 'required|string|exists:providers,name',
-            'providers.*.uuid' => 'required|string',
-            'providers.*.last_username' => 'required|string',
-            'providers.*.previous_username' => 'nullable|string',
-        ];
+        return Player::$validationRules;
     }
 
     /**
