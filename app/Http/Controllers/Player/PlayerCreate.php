@@ -24,12 +24,6 @@ class PlayerCreate extends Controller
     {
         $providers = Arr::get($request->validated(), 'providers');
         $provider_uuids = array_column($providers, 'uuid');
-        $player = Player::getTrashedPlayerByProviderUuids($provider_uuids);
-        if ($player) {
-            $player->restore();
-            return response()->json(json_decode($player->toJson()), 200);
-        }
-
 
         $player = Player::create([
             'email' => Arr::get($request->validated(), 'email')
