@@ -12,7 +12,7 @@ use Illuminate\Validation\Factory as ValidationFactory;
 
 class PlayerUpdateRequest extends FormRequest
 {
-       /**
+     /**
      * Constructor
      *
      * @return bool
@@ -20,6 +20,9 @@ class PlayerUpdateRequest extends FormRequest
     public function __construct(ValidationFactory $validationFactory)
     {
         parent::__construct();
+        $validationFactory->extend('unique_provider_uuid', function ($attribute, $value, $parameters, $validator) {
+            return empty(Player::getPlayerByProviderUuid($value));
+        });
     }
 
 

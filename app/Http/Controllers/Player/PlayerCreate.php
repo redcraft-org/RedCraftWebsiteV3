@@ -6,9 +6,7 @@ use App\Models\Player;
 use App\Models\Language;
 use App\Models\Provider;
 use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Http;
 use App\Http\Requests\Player\PlayerCreateRequest;
 
 class PlayerCreate extends Controller
