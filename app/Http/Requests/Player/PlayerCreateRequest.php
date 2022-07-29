@@ -22,11 +22,7 @@ class PlayerCreateRequest extends FormRequest
     {
         parent::__construct();
         $validationFactory->extend('unique_provider_uuid', function ($attribute, $value, $parameters, $validator) {
-            $player = Player::getPlayerByProviderUuid($value);
-            if ($player) {
-                return false;
-            }
-            return true;
+            return empty(Player::getPlayerByProviderUuid($value));
         });
     }
 
