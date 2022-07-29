@@ -19,7 +19,9 @@ class PlayerDelete extends Controller
         $player = Player::getPlayerByUuid($uuid);
         if ($player) {
             $player->delete();
-            return response()->json(json_decode($player->toJson()), 200);
+            return response()->json([
+                'message' => 'Player deleted',
+            ], 200);
         }
         abort(404, 'Player not found');
 
