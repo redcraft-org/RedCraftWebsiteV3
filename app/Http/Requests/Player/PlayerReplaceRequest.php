@@ -22,9 +22,6 @@ class PlayerReplaceRequest extends FormRequest
     public function __construct(ValidationFactory $validationFactory)
     {
         parent::__construct();
-        $validationFactory->extend('unique_provider_uuid', function ($attribute, $value, $parameters, $validator) {
-            return empty(Player::getPlayerByProviderUuid($value));
-        });
     }
 
 
@@ -51,7 +48,18 @@ class PlayerReplaceRequest extends FormRequest
      */
     public function rules()
     {
-        return Player::$validationRules;
+        return [
+            'main_language' => 'required|string|exists:languages,code',
+            'email' => 'nullable|email|unique:players',
+            'languages' => 'required|array',
+            'languages.*' => 'required|string|exists:languages,code',
+            'providers' => 'required|array',
+            'providers.*.provider_name' => 'required|string|exists:providers,name',
+            'providers.*.uuid' => 'required|string',
+            'providers.*.last_username' => 'required|string',
+            'providers.*.previous_username' => 'nullable|string',
+        ];
+
     }
 
     /**
