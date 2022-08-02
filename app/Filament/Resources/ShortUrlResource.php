@@ -26,7 +26,7 @@ class ShortUrlResource extends Resource
             ->schema([
                 TextInput::make('source')->nullable(),
                 TextInput::make('url')->url()->required(),
-                TextInput::make('shortened_url')->required()
+                TextInput::make('token')->required()
             ]);
     }
 
@@ -36,7 +36,7 @@ class ShortUrlResource extends Resource
             ->columns([
                 TextColumn::make('source'),
                 TextColumn::make('url'),
-                TextColumn::make('shortened_url'),
+                TextColumn::make('token'),
             ])
             ->filters([
                 //

@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ShortUrl extends Model
 {
     use HasFactory;
-    protected $fillable = ['url', 'shortened_url', 'source'];
+    protected $fillable = ['url', 'token', 'source'];
+
+
+    public function getSelfUrlAttribute()
+    {
+        $appUrl = config('app.url');
+        return "{$appUrl}/r/{$this->token}";
+    }
 }
