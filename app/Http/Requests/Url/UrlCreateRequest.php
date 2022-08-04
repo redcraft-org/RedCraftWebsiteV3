@@ -26,10 +26,11 @@ class UrlCreateRequest extends FormRequest
      */
     public function rules()
     {
-        // verify that the token is not already in use if it is provided
+        // check the token only contains lowercase letters and numbers
+        $tokenRegex = '/^[a-z0-9]+$/';
         return [
             'url' => 'required|url',
-            'token' => 'nullable|string|unique:short_urls,token',
+            'token' => 'nullable|string|max:'.config('url.max_token_length').'|regex:'.$tokenRegex.'|unique:short_urls,token',
         ];
     }
 

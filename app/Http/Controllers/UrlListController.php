@@ -15,6 +15,6 @@ class UrlListController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return response()->json(ShortUrl::all());
+        return response()->json(ShortUrl::all()->toArray());
     }
 }
