@@ -26,33 +26,6 @@ section {
          @apply bg-light text-base-100;
     }
 
-    &#staff {
-        .staff-members {
-            @apply flex self-center mt-8;
-
-            .staff-member {
-                @apply mx-4;
-
-                .staff-member-image {
-                    border-color: hex(var(--p));
-                    width: 96px;
-                    @apply border-4 rounded-md;
-                }
-
-                .staff-member-name {
-                    @apply flex justify-evenly my-2;
-                }
-
-                .staff-member-socials {
-
-                    @apply flex justify-evenly;
-
-                    .staff-member-social {
-                        @apply flex transition ease-in-out delay-150 hover:scale-110 duration-300;
-                    }
-                }
-
-            }
-        }
-    }
+    // &#staff {
+    // }
 }
