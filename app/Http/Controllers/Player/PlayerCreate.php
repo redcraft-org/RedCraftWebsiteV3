@@ -6,9 +6,7 @@ use App\Models\Player;
 use App\Models\Language;
 use App\Models\Provider;
 use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Http;
 use App\Http\Requests\Player\PlayerCreateRequest;
 
 class PlayerCreate extends Controller
@@ -24,12 +22,6 @@ class PlayerCreate extends Controller
     {
         $providers = Arr::get($request->validated(), 'providers');
         $provider_uuids = array_column($providers, 'uuid');
-        $player = Player::getTrashedPlayerByProviderUuids($provider_uuids);
-        if ($player) {
-            $player->restore();
-            return response()->json(json_decode($player->toJson()), 200);
-        }
-
 
         $player = Player::create([
             'email' => Arr::get($request->validated(), 'email')

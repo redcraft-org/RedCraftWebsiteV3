@@ -25,6 +25,7 @@ class PlayerReplaceRequest extends FormRequest
     }
 
 
+
     public function passedValidation()
     {
         $this->replace($this->except('uuid'));
@@ -48,8 +49,8 @@ class PlayerReplaceRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'nullable',
             'main_language' => 'required|string|exists:languages,code',
+            'email' => 'nullable|email|unique:players',
             'languages' => 'required|array',
             'languages.*' => 'required|string|exists:languages,code',
             'providers' => 'required|array',
@@ -58,6 +59,7 @@ class PlayerReplaceRequest extends FormRequest
             'providers.*.last_username' => 'required|string',
             'providers.*.previous_username' => 'nullable|string',
         ];
+
     }
 
     /**
@@ -67,23 +69,7 @@ class PlayerReplaceRequest extends FormRequest
      */
     public function  messages()
     {
-        return [
-            'main_language.required' => 'The main language is required.',
-            'main_language.exists' => 'The main language is invalid.',
-            'email.email' => 'The email is invalid.',
-            'languages.required' => 'The languages are required.',
-            'languages.array' => 'The languages must be an array.',
-            'languages.*.required' => 'The languages must be an array.',
-            'languages.*.exists' => 'The languages are invalid.',
-            'providers.required' => 'The providers are required.',
-            'providers.array' => 'The providers must be an array.',
-            'providers.*.provider_type.required' => 'The provider type is required.',
-            'providers.*.provider_type.exists' => 'The provider type is invalid.',
-            'providers.*.uuid.required' => 'The provider uuid is required.',
-            'providers.*.uuid.unique' => 'The provider uuid is already in use.',
-            'providers.*.last_username.required' => 'The provider last username is required.',
-            'providers.*.previous_username.string' => 'The provider previous username must be a string.',
-        ];
+        return Player::$validationMessages;
     }
 
     /**
