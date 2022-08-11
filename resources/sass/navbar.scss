@@ -1,6 +1,10 @@
 .navbar {
     @apply block border-none min-h-0;
 
+    #rc-logo-homepage {
+        image-rendering: pixelated;
+    }
+
     .nav-link {
         @apply text-gray;
         &.active {
