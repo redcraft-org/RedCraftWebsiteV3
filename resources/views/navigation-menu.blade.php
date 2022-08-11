@@ -42,8 +42,9 @@ $links = [
         {{-- <x-navbar-dropdown /> --}}
 
         <!-- Hamburger -->
-        <div class="items-center -mr-2 flex <?= $mobileSizeTrigger ?>:hidden">
+        <div class="items-center z-20 flex <?= $mobileSizeTrigger ?>:hidden">
             <button @click="mobileOpen = ! mobileOpen"
+                :class="{ 'fixed mr-8 right-0': mobileOpen, 'block': !mobileOpen }"
                 class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
                 <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': mobileOpen, 'inline-flex': !mobileOpen }" class="inline-flex"
@@ -58,13 +59,20 @@ $links = [
 
     <!-- Mobile Menu -->
     <div id="mobile-menu-content" x-show="mobileOpen"
-        class="absolute w-full left-0 top-full z-10 items-center justify-center flex <?= $mobileSizeTrigger ?>:hidden"
+        class="fixed w-full h-screen left-0 top-0 z-10 items-center justify-center flex <?= $mobileSizeTrigger ?>:hidden"
         x-transition>
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="pt-2 pb-3 space-y-4">
             @foreach ($links as $link)
-                <x-jet-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
+                <div>
+                    <h4 class="block">
+                        <a :href="route($link['route'])">
+                            {{ $link['name'] }}
+                        </a>
+                    </h4>
+                </div>
+                {{-- <x-jet-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
                     {{ $link['name'] }}
-                </x-jet-responsive-nav-link>
+                </x-jet-responsive-nav-link> --}}
             @endforeach
         </div>
 
