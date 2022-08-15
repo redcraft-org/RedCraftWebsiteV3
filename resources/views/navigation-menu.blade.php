@@ -58,21 +58,18 @@ $links = [
 
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-content" x-show="mobileOpen"
+    <div id="mobile-menu-content" x-show="mobileOpen" x-cloak
         class="fixed w-full h-screen left-0 top-0 z-10 items-center justify-center flex <?= $mobileSizeTrigger ?>:hidden"
-        x-transition>
+        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-125"
+        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-125">
         <div class="pt-2 pb-3 space-y-4">
             @foreach ($links as $link)
-                <div>
-                    <h4 class="block">
-                        <a :href="route($link['route'])">
-                            {{ $link['name'] }}
-                        </a>
-                    </h4>
-                </div>
-                {{-- <x-jet-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
-                    {{ $link['name'] }}
-                </x-jet-responsive-nav-link> --}}
+                <h4 class="block">
+                    <a href="{{ route($link['route']) }}">
+                        {{ $link['name'] }}
+                    </a>
+                </h4>
             @endforeach
         </div>
 
