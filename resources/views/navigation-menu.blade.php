@@ -59,26 +59,22 @@ $links = [
 
     <!-- Mobile Menu -->
     <div id="mobile-menu-content" x-show="mobileOpen" x-cloak
-        class="fixed w-full h-screen left-0 top-0 z-10 items-center justify-center flex <?= $mobileSizeTrigger ?>:hidden"
-        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-125"
-        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-125">
-        <div class="pt-2 pb-3 space-y-4">
+        class="bg-base-200/90 backdrop-blur-sm drop-shadow-2xl fixed w-1/2 rounded-md right-8 top-4 z-10 py-4 flex <?= $mobileSizeTrigger ?>:hidden"
+        x-transition:enter="transition out-expo duration-100" x-transition:enter-start="opacity-0 scale-90 translate-x-3.5 -translate-y-3.5"
+        x-transition:enter-end="opacity-100 scale-100 translate-x-0 translate-y-0" x-transition:leave="transition in-expo duration-100"
+        x-transition:leave-start="opacity-100 scale-100 translate-x-0 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-x-3.5 -translate-y-3.5">
+        <div class="space-y-4 w-full">
             @foreach ($links as $link)
-                <h4 class="block">
+                <div class="block px-4">
                     <a href="{{ route($link['route']) }}">
                         {{ $link['name'] }}
                     </a>
-                </h4>
+                </div>
+                @if (!$loop->last)
+                    <hr class="text-base-100">
+                @endif
             @endforeach
         </div>
 
     </div>
 </nav>
-
-
-@push('scripts')
-    <script>
-        // JS here
-    </script>
-@endpush
