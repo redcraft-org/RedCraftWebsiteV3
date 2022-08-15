@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\ShortUrlController;
+use App\Http\Controllers\ArticlesIndex;
 
 Route::get('/', function () {
     return view('home');
@@ -39,6 +40,8 @@ Route::get('/stats', function () {
 Route::get('/rules', function () {
     return view('rules');
 })->name('rules');
+
+Route::get('/articles', ArticlesIndex::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
