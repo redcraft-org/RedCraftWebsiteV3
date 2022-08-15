@@ -39,8 +39,6 @@ $links = [
             @endforeach
         </div>
 
-        {{-- <x-navbar-dropdown /> --}}
-
         <!-- Hamburger -->
         <div class="items-center z-20 flex <?= $mobileSizeTrigger ?>:hidden">
             <button @click="mobileOpen = ! mobileOpen"
