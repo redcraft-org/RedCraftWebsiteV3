@@ -13,3 +13,8 @@
 
 // Alpine JS cloak directive
 [x-cloak] { display: none !important; }
+
+// waves
+.wave {
+    @apply w-full absolute -mt-16 h-16 md:h-28 md:-mt-28 lg:h-40 lg:-mt-40;
+}
