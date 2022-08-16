@@ -1,8 +1,16 @@
 {{-- SVG Wave --}}
-@if ($attributes['wave'] && $attributes['bg'])
+{{-- @if ($attributes['wave'] && $attributes['bg'])
     <div class="w-full absolute -mt-40 h-40 bg-cover bg-center {{ $attributes['bg'] }}"
         style="-webkit-mask: url('{{ asset('images/waves/wave-' . $attributes['wave'] . '.svg') }}');">
     </div>
+@endif --}}
+
+@php
+$waveComponent = $attributes['wave-id'];
+@endphp
+
+@if ($attributes['wave-bg'] && $attributes['wave-id'])
+    <x-dynamic-component :component="'waves.wave-' . $attributes['wave-id']" bg="{{ $attributes['wave-bg'] }}" />
 @endif
 
 <section
