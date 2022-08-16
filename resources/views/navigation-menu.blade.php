@@ -1,10 +1,5 @@
 @php
 
-// Decide at what point the mobile menu should be displayed
-// Both variables are necessary for the Tailwind compilation to work
-$mobileSizeTriggerFlex = 'lg:flex';
-$mobileSizeTriggerHidden = 'lg:hidden';
-
 // TODO translate navigation menu names
 $links = [
     [
@@ -33,7 +28,7 @@ $links = [
                 <img id="rc-logo-homepage" src="{{ asset('images/inline_org_color.png') }}">
             </x-jet-nav-link>
         </div>
-        <div class="space-x-8 px-4 hidden <?= $mobileSizeTriggerFlex ?>">
+        <div class="space-x-8 px-4 hidden lg:flex">
             @foreach ($links as $link)
                 <x-jet-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
                     {{ $link['name'] }}
@@ -42,7 +37,7 @@ $links = [
         </div>
 
         <!-- Hamburger -->
-        <div class="items-center z-20 flex <?= $mobileSizeTriggerHidden ?>">
+        <div class="items-center z-20 flex lg:hidden">
             <button @click="mobileOpen = ! mobileOpen"
                 :class="{ 'absolute mr-8 right-0': mobileOpen, 'block': !mobileOpen }"
                 class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
@@ -73,7 +68,7 @@ $links = [
 
     <!-- Mobile Menu -->
     <div id="mobile-menu-content" x-show="mobileOpen" x-cloak
-        class="bg-base-200/90 backdrop-blur-lg drop-shadow-lg absolute w-1/2 max-w-xs rounded-md right-6 top-2 z-10 py-4 flex <?= $mobileSizeTriggerHidden ?>"
+        class="bg-base-200/90 backdrop-blur-lg drop-shadow-lg absolute w-1/2 max-w-xs rounded-md right-6 top-2 z-10 py-4 flex lg:hidden"
         x-transition:enter="transition out-expo duration-100"
         x-transition:enter-start="opacity-0 scale-90 translate-x-3.5 -translate-y-3"
         x-transition:enter-end="opacity-100 scale-100 translate-x-0 translate-y-0"
