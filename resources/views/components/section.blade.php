@@ -13,10 +13,10 @@
     <div class="mx-auto px-8 container md:max-w-screen-lg">
 
         {{-- Section title --}}
-        @if ($attributes['title'])
+        @if ($attributes['section-title'])
             <div class="flex justify-center mb-16">
                 <h4 class="title">
-                    {{ $attributes['title'] }}
+                    {{ $attributes['section-title'] }}
                 </h4>
             </div>
         @endif
