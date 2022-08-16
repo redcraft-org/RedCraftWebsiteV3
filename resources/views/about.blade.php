@@ -6,7 +6,7 @@
 
     <x-section title="À Propos">
         <div class="flex flex-col md:flex-row md:gap-8">
-            <div class="md:w-1/3">
+            <div class="grid items-center md:w-1/3">
                 <img src="{{ asset('images/red_white_grey_none_none_296.png') }}" alt="RedCraft.org Logo" class="mx-auto">
             </div>
             <div class="flex flex-col gap-4 md:w-2/3">
