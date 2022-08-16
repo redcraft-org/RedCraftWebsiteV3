@@ -77,4 +77,32 @@
         </div>
     </x-section>
 
+    <x-section title="Licences & sources">
+        <h4>Site web</h4>
+        <ul>
+            <li>
+                <b>Django</b>
+                : Cadre de développement web open source en Python ayant pour but de rendre le développement web 2.0
+                simple et rapide.
+                <a href="https://www.djangoproject.com/" target="_blank">Site web</a>
+            </li>
+            <li>
+                <b>Bootstrap</b>
+                : Collection d'outils utiles à la création du design de sites et d'applications web.
+                <a href="https://getbootstrap.com/" target="_blank">Site web</a>
+            </li>
+            <li>
+                <b>Font Awesome</b>
+                : Police d'écriture et outil d'icônes qui se base sur CSS, LESS et SASS.
+                <a href="https://fontawesome.com/" target="_blank">Site web</a> & <a
+                    href="https://fontawesome.com/license" target="_blank">License</a>
+            </li>
+            <li>
+                <b>Sal.js</b>
+                : Librairie de scroll animé légère.
+                <a href="https://mciastek.github.io/sal/" target="_blank">Site web</a>
+            </li>
+        </ul>
+    </x-section>
+
 </x-app-layout>
