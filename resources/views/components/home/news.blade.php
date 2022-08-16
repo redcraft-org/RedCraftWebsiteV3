@@ -1,4 +1,4 @@
-<x-section id="news" title="Nouveautés" class="bg-primary text-neutral" wave="bg-primary">
+<x-section id="news" title="Nouveautés" bg="bg-primary" text="text-neutral" wave="1">
     <div class="flex flex-row gap-8">
         <div class="card w-96 bg-neutral text-base-100 shadow-xl">
             <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
