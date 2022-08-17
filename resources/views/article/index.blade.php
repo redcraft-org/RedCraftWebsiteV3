@@ -4,6 +4,6 @@
 
     <x-page-header title="Articles" />
 
-    <x-articles.list />
+    <x-article.list />
 
 </x-app-layout>
