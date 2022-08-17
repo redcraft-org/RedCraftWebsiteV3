@@ -20,6 +20,7 @@ module.exports = {
                 "accent": "#8f3b3b",
                 "neutral": "#f2f2f3",
                 "base-100": "#2b2d2f",
+                "base-200": "#181a1b",
                 "info": "#4F96C2",
                 "success": "#4FC270",
                 "warning": "#FFC547",
@@ -37,6 +38,10 @@ module.exports = {
                 '102': '1.02',
                 '103': '1.03',
                 '104': '1.04',
+            },
+            transitionTimingFunction: {
+              'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
+              'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
             },
         },
     },
