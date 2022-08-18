@@ -1,4 +1,4 @@
-<x-section id="header" title="">
+<x-section id="header">
 
     {{-- Welcome header --}}
 
