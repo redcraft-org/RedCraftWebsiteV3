@@ -2,7 +2,7 @@
 
     <x-page-header section-title="Coming Soon™" />
 
-    <x-section section-title="La page {{ Request::segment(1) }} est en développement">
+    <x-section section-title="La page {{ Request::segment(1) }} est en développement" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-2/3">
                 <p>Cette page est en cours de développement.</p>
