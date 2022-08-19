@@ -77,30 +77,37 @@
         </div>
     </x-section>
 
-    <x-section section-title="Licences & sources" bg="bg-primary" text="text-light" wave-bg="fill-primary" wave-id="2">
+    <x-section section-title="Licences & sources" bg="bg-primary" text="text-light" wave-bg="fill-primary"
+        wave-id="2">
         <h4>Site web</h4>
         <ul>
             <li>
-                <b>Django</b>
-                : Cadre de développement web open source en Python ayant pour but de rendre le développement web 2.0
-                simple et rapide.
-                <a href="https://www.djangoproject.com/" target="_blank">Site web</a>
+                <b>Laravel</b> : Un framework web open-source écrit en PHP respectant le principe modèle-vue-contrôleur
+                et entièrement développé en programmation orientée objet.
+                <a href="https://laravel.com/" target="_blank">Site web</a>
             </li>
             <li>
-                <b>Bootstrap</b>
-                : Collection d'outils utiles à la création du design de sites et d'applications web.
-                <a href="https://getbootstrap.com/" target="_blank">Site web</a>
+                <b>Livewire</b> : un framework full-stack pour Laravel qui simplifie la création d'interfaces
+                dynamiques, sans quitter le confort de Laravel.
+                <a href="https://laravel-livewire.com/" target="_blank">Site web</a>
             </li>
             <li>
-                <b>Font Awesome</b>
-                : Police d'écriture et outil d'icônes qui se base sur CSS, LESS et SASS.
+                <b>Tailwindcss</b> : Un framework CSS à vocation utilitaire, rempli de classes qui peuvent être
+                composées pour construire n'importe quel design, directement dans votre code.
+                <a href="https://tailwindcss.com/" target="_blank">Site web</a>
+            </li>
+            <li>
+                <b>Alpine.JS</b> : Un framework robuste et minimal pour composer le comportement JavaScript dans votre code.
+                <a href="https://alpinejs.org/" target="_blank">Site web</a>
+            </li>
+            <li>
+                <b>SASS</b> : Un langage de script préprocesseur qui est compilé ou interprété en CSS.
+                <a href="https://sass-lang.com/" target="_blank">Site web</a>
+            </li>
+            <li>
+                <b>Font Awesome</b> : Police d'écriture et outil d'icônes qui se base sur CSS, LESS et SASS.
                 <a href="https://fontawesome.com/" target="_blank">Site web</a> & <a
                     href="https://fontawesome.com/license" target="_blank">License</a>
-            </li>
-            <li>
-                <b>Sal.js</b>
-                : Librairie de scroll animé légère.
-                <a href="https://mciastek.github.io/sal/" target="_blank">Site web</a>
             </li>
         </ul>
     </x-section>
