@@ -4,7 +4,7 @@
 
     <x-page-header title="À Propos & FAQ" />
 
-    <x-section title="À Propos">
+    <x-section section-title="À Propos" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row md:gap-8">
             <div class="grid items-center md:w-1/3">
                 <img src="{{ asset('images/red_white_grey_none_none_296.png') }}" alt="RedCraft.org Logo" class="mx-auto">
@@ -25,7 +25,7 @@
         </div>
     </x-section>
 
-    <x-section title="FAQ">
+    <x-section section-title="FAQ" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="1">
         <div class="flex flex-col gap-8">
             <div>
                 <h5>Qu'est-ce que RedCraft.org ?</h5>
@@ -77,7 +77,7 @@
         </div>
     </x-section>
 
-    <x-section title="Licences & sources">
+    <x-section section-title="Licences & sources" bg="bg-primary" text="text-light" wave-bg="fill-primary" wave-id="2">
         <h4>Site web</h4>
         <ul>
             <li>
