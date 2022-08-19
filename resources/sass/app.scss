@@ -14,10 +14,19 @@
 // Alpine JS cloak directive
 [x-cloak] { display: none !important; }
 
-// waves
-.wave {
-    @apply w-full absolute pointer-events-none;
-    @apply -mt-16 h-16 md:h-28 md:-mt-28 lg:h-40 lg:-mt-40;
+
+main {
+
+    // Move the 1st section down for the navbar
+    section:first-child {
+        @apply mt-0;
+    }
+
+    // waves
+    .wave {
+        @apply w-full absolute pointer-events-none;
+        @apply -mt-16 h-16 md:h-28 md:-mt-28 lg:h-40 lg:-mt-40;
+    }
 }
 
 .page-header {
