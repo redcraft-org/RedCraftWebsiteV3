@@ -5,7 +5,7 @@ $sectionClasses = 'section flex flex-col pb-52 pt-32 -mt-20 ';
 $sectionClasses .= ($attributes['bg'] ?? '') . ' ' . ($attributes['text'] ?? '');
 // Change margins and paddings if a wave transition is set in order to place it in the exact center of the sections
 if ($attributes['wave-bg'] && $attributes['wave-id']) {
-    $sectionClasses .= ' mt-0 pt-12';
+    $sectionClasses .= ' mt-0 pt-36 md:pt-20 lg:pt-12';
 }
 @endphp
 
