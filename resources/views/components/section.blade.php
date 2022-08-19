@@ -24,7 +24,7 @@ if ($attributes['wave-bg'] && $attributes['wave-id']) {
 
         {{-- Section title --}}
         @if ($attributes['section-title'])
-            <div class="flex justify-center mb-16">
+            <div class="flex justify-center mb-16 text-center">
                 <h4 class="title">
                     {{ $attributes['section-title'] }}
                 </h4>
