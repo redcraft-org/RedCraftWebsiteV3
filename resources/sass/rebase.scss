@@ -2,26 +2,31 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-black;
 }
 
-h1 {
-    @apply text-5xl;
+h1 { @apply text-5xl; }
+h2 { @apply text-4xl; }
+h3 { @apply text-3xl; }
+h4 { @apply text-2xl; }
+h5 { @apply text-xl; }
+h6 { @apply text-lg; }
+
+ul {
+    @apply list-disc ml-8;
 }
 
-h2 {
-    @apply text-4xl;
+a {
+    @apply text-primary underline ;
+
+    &:hover, &:active {
+        @apply text-accent;
+    }
 }
 
-h3 {
-    @apply text-3xl;
-}
+section[bg="bg-primary"] {
+    a {
+        @apply text-white;
 
-h4 {
-    @apply text-2xl;
-}
-
-h5 {
-    @apply text-xl;
-}
-
-h6 {
-    @apply text-lg;
+        &:hover, &:active {
+            @apply text-light;
+        }
+    }
 }
