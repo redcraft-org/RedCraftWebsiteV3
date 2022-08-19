@@ -82,7 +82,7 @@ $staffMembers = [
                 <p class="flex justify-evenly text-xl font-bold text-center">{{ $staffMember['displayName'] }}</p>
                 <div class="flex justify-evenly flex-wrap">
                     @foreach ($staffMember['socials'] as $social)
-                        <a class="transition ease-in-out delay-150 hover:text-primary duration-300" href={{ $social['url'] }} target="_blank">
+                        <a class="transition ease-in-out delay-150 text-light hover:text-white duration-300" href={{ $social['url'] }} target="_blank">
                             <i class="fa-brands {{ $social['logo'] }} "></i>
                         </a>
                     @endforeach

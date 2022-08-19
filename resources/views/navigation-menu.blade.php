@@ -43,23 +43,19 @@ $links = [
                 class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
                 <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     {{-- Hamburger --}}
-                    <path x-show="!mobileOpen" class="inline-flex origin-center"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+                    <path x-show="!mobileOpen" class="inline-flex origin-center" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
                         x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 -rotate-45"
-                        x-transition:enter-end="opacity-100 rotate-0"
+                        x-transition:enter-start="opacity-0 -rotate-45" x-transition:enter-end="opacity-100 rotate-0"
                         x-transition:leave="transition ease-in duration-200"
-                        x-transition:leave-start="opacity-100 rotate-0"
-                        x-transition:leave-end="opacity-0 -rotate-45" />
+                        x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 -rotate-45" />
                     {{-- Cross --}}
-                    <path x-show="mobileOpen" class="inline-flex origin-center" x-cloak
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
+                    <path x-show="mobileOpen" class="inline-flex origin-center" x-cloak stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
                         x-transition:enter="transition ease-in duration-200"
-                        x-transition:enter-start="opacity-0 rotate-45"
-                        x-transition:enter-end="opacity-100 rotate-0"
+                        x-transition:enter-start="opacity-0 rotate-45" x-transition:enter-end="opacity-100 rotate-0"
                         x-transition:leave="transition ease-out duration-200"
-                        x-transition:leave-start="opacity-100 rotate-0"
-                        x-transition:leave-end="opacity-0 rotate-45" />
+                        x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-45" />
                 </svg>
             </button>
         </div>
@@ -77,11 +73,9 @@ $links = [
         x-transition:leave-end="opacity-0 scale-90 translate-x-3.5 -translate-y-3">
         <div class="space-y-4 w-full">
             @foreach ($links as $link)
-                <div class="block px-4">
-                    <a href="{{ route($link['route']) }}">
-                        {{ $link['name'] }}
-                    </a>
-                </div>
+                <a href="{{ route($link['route']) }}" class="text-white hover:text-white no-underline block px-4">
+                    {{ $link['name'] }}
+                </a>
                 @if (!$loop->last)
                     <hr class="text-base-100">
                 @endif
