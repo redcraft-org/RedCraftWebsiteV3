@@ -37,7 +37,7 @@ Route::get('/stats', function () {
 
 // rules
 Route::get('/rules', function () {
-    return view('rules');
+    return view('coming-soon');
 })->name('rules');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
