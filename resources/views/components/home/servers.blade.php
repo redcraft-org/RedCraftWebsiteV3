@@ -54,7 +54,7 @@ $servers = [
 ];
 @endphp
 
-<x-section id="servers" title="Serveurs">
+<x-section id="servers" section-title="Serveurs" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2">
     <div id="dynamic-height" class="duration-300">
         <div id="inner-height" class="flex flex-col sm:flex-row gap-16" x-data="{ open: '{{ $defaultKey }}' }">
             <div class="flex flex-col sm:w-1/2">
