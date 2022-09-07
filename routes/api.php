@@ -12,7 +12,9 @@ use App\Http\Controllers\Player\PlayerAddLanguage;
 use App\Http\Controllers\Player\PlayerAddProvider;
 use App\Http\Controllers\Player\PlayerGetLanguage;
 use App\Http\Controllers\Player\PlayerGetProvider;
-
+use App\Http\Controllers\Skin\SkinGetBody;
+use App\Http\Controllers\Skin\SkinGetHead;
+use App\Http\Controllers\Skin\SkinGetIsometric;
 
 Route::prefix('v1')->group(function () {
     Route::prefix('player')->group(function () {
@@ -34,5 +36,11 @@ Route::prefix('v1')->group(function () {
         Route::get('/list', function () {
             return response()->json(Language::all(), 200);
         });
+    });
+
+    Route::prefix('skin')->group(function () {
+        Route::get('/body/{uuid}', SkinGetBody::class);
+        Route::get('/head/{uuid}', SkinGetHead::class);
+        Route::get('/isometric/{uuid}', SkinGetIsometric::class);
     });
 });
