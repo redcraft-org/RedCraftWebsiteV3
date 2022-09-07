@@ -1,9 +1,28 @@
-.code-conduct-icon {
-    @apply text-base-200 text-9xl;
-}
 
-.code-conduct-title {
-    @apply absolute top-1/2 -translate-y-1/2;
+
+.code-conduct-item {
+    @apply text-center relative cursor-pointer mb-12;
+
+
+    h4.code-conduct-title {
+        @apply absolute leading-32 top-0 w-full m-auto duration-150 text-secondary;
+    }
+
+    &.focused .code-conduct-title {
+        @apply -translate-y-2 text-light;
+    }
+
+    .code-conduct-icon {
+        @apply text-base-200 text-9xl duration-150;
+    }
+
+    &:hover .code-conduct-icon {
+        @apply scale-105;
+    }
+
+    &:active .code-conduct-icon {
+        @apply scale-100;
+    }
 }
 
 .putain {
