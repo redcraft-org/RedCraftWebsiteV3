@@ -1,4 +1,4 @@
-{{-- <link rel="stylesheet" href="{{ mix('css/rules.css') }}"> --}}
+<link rel="stylesheet" href="{{ mix('css/rules.css') }}">
 
 @php
 $rules = [
