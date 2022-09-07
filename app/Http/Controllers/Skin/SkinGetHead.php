@@ -16,7 +16,8 @@ class SkinGetHead extends Controller
     public function __invoke(Request $request)
     {
         $uuid = $request->uuid;
-        $skin = SkinUtils::getHeadFromUUID($uuid);
+        $scale = $request->scale ?? 1;
+        $skin = SkinUtils::getHeadFromUUID($uuid, $scale);
         return response($skin, 200)->header('Content-Type', 'image/png');
     }
 }

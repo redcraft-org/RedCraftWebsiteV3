@@ -40,7 +40,7 @@ Route::prefix('v1')->group(function () {
 
     Route::prefix('skin')->group(function () {
         Route::get('/body/{uuid}', SkinGetBody::class);
-        Route::get('/head/{uuid}', SkinGetHead::class);
-        Route::get('/isometric/{uuid}', SkinGetIsometric::class);
+        Route::get('/head/{uuid}{scale?}', SkinGetHead::class);
+        Route::get('/isometric/{uuid}{scale?}', SkinGetIsometric::class);
     });
 });

@@ -23,11 +23,11 @@ class SkinUtils {
         return $response;
     }
 
-    public static function getHeadFromUUID($uuid) {
+    public static function getHeadFromUUID($uuid, $scale = 1) {
         $skin = self::getSkinFromUUID($uuid);
         $skin = imagecreatefromstring($skin);
-        $head = imagecreatetruecolor(8, 8);
-        imagecopy($head, $skin, 0, 0, 8, 8, 8, 8);
+        $head = imagecreatetruecolor($scale*8, $scale*8);
+        imagecopyresampled($head, $skin, 0, 0, 8, 8, $scale * 8, $scale * 8, 8, 8);
         ob_start();
         imagepng($head);
         $head = ob_get_contents();
@@ -35,16 +35,16 @@ class SkinUtils {
         return $head;
     }
 
-    public static function getBodyFromUUID($uuid) {
+    public static function getBodyFromUUID($uuid, $scale = 1) {
         $skin = self::getSkinFromUUID($uuid);
         $skin = imagecreatefromstring($skin);
-        $body = imagecreatetruecolor(16, 32);
-        imagecopyresampled($body, $skin, 4, 0, 8, 8, 8, 8, 8, 8);
-        imagecopyresampled($body, $skin, 4, 8, 20, 20, 8, 12, 8, 12);
-        imagecopyresampled($body, $skin, 0, 8, 44, 20, 4, 12, 4, 12);
-        imagecopyresampled($body, $skin, 12, 8, 47, 20, 4, 12, -4, 12);
-        imagecopyresampled($body, $skin, 4, 20, 4, 20, 4, 12, 4, 12);
-        imagecopyresampled($body, $skin, 8, 20, 7, 20, 4, 12, -4, 12);
+        $body = imagecreatetruecolor($scale*16, $scale*32);
+        imagecopyresampled($body, $skin, $scale*4, $scale*0, 8, 8, $scale*8, $scale*8, 8, 8);
+        imagecopyresampled($body, $skin, $scale*4, $scale*8, 20, 20, $scale*8, $scale*12, 8, 12);
+        imagecopyresampled($body, $skin, $scale*0, $scale*8, 44, 20, $scale*4, $scale*12, 4, 12);
+        imagecopyresampled($body, $skin, $scale*12, $scale*8, 47, 20, $scale*4, $scale*12, -4, 12);
+        imagecopyresampled($body, $skin, $scale*4, $scale*20, 4, 20, $scale*4, $scale*12, 4, 12);
+        imagecopyresampled($body, $skin, $scale*8, $scale*20, 7, 20, $scale*4, $scale*12, -4, 12);
         ob_start();
         imagepng($body);
         $body = ob_get_contents();
