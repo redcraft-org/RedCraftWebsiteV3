@@ -12,6 +12,9 @@ h6 { @apply text-lg; }
 ul {
     @apply list-disc ml-8;
 }
+ol {
+    @apply list-decimal ml-8;
+}
 
 a {
     @apply text-primary underline ;
