@@ -19,7 +19,7 @@ $rules = [
     <x-page-header section-title="Règles" />
 
     <x-section section-title="Code de conduite" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
-        x-data="{ open: '' }">
+        x-data="{ open: 'respecter' }">
         <p class="text-center text-white-50"><small><i>Cliquez sur les icônes pour en savoir plus.</i></small></p>
         <div class="flex flex-col md:flex-row justify-around my-4">
             <div class="code-conduct-item" tabindex="0" x-on:click="open = 'respecter'"
@@ -39,22 +39,24 @@ $rules = [
             </div>
         </div>
         <div x-cloak class="relative">
+            {{-- Note: remove the `absolute w-full top-0` classes on the element with the longest text --}}
+            {{--       in order to have the height of the container relative to the longest child --}}
             <div class="code-conduct-details" :class="open != 'respecter' && 'opacity-0'">
-                <div class="text lead">
+                <div class="text text-xl">
                     Le respect est la base pour avoir une atmosphère saine et constructive.
                     N'oublions pas que tout le monde n'a pas le même niveau de connaissances,
                     respectons ceux qui en ont moins que nous et encouragons leur curiosité. 🤝
                 </div>
             </div>
             <div class="code-conduct-details absolute w-full top-0" :class="open != 'sentraider' && 'opacity-0'">
-                <div class="text lead">
+                <div class="text text-xl">
                     RedCraft.org a parmi ses objectifs la transmission de connaissances
                     quelle qu'elles soient. Le partage est un pilier pour avoir
                     une communauté soudée et active. 💪
                 </div>
             </div>
             <div class="code-conduct-details absolute w-full top-0" :class="open != 'samuser' && 'opacity-0'">
-                <div class="text lead">
+                <div class="text text-xl">
                     Après-tout, nous sommes tous en train de jouer à un jeu vidéo ! Alors
                     essayons de passer du bon temps ensemble pour avoir une
                     expérience en ligne inoubliable ! 😉
