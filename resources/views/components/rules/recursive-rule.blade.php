@@ -6,8 +6,8 @@
         @php
             $h_level = "h" . (min($level, 2) + 3);
         @endphp
-        {{-- If the rule has sub-rules, we show it as a title --}}
-        @if (count($rule) > 0)
+        {{-- If the rule has sub-rules and is not inside more than 2 ol, we show it as a title --}}
+        @if (count($rule) > 0 and $level < 3)
             <{{ $h_level }}><li>{{ $key }}</li></{{ $h_level }}>
         @else
             <li>{{ $key }}</li>
