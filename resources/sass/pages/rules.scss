@@ -5,15 +5,15 @@
 
 
     h4.code-conduct-title {
-        @apply absolute leading-32 top-0 w-full m-auto duration-150 text-secondary;
+        @apply absolute leading-32 top-0 w-full m-auto duration-150 opacity-0;
     }
 
     &.focused .code-conduct-title {
-        @apply -translate-y-2 text-light;
+        @apply -translate-y-2 text-light opacity-100;
     }
 
     .code-conduct-icon {
-        @apply text-base-200 text-9xl duration-150;
+        @apply text-secondary text-9xl duration-150;
     }
 
     &:hover .code-conduct-icon {
