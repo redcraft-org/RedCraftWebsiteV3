@@ -2,7 +2,7 @@
 
 <x-app-layout>
 
-    <x-page-header title="À Propos & FAQ" />
+    <x-page-header section-title="À Propos & FAQ" />
 
     <x-section section-title="À Propos" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row md:gap-8">
