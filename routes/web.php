@@ -23,21 +23,21 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('coming-soon');
 })->name('contact');
 
 Route::get('/vote', function () {
-    return view('vote');
+    return view('coming-soon');
 })->name('vote');
 
 // stats
 Route::get('/stats', function () {
-    return view('stats');
+    return view('coming-soon');
 })->name('stats');
 
 // rules
 Route::get('/rules', function () {
-    return view('rules');
+    return view('coming-soon');
 })->name('rules');
 
 // about

@@ -23,7 +23,7 @@
 
         <x-home.ctaIpCopy></x-home.ctaIpCopy>
 
-        <a class="btn btn-lg btn-secondary flex flex-col gap-5" href="https://discord.gg/xkWE4uJ" target="_blank">
+        <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="https://discord.gg/xkWE4uJ" target="_blank">
             <div>
                 <div class="text-xl">Rejoindre le <b>Discord</b></div>
                 <div class="text-sm">420 joueurs connectés</div>
