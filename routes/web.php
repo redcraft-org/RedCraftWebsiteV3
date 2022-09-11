@@ -45,4 +45,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('r/{shortened}', ShortUrlController::class)->name('short-url');
+Route::get('r/{token}', ShortUrlController::class)->name('short-url');
