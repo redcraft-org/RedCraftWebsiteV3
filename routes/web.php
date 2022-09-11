@@ -23,7 +23,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/contact', function () {
-    return view('coming-soon');
+    return view('contact');
 })->name('contact');
 
 Route::get('/vote', function () {
