@@ -3,16 +3,17 @@
 use App\Models\Language;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Player\PlayerList;
+use App\Http\Controllers\UrlListController;
 use App\Http\Controllers\Player\PlayerCreate;
 use App\Http\Controllers\Player\PlayerDelete;
 use App\Http\Controllers\Player\PlayerUpdate;
+use App\Http\Controllers\UrlCreateController;
 use App\Http\Controllers\Player\PlayerReplace;
 use App\Http\Controllers\Player\PlayerRetrieve;
 use App\Http\Controllers\Player\PlayerAddLanguage;
 use App\Http\Controllers\Player\PlayerAddProvider;
 use App\Http\Controllers\Player\PlayerGetLanguage;
 use App\Http\Controllers\Player\PlayerGetProvider;
-
 
 Route::prefix('v1')->group(function () {
     Route::prefix('player')->group(function () {
@@ -35,4 +36,6 @@ Route::prefix('v1')->group(function () {
             return response()->json(Language::all(), 200);
         });
     });
+    Route::get('/urls', UrlListController::class);
+    Route::post('/url', UrlCreateController::class);
 });

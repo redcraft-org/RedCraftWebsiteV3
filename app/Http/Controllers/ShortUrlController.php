@@ -13,9 +13,9 @@ class ShortUrlController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, $shortened)
+    public function __invoke(Request $request, $token)
     {
-        $shortUrl = ShortUrl::where('shortened_url', $shortened)->first();
+        $shortUrl = ShortUrl::where('token', $token)->first();
         if(!$shortUrl) {
             return redirect()->to('/');
         }
