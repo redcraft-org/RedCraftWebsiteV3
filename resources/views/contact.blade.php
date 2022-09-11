@@ -4,14 +4,36 @@
 
     <x-page-header section-title="Contact" />
 
-    <x-section section-title="Formulaire de contact" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
-        x-data="{ open: 'respecter' }">
+    <x-section section-title="Formulaire de contact" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <p>En cas de doute sur l'utilisation de ce formulaire, des informations se trouvent plus bas dans la page.</p>
                 <a href="#info" class="btn btn-primary">Plus d'infos</a>
                 <hr class="white">
-                <form action="#" id="contact-form" method="post">
-                    <div class="d-flex transition-container">
-                        <!-- FIRST MODAL -->
+                <form action="#" id="contact-form" method="post" x-data="{ page: 'start', contactFrom: '' }">
+                    {{-- First page --}}
+                    <div x-show="page == 'start'">
+                        <p>Vous nous contactez en tant que...</p>
+                        <button type="button" class="btn btn-primary" x-on:click="page = 'informations'; contactFrom = 'player'; expandSection();">Joueur</button>
+                        <button type="button" class="btn btn-primary" x-on:click="page = 'informations'; contactFrom = 'other'; expandSection();">Autre</button>
+                    </div>
+                    {{-- Form page --}}
+                    <div x-show="page == 'informations'" x-cloak>
+                        <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
+                        <input x-show="contactFrom == 'player'" type="text" placeholder="Pseudo Minecraft" class="input w-full max-w-xs" />
+                        <input x-show="contactFrom == 'player'" type="text" placeholder="Identifiant Discord (Nom#0000)" class="input w-full max-w-xs" />
+                        <input x-show="contactFrom == 'other'" type="email" placeholder="Adresse email" class="input w-full max-w-xs" />
+                        <textarea class="textarea" placeholder="Message"></textarea>
+                        <p class="text-secondary">Maximum 1500 charactères</p>
+                    </div>
+                    {{-- Message success --}}
+                    <div x-show="page == 'success'" x-cloak>
+                        <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
+                    </div>
+                    {{-- Message error --}}
+                    <div x-show="page == 'error'" x-cloak>
+                        <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
+                    </div>
+                    {{-- <div class="d-flex transition-container">
+                        <!-- FIRST PAGE -->
                         <div class="transition-element contact-from position-absolute active">
                             <div class="h-100 d-flex align-items-center">
                                 <div class="w-100">
@@ -24,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- INFORMATIONS MODAL -->
+                        <!-- INFORMATIONS PAGE -->
                         <div class="transition-element contact-details">
                             <div class="form-group">
                                 <button type="button" class="btn btn-primary mb-3" id="form-previous-page">Retour</button>
@@ -84,13 +106,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     {% csrf_token %}
                 </form>
             </div>
     </x-section>
 
-    <x-section section-title="Informations" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2">
+    <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2">
         <div class="container">
             <p>Ce formulaire vous permet d'envoyer un message directement au staff de RedCraft.org. Le message sera envoyé aux administrateurs via Discord, pensez-donc à indiquer votre pseudo Discord si nécessaire.</p>
             <p>Vous pouvez utiliser ce formulaire pour les demande de unban, les plaintes, réclamations et demandes de partenariat.</p>

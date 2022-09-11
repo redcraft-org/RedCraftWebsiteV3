@@ -33,3 +33,7 @@ section[bg="bg-primary"] {
         }
     }
 }
+
+input {
+    @apply border bg-secondary border-light rounded-lg px-2 py-1;
+}
