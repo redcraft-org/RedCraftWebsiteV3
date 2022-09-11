@@ -20,19 +20,18 @@ $rules = [
 
     <x-section section-title="Code de conduite" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
         x-data="{ open: 'respecter' }">
-        <p class="text-center text-white-50"><small><i>Cliquez sur les icônes pour en savoir plus.</i></small></p>
         <div class="flex flex-col md:flex-row justify-around my-4">
-            <div class="code-conduct-item" tabindex="0" x-on:click="open = 'respecter'"
+            <div class="code-conduct-item" tabindex="0" @mouseover="open = 'respecter'"
                 :class="open == 'respecter' && 'focused'">
                 <i class="fas fa-hands-helping code-conduct-icon"></i>
                 <h4 class="code-conduct-title">Se respecter</h4>
             </div>
-            <div class="code-conduct-item" tabindex="1" x-on:click="open = 'sentraider'"
+            <div class="code-conduct-item" tabindex="1" @mouseover="open = 'sentraider'"
                 :class="open == 'sentraider' && 'focused'">
                 <i class="fas fa-people-carry code-conduct-icon"></i>
                 <h4 class="code-conduct-title">S'entraider</h4>
             </div>
-            <div class="code-conduct-item" tabindex="2" x-on:click="open = 'samuser'"
+            <div class="code-conduct-item" tabindex="2" @mouseover="open = 'samuser'"
                 :class="open == 'samuser' && 'focused'">
                 <i class="fas fa-gamepad code-conduct-icon"></i>
                 <h4 class="code-conduct-title">S'amuser</h4>
