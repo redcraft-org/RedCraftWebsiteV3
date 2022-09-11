@@ -27,7 +27,9 @@ class SkinUtils {
 
 
     public static function getSkinFromUUID($uuid) {
-        $url = self::getUrlSkinFromUUID($uuid);
+        $url = Cache::remember('skin_url_' . $uuid, config('skin.cache.time'), function () use ($uuid) {
+            return self::getUrlSkinFromUUID($uuid);
+        });
         $response = Http::get($url);
         return $response;
     }

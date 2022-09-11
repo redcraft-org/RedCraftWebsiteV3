@@ -20,10 +20,11 @@ class SkinGetBody extends Controller
         $uuid = $request->uuid;
         $scale = $request->scale ?? 1;
         $gear = $request->gear ?? 0;
-        try {
-            $skin = SkinUtils::getBodyFromUUID($uuid, $scale, $gear);
-        } catch (\Exception $e) {
-            if ($e->getMessage() == "invalid_uuid") {
+        $response = Cache::remember('skin_body_' . $uuid . '_' . $scale . '_' . $gear, config('skin.cache.time'), function () use ($uuid, $scale, $gear) {
+            try {
+                $skin = SkinUtils::getBodyFromUUID($uuid, $scale, $gear);
+            } catch (\Exception $e) {
+                // TODO: Sort errors, the mojang skin api might be down
                 return response()->json([
                     'errors' => [
                         'uuid' => [
@@ -32,7 +33,8 @@ class SkinGetBody extends Controller
                     ]
                 ], 422);
             }
-        }
-        return response($skin, 200)->header('Content-Type', 'image/png');
+            return response($skin, 200)->header('Content-Type', 'image/png');
+        });
+        return $response;
     }
 }

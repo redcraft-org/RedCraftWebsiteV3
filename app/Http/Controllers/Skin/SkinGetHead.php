@@ -19,10 +19,12 @@ class SkinGetHead extends Controller
         $uuid = $request->uuid;
         $scale = $request->scale ?? 1;
         $faceGear = $request->faceGear == 'true' ? true : false;
-        try {
-            $skin = SkinUtils::getHeadFromUUID($uuid, $scale, $faceGear);
-        } catch (\Exception $e) {
-            if ($e->getMessage() == "invalid_uuid") {
+        $response = Cache::remember('skin_head_' . $uuid . '_' . $scale . '_' . $faceGear, config('skin.cache.time'), function () use ($uuid, $scale, $faceGear) {
+            try {
+                $skin = SkinUtils::getHeadFromUUID($uuid, $scale, $faceGear);
+            } catch (\Exception $e) {
+                // TODO: Sort errors, the mojang skin api might be down
+
                 return response()->json([
                     'errors' => [
                         'uuid' => [
@@ -31,7 +33,8 @@ class SkinGetHead extends Controller
                     ]
                 ], 422);
             }
-        }
-        return response($skin, 200)->header('Content-Type', 'image/png');
+            return response($skin, 200)->header('Content-Type', 'image/png');
+        });
+        return $response;
     }
 }
