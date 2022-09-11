@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Skin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Skin\SkinHeadRequest;
 use Illuminate\Http\Request;
 
 class SkinGetHead extends Controller
@@ -13,11 +14,24 @@ class SkinGetHead extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(SkinHeadRequest $request)
     {
         $uuid = $request->uuid;
         $scale = $request->scale ?? 1;
-        $skin = SkinUtils::getHeadFromUUID($uuid, $scale);
+        $faceGear = $request->faceGear == 'true' ? true : false;
+        try {
+            $skin = SkinUtils::getHeadFromUUID($uuid, $scale, $faceGear);
+        } catch (\Exception $e) {
+            if ($e->getMessage() == "invalid_uuid") {
+                return response()->json([
+                    'errors' => [
+                        'uuid' => [
+                            'The uuid does not seem to be a valid UUID.'
+                        ]
+                    ]
+                ], 422);
+            }
+        }
         return response($skin, 200)->header('Content-Type', 'image/png');
     }
 }

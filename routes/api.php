@@ -39,8 +39,8 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::prefix('skin')->group(function () {
-        Route::get('/body/{uuid}', SkinGetBody::class);
-        Route::get('/head/{uuid}{scale?}', SkinGetHead::class);
+        Route::get('/body/{uuid}{scale?}{gear?}', SkinGetBody::class);
+        Route::get('/head/{uuid}{scale?}{faceGear?}', SkinGetHead::class);
         Route::get('/isometric/{uuid}{scale?}', SkinGetIsometric::class);
     });
 });
