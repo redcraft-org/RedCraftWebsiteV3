@@ -26,8 +26,8 @@ module.exports = {
                 "warning": "#FFC547",
                 "error": "#9558C7",
                 "light": "#d9dcdd",
-                "gray": "#f2f2f3",
-                "light-gray": "#6A6F73",
+                "gray": "#6A6F73",
+                "light-gray": "#f2f2f3",
                 "white": "#ffffff",
                 "black": "#000000",
             },
@@ -43,6 +43,9 @@ module.exports = {
               'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
               'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
             },
+            lineHeight: {
+              '32': '8rem',
+            }
         },
     },
     daisyui: {

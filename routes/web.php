@@ -37,7 +37,7 @@ Route::get('/stats', function () {
 
 // rules
 Route::get('/rules', function () {
-    return view('coming-soon');
+    return view('rules');
 })->name('rules');
 
 // about

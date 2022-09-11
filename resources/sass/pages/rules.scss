@@ -1,0 +1,26 @@
+
+
+.code-conduct-item {
+    @apply text-center relative mb-12;
+
+
+    h4.code-conduct-title {
+        @apply absolute leading-32 top-0 w-full m-auto duration-150 text-secondary select-none;
+    }
+
+    &.focused .code-conduct-title {
+        @apply -translate-y-2 text-light;
+    }
+
+    .code-conduct-icon {
+        @apply text-base-200 text-9xl duration-150;
+    }
+
+    &:hover .code-conduct-icon {
+        @apply scale-105;
+    }
+}
+
+.code-conduct-details {
+    @apply opacity-100 duration-150;
+}
