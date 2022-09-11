@@ -1,7 +1,7 @@
 
 
 .code-conduct-item {
-    @apply text-center relative cursor-pointer mb-12;
+    @apply text-center relative mb-12;
 
 
     h4.code-conduct-title {
@@ -18,10 +18,6 @@
 
     &:hover .code-conduct-icon {
         @apply scale-105;
-    }
-
-    &:active .code-conduct-icon {
-        @apply scale-100;
     }
 }
 
