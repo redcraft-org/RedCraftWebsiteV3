@@ -1,85 +1,92 @@
-
-
 <x-app-layout>
 
     <x-page-header section-title="Contact" />
 
-    <x-section section-title="Formulaire de contact" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
-        <p>En cas de doute sur l'utilisation de ce formulaire, des informations se trouvent plus bas dans la page.</p>
-                <a href="#info" class="btn btn-primary">Plus d'infos</a>
-                <hr class="white">
-                <form action="#" id="contact-form" method="post" x-data="{ page: 'start', contactFrom: '' }">
-                    {{-- First page --}}
-                    <div x-show="page == 'start'">
-                        <p>Vous nous contactez en tant que...</p>
-                        <button type="button" class="btn btn-primary" x-on:click="page = 'informations'; contactFrom = 'player'; expandSection();">Joueur</button>
-                        <button type="button" class="btn btn-primary" x-on:click="page = 'informations'; contactFrom = 'other'; expandSection();">Autre</button>
+    <x-section section-title="Formulaire de contact" bg="bg-base-100" text="text-light" wave-bg="fill-base-100"
+        wave-id="3">
+        <div class="mb-16">
+            <p>En cas de doute sur l'utilisation de ce formulaire, des informations se trouvent plus bas dans la page.
+            </p>
+            {{-- <a href="#info" class="btn btn-secondary">Plus d'infos</a> --}}
+        </div>
+
+        <div id="dynamic-height" class="duration-300">
+            <form action="#" id="contact-form" method="post" x-data="{ page: 'start', contactFrom: '' }" class="relative">
+
+
+                {{-- First page --}}
+                <div x-show="page == 'start'" x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
+                    x-transition:enter-start="opacity-0 translate-y-5 scale-100"
+                    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+                    <p class="mb-4">Vous nous contactez en tant que...</p>
+                    <div class="btn-group mx-auto flex justify-center">
+                        <button type="button" class="btn btn-primary"
+                            x-on:click="page = 'informations'; contactFrom = 'player'; expandSection();">Joueur</button>
+                        <button type="button" class="btn btn-accent"
+                            x-on:click="page = 'informations'; contactFrom = 'other'; expandSection();">Autre</button>
                     </div>
-                    {{-- Form page --}}
-                    <div x-show="page == 'informations'" x-cloak>
-                        <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
-                        <input x-show="contactFrom == 'player'" type="text" placeholder="Pseudo Minecraft" class="input w-full max-w-xs" />
-                        <input x-show="contactFrom == 'player'" type="text" placeholder="Identifiant Discord (Nom#0000)" class="input w-full max-w-xs" />
-                        <input x-show="contactFrom == 'other'" type="email" placeholder="Adresse email" class="input w-full max-w-xs" />
-                        <textarea class="textarea" placeholder="Message"></textarea>
+                </div>
+
+
+                {{-- Form page --}}
+                <div x-show="page == 'informations'" class="flex flex-col gap-8" x-cloak
+                    x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
+                    x-transition:enter-start="opacity-0 translate-y-5 scale-100"
+                    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+                    <div>
+                        <button type="button" class="btn btn-primary"
+                            x-on:click="page = 'start'; expandSection();">Retour</button>
+                    </div>
+
+                    <div class="flex flex-row gap-8" x-show="contactFrom == 'player'">
+                        <input type="text" placeholder="Pseudo Minecraft" class="input w-full" />
+                        <input type="text" placeholder="Identifiant Discord (Nom#0000)" class="input w-full" />
+                    </div>
+
+                    <div class="flex flex-row" x-show="contactFrom == 'other'">
+                        <input type="email" placeholder="Adresse email" class="input w-full" />
+                    </div>
+
+                    <div>
+                        <textarea class="input textarea h-32 w-full" placeholder="Message"></textarea>
                         <p class="text-secondary">Maximum 1500 charactères</p>
                     </div>
-                    {{-- Message success --}}
-                    <div x-show="page == 'success'" x-cloak>
-                        <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="btn btn-lg btn-primary">Envoyer le message</button>
                     </div>
-                    {{-- Message error --}}
-                    <div x-show="page == 'error'" x-cloak>
-                        <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
-                    </div>
-                    {{-- <div class="d-flex transition-container">
-                        <!-- FIRST PAGE -->
-                        <div class="transition-element contact-from position-absolute active">
-                            <div class="h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <p>Vous nous contactez en tant que...</p>
-                                    <select name="request_type" class="custom-select form-control mb-3">
-                                        <option value="player" selected>Un joueur</option>
-                                        <option value="other">Autre</option>
-                                    </select>
-                                    <button type="button" class="btn btn-primary float-right" id="form-next-page">Suivant</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- INFORMATIONS PAGE -->
-                        <div class="transition-element contact-details">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary mb-3" id="form-previous-page">Retour</button>
-                                <div class="row inputs-player">
-                                    <div class="col-md-6 mb-3 mb-md-0">
-                                        <input type="text" name="username" class="form-control"
-                                            placeholder="Pseudo Minecraft">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="discord_username" class="form-control"
-                                            placeholder="Identifiant Discord (Nom#0000)">
-                                    </div>
-                                </div>
-                                <div class="row inputs-other" style="display: none;">
-                                    <div class="col mb-md-0">
-                                        <input type="text" name="email" class="form-control"
-                                            placeholder="Adresse email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control mb-3" placeholder="Message" rows="10" cols="10" name="message"></textarea>
-                                <em class="text-white-50">Maximum 1500 charactères</em>
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex justify-content-between">
-                                    <div class="contact-validation font-weight-bold"></div>
-                                    <div>
-                                        <button type="submit" id="contact-form-submit" class="btn btn-primary btn-lg">Envoyer le message</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+
+                {{-- Message success --}}
+                <div x-show="page == 'success'" x-cloak
+                    x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
+                    x-transition:enter-start="opacity-0 translate-y-5 scale-100"
+                    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+                    <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
+                </div>
+
+
+                {{-- Message error --}}
+                <div x-show="page == 'error'" x-cloak
+                    x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
+                    x-transition:enter-start="opacity-0 translate-y-5 scale-100"
+                    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                    x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+                    <button type="button" x-on:click="page = 'start'; expandSection();">Retour</button>
+                </div>
+
+
+                {{-- <div class="d-flex transition-container">
+
+
                         <!-- MODAL FAILED -->
                         <div class="contact-failed transition-element position-absolute">
                             <div class="h-100 d-flex align-items-center">
@@ -94,6 +101,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <!-- MODAL SUCCESS -->
                         <div class="contact-success transition-element position-absolute">
                             <div class="h-100 d-flex align-items-center">
@@ -107,15 +116,42 @@
                             </div>
                         </div>
                     </div> --}}
-                    {% csrf_token %}
-                </form>
-            </div>
+                {{-- {% csrf_token %} --}}
+            </form>
+        </div>
     </x-section>
 
-    <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2">
+    <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light"
+        wave-id="2">
         <div class="container">
-            <p>Ce formulaire vous permet d'envoyer un message directement au staff de RedCraft.org. Le message sera envoyé aux administrateurs via Discord, pensez-donc à indiquer votre pseudo Discord si nécessaire.</p>
-            <p>Vous pouvez utiliser ce formulaire pour les demande de unban, les plaintes, réclamations et demandes de partenariat.</p>
+            <p>Ce formulaire vous permet d'envoyer un message directement au staff de RedCraft.org. Le message sera
+                envoyé aux administrateurs via Discord, pensez-donc à indiquer votre pseudo Discord si nécessaire.</p>
+            <p>Vous pouvez utiliser ce formulaire pour les demande de unban, les plaintes, réclamations et demandes de
+                partenariat.</p>
         </div>
     </x-section>
 </x-app-layout>
+
+
+@push('scripts')
+    <script>
+        // The `inner-height` element sets the height from it's content
+        // The `dynamic-height` element animates it with a transition
+        let innerElement = document.getElementById("contact-form");
+        let dynamicElement = document.getElementById('dynamic-height')
+
+        function expandSection() {
+
+            console.log("test");
+            // The timeout is needed in order to wait for the animation to start
+            // and prevents long elements from overflowing to the next section
+            setTimeout(() => {
+                dynamicElement.style.height = innerElement.clientHeight + "px";
+            }, 150);
+        }
+
+        expandSection();
+
+        new ResizeObserver(expandSection).observe(innerElement);
+    </script>
+@endpush
