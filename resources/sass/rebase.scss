@@ -44,4 +44,8 @@ section[bg="bg-primary"] {
     &:focus {
         @apply border-light ring-0;
     }
+
+    &.input-failed {
+        @apply border-error scale-y-105 delay-100;
+    }
 }
