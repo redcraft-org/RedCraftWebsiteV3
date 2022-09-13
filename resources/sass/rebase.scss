@@ -46,6 +46,6 @@ section[bg="bg-primary"] {
     }
 
     &.input-failed {
-        @apply border-error scale-y-105 delay-100;
+        @apply border-error scale-105 delay-100;
     }
 }
