@@ -78,7 +78,9 @@
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
-        Yay t'as réussi !
+        <h3>Terminé</h3>
+        <p>Votre message a bien été envoyé !</p>
+        <x-contact.icon-checkmark-cross icon="success" />
     </div>
 
 
@@ -88,6 +90,7 @@
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
         <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
-        T'as raté t'es nul
+        <p></p> T'as raté t'es nul
+        <x-contact.icon-checkmark-cross icon="error" />
     </div>
 </form>
