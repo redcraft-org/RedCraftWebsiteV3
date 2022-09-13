@@ -57,6 +57,14 @@
         </div>
 
         <div class="w-full">
+            {{-- Subject --}}
+            <input type="text" placeholder="Sujet" class="input w-full" wire:model.debounce.250ms="subject" />
+            @error('subject')
+                <span class="text-error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="w-full">
             {{-- Message --}}
             <textarea class="input textarea h-32 w-full" placeholder="Message" wire:model.debounce.250ms="message"></textarea>
             @error('message')
