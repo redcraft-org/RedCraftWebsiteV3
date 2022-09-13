@@ -53,7 +53,7 @@
 
                 <div class="flex justify-between">
                     <div class="contact-validation font-weight-bold text-error"></div>
-                    <button type="submit" class="btn btn-lg btn-primary">Envoyer le message</button>
+                    <button type="submit" class="btn btn-lg btn-primary" wire:loading.attr="disabled">Envoyer le message</button>
                 </div>
             </div>
 
