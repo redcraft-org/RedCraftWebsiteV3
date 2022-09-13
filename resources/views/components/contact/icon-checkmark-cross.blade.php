@@ -1,12 +1,7 @@
 {{-- Parameters :
 icon
 - "success", draws a checkmark
-- "error", draws a cross
-animation
-- 0, don't animate, the icon won't appear.
-    In order to show it, a JS function must add the "checkmark-animation" class
-    to the ".checkmark" element when the animation should play
-- 1, show the icon with an animation when the page is loaded --}}
+- "error", draws a cross --}}
 
 @once
     @push('styles')
