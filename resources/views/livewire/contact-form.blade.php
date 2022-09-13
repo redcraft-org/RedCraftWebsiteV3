@@ -30,7 +30,7 @@
             {{-- Minecraft name --}}
             <div class="w-full">
                 <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
-                    wire:model.debounce.500ms="username" />
+                    wire:model.debounce.250ms="username" />
                 @error('username')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -38,7 +38,7 @@
             {{-- Discord name --}}
             <div class="w-full">
                 <input type="text" placeholder="Identifiant Discord (Nom#0000)" class="input w-full"
-                    wire:model.debounce.500ms="discord_username" />
+                    wire:model.debounce.250ms="discord_username" />
                 @error('discord_username')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -49,7 +49,7 @@
             {{-- Email --}}
             <div class="w-full">
                 <input type="email" placeholder="Adresse email" class="input w-full"
-                    wire:model.debounce.500ms="email" />
+                    wire:model.debounce.250ms="email" />
                 @error('email')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -58,7 +58,7 @@
 
         <div class="w-full">
             {{-- Message --}}
-            <textarea class="input textarea h-32 w-full" placeholder="Message" wire:model.debounce.500ms="message"></textarea>
+            <textarea class="input textarea h-32 w-full" placeholder="Message" wire:model.debounce.250ms="message"></textarea>
             @error('message')
                 <span class="text-error">{{ $message }}</span>
             @enderror
