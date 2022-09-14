@@ -85,7 +85,7 @@
     <div x-show="page == 'success'" x-cloak x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
-        x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
+        x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
         <h4>Terminé</h4>
         <p>Votre message a bien été envoyé !</p>
         <x-contact.icon-checkmark-cross icon="success" />
@@ -96,15 +96,16 @@
     <div x-show="page == 'error'" x-cloak x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
-        x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
+        x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
 
-        <h4>Erreur</h4>
+        <h4>Votre message n'a pas pu être envoyé</h4>
 
         @if (session()->has('contactFormErrorCode') && session()->has('contactFormErrorMessage'))
-            <p class="text-lg font-mono">{{ session('contactFormErrorMessage') }}</p>
+            <p class="text-lg font-mono">Erreur : {{ session('contactFormErrorMessage') }}</p>
             <p>Code d'erreur : {{ session('contactFormErrorCode') }}</p>
         @else
-            <p>Une erreur est survenue lors de l'envoi de votre message.</p>
+            <p class="text-lg">Une erreur inconnue est survenue</p>
+            <p>Code d'erreur non-disponible</p>
         @endif
 
         <x-contact.icon-checkmark-cross icon="error" />
