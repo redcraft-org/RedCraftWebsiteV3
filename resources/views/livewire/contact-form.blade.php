@@ -86,7 +86,7 @@
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
-        <h3>Terminé</h3>
+        <h4>Terminé</h4>
         <p>Votre message a bien été envoyé !</p>
         <x-contact.icon-checkmark-cross icon="success" />
     </div>
@@ -97,8 +97,18 @@
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-5">
-        <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
-        <p></p> T'as raté t'es nul
+
+        <h4>Erreur</h4>
+
+        @if (session()->has('contactFormErrorCode') && session()->has('contactFormErrorMessage'))
+            <p class="text-lg font-mono">{{ session('contactFormErrorMessage') }}</p>
+            <p>Code d'erreur : {{ session('contactFormErrorCode') }}</p>
+        @endif
+
         <x-contact.icon-checkmark-cross icon="error" />
+        <div class="flex justify-end">
+            <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
+        </div>
+
     </div>
 </form>

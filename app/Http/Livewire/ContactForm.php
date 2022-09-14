@@ -116,21 +116,17 @@ class ContactForm extends Component
         ]);
 
         if ($response->successful()) {
+
             $this->page = 'success';
+            $this->resetExcept('page');
+
         } else {
+
             $this->page = 'error';
-            dd($response->body());
-            return [
-                'error' => $response->body()
-            ];
+            session()->flash('contactFormErrorCode', json_decode($response->body())->code);
+            session()->flash('contactFormErrorMessage', json_decode($response->body())->message);
+
         }
 
-        $this->page = 'error';
-
-
-
-
-        $this->reset();
-        $this->page = 'success';
     }
 }
