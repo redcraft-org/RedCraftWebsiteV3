@@ -103,6 +103,8 @@
         @if (session()->has('contactFormErrorCode') && session()->has('contactFormErrorMessage'))
             <p class="text-lg font-mono">{{ session('contactFormErrorMessage') }}</p>
             <p>Code d'erreur : {{ session('contactFormErrorCode') }}</p>
+        @else
+            <p>Une erreur est survenue lors de l'envoi de votre message.</p>
         @endif
 
         <x-contact.icon-checkmark-cross icon="error" />

@@ -42,6 +42,7 @@ class ContactForm extends Component
         ];
     }
 
+    // Real time validation
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -52,7 +53,33 @@ class ContactForm extends Component
         // Validate the form
         $this->validate();
 
-        // Construct the message
+        // Wait 250ms for a better UX
+        usleep(250000);
+
+        // Send the message to discord webhook
+        $response = Http::post(env('DISCORD_CONTACT_WEBHOOK_URL'), [
+            'embeds' => $this->build_discord_embed(),
+        ]);
+
+        // Error handling
+        if ($response->successful()) {
+
+            $this->page = 'success';
+            $this->resetExcept('page');
+
+        } else {
+
+            $this->page = 'error';
+            session()->flash('contactFormErrorCode', json_decode($response->body())->code);
+            session()->flash('contactFormErrorMessage', json_decode($response->body())->message);
+
+        }
+
+    }
+
+    private function build_discord_embed() {
+
+        // Construct the fields
         $fields = array();
         if ($this->fromPlayer) {
             array_push(
@@ -97,36 +124,17 @@ class ContactForm extends Component
             ]
         );
 
-        usleep(500000);
-
-        // Send the message to discord webhook
-        $response = Http::post(env('DISCORD_CONTACT_WEBHOOK_URL'), [
-            'embeds' => [
-                [
-                    "title" => $this->subject,
-                    "description" => $this->message,
-                    "color" => $this->fromPlayer ? 12734287 : 5215938,
-                    "fields" => $fields,
-                    "author" => [
-                        "name" => "Nouveau message de redcraft.org/contact",
-                        "icon_url" => "https://i.imgur.com/nR8LjCP.png"
-                    ]
+        return [
+            [
+                "title" => $this->subject,
+                "description" => $this->message,
+                "color" => $this->fromPlayer ? 12734287 : 5215938,
+                "fields" => $fields,
+                "author" => [
+                    "name" => "Nouveau message de redcraft.org/contact",
+                    "icon_url" => "https://i.imgur.com/nR8LjCP.png"
                 ]
-            ],
-        ]);
-
-        if ($response->successful()) {
-
-            $this->page = 'success';
-            $this->resetExcept('page');
-
-        } else {
-
-            $this->page = 'error';
-            session()->flash('contactFormErrorCode', json_decode($response->body())->code);
-            session()->flash('contactFormErrorMessage', json_decode($response->body())->message);
-
-        }
-
+            ]
+        ];
     }
 }
