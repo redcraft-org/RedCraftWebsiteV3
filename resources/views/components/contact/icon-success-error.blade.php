@@ -5,12 +5,12 @@ icon
 
 @once
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('css/icon-checkmark-cross.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/icon-success-error.css') }}">
     @endpush
 @endonce
 
 <!-- Reference https://stackoverflow.com/questions/41078478/css-animated-checkmark -->
-<svg class="checkmark my-4 {{ $attributes['icon'] }}"
+<svg class="icon-success-error my-4 {{ $attributes['icon'] }}"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
     <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
 

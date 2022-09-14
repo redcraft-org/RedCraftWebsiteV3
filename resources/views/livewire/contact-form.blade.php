@@ -88,7 +88,7 @@
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
         <h4>Terminé</h4>
         <p>Votre message a bien été envoyé !</p>
-        <x-contact.icon-checkmark-cross icon="success" />
+        <x-contact.icon-success-error icon="success" />
     </div>
 
 
@@ -108,7 +108,7 @@
             <p>Code d'erreur non-disponible</p>
         @endif
 
-        <x-contact.icon-checkmark-cross icon="error" />
+        <x-contact.icon-success-error icon="error" />
         <div class="flex justify-end">
             <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
         </div>

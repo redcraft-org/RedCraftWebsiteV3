@@ -16,7 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/pages/home.scss', 'public/css')
     .sass('resources/sass/pages/rules.scss', 'public/css')
-    .sass('resources/sass/components/icon-checkmark-cross.scss', 'public/css')
+    .sass('resources/sass/components/icon-success-error.scss', 'public/css')
     .options({
         postCss: [
             require('postcss-import'),
