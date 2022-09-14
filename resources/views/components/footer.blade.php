@@ -17,7 +17,7 @@ $links = [
 
 <x-section class="pb-32" bg="bg-base-200" text="text-light" wave-bg="fill-base-200" wave-id="6">
     <div class="flex md:flex-row flex-col">
-        <div class="md:w-1/2 flex items-center mx-auto">
+        <div class="md:w-1/2 flex items-center mx-auto pb-4 md:pb-0">
             <x-jet-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 <img id="rc-logo-homepage" src="{{ asset('images/inline_org_color.png') }}">
             </x-jet-nav-link>
