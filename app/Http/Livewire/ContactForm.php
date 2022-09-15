@@ -12,11 +12,11 @@ class ContactForm extends Component
     public $page = 'start';
 
     public $fromPlayer;
-    public $username;
-    public $discord_username;
+    public $username = 'Codelta';
+    public $discord_username = 'Codelta#0001';
     public $email;
-    public $subject;
-    public $message;
+    public $subject = 'I have a question';
+    public $message = 'Hello, I have a question about your server.';
 
     protected $messages = [
         'username.required' => 'Le pseudo Minecraft est requis.',
@@ -58,7 +58,14 @@ class ContactForm extends Component
 
         // Send the message to discord webhook
         $response = Http::post(env('DISCORD_CONTACT_WEBHOOK_URL'), [
-            'embeds' => $this->build_discord_embed(),
+            'thread_name' => ($this->fromPlayer ? '🎮' : '👤') . ' ' . $this->subject,
+            'username' => $this->fromPlayer ? $this->username : $this->email,
+            // TODO Use the Skin API
+            'avatar_url' => $this->fromPlayer ?
+                'https://crafatar.com/avatars/' . $this->username . '?size=128' :
+                'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=128',
+            'content' => $this->build_message_content(),
+            'applied_tags' => $this->fromPlayer ? 'Player' : 'Other',
         ]);
 
         // Error handling
@@ -66,75 +73,25 @@ class ContactForm extends Component
 
             $this->page = 'success';
             $this->resetExcept('page');
-
         } else {
 
             $this->page = 'error';
             session()->flash('contactFormErrorCode', json_decode($response->body())->code);
             session()->flash('contactFormErrorMessage', json_decode($response->body())->message);
-
         }
-
     }
 
-    private function build_discord_embed() {
+    private function build_message_content()
+    {
+        $content = '🗒️ `Type de requête` : ' . ($this->fromPlayer ? 'Joueur' : 'Autre') . "\n\n";
+        $content .= ($this->fromPlayer ? '🧩 `Pseudo Minecraft` : ' . $this->username . "\n\n" : '');
+        $content .= ($this->discord_username ? '🗨️ `Pseudo Discord` : ' . $this->discord_username . "\n\n" : '');
+        $content .= (!$this->fromPlayer ? '📧 `Email` : ' . $this->email . "\n\n" : '');
+        $content .= '- `🏠 IP` : ' . Request::ip() . "\n\n";
+        $content .= '- `🦊 User Agent` : ' . Request::header('User-Agent');
+        $content .= "\n\nMessage :\n";
+        $content .= "```" . $this->message . "```";
 
-        // Construct the fields
-        $fields = array();
-        if ($this->fromPlayer) {
-            array_push(
-                $fields,
-                [
-                    "name" => "`Pseudo Minecraft`",
-                    "value" => $this->username,
-                    "inline" => true
-                ]
-            );
-            if ($this->discord_username) {
-                array_push(
-                    $fields,
-                    [
-                        "name" => "`Pseudo Discord`",
-                        "value" => $this->discord_username,
-                        "inline" => true
-                    ]
-                );
-            }
-        } else {
-            array_push(
-                $fields,
-                [
-                    "name" => "`Email`",
-                    "value" => $this->email,
-                    "inline" => true
-                ]
-            );
-        }
-        array_push(
-            $fields,
-            [
-                "name" => "`Adresse IP`",
-                "value" => $ip = Request::getClientIp(),
-                "inline" => true
-            ],
-            [
-                "name" => "`Type de requête`",
-                "value" => $this->fromPlayer ? "Joueur" : "Autre",
-                "inline" => true
-            ]
-        );
-
-        return [
-            [
-                "title" => $this->subject,
-                "description" => $this->message,
-                "color" => $this->fromPlayer ? 12734287 : 5215938,
-                "fields" => $fields,
-                "author" => [
-                    "name" => "Nouveau message de redcraft.org/contact",
-                    "icon_url" => "https://i.imgur.com/nR8LjCP.png"
-                ]
-            ]
-        ];
+        return $content;
     }
 }
