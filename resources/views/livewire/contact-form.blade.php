@@ -26,7 +26,7 @@
             <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
         </div>
 
-        <div class="flex flex-row gap-8" x-show="fromPlayer">
+        <div class="flex flex-col md:flex-row gap-8" x-show="fromPlayer">
             {{-- Minecraft name --}}
             <div class="w-full">
                 <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
@@ -86,8 +86,8 @@
         x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
-        <h4>Terminé</h4>
-        <p>Votre message a bien été envoyé !</p>
+        <h5>Terminé</h5>
+        <p class="pb-8">Votre message a bien été envoyé !</p>
         <x-contact.icon-success-error icon="success" />
     </div>
 
@@ -98,11 +98,11 @@
         x-transition:leave="transition ease-in duration-300 absolute top-0 w-full"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
 
-        <h4>Votre message n'a pas pu être envoyé</h4>
-        <p class="text-lg">Une erreur est survenue</p>
+        <h5>Votre message n'a pas pu être envoyé</h5>
+        <p class="pb-8">Une erreur est survenue</p>
 
         <x-contact.icon-success-error icon="error" />
-        <div class="flex justify-end">
+        <div class="flex justify-end mt-8">
             <button type="button" class="btn btn-primary" x-on:click="page = 'start'; expandSection();">Retour</button>
         </div>
 
