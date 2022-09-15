@@ -40,6 +40,11 @@ Route::get('/rules', function () {
     return view('rules');
 })->name('rules');
 
+// about
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
