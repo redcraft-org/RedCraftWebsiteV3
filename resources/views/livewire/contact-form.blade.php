@@ -99,14 +99,7 @@
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
 
         <h4>Votre message n'a pas pu être envoyé</h4>
-
-        @if (session()->has('contactFormErrorCode') && session()->has('contactFormErrorMessage'))
-            <p class="text-lg font-mono">Erreur : {{ session('contactFormErrorMessage') }}</p>
-            <p>Code d'erreur : {{ session('contactFormErrorCode') }}</p>
-        @else
-            <p class="text-lg">Une erreur inconnue est survenue</p>
-            <p>Code d'erreur non-disponible</p>
-        @endif
+        <p class="text-lg">Une erreur est survenue</p>
 
         <x-contact.icon-success-error icon="error" />
         <div class="flex justify-end">

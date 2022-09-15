@@ -12,11 +12,11 @@ class ContactForm extends Component
     public $page = 'start';
 
     public $fromPlayer;
-    public $username = 'Codelta';
-    public $discord_username = 'Codelta#0001';
+    public $username;
+    public $discord_username;
     public $email;
-    public $subject = 'I have a question';
-    public $message = 'Hello, I have a question about your server.';
+    public $subject;
+    public $message;
 
     protected $messages = [
         'username.required' => 'Le pseudo Minecraft est requis.',
