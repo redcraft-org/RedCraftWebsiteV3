@@ -45,6 +45,11 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+// donation
+Route::get('/donation', function () {
+    return view('donation');
+})->name('donation');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

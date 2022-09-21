@@ -18,6 +18,10 @@ $links = [
         'name' => 'Rules',
         'route' => 'rules',
     ],
+    [
+        'name' => 'Donation',
+        'route' => 'donation',
+    ],
 ];
 @endphp
 
