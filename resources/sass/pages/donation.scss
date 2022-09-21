@@ -1,0 +1,9 @@
+#counterparties-steps {
+    li.step {
+        grid-template-rows: 50px 1fr;
+
+        &:after {
+            @apply w-12 h-12; /* 3 rem */
+        }
+    }
+}

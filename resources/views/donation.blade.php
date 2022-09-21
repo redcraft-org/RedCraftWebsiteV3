@@ -1,21 +1,24 @@
+<link rel="stylesheet" href="{{ mix('css/donation.css') }}">
+
 <x-app-layout>
 
     <x-page-header section-title="Dons" />
 
-    <x-section section-title="La page {{ Request::segment(1) }} est en développement" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-2/3">
-                <p>Cette page est en cours de développement.</p>
-                <p>Vous souhaitez peut-être retourner sur une de ces pages :</p>
-                <ul>
-                    <li><a href="{{ route('home') }}">Page d'accueil</a></li>
-                    <li><a href="{{ route('contact') }}">Page de contact</a></li>
-                </ul>
-            </div>
-            <div class="md:w-1/3 grid items-center justify-items-center">
-                <img src="{{ asset('images/page-not-found.png') }}" alt="RedCraft logo question mark">
-            </div>
+    <x-section section-title="Faire un don" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+
+        <div x-data="{ amount: 0 }" class="w-full flex flex-col">
+
+            <input type="number" placeholder="Montant" class="input input-bordered w-full" x-model="amount" />
+
+            <h5 class="mx-auto mb-4">Contreparties</h5>
+            <ul class="steps steps-vertical lg:steps-horizontal" id="counterparties-steps">
+                <li data-content="0€" class="step step-primary">VIP</li>
+                <li data-content="8€" class="step" :class="{ 'step-primary': amount >= 8 }">VIP</li>
+                <li data-content="15€" class="step" :class="{ 'step-primary': amount >= 15 }">VIP+</li>
+            </ul>
+
         </div>
+
     </x-section>
 
 </x-app-layout>
