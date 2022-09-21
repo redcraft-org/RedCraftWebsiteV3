@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/icon-checkmark-cross.css": "/css/icon-checkmark-cross.css",
+    "/css/rules.css": "/css/rules.css",
     "/css/home.css": "/css/home.css",
     "/css/app.css": "/css/app.css"
 }
