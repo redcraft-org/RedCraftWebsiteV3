@@ -15,11 +15,63 @@
 
     <x-section section-title="Faire un don" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
 
-        <div x-data="{ amount: 0, counterparty: '' }" class="w-full flex flex-col">
+        <div x-data="{ amount: 2, counterparty: '', anonyme: false, gift: false }" class="w-full flex flex-col">
 
-            {{--  Formulaire --}}
-            <input type="number" placeholder="Montant" class="input input-bordered input-lg w-full mb-24"
-                x-model="amount" />
+            {{-- Formulaire --}}
+            <div class="mb-4">
+
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text">Montant en euros</span>
+                    </label>
+                    <label class="input-group">
+
+                        <input type="number" placeholder="Montant" class="input input-bordered input-lg w-full"
+                            x-model="amount" />
+                        <span>€</span>
+                    </label>
+                </div>
+
+                <p class="text-secondary mb-4">Si un don a déjà été fait, le prix des contreparties sera déduit </p>
+
+                <div class="flex gap-4 mb-4">
+                    <div class="w-1/2">
+                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full">
+                    </div>
+                    <div class="form-control">
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox checkbox-light" x-model="anonyme" />
+                            <span class="label-text ml-2">Anonyme</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mb-4">
+                    <div class="w-1/2">
+                        <div class="form-control">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="checkbox checkbox-light" x-model="gift" />
+                                <span class="label-text ml-2">Ce don est un cadeau</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="w-1/2">
+                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full">
+                    </div>
+                </div>
+
+                <textarea class="input textarea h-32 w-full mb-4" placeholder="Message"></textarea>
+
+                <input type="text" placeholder="Coupon" class="input max-w-xs mb-4" />
+
+
+                <div class="flex justify-end">
+                    <button type="submit" class="btn btn-lg btn-primary">Envoyer le message</button>
+                </div>
+
+
+
+            </div>
 
             <h5 class="mx-auto mb-4">Contreparties</h5>
             <ul class="steps steps-vertical lg:steps-horizontal mb-4" id="counterparties-steps">
@@ -36,7 +88,8 @@
                         <h2 class="card-title">Grade VIP</h2>
                         <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-outline btn-primary" @click="counterparty = (counterparty == 'vip' ? '' : 'vip')">Sélectionner</button>
+                            <button class="btn btn-outline btn-primary"
+                                @click="counterparty = (counterparty == 'vip' ? '' : 'vip')">Sélectionner</button>
                         </div>
                     </div>
                 </div>
@@ -46,7 +99,8 @@
                         <h2 class="card-title">Grade VIP+</h2>
                         <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-outline btn-primary" @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')">Sélectionner</button>
+                            <button class="btn btn-outline btn-primary"
+                                @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')">Sélectionner</button>
                         </div>
                     </div>
                 </div>
