@@ -1,9 +1,32 @@
+@media (max-width: 1023px) {
+    li.step {
+        grid-template-columns: 50px 1fr!important;
+    }
+}
+
 #counterparties-steps {
+
     li.step {
         grid-template-rows: 50px 1fr;
 
         &:after {
             @apply w-12 h-12; /* 3 rem */
         }
+    }
+
+
+}
+
+.card-counterparty {
+    @apply opacity-20 translate-y-5;
+    @apply card w-full shadow-xl duration-150;
+    @apply bg-light text-base-100 border-secondary border-0 m-2;
+
+    &.available {
+        @apply opacity-100 translate-y-0 border-secondary;
+    }
+
+    &.selected {
+        @apply border-primary border-8 m-0;
     }
 }
