@@ -32,11 +32,11 @@
                     </label>
                 </div>
 
-                <p class="text-secondary mb-4">Si un don a déjà été fait, le prix des contreparties sera déduit </p>
+                <p class="text-secondary mb-4">Si un don a déjà été fait, le prix des contreparties sera déduit pour la personne qui reçoit le don.</p>
 
                 <div class="flex gap-4 mb-4">
                     <div class="w-1/2">
-                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full">
+                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full" x-bind:disabled="anonyme">
                     </div>
                     <div class="form-control">
                         <label class="cursor-pointer label">
@@ -56,17 +56,15 @@
                         </div>
                     </div>
                     <div class="w-1/2">
-                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full">
+                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input input-bordered w-full" x-bind:disabled="!gift">
                     </div>
                 </div>
 
                 <textarea class="input textarea h-32 w-full mb-4" placeholder="Message"></textarea>
 
-                <input type="text" placeholder="Coupon" class="input max-w-xs mb-4" />
-
-
-                <div class="flex justify-end">
-                    <button type="submit" class="btn btn-lg btn-primary">Envoyer le message</button>
+                <div class="flex gap-4 mb-4">
+                    <input type="text" placeholder="Coupon" class="input max-w-xs mb-4" />
+                    <button type="button" class="btn btn-secondary btn-outline">Appliquer le coupon</button>
                 </div>
 
 
@@ -81,29 +79,43 @@
                 <li data-amount="15" data-content="15€" class="step" :class="{ 'step-primary': amount >= 15 }"
                     @click="amount = 15;"></li>
             </ul>
-            <div class="flex gap-x-12">
+            <div class="flex gap-x-12 mb-12">
+                {{-- Extra spacing --}}
                 <div class="w-full"></div>
-                <div class="card-counterparty" :class="{ 'available': amount >= 8, 'selected': counterparty == 'vip' }">
+                {{-- VIP card --}}
+                <div class="card-counterparty" :class="{ 'available': amount >= 8, 'selected': counterparty == 'vip' }"
+                    x-effect="amount < 8 && counterparty == 'vip' ? counterparty = '' : ''">
                     <div class="card-body">
                         <h2 class="card-title">Grade VIP</h2>
                         <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
                         <div class="card-actions justify-end">
                             <button class="btn btn-outline btn-primary"
-                                @click="counterparty = (counterparty == 'vip' ? '' : 'vip')">Sélectionner</button>
+                                @click="counterparty = (counterparty == 'vip' ? '' : 'vip')"
+                                x-bind:disabled="amount < 8">Sélectionner</button>
                         </div>
                     </div>
                 </div>
+                {{-- VIP+ card --}}
                 <div class="card-counterparty"
-                    :class="{ 'available': amount >= 15, 'selected': counterparty == 'vipp' }">
+                    :class="{ 'available': amount >= 15, 'selected': counterparty == 'vipp' }"
+                    x-effect="amount < 15 && counterparty == 'vipp' ? counterparty = '' : ''">
                     <div class="card-body">
                         <h2 class="card-title">Grade VIP+</h2>
                         <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
                         <div class="card-actions justify-end">
                             <button class="btn btn-outline btn-primary"
-                                @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')">Sélectionner</button>
+                                @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')"
+                                x-bind:disabled="amount < 15">Sélectionner</button>
                         </div>
                     </div>
                 </div>
+            </div>
+
+
+
+
+            <div class="flex justify-end">
+                <button type="submit" class="btn btn-lg btn-primary">Faire un don</button>
             </div>
 
         </div>

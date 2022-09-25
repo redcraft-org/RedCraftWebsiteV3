@@ -10,7 +10,7 @@
         grid-template-rows: 50px 1fr;
 
         &:after {
-            @apply w-12 h-12; /* 3 rem */
+            @apply w-12 h-12 cursor-pointer; /* 3 rem */
         }
     }
 
