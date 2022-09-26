@@ -68,7 +68,7 @@ $links = [
 
     <!-- Mobile Menu -->
     <div id="mobile-menu-content" x-show="mobileOpen" x-cloak
-        class="bg-base-200/90 backdrop-blur-lg drop-shadow-lg absolute w-1/2 max-w-xs rounded-md right-6 top-2 z-10 py-4 flex lg:hidden"
+        class="bg-base-300/90 backdrop-blur-lg drop-shadow-lg absolute w-1/2 max-w-xs rounded-md right-6 top-2 z-10 py-4 flex lg:hidden"
         x-transition:enter="transition out-expo duration-100"
         x-transition:enter-start="opacity-0 scale-90 translate-x-3.5 -translate-y-3"
         x-transition:enter-end="opacity-100 scale-100 translate-x-0 translate-y-0"

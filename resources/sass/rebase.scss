@@ -39,7 +39,7 @@ section[bg="bg-primary"] {
 }
 
 .input {
-    @apply border-2 bg-base-200 border-secondary rounded-lg px-2 py-1;
+    @apply border-2 bg-base-300 border-secondary rounded-lg px-2 py-1;
 
     &:focus {
         @apply border-light ring-0;
@@ -48,4 +48,12 @@ section[bg="bg-primary"] {
     &.input-failed {
         @apply border-error scale-105 delay-100;
     }
+
+    &.input-borderless {
+        @apply border-0;
+    }
+}
+
+.input-group {
+    @apply border-2 border-secondary rounded-lg;
 }
