@@ -20,7 +20,8 @@ module.exports = {
                 "accent": "#8f3b3b",
                 "neutral": "#f2f2f3",
                 "base-100": "#2b2d2f",
-                "base-200": "#181a1b",
+                "base-200": "#212324",
+                "base-300": "#181a1b",
                 "info": "#4F96C2",
                 "success": "#4FC270",
                 "warning": "#FFC547",
@@ -70,7 +71,8 @@ module.exports = {
                     // "neutral-content": "",
 
                     "base-100": "#2b2d2f",
-                    // "base-200": "",
+                    "base-200": "#212324",
+                    "base-300": "#181a1b",
                     // "base-300": "",
                     // "base-content": "",
 
