@@ -53,9 +53,6 @@ class ContactForm extends Component
         // Validate the form
         $this->validate();
 
-        // Wait 250ms for a better UX
-        usleep(250000);
-
         // Send the message to discord webhook
         $response = Http::post(env('DISCORD_CONTACT_WEBHOOK_URL'), [
             'thread_name' => ($this->fromPlayer ? '🎮' : '👤') . ' ' . $this->subject,
