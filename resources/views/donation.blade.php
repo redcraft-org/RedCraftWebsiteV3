@@ -20,6 +20,8 @@
 
     <x-section section-title="Faire un don" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
 
+        <livewire:player-search />
+
         <div x-data="{ amount: '', counterparty: '', anonyme: false, gift: false }" class="w-full flex flex-col">
 
             {{-- Formulaire --}}
@@ -112,7 +114,7 @@
                         x-effect="amount < 8 && counterparty == 'vip' ? counterparty = '' : ''">
                         <div class="card-body">
                             <h2 class="card-title">Grade VIP</h2>
-                            <p>Avec un don de minimum 8€, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
+                            <p>Avec un don de minimum 8€, vous pouvez recevoir un grave <b>VIP</b>.</p>
                             <div class="card-actions justify-end">
                                 <button class="btn btn-outline btn-primary"
                                     @click="counterparty = (counterparty == 'vip' ? '' : 'vip')"
@@ -124,14 +126,14 @@
                 <li data-amount="15" data-content="15€" class="step" :class="{ 'step-primary': amount >= 15 }">
                     {{-- VIP+ card --}}
                     <div class="card-counterparty"
-                        :class="{ 'available': amount >= 15, 'selected': counterparty == 'vipp' }"
-                        x-effect="amount < 15 && counterparty == 'vipp' ? counterparty = '' : ''">
+                        :class="{ 'available': amount >= 15, 'selected': counterparty == 'redvip' }"
+                        x-effect="amount < 15 && counterparty == 'redvip' ? counterparty = '' : ''">
                         <div class="card-body">
-                            <h2 class="card-title">Grade VIP+</h2>
-                            <p>Avec un don de minimum 15€, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
+                            <h2 class="card-title">Grade RedVIP</h2>
+                            <p>Avec un don de minimum 15€, vous pouvez recevoir un grave <b>RedVIP</b>.</p>
                             <div class="card-actions justify-end">
                                 <button class="btn btn-outline btn-primary"
-                                    @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')"
+                                    @click="counterparty = (counterparty == 'redvip' ? '' : 'redvip')"
                                     x-bind:disabled="amount < 15">Sélectionner</button>
                             </div>
                         </div>
