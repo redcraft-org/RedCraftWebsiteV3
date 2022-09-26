@@ -15,39 +15,50 @@
 
     <x-section section-title="Faire un don" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
 
-        <div x-data="{ amount: 2, counterparty: '', anonyme: false, gift: false }" class="w-full flex flex-col">
+        <div x-data="{ amount: '', counterparty: '', anonyme: false, gift: false }" class="w-full flex flex-col">
 
             {{-- Formulaire --}}
-            <div class="mb-4">
+            <div class="mb-14">
 
-                <div class="form-control mb-4">
+                <div class="form-control mb-8">
                     <label class="label">
-                        <span class="label-text">Montant en euros</span>
+                        <span class="label-text">Choisissez le montant</span>
                     </label>
-                    <label class="input-group">
-
-                        <input type="number" placeholder="Montant" class="input input-bordered input-lg w-full"
-                            x-model="amount" />
+                    <div class="input-group">
+                        <button x-cloak :class="amount == 5 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
+                            @click="amount = 5">5€</button>
+                        <button x-cloak :class="amount == 8 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
+                            @click="amount = 8">8€</button>
+                        <button x-cloak :class="amount == 15 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
+                            @click="amount = 15">15€</button>
+                        <button x-cloak :class="amount == 20 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
+                            @click="amount = 20">20€</button>
+                        <input type="number" placeholder="Autre montant"
+                            class="w-2/6 input input-lg text-right input-borderless" x-model="amount" />
                         <span>€</span>
-                    </label>
-                </div>
-
-                <p class="text-secondary mb-4">Si un don a déjà été fait, le prix des contreparties sera déduit pour la personne qui reçoit le don.</p>
-
-                <div class="flex gap-4 mb-4">
-                    <div class="w-1/2">
-                        <input type="text" placeholder="Pseudo Minecraft" class="input input-bordered w-full" x-bind:disabled="anonyme">
-                    </div>
-                    <div class="form-control">
-                        <label class="cursor-pointer label">
-                            <input type="checkbox" class="checkbox checkbox-light" x-model="anonyme" />
-                            <span class="label-text ml-2">Anonyme</span>
-                        </label>
                     </div>
                 </div>
 
-                <div class="flex gap-4 mb-4">
-                    <div class="w-1/2">
+                <p class="text-secondary mb-8">Si un don a déjà été fait, le prix des contreparties sera déduit pour la
+                    personne qui reçoit le don.</p>
+
+                <div class="flex gap-4 mb-8 flex-col-reverse md:flex-row">
+                    <div class="w-full">
+                        <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
+                            x-bind:disabled="anonyme">
+                    </div>
+                    <div class="w-full flex items-center">
+                        <div class="form-control">
+                            <label class="cursor-pointer label">
+                                <input type="checkbox" class="checkbox checkbox-light" x-model="anonyme" />
+                                <span class="label-text ml-2">Anonyme</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mb-8 flex-col md:flex-row">
+                    <div class="w-full flex items-center">
                         <div class="form-control">
                             <label class="cursor-pointer">
                                 <input type="checkbox" class="checkbox checkbox-light" x-model="gift" />
@@ -55,69 +66,62 @@
                             </label>
                         </div>
                     </div>
-                    <div class="w-1/2">
-                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input input-bordered w-full" x-bind:disabled="!gift">
+                    <div class="w-full">
+                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire"
+                            class="input w-full" x-bind:disabled="!gift">
                     </div>
                 </div>
 
-                <textarea class="input textarea h-32 w-full mb-4" placeholder="Message"></textarea>
+                <textarea class="input textarea h-32 w-full mb-8" placeholder="Message (optionnel)"></textarea>
 
-                <div class="flex gap-4 mb-4">
-                    <input type="text" placeholder="Coupon" class="input max-w-xs mb-4" />
+                <div class="flex gap-4 mb-8 flex-col md:flex-row">
+                    <input type="text" placeholder="Coupon" class="input max-w-xs" />
                     <button type="button" class="btn btn-secondary btn-outline">Appliquer le coupon</button>
                 </div>
 
+                {{-- <p class="text-success">Le coupon a été appliqué !</p> --}}
 
-
+                <div class="flex justify-end">
+                    <button type="submit" class="btn btn-lg btn-primary">Faire un don</button>
+                </div>
             </div>
 
             <h5 class="mx-auto mb-4">Contreparties</h5>
             <ul class="steps steps-vertical lg:steps-horizontal mb-4" id="counterparties-steps">
-                <li data-amount="0" data-content="0€" class="step step-primary" @click="amount = 0;"></li>
-                <li data-amount="8" data-content="8€" class="step" :class="{ 'step-primary': amount >= 8 }"
-                    @click="amount = 8;"></li>
-                <li data-amount="15" data-content="15€" class="step" :class="{ 'step-primary': amount >= 15 }"
-                    @click="amount = 15;"></li>
+                <li data-amount="0" data-content="0€" class="step step-primary"></li>
+                <li data-amount="8" data-content="8€" class="step" :class="{ 'step-primary': amount >= 8 }">
+                    {{-- VIP card --}}
+                    <div class="card-counterparty"
+                        :class="{ 'available': amount >= 8, 'selected': counterparty == 'vip' }"
+                        x-effect="amount < 8 && counterparty == 'vip' ? counterparty = '' : ''">
+                        <div class="card-body">
+                            <h2 class="card-title">Grade VIP</h2>
+                            <p>Avec un don de minimum 8€, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-outline btn-primary"
+                                    @click="counterparty = (counterparty == 'vip' ? '' : 'vip')"
+                                    x-bind:disabled="amount < 8">Sélectionner</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-amount="15" data-content="15€" class="step" :class="{ 'step-primary': amount >= 15 }">
+                    {{-- VIP+ card --}}
+                    <div class="card-counterparty"
+                        :class="{ 'available': amount >= 15, 'selected': counterparty == 'vipp' }"
+                        x-effect="amount < 15 && counterparty == 'vipp' ? counterparty = '' : ''">
+                        <div class="card-body">
+                            <h2 class="card-title">Grade VIP+</h2>
+                            <p>Avec un don de minimum 15€, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-outline btn-primary"
+                                    @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')"
+                                    x-bind:disabled="amount < 15">Sélectionner</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
-            <div class="flex gap-x-12 mb-12">
-                {{-- Extra spacing --}}
-                <div class="w-full"></div>
-                {{-- VIP card --}}
-                <div class="card-counterparty" :class="{ 'available': amount >= 8, 'selected': counterparty == 'vip' }"
-                    x-effect="amount < 8 && counterparty == 'vip' ? counterparty = '' : ''">
-                    <div class="card-body">
-                        <h2 class="card-title">Grade VIP</h2>
-                        <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-outline btn-primary"
-                                @click="counterparty = (counterparty == 'vip' ? '' : 'vip')"
-                                x-bind:disabled="amount < 8">Sélectionner</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- VIP+ card --}}
-                <div class="card-counterparty"
-                    :class="{ 'available': amount >= 15, 'selected': counterparty == 'vipp' }"
-                    x-effect="amount < 15 && counterparty == 'vipp' ? counterparty = '' : ''">
-                    <div class="card-body">
-                        <h2 class="card-title">Grade VIP+</h2>
-                        <p>Avec ce montant, vous pouvez recevoir un grave <b>VIP</b> en retour.</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-outline btn-primary"
-                                @click="counterparty = (counterparty == 'vipp' ? '' : 'vipp')"
-                                x-bind:disabled="amount < 15">Sélectionner</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="flex justify-end">
-                <button type="submit" class="btn btn-lg btn-primary">Faire un don</button>
-            </div>
-
         </div>
 
     </x-section>
