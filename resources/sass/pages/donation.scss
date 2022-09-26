@@ -1,11 +1,67 @@
-@media (max-width: 1023px) {
-    li.step {
-        grid-template-columns: 50px auto!important;
-        grid-template-rows: auto!important;
+#amount-buttons {
+    .btn-amount {
+        @apply text-light border-none w-1/4 md:w-1/6 btn-lg;
+
+        &.active {
+            @apply btn-primary;
+        }
+
+        &.inactive {
+            @apply bg-base-200 hover:bg-base-100;
+        }
+    }
+
+    #btn-hide-input-number {
+        @apply text-right bg-base-200 hover:bg-base-100;
+        @apply flex w-full md:w-2/6 h-16;
+        @apply items-center justify-center rounded-r-lg cursor-pointer;
+    }
+
+    div input {
+        @apply rounded-none;
+    }
+
+
+    @media (max-width: 1023px) {
+        .btn-amount {
+            &:first-child {
+                @apply rounded-none rounded-tl-lg;
+            }
+
+            &:nth-child(4) {
+                @apply rounded-none rounded-tr-lg;
+            }
+        }
+
+        #btn-hide-input-number {
+            @apply rounded-none rounded-b-lg;
+        }
+
+        div {
+            @apply rounded-none rounded-b-lg;
+
+            input {
+                @apply rounded-none rounded-bl-lg;
+            }
+            span {
+                @apply rounded-none rounded-br-lg;
+            }
+        }
     }
 }
 
+
+
+
+
 #counterparties-steps {
+
+    @media (max-width: 1023px) {
+        li.step {
+            grid-template-columns: 50px auto !important;
+            grid-template-rows: auto !important;
+        }
+    }
 
     @apply mx-auto;
     grid-template-rows: auto;
@@ -14,7 +70,8 @@
         grid-template-rows: 50px auto;
 
         &:after {
-            @apply w-12 h-12; /* 3 rem */
+            @apply w-12 h-12;
+            /* 3 rem */
         }
     }
 

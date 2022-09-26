@@ -2,10 +2,15 @@
 
 @push('scripts')
     <script>
-        const counterpartiesSteps = document.querySelectorAll('[data-amount]')
-        counterpartiesSteps.forEach((step, i) => {
-            // trucs
-        });
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('btnAmount', () => ({
+                fromBtn: true,
+                setAmount(amount) {
+                    this.amount = amount;
+                    this.fromBtn = true;
+                }
+            }))
+        })
     </script>
 @endpush
 
@@ -24,18 +29,29 @@
                     <label class="label">
                         <span class="label-text">Choisissez le montant</span>
                     </label>
-                    <div class="input-group">
-                        <button x-cloak :class="amount == 5 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
-                            @click="amount = 5">5€</button>
-                        <button x-cloak :class="amount == 8 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
-                            @click="amount = 8">8€</button>
-                        <button x-cloak :class="amount == 15 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
-                            @click="amount = 15">15€</button>
-                        <button x-cloak :class="amount == 20 ? 'btn-primary' : 'bg-base-200 hover:bg-base-100'" class="text-light border-none w-1/6 btn btn-lg"
-                            @click="amount = 20">20€</button>
-                        <input type="number" placeholder="Autre montant"
-                            class="w-2/6 input input-lg text-right input-borderless" x-model="amount" />
-                        <span>€</span>
+                    <div id="amount-buttons" class="input-group flex-wrap" x-data="btnAmount">
+                        <button x-cloak :class="amount == 5 && fromBtn ? 'active' : 'inactive'" class="btn-amount"
+                            @click="setAmount(5)">5€</button>
+                        <button x-cloak :class="amount == 8 && fromBtn ? 'active' : 'inactive'" class="btn-amount"
+                            @click="setAmount(8)">8€</button>
+                        <button x-cloak :class="amount == 15 && fromBtn ? 'active' : 'inactive'" class="btn-amount"
+                            @click="setAmount(15)">15€</button>
+                        <button x-cloak :class="amount == 20 && fromBtn ? 'active' : 'inactive'" class="btn-amount"
+                            @click="amount = 20; fromBtn = true">20€</button>
+
+                        {{-- Autre montant --}}
+                        <template x-if="fromBtn">
+                            <button type="button" @click="fromBtn = false" id="btn-hide-input-number">Autre montant...</button>
+                        </template>
+                        <template x-if="!fromBtn">
+                            <div class="flex w-full md:w-2/6">
+                                <input type="number" placeholder="Autre montant"
+                                    class="input input-lg text-right input-borderless w-full appearance-none"
+                                    x-model="amount" x-ref="amountInput" />
+                                <span>€</span>
+                            </div>
+                        </template>
+
                     </div>
                 </div>
 
@@ -67,8 +83,8 @@
                         </div>
                     </div>
                     <div class="w-full">
-                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire"
-                            class="input w-full" x-bind:disabled="!gift">
+                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input w-full"
+                            x-bind:disabled="!gift">
                     </div>
                 </div>
 
