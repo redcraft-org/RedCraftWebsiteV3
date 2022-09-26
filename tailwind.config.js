@@ -41,11 +41,16 @@ module.exports = {
                 '104': '1.04',
             },
             transitionTimingFunction: {
-              'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
-              'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+                'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
+                'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
             },
             lineHeight: {
-              '32': '8rem',
+                '32': '8rem',
+            },
+            strokeWidth: {
+                '3': '3',
+                '4': '4',
+                '5': '5',
             }
         },
     },
