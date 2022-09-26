@@ -8,7 +8,6 @@
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 @import "./rebase.scss";
-@import "./button.scss";
 @import "./navbar.scss";
 
 // Alpine JS cloak directive
@@ -30,4 +29,8 @@ section:first-child {
     background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner.jpg");
     background-position: center;
     background-size: cover;
+}
+
+.btn {
+    @apply no-animation normal-case font-normal;
 }
