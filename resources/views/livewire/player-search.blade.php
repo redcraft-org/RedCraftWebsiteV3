@@ -4,8 +4,9 @@
     @endonce
 
     <input type="text" wire:model="search" wire:keydown.escape="resetSearch" wire:keydown.tab="selectPlayer"
-        wire:keydown.arrow-up="decrHighlight" wire:keydown.arrow-down="incrHighlight" wire:keydown.enter="selectPlayer"
-        class="input w-full" :disabled="disabled" placeholder="Rechercher un joueur">
+        wire:keydown.arrow-up="decrHighlight" wire:keydown.arrow-down="incrHighlight"
+        wire:keydown.enter="selectPlayer" class="input w-full" :disabled="disabled"
+        placeholder="Rechercher un joueur">
 
     <div class="input-search-results" x-show="showDropdown" @click.outside="showDropdown = false" x-cloak>
 

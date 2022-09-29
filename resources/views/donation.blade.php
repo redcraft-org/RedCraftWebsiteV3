@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="flex gap-4 mb-8 flex-col md:flex-row">
+                <div class="flex gap-4 mb-8 flex-col-reverse md:flex-row">
                     <div class="w-full">
                         {{-- <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input w-full"
                             x-bind:disabled="!gift"> --}}
