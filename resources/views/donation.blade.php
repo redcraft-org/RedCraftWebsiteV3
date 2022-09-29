@@ -20,7 +20,6 @@
 
     <x-section section-title="Faire un don" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
 
-        <livewire:player-search />
 
         <div x-data="{ amount: '', counterparty: '', anonyme: false, gift: false }" class="w-full flex flex-col">
 
@@ -62,8 +61,9 @@
 
                 <div class="flex gap-4 mb-8 flex-col-reverse md:flex-row">
                     <div class="w-full">
-                        <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
-                            x-bind:disabled="anonyme">
+                        {{-- <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
+                            x-bind:disabled="anonyme"> --}}
+                        <livewire:player-search :providers="['minecraft']"/>
                     </div>
                     <div class="w-full flex items-center">
                         <div class="form-control">

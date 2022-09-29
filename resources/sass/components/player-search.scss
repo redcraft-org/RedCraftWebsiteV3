@@ -1,0 +1,23 @@
+.input-player-search {
+    @apply relative;
+
+    .input-search-results {
+        @apply absolute bg-base-300 w-full shadow-xl z-10;
+        @apply overflow-y-auto max-h-64 mt-2 rounded-lg;
+        @apply border-2 border-base-200 ring-0;
+
+        .item {
+            @apply cursor-pointer p-4;
+
+            &.highlight {
+                @apply bg-base-200;
+            }
+        }
+    }
+
+    &:not(:focus-within) {
+        .input-search-results {
+            @apply hidden;
+        }
+    }
+}
