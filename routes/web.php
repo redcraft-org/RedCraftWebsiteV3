@@ -44,6 +44,11 @@ Route::get('/rules', function () {
 // about
 Route::get('/about', AboutController::class)->name('about');
 
+// contact
+Route::get('/contact', function () {
+    return view('coming-soon');
+})->name('contact');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

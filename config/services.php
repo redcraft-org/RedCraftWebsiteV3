@@ -36,5 +36,7 @@ return [
             'players' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS', 'http://localhost:25580/players.json'),
         ],
     ],
+    'discord-invite-url' => env('DISCORD_INVITE_URL'),
+    'github-organization-url' => env('GITHUB_ORGANIZATION_URL', 'https://github.com/redcraft-org'),
 
 ];

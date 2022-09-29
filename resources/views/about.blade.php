@@ -18,7 +18,7 @@
                     tombent et laissent place à une communauté soudée.</p>
                 <p>L'entièretée du projet RedCraft.org est développé avec des outils modernes dans
                     l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez
-                    toutes les sources sur notre <a href="#" target="_blank">GitHub</a> !</p>
+                    toutes les sources sur notre <a href="{{ config('services.github-organization-url') }}" target="_blank">GitHub</a> !</p>
                 <p><b>Se respecter, s'amuser, s'entraider</b>. Voilà notre credo qui garantit un
                     lieu d'apprentissage, de divertissement et de bon vivre.</p>
             </div>
@@ -52,8 +52,8 @@
                     nous en parler ! Vous êtes intéressé.e à écrire du code, aider
                     à la construction du terrain ou participer à l'organisation ?
                     Prenez contact avec nous, que ça soit via le
-                    <a href="#">formulaire de contact</a>, via
-                    <a href="#" target="_blank">le Discord</a>
+                    <a href="{{ route('contact') }}">formulaire de contact</a>, via
+                    <a href="{{ config('services.discord-invite-url') }}" target="_blank">le Discord</a>
                     ou directement en jeu.
                 </p>
             </div>
