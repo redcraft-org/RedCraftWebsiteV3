@@ -28,7 +28,7 @@
 
                 <div class="form-control mb-8">
                     <label class="label">
-                        <span class="label-text">Choisissez le montant</span>
+                        <span class="label-text">Montant du don</span>
                     </label>
                     <div id="amount-buttons" class="input-group flex-wrap" x-data="btnAmount">
                         <button x-cloak :class="amount == 5 && fromBtn ? 'active' : 'inactive'" class="btn-amount"
@@ -42,7 +42,8 @@
 
                         {{-- Autre montant --}}
                         <template x-if="fromBtn">
-                            <button type="button" @click="fromBtn = false" id="btn-hide-input-number">Autre montant...</button>
+                            <button type="button" @click="fromBtn = false" id="btn-hide-input-number">Autre
+                                montant...</button>
                         </template>
                         <template x-if="!fromBtn">
                             <div class="flex w-full md:w-2/6">
@@ -61,14 +62,13 @@
 
                 <div class="flex gap-4 mb-8 flex-col-reverse md:flex-row">
                     <div class="w-full">
-                        {{-- <input type="text" placeholder="Pseudo Minecraft" class="input w-full"
-                            x-bind:disabled="anonyme"> --}}
-                        <livewire:player-search :providers="['minecraft']"/>
+                        <livewire:player-search :providers="['minecraft']" :name="'donationFrom'" />
                     </div>
                     <div class="w-full flex items-center">
                         <div class="form-control">
                             <label class="cursor-pointer label">
-                                <input type="checkbox" class="checkbox checkbox-light" x-model="anonyme" />
+                                <input type="checkbox" class="checkbox checkbox-light" x-model="anonyme"
+                                    @click="Livewire.emit('disablePlayerSearchInput:donationFrom', !anonyme)" />
                                 <span class="label-text ml-2">Anonyme</span>
                             </label>
                         </div>
@@ -76,17 +76,19 @@
                 </div>
 
                 <div class="flex gap-4 mb-8 flex-col md:flex-row">
+                    <div class="w-full">
+                        {{-- <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input w-full"
+                            x-bind:disabled="!gift"> --}}
+                        <livewire:player-search :providers="['minecraft']" :name="'donationTo'" :disabled="true"/>
+                    </div>
                     <div class="w-full flex items-center">
                         <div class="form-control">
                             <label class="cursor-pointer">
-                                <input type="checkbox" class="checkbox checkbox-light" x-model="gift" />
+                                <input type="checkbox" class="checkbox checkbox-light" x-model="gift"
+                                    @click="Livewire.emit('disablePlayerSearchInput:donationTo', gift)" />
                                 <span class="label-text ml-2">Ce don est un cadeau</span>
                             </label>
                         </div>
-                    </div>
-                    <div class="w-full">
-                        <input type="text" placeholder="Pseudo Minecraft du bénéficiaire" class="input w-full"
-                            x-bind:disabled="!gift">
                     </div>
                 </div>
 

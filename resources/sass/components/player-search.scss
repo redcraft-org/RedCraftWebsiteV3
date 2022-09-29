@@ -9,15 +9,15 @@
         .item {
             @apply cursor-pointer p-4;
 
-            &.highlight {
+            &.highlight, &:hover {
                 @apply bg-base-200;
             }
         }
     }
 
-    &:not(:focus-within) {
-        .input-search-results {
-            @apply hidden;
-        }
-    }
+    // &:not(:focus-within) {
+    //     .input-search-results {
+    //         @apply hidden;
+    //     }
+    // }
 }

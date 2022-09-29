@@ -12,50 +12,76 @@ class PlayerSearch extends Component
     public $search = '';
     public $highlightIndex = 0;
     public $results = [];
-    public $providerss = [];
+    public $providers = [];
+    public $name = '';
 
-    public function mount($providers)
+    // entangled values with the frontend
+    public $showDropdown = false;
+    public $disabled = false;
+
+    protected function getListeners()
     {
-        if ($providers) {
-            $this->providerss = $providers;
-            return;
-        }
-        $this->providerss = Provider::all()->pluck('name')->toArray();
+        return ['disablePlayerSearchInput:' . $this->name => 'disableInput'];
     }
 
+    public function mount($providers, $name, $disabled = false)
+    {
+        if (!$providers)
+            $this->providers = Provider::all()->pluck('name')->toArray();
+        else
+            $this->providers = $providers;
+
+        $this->name = $name;
+        $this->disabled = $disabled;
+    }
+
+    /**
+     * allows to disable the input field from the outside
+     */
+    public function disableInput($disabled)
+    {
+        $this->disabled = $disabled;
+        if ($disabled)
+            $this->resetSearch();
+    }
+
+    /**
+     * resets the search
+     */
     public function resetSearch() {
         $this->search = '';
         $this->highlightIndex = 0;
         $this->results = [];
+        $this->showDropdown = false;
     }
 
     public function incrHighlight()
     {
-        if ($this->highlightIndex >= count($this->results) - 1) {
+        if ($this->highlightIndex >= count($this->results) - 1)
             $this->highlightIndex = 0;
-            return;
-        }
+        else
+            $this->highlightIndex++;
 
-        $this->highlightIndex++;
     }
 
     public function decrHighlight()
     {
-        if ($this->highlightIndex < 1) {
+        if ($this->highlightIndex < 1)
             $this->highlightIndex = count($this->results) - 1;
-            return;
-        }
-
-        $this->highlightIndex--;
+        else
+            $this->highlightIndex--;
     }
 
-    public function selectPlayer()
+    public function selectPlayer($index = null)
     {
         if (!count($this->results)) {
             $this->search = '';
             return;
         }
-        $this->search = $this->results[$this->highlightIndex];
+
+        if ($index === null) $index = $this->highlightIndex;
+        $this->search = $this->results[$index];
+        $this->showDropdown = false;
     }
 
     public function updatedSearch()
@@ -63,9 +89,10 @@ class PlayerSearch extends Component
         $this->results = DB::table('player_info_providers')
             ->join('providers', 'player_info_providers.provider_id', '=', 'providers.id')
             ->where('last_username', 'like', '%' . $this->search . '%')
-            ->whereIn('providers.name', $this->providerss)
+            ->whereIn('providers.name', $this->providers)
             ->pluck('last_username')
             ->toArray();
+        $this->showDropdown = true;
     }
 
     public function render()
