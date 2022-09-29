@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,9 +42,7 @@ Route::get('/rules', function () {
 })->name('rules');
 
 // about
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about', AboutController::class)->name('about');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

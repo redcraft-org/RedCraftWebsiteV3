@@ -61,8 +61,8 @@
                 <h5>Quelle version le serveur supporte-t-il ?</h5>
                 <p>
                     Le serveur est joignable à partir de la version
-                    <strong>TODO</strong> jusqu'à
-                    la version <strong>TODO</strong>.
+                    <strong>{{ reset($versions['supportedVersions']) }}</strong> jusqu'à
+                    la version <strong>{{ end($versions['supportedVersions']) }}</strong>.
                 </p>
             </div>
             <div>

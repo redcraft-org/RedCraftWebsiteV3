@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'redcraft-bungee-json-api' => [
+        'endpoint' => [
+            'versions' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_VERSIONS', 'http://localhost:25580/versions.json'),
+            'players' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS', 'http://localhost:25580/players.json'),
+        ],
+    ],
+
 ];
