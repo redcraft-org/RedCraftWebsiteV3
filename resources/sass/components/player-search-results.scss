@@ -1,0 +1,14 @@
+.player-search-results {
+    @apply absolute top-full w-full bg-base-300 shadow-xl z-10;
+    @apply overflow-y-auto max-h-64 mt-2 rounded-lg;
+    @apply border-2 border-base-200 ring-0;
+
+    .item {
+        @apply cursor-pointer p-4;
+
+        &.highlight,
+        &:hover {
+            @apply bg-base-200;
+        }
+    }
+}

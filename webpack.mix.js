@@ -23,6 +23,7 @@ mix.js('resources/js/app.js', 'public/js')
     //Components
     .sass('resources/sass/components/icon-success-error.scss', 'public/css')
     .sass('resources/sass/components/player-search.scss', 'public/css')
+    .sass('resources/sass/components/player-search-results.scss', 'public/css')
     .options({
         postCss: [
             require('postcss-import'),
