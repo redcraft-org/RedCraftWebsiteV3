@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
     @apply font-black;
 }
@@ -11,6 +15,9 @@ h6 { @apply text-lg; }
 
 ul {
     @apply list-disc ml-8;
+}
+ol {
+    @apply list-decimal ml-8;
 }
 
 a {
@@ -28,5 +35,17 @@ section[bg="bg-primary"] {
         &:hover, &:active {
             @apply text-light;
         }
+    }
+}
+
+.input {
+    @apply border-2 bg-base-200 border-secondary rounded-lg px-2 py-1;
+
+    &:focus {
+        @apply border-light ring-0;
+    }
+
+    &.input-failed {
+        @apply border-error scale-105 delay-100;
     }
 }

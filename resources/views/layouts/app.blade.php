@@ -16,6 +16,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @stack('styles')
 
         @livewireStyles
 
@@ -26,6 +27,7 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
+
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -41,7 +43,11 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <x-footer />
+
         </div>
+
 
         @stack('modals')
         @stack('scripts')

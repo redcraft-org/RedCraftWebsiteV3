@@ -24,7 +24,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/contact', function () {
-    return view('coming-soon');
+    return view('contact');
 })->name('contact');
 
 Route::get('/vote', function () {
@@ -38,16 +38,12 @@ Route::get('/stats', function () {
 
 // rules
 Route::get('/rules', function () {
-    return view('coming-soon');
+    return view('rules');
 })->name('rules');
 
 // about
 Route::get('/about', AboutController::class)->name('about');
 
-// contact
-Route::get('/contact', function () {
-    return view('coming-soon');
-})->name('contact');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
