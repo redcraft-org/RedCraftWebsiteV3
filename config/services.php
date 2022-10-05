@@ -34,6 +34,7 @@ return [
         'endpoint' => [
             'versions' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_VERSIONS', 'http://localhost:25580/versions.json'),
             'players' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS', 'http://localhost:25580/players.json'),
+            'time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_TIME', 900),
         ],
     ],
     'discord-invite-url' => env('DISCORD_INVITE_URL'),
