@@ -23,7 +23,9 @@ class PlayerDelete extends Controller
                 'message' => 'Player deleted',
             ], 200);
         }
-        abort(404, 'Player not found');
+        return response()->json([
+            'message' => 'Player not found',
+        ], 404);
 
     }
 }

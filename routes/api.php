@@ -2,6 +2,9 @@
 
 use App\Models\Language;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsernameProfile;
+use App\Http\Controllers\Skin\SkinGetBody;
+use App\Http\Controllers\Skin\SkinGetHead;
 use App\Http\Controllers\Player\PlayerList;
 use App\Http\Controllers\UrlListController;
 use App\Http\Controllers\Player\PlayerCreate;
@@ -10,15 +13,13 @@ use App\Http\Controllers\Player\PlayerUpdate;
 use App\Http\Controllers\UrlCreateController;
 use App\Http\Controllers\Player\PlayerReplace;
 use App\Http\Controllers\Player\PlayerRetrieve;
+use App\Http\Controllers\Skin\SkinGetIsometric;
+
 use App\Http\Controllers\Player\PlayerAddLanguage;
 use App\Http\Controllers\Player\PlayerAddProvider;
 use App\Http\Controllers\Player\PlayerGetLanguage;
 use App\Http\Controllers\Player\PlayerGetProvider;
-
-use App\Http\Controllers\Skin\SkinGetBody;
-use App\Http\Controllers\Skin\SkinGetHead;
-use App\Http\Controllers\Skin\SkinGetIsometric;
-
+use App\Http\Controllers\UsernameUuid;
 
 Route::prefix('v1')->group(function () {
     Route::prefix('player')->group(function () {
@@ -36,7 +37,12 @@ Route::prefix('v1')->group(function () {
         Route::put('{uuid}', PlayerReplace::class);
         Route::patch('{uuid}', PlayerUpdate::class);
     });
-  
+
+    Route::prefix('minecraft-username')->group(function () {
+        Route::get('{username}/profile', UsernameProfile::class);
+        Route::get('{username}/uuid', UsernameUuid::class);
+    });
+
     Route::prefix('language')->group(function () {
         Route::get('/list', function () {
             return response()->json(Language::all(), 200);
