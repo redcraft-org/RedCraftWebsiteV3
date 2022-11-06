@@ -31,6 +31,12 @@ section:first-child {
     background-size: cover;
 }
 
+.page-header {
+    background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
 .btn {
     @apply no-animation normal-case font-normal;
 }

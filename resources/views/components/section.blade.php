@@ -20,7 +20,7 @@ if ($attributes['wave-bg'] && $attributes['wave-id']) {
     ]) }}>
 
 
-    <div class="mx-auto px-8 container md:max-w-screen-lg">
+    <div class="mx-auto px-8 container md:max-w-screen-lg flex flex-col gap-y-16">
 
         {{-- Section title --}}
         @if ($attributes['section-title'])
@@ -35,7 +35,6 @@ if ($attributes['wave-bg'] && $attributes['wave-id']) {
         <div class="flex flex-col">
             {{ $slot }}
         </div>
-
 
     </div>
 </section>
