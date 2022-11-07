@@ -28,4 +28,24 @@ class Language extends Model
     {
         return self::where('code', $code)->first()->name;
     }
+
+    public static function getCodeFromId($id)
+    {
+        return self::where('id', $id)->first()->code;
+    }
+
+    public static function getNameFromId($id)
+    {
+        return self::where('id', $id)->first()->name;
+    }
+
+    public static function getIdFromName($name)
+    {
+        return self::where('name', $name)->first()->id;
+    }
+
+    public static function getCodeFromName($name)
+    {
+        return self::where('name', $name)->first()->code;
+    }
 }
