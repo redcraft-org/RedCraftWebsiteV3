@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Attribute;
 use App\Traits\Uuids;
+use App\Models\PlayerMail;
 use App\Models\PlayerInfoProvider;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
@@ -163,17 +164,29 @@ class Player extends Model
 
     public function getMailsAttribute()
     {
-        return Mail::where('sender_uuid', $this->id)->get();
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('recipient_uuid', $uuids)->get();
+        return $mail;
     }
 
     public function getUnreadMailsAttribute()
     {
-        return Mail::where('sender_uuid', $this->id)->where('is_read', false)->get();
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('recipient_uuid', $uuids)->where('read_at', null)->get();
+        return $mail;
     }
 
     public function getSentMailsAttribute()
     {
-        return Mail::where('sender_uuid', $this->id)->get();
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('sender_uuid', $uuids)->get();
+        return $mail;
     }
 
 }

@@ -1,26 +1,28 @@
 <?php
 
-use App\Http\Controllers\PlayerMail\PlayerMailCreate;
-use App\Http\Controllers\Player\PlayerAddLanguage;
-use App\Http\Controllers\Player\PlayerAddProvider;
-use App\Http\Controllers\Player\PlayerCreate;
-use App\Http\Controllers\Player\PlayerDelete;
-use App\Http\Controllers\Player\PlayerGetLanguage;
-use App\Http\Controllers\Player\PlayerGetProvider;
-use App\Http\Controllers\Player\PlayerList;
-use App\Http\Controllers\Player\PlayerReplace;
-use App\Http\Controllers\Player\PlayerRetrieve;
-use App\Http\Controllers\Player\PlayerUpdate;
-use App\Http\Controllers\Skin\SkinGetBody;
-use App\Http\Controllers\Skin\SkinGetHead;
-use App\Http\Controllers\Skin\SkinGetIsometric;
-use App\Http\Controllers\UrlCreateController;
-use App\Http\Controllers\UrlListController;
-use App\Http\Controllers\UsernameProfile;
-use App\Http\Controllers\UsernameUuid;
+use App\Models\Player;
 use App\Models\Language;
 use App\Models\PlayerMail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsernameUuid;
+use App\Http\Controllers\UsernameProfile;
+use App\Http\Controllers\Skin\SkinGetBody;
+use App\Http\Controllers\Skin\SkinGetHead;
+use App\Http\Controllers\Player\PlayerList;
+use App\Http\Controllers\UrlListController;
+use App\Http\Controllers\Player\PlayerCreate;
+use App\Http\Controllers\Player\PlayerDelete;
+use App\Http\Controllers\Player\PlayerUpdate;
+use App\Http\Controllers\UrlCreateController;
+use App\Http\Controllers\Player\PlayerReplace;
+use App\Http\Controllers\Player\PlayerRetrieve;
+use App\Http\Controllers\Skin\SkinGetIsometric;
+use App\Http\Controllers\Player\PlayerAddLanguage;
+use App\Http\Controllers\Player\PlayerAddProvider;
+use App\Http\Controllers\Player\PlayerGetLanguage;
+use App\Http\Controllers\Player\PlayerGetProvider;
+use App\Http\Controllers\PlayerMail\PlayerMailGet;
+use App\Http\Controllers\PlayerMail\PlayerMailCreate;
 
 Route::middleware('ensure_valid_jwt')->group(function () {
     Route::prefix('v1')->group(function () {
@@ -67,19 +69,8 @@ Route::middleware('ensure_valid_jwt')->group(function () {
         });
 
         Route::prefix('mail')->group(function () {
-            Route::get('{uuid}{unreadOnly?}', function ($uuid, $unreadOnly = false) {
-                $player = Player::getPlayerByUuid($uuid);
-                if (!$player) {
-                    return response()->json(['error' => 'Player not found'], 404);
-                }
-                if ($unreadOnly) {
-                    return response()->json($player->unreadMails, 200);
-                }
-                return response()->json($player->mails, 200);
-            });
-
+            Route::get('{uuid}{unreadOnly?}', PlayerMailGet::class);
             Route::post('/create', PlayerMailCreate::class);
-
             Route::patch('/update', function () {
                 return response()->json(PlayerMail::all(), 200);
             });

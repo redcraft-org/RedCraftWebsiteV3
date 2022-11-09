@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\PlayerMail;
 
+use App\Models\Language;
+use App\Models\PlayerMail;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlayerMail\PlayerMailCreateRequest;
-use Illuminate\Http\Request;
 
 class PlayerMailCreate extends Controller
 {
@@ -18,7 +20,7 @@ class PlayerMailCreate extends Controller
     {
         $original_language = $request->validated('original_language');
         $original_language_id = Language::getIdFromCode($original_language);
-        $mail = Mail::create([
+        $mail = PlayerMail::create([
             'sender_uuid' => $request->sender_uuid,
             'recipient_uuid' => $request->recipient_uuid,
             'message' => $request->message,
