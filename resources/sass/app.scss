@@ -8,8 +8,35 @@
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 @import "./rebase.scss";
-@import "./button.scss";
 @import "./navbar.scss";
 
 // Alpine JS cloak directive
 [x-cloak] { display: none !important; }
+
+
+// Move the 1st section down for the navbar
+section:first-child {
+    @apply mt-0;
+}
+
+// waves
+.wave {
+    @apply w-full absolute pointer-events-none;
+    @apply -mt-16 h-16 md:h-28 md:-mt-28 lg:h-40 lg:-mt-40;
+}
+
+.page-header {
+    background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.page-header {
+    background-image: linear-gradient(0, transparent, #292b2db5 0%), url("/images/banner.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.btn {
+    @apply no-animation normal-case font-normal;
+}

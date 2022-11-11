@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,18 +28,22 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/vote', function () {
-    return view('vote');
+    return view('coming-soon');
 })->name('vote');
 
 // stats
 Route::get('/stats', function () {
-    return view('stats');
+    return view('coming-soon');
 })->name('stats');
 
 // rules
 Route::get('/rules', function () {
     return view('rules');
 })->name('rules');
+
+// about
+Route::get('/about', AboutController::class)->name('about');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -73,7 +73,7 @@ $staffMembers = [
 ];
 @endphp
 
-<x-section id="staff" title="Staff">
+<x-section id="staff" section-title="Staff" bg="bg-secondary" text="text-light" wave-bg="fill-secondary" wave-id="4">
     <div class="flex justify-evenly flex-wrap gap-y-8 gap-x-4">
         @foreach ($staffMembers as $staffMember)
             <div class="flex w-32 mx-4 flex-col gap-y-2">
@@ -82,7 +82,7 @@ $staffMembers = [
                 <p class="flex justify-evenly text-xl font-bold text-center">{{ $staffMember['displayName'] }}</p>
                 <div class="flex justify-evenly flex-wrap">
                     @foreach ($staffMember['socials'] as $social)
-                        <a class="transition ease-in-out delay-150 hover:text-primary duration-300" href={{ $social['url'] }} target="_blank">
+                        <a class="transition ease-in-out delay-150 text-light hover:text-white duration-300" href={{ $social['url'] }} target="_blank">
                             <i class="fa-brands {{ $social['logo'] }} "></i>
                         </a>
                     @endforeach
