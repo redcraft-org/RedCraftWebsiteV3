@@ -5,61 +5,32 @@ $defaultKey = 'crea_build';
 
 $servers = [
     'crea_build' => [
-        'displayName' => 'Creatif Build',
+        'displayName' => __('home.servers.1.title'),
         'img' => asset('images/home/server-render.png'),
-        'short-description' => '
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Duis feugiat, ex ac cursus imperdiet, tortor dolor blandit diam,
-            et imperdiet dui ex vitae odio.
-        ',
-        'description' => '
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lacus purus,
-        semper et dui eu, facilisis dignissim quam. Aliquam erat volutpat. Mauris
-        sit amet imperdiet felis, id ultrices quam. Integer nec fermentum odio, eu
-        dictum enim. Etiam blandit tortor velit, in placerat nulla luctus sit amet.
-        Nulla euismod finibus justo, id elementum diam tempor vitae. Morbi
-        condimentum, turpis eu rhoncus sollicitudin, enim quam luctus neque,
-        sodales hendrerit metus magna ut eros. Fusce ipsum mi, sollicitudin id
-        ipsum et, porta efficitur ex. Curabitur pulvinar, nisl vel viverra
-        faucibus, nisi elit auctor quam, id imperdiet ligula lacus ac diam. Ut in
-        lorem quis purus ornare finibus. Phasellus tincidunt luctus efficitur.
-        Aliquam eu suscipit diam. Etiam semper quis orci ac malesuada. Ut turpis
-        ligula, porta vel metus eget, faucibus volutpat felis. Nunc a risus tellus.
-        ',
+        'short-description' => __('home.servers.1.short_description'),
+        'description' => __('home.servers.1.description'),
     ],
     'crea_red' => [
-        'displayName' => 'Creatif Redstone',
+        'displayName' => __('home.servers.2.title'),
         'img' => asset('images/home/server-render.png'),
-        'short-description' => '
-            Fusce ac molestie tortor, nec suscipit dolor. Proin quis massa dapibus,
-            tempus nisi ac, egestas urna. In non leo tincidunt, iaculis ex convallis,
-            venenatis tellus.
-        ',
-        'description' => '
-            Lorem ipsum dolor sit amet
-        ',
+        'short-description' => __('home.servers.2.short_description'),
+        'description' => __('home.servers.2.description'),
     ],
     'survie' => [
-        'displayName' => 'Survie',
+        'displayName' => __('home.servers.3.title'),
         'img' => asset('images/home/server-render.png'),
-        'short-description' => '
-            Morbi sed nunc dictum, interdum elit at, vulputate turpis. Aenean
-            at finibus magna. Aliquam mollis mollis tempus. Quisque suscipit
-            fringilla elit.
-        ',
-        'description' => '
-            https://bit.ly/3QTWxlk.
-        ',
+        'short-description' => __('home.servers.3.short_description'),
+        'description' => __('home.servers.3.description'),
     ],
 ];
 @endphp
 
-<x-section id="servers" title="Serveurs">
+<x-section id="servers" title="{{ __('home.servers.title') }}">
     <div id="dynamic-height" class="duration-300">
-        <div id="inner-height" class="flex flex-col sm:flex-row gap-16" x-data="{ open: '{{ $defaultKey }}' }">
+        <div id="inner-height" class="flex flex-col gap-16 sm:flex-row" x-data="{ open: '{{ $defaultKey }}' }">
             <div class="flex flex-col sm:w-1/2">
                 @foreach ($servers as $key => $server)
-                    <div class="cursor-pointer my-8 hover:scale-102 active:scale-100 duration-150"
+                    <div class="my-8 duration-150 cursor-pointer hover:scale-102 active:scale-100"
                         x-on:click="open = '{{ $key }}'; expandSection();">
                         <h4 :class="open == '{{ $key }}' ? 'text-primary' : ''">{{ $server['displayName'] }}
                         </h4>
@@ -70,9 +41,9 @@ $servers = [
                     @endif
                 @endforeach
             </div>
-            <div id="servers-list" class="sm:w-1/2 relative">
+            <div id="servers-list" class="relative sm:w-1/2">
                 @foreach ($servers as $key => $server)
-                    <div class="server-description text-right w-full" x-show="open == '{{ $key }}'" x-cloak
+                    <div class="w-full text-right server-description" x-show="open == '{{ $key }}'" x-cloak
                         x-transition:enter="transition ease-out duration-300 delay-200 desc-expand"
                         x-transition:enter-start="opacity-0 translate-y-5 scale-100"
                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
