@@ -3,19 +3,19 @@ $aPropos = [
     [
         'title' => __('home.about.1.title'),
         'text' => __('home.about.1.description'),
-        'image' => asset('images/home/castle.jpg'),
+        'image' => asset('images/home/about-1.jpg'),
         'image-size' => 'bg-cover',
     ],
     [
         'title' => __('home.about.2.title'),
         'text' => __('home.about.2.description'),
-        'image' => asset('images/home/library.jpg'),
+        'image' => asset('images/home/about-2.jpg'),
         'image-size' => 'bg-cover',
     ],
     [
         'title' => __('home.about.3.title'),
         'text' => __('home.about.3.description'),
-        'image' => asset('images/home/people.png'),
+        'image' => asset('images/home/about-3.png'),
         'image-size' => 'bg-contain',
     ],
 ];

@@ -6,21 +6,15 @@ $defaultKey = 'crea_build';
 $servers = [
     'crea_build' => [
         'displayName' => __('home.servers.1.title'),
-        'img' => asset('images/home/server-render.png'),
+        'img' => asset('images/home/crea-build.webp'),
         'short-description' => __('home.servers.1.short_description'),
         'description' => __('home.servers.1.description'),
     ],
     'crea_red' => [
         'displayName' => __('home.servers.2.title'),
-        'img' => asset('images/home/server-render.png'),
+        'img' => asset('images/home/crea-redstone.webp'),
         'short-description' => __('home.servers.2.short_description'),
         'description' => __('home.servers.2.description'),
-    ],
-    'survie' => [
-        'displayName' => __('home.servers.3.title'),
-        'img' => asset('images/home/server-render.png'),
-        'short-description' => __('home.servers.3.short_description'),
-        'description' => __('home.servers.3.description'),
     ],
 ];
 @endphp
@@ -52,7 +46,7 @@ $servers = [
 
                         <h1 class="text-secondary">{{ $server['displayName'] }}</h1>
                         <p class="mt-8">{{ $server['description'] }}</p>
-                        <img class="m-auto" alt="Image du serveur" src="{{ $server['img'] }}">
+                        <img class="m-auto rounded-lg" alt="Image du serveur" src="{{ $server['img'] }}">
                     </div>
                 @endforeach
             </div>
