@@ -2,8 +2,8 @@
 
 @php
 $classes = ($active ?? false)
-            ? 'nav-link active'
-            : 'nav-link';
+            ? 'no-underline	nav-link active'
+            : 'no-underline	nav-link';
 @endphp
 
 <a {{ $attributes->merge(['class' => $classes]) }}>

@@ -25,7 +25,7 @@ $servers = [
 ];
 @endphp
 
-<x-section id="servers" title="{{ __('home.servers.title') }}">
+<x-section id="servers" section-title="{{ __('home.servers.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2">
     <div id="dynamic-height" class="duration-300">
         <div id="inner-height" class="flex flex-col gap-16 sm:flex-row" x-data="{ open: '{{ $defaultKey }}' }">
             <div class="flex flex-col sm:w-1/2">

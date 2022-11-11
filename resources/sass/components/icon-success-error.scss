@@ -1,0 +1,67 @@
+// Reference https://stackoverflow.com/questions/41078478/css-animated-checkmark
+.icon-success-error {
+    @apply w-14 h-14 rounded-full block items-center justify-center stroke-3 m-auto;
+    stroke-miterlimit: 10;
+
+    .checkmark-circle {
+        @apply stroke-5;
+        animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        stroke-dasharray: 166;
+        stroke-dashoffset: 166;
+        stroke-miterlimit: 10;
+    }
+
+    &.success {
+        @apply stroke-success fill-transparent;
+        box-shadow: inset 0px 0px 0px theme('colors.success');
+        animation: fill-success .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+
+    &.error {
+        @apply stroke-error fill-transparent;
+        box-shadow: inset 0px 0px 0px theme('colors.error');
+        animation: fill-error .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+
+    .checkmark-icon {
+        @apply stroke-light origin-center;
+        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        // transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+
+        &:nth-child(2) {
+            animation-delay: .9s;
+        }
+    }
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill-success {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px theme('colors.success');
+    }
+}
+
+@keyframes fill-error {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px theme('colors.error');
+    }
+}

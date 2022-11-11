@@ -1,4 +1,4 @@
-<x-section id="news" title="{{  __('home.news.title') }}">
+<x-section id="news" section-title="{{  __('home.news.title') }}" bg="bg-primary" text="text-neutral" wave-bg="fill-primary" wave-id="1">
     <div class="flex flex-row gap-8">
         <div class="shadow-xl card w-96 bg-neutral text-base-100">
             <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
