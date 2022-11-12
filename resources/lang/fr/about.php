@@ -8,12 +8,12 @@ return [
         "1" => "RedCraft.org est une infrastructure de serveurs Minecraft à but non lucratif ouvert en 2022.",
         "2" => "Né de la fusion entre TopRed.fr et KingdomHills.fr, le projet RedCraft a pour but de rassembler les communautés de joueurs Minecraft peu importe leur origine. Grâce à un système de traduction en temps réel, les barrières du language tombent et laissent place à une communauté soudée.",
         "3" => [
-            "1" => "L'entièretée du projet RedCraft.org est développé avec des outils modernes dans l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez toutes les sources sur notre ",
+            "1" => "L'entièretée du projet RedCraft.org est développé avec des outils modernes dans l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez toutes les sources sur notre page ",
             "2" => "GitHub",
             "3" => " !",
         ],
         "4" => [
-            "1" => "Se respecter, s'amuser, s'entraider",
+            "1" => "Se respecter, s'amuser, s'entraider.",
             "2" => "Voilà notre credo qui garantit un lieu d'apprentissage, de divertissement et de bon vivre.",
         ]
     ],
@@ -67,7 +67,7 @@ return [
             "license" => "Licence",
             "description" => [
                 "laravel" => " : Un framework web open-source écrit en PHP respectant le principe modèle-vue-contrôleur et entièrement développé en programmation orientée objet.",
-                "livewire" => " : un framework full-stack pour Laravel qui simplifie la création d'interfaces dynamiques, sans quitter le confort de Laravel.",
+                "livewire" => " : Un framework full-stack pour Laravel qui simplifie la création d'interfaces dynamiques, sans quitter le confort de Laravel.",
                 "tailwind" => " : Un framework CSS à vocation utilitaire, rempli de classes qui peuvent être composées pour construire n'importe quel design, directement dans votre code.",
                 "alpine" => " : Un framework robuste et minimal pour composer le comportement JavaScript dans votre code.",
                 "sass" => " : Un langage de script préprocesseur qui est compilé ou interprété en CSS.",
