@@ -19,6 +19,11 @@ $links = [
         'route' => 'rules',
     ],
 ];
+
+$lang = app()->getLocale();
+$availableLangs = config('app.available_locales');
+dd($availableLangs);
+
 @endphp
 
 <nav x-data="{ mobileOpen: false }" class="mx-auto px-8 block border-none min-h-0 relative container md:max-w-screen-lg navbar">
@@ -28,12 +33,13 @@ $links = [
                 <img id="rc-logo-homepage" src="{{ asset('images/inline_org_color.png') }}">
             </x-jet-nav-link>
         </div>
-        <div class="space-x-8 px-4 hidden lg:flex">
+        <div class="space-x-8 px-4 hidden lg:flex lg:h-12">
             @foreach ($links as $link)
                 <x-jet-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
                     {{ $link['name'] }}
                 </x-jet-nav-link>
             @endforeach
+            <i class="fa-sharp fa-solid fa-earth-americas nav-link cursor-pointer"></i>
         </div>
 
         <!-- Hamburger -->
