@@ -1,3 +1,9 @@
+<?php
+$Supportedversions = McHelper::getVersions()['supportedVersions'];
+$versions = reset($Supportedversions) . " - " . end($Supportedversions);
+?>
+
+
 <x-section id="header">
 
     {{-- Welcome header --}}
@@ -12,7 +18,7 @@
         <div class="flex flex-col justify-center sm:w-1/2">
             <h1>@lang('home.title.welcome_to')</h1><span class="text-6xl">RedCraft !</span></h1>
             <p>@lang('home.title.sub')</p>
-            <b>@lang('home.title.version', ['version' => "1.x - 1.x"])</b>
+            <b>@lang('home.title.version', ['version' => $versions])</b>
         </div>
     </div>
 
