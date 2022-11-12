@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Torann\GeoIP\GeoIPServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,8 +234,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         'McHelper' => App\Helpers\McHelper::class,
+
     ],
 
 ];
