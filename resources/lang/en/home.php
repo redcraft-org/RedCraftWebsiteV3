@@ -21,12 +21,12 @@ return [
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
-            "title" => "A competent staff.",
-            "description" => "Our staff is composed of experienced players who have been playing Minecraft for years. They are here to help you and make your experience on the server as pleasant as possible.",
+            "title" => "A A flexible structure",
+            "description" => "RedCraft.org has been designed and thought from the beginning for robustness and adaptability. The entire project is open source, so anyone can contribute to the project!",
         ],
         "3" => [
             "title" => "Join us !",
-            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
+            "description" => "As the first Minecraft server to truly welcome players from all over the world into the same community, we strive to maintain an inclusive and respectful environment for all.",
         ],
     ],
     "news" => [
@@ -54,18 +54,13 @@ return [
         "title" => "Servers",
         "1" => [
             "title" => "Creative Build",
-            "short_description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
-            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
+            "short_description" => "Want to create a fantasy, realistic or any other type of build? It happens on the creative build server!",
+            "description" => "On this world filled with 64x64 size plots, you have the freedom to realize your build desires of any kind. With medium-sized terrains and several available for each player, you have the opportunity to build in detail or to see your projects in a big way.",
         ],
         "2" => [
             "title" => "Creative Redstone",
-            "short_description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
-            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
-        ],
-        "3" => [
-            "title" => "Survival",
-            "short_description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
-            "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget feugiat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis leo.",
+            "short_description" => "Come show off your engineering skills on the Redstone Creative Server, or learn to build complex mechanisms by collaborating with the best!",
+            "description" => "With 128x128 plots, you have room to build any type of construction. Whether it's piston doors, resource trusses or complex logic machines, the Redstone Creative Server is ready to host your greatest technical challenges.",
         ],
     ],
     "staff" => "Staff",

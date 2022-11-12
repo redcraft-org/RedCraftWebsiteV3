@@ -1,113 +1,105 @@
-{{-- <link rel="stylesheet" href="{{ mix('css/about.css') }}"> --}}
-
 <x-app-layout>
 
-    <x-page-header section-title="À Propos & FAQ" />
+    <x-page-header section-title="{{ trans('about.title') }}" />
 
-    <x-section section-title="À Propos" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+    <x-section section-title="{{ trans('about.about.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row md:gap-8">
             <div class="grid items-center md:w-1/3">
                 <img src="{{ asset('images/red_white_grey_none_none_296.png') }}" alt="RedCraft.org Logo" class="mx-auto">
             </div>
             <div class="flex flex-col gap-4 md:w-2/3">
-                <p><b>RedCraft.org est une infrastructure de serveurs Minecraft à but non lucratif ouvert en 2022.</b>
+                <p>
+                    <b>@lang('about.about.1')</b>
                 </p>
-                <p>Né de la fusion entre TopRed.fr et KingdomHills.fr, le projet RedCraft a
-                    pour but de rassembler les communautés de joueurs Minecraft peu importe leur
-                    origine. Grâce à un système de traduction en temps réel, les barrières du language
-                    tombent et laissent place à une communauté soudée.</p>
-                <p>L'entièretée du projet RedCraft.org est développé avec des outils modernes dans
-                    l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez
-                    toutes les sources sur notre <a href="{{ config('services.github-organization-url') }}" target="_blank">GitHub</a> !</p>
-                <p><b>Se respecter, s'amuser, s'entraider</b>. Voilà notre credo qui garantit un
-                    lieu d'apprentissage, de divertissement et de bon vivre.</p>
+                <p>
+                    @lang('about.about.2')</p>
+                <p>
+                    @lang('about.about.3.1')
+                    <a href="{{ config('services.github-organization-url') }}" target="_blank">@lang('about.about.3.2')</a>
+                    @lang('about.about.3.3')
+                </p>
+                <p>
+                    <b>@lang('about.about.4.1')</b>.
+                    @lang('about.about.4.2')
+                </p>
             </div>
         </div>
     </x-section>
 
-    <x-section section-title="FAQ" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="1">
+    <x-section section-title="{{ trans('about.faq.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="1">
         <div class="flex flex-col gap-8">
             <div>
-                <h5>Qu'est-ce que RedCraft.org ?</h5>
-                <p>
-                    RedCraft.org est une infrastructure de serveurs Minecraft multilingue.
-                    Le projet rassemble plusieurs serveurs créatifs ou survie, le tout
-                    étant complètement open source !</p>
+                <h5>@lang('about.faq.1.title')</h5>
+                <p>@lang('about.faq.1.description')</p>
             </div>
             <div>
-                <h5>Comment fonctionne le projet ?</h5>
+                <h5>@lang('about.faq.2.title')</h5>
                 <p>
-                    L'entièreté du projet RedCraft.org est <em>open source</em>. Ce
-                    qui veut dire que la totalité du projet a été crée dans un but
-                    sans profit, personne ne se fait d'argent sur le projet !
-                    D'ailleurs, <strong>un des objectifs principaux de RedCraft.org
-                        est de s'autosuffire</strong>. L'argent généré par le projet
-                    va uniquement pour son amélioration.
+                    @lang('about.faq.2.description.1')
+                    <em>@lang('about.faq.2.description.2')</em>
+                    @lang('about.faq.2.description.3')
+                    <strong>@lang('about.faq.2.description.4')</strong>
+                    @lang('about.faq.2.description.5')
                 </p>
             </div>
             <div>
-                <h5>Comment aider au projet ?</h5>
+                <h5>@lang('about.faq.3.title')</h5>
                 <p>
-                    La façon la plus efficace de contribuer au projet est de venir
-                    nous en parler ! Vous êtes intéressé.e à écrire du code, aider
-                    à la construction du terrain ou participer à l'organisation ?
-                    Prenez contact avec nous, que ça soit via le
-                    <a href="{{ route('contact') }}">formulaire de contact</a>, via
-                    <a href="{{ config('services.discord-invite-url') }}" target="_blank">le Discord</a>
-                    ou directement en jeu.
+                    @lang('about.faq.3.description.1')
+                    <a href="{{ route('contact') }}">@lang('about.faq.3.description.2')</a>
+                    @lang('about.faq.3.description.3')
+                    <a href="{{ config('services.discord-invite-url') }}" target="_blank">@lang('about.faq.3.description.4')</a>
+                    @lang('about.faq.3.description.5')
                 </p>
             </div>
             <div>
-                <h5>Quelle version le serveur supporte-t-il ?</h5>
+                <h5>@lang('about.faq.4.title')</h5>
                 <p>
-                    Le serveur est joignable à partir de la version
-                    <strong>{{ reset($versions['supportedVersions']) }}</strong> jusqu'à
-                    la version <strong>{{ end($versions['supportedVersions']) }}</strong>.
+                    @lang('about.faq.4.description.1')
+                    <strong>{{ reset(McHelper::getVersions()['supportedVersions']) }}</strong>
+                    @lang('about.faq.4.description.2')
+                    <strong>{{ end(McHelper::getVersions()['supportedVersions']) }}</strong>
+                    @lang('about.faq.4.description.3')
                 </p>
             </div>
             <div>
-                <h5>Comment rejoindre le serveur sur Bedrock ?</h5>
+                <h5>@lang('about.faq.5.title')</h5>
                 <p>
-                    Les joueurs sur version Bedrock ne sont pas lésinés ! Pour rejoindre
-                    RedCraft.org, vous avez besoin d'un compte Java. À la connexion au
-                    serveur, les identifiants de votre compte Java vous seront demandés.
-                    Remplissez le formulaire et vous êtes prêt à nous rejoindre en jeu.
+                    @lang('about.faq.5.description')
                 </p>
             </div>
         </div>
     </x-section>
 
-    <x-section section-title="Licences & sources" bg="bg-primary" text="text-light" wave-bg="fill-primary"
+    <x-section section-title="{{ trans('about.licenses.title') }}" bg="bg-primary" text="text-light" wave-bg="fill-primary"
         wave-id="2">
-        <h4>Site web</h4>
+        <h4>@lang('about.licenses.1.title')</h4>
         <ul>
             <li>
-                <b>Laravel</b> : Un framework web open-source écrit en PHP respectant le principe modèle-vue-contrôleur
-                et entièrement développé en programmation orientée objet.
-                <a href="https://laravel.com/" target="_blank">Site web</a>
+                <b>Laravel</b>@lang('about.licenses.1.description.laravel')
+                <a href="https://laravel.com/" target="_blank">@lang('about.licenses.1.website')</a>
             </li>
             <li>
-                <b>Livewire</b> : un framework full-stack pour Laravel qui simplifie la création d'interfaces
-                dynamiques, sans quitter le confort de Laravel.
-                <a href="https://laravel-livewire.com/" target="_blank">Site web</a>
+                <b>Livewire</b>@lang('about.licenses.1.description.livewire')
+                <a href="https://laravel-livewire.com/" target="_blank">@lang('about.licenses.1.website')</a>
             </li>
             <li>
-                <b>Tailwindcss</b> : Un framework CSS à vocation utilitaire, rempli de classes qui peuvent être
-                composées pour construire n'importe quel design, directement dans votre code.
-                <a href="https://tailwindcss.com/" target="_blank">Site web</a>
+                <b>Tailwindcss</b>@lang('about.licenses.1.description.tailwind')
+                <a href="https://tailwindcss.com/" target="_blank">@lang('about.licenses.1.website')</a>
             </li>
             <li>
-                <b>Alpine.JS</b> : Un framework robuste et minimal pour composer le comportement JavaScript dans votre code.
-                <a href="https://alpinejs.org/" target="_blank">Site web</a>
+                <b>Alpine.JS</b>@lang('about.licenses.1.description.alpine')
+                <a href="https://alpinejs.org/" target="_blank">@lang('about.licenses.1.website')</a>
             </li>
             <li>
-                <b>SASS</b> : Un langage de script préprocesseur qui est compilé ou interprété en CSS.
-                <a href="https://sass-lang.com/" target="_blank">Site web</a>
+                <b>SASS</b>@lang('about.licenses.1.description.sass')
+                <a href="https://sass-lang.com/" target="_blank">@lang('about.licenses.1.website')</a>
             </li>
             <li>
-                <b>Font Awesome</b> : Police d'écriture et outil d'icônes qui se base sur CSS, LESS et SASS.
-                <a href="https://fontawesome.com/" target="_blank">Site web</a> & <a
-                    href="https://fontawesome.com/license" target="_blank">License</a>
+                <b>Font Awesome</b>@lang('about.licenses.1.description.fontawesome')
+                <a href="https://fontawesome.com/" target="_blank">@lang('about.licenses.1.website')</a>
+                @lang('about.licenses.1.and')
+                <a href="https://fontawesome.com/license" target="_blank">@lang('about.licenses.1.license')</a>
             </li>
         </ul>
     </x-section>

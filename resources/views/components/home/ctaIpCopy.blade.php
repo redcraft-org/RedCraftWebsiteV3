@@ -1,5 +1,5 @@
 <button x-data="{ show: false, ...ctaAnimate }" class="flex flex-col gap-5 btn btn-lg btn-primary"
-    x-on:click="$clipboard('play.redcraft.org'); ctaIpCopy();">
+    x-on:click="$clipboard('redcraft.org'); ctaIpCopy();">
     <div :class="show ? 'invisible' : ''" x-transition>
         <div class="text-xl">@lang('home.join.join') <b>@lang('home.join.server')</b></div>
         <div class="text-sm">@lang("home.join.players_online", ['count' => 69])</div>

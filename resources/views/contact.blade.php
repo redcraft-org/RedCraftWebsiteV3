@@ -1,9 +1,9 @@
 <x-app-layout>
 
-    <x-page-header section-title="Contact" />
+    <x-page-header section-title="@lang('contact.title')" />
 
     {{-- <x-contact.contact-form /> --}}
-    <x-section section-title="Formulaire de contact" bg="bg-base-100" text="text-light" wave-bg="fill-base-100"
+    <x-section section-title="@lang('contact.contact_form.title')" bg="bg-base-100" text="text-light" wave-bg="fill-base-100"
         wave-id="3">
         <div id="dynamic-height" class="duration-300">
             @livewire('contact-form')
@@ -14,10 +14,8 @@
     <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light"
         wave-id="2">
         <div class="container">
-            <p>Ce formulaire vous permet d'envoyer un message directement au staff de RedCraft.org. Le message sera
-                envoyé aux administrateurs via Discord, pensez-donc à indiquer votre pseudo Discord si nécessaire.</p>
-            <p>Vous pouvez utiliser ce formulaire pour les demande de unban, les plaintes, réclamations et demandes de
-                partenariat.</p>
+            <p>@lang('contact.information.description_1')</p>
+            <p>@lang('contact.information.description_2')</p>
         </div>
 
         @push('scripts')
