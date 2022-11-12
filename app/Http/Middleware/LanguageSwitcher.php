@@ -18,30 +18,27 @@ class LanguageSwitcher
     {
         $cookieLanguage = $request->cookie('language');
         if ($cookieLanguage) {
-            app()->setLocale($cookieLanguage);
-            $cookie = cookie('language', $cookieLanguage, 60 * 24 * 7);
-            return $next($request)->withCookie($cookie);
+            return self::getNextWithCookie($request, $next, $cookieLanguage);
         }
 
-        $browserLanguage = $request->getPreferredLanguage();
-        $browserLanguage = substr($browserLanguage, 0, 2);
+        $browserLanguage = substr($request->getPreferredLanguage(), 0, 2);
         if ($browserLanguage) {
-            app()->setLocale($browserLanguage);
-            $cookie = cookie('language', $browserLanguage, 60 * 24 * 7);
-            return $next($request)->withCookie($cookie);
+            return self::getNextWithCookie($request, $next, $browserLanguage);
         }
 
-        $countryCode = geoip($ip)->iso_code;
-        $ipLanguage = self::getLanguageIdFromCountryCode($countryCode);
+        $ipLanguage = self::getLanguageIdFromCountryCode(geoip($request->ip())->iso_code);
         if ($ipLanguage) {
-            app()->setLocale($ipLanguage);
-            $cookie = cookie('language', $ipLanguage, 60 * 24 * 7);
-            return $next($request)->withCookie($cookie);
+            return self::getNextWithCookie($request, $next, $ipLanguage);
         }
-        $cookie = cookie('language', 'en', 60 * 24 * 7);
-        return $next($request)->withCookie($cookie);
+        return self::getNextWithCookie($request, $next, 'en');
     }
 
+    public static function getNextWithCookie($request, $next, $language)
+    {
+        app()->setLocale($language);
+        $cookie = cookie('language', $language, 60 * 24 * 7);
+        return $next($request)->withCookie($cookie);
+    }
 
     public static function getLanguageIdFromCountryCode($countryCode)
     {
