@@ -10,7 +10,8 @@
         @foreach ($langs as $key => $lang)
             <div class="block px-4 py-4 text-white no-underline cursor-pointer hover:text-white"
                 @click="setLanguage('{{ $key }}')">
-                <div x-text=countryCodeToFlag(languageCodeToCountryCode('{{ $key }}'))></div><span class="flag"></span>{{ $lang }}
+                <span x-text=countryCodeToFlag(languageCodeToCountryCode('{{ $key }}')) class="pr-1 flag"></span>
+                {{ $lang }}
             </div>
             @if (!$loop->last)
                 <hr class="text-base-100">
