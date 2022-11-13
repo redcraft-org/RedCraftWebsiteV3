@@ -20,9 +20,7 @@ $links = [
     ],
 ];
 
-$lang = app()->getLocale();
-$availableLangs = config('app.available_locales');
-dd($availableLangs);
+
 
 @endphp
 
@@ -40,6 +38,7 @@ dd($availableLangs);
                 </x-jet-nav-link>
             @endforeach
             <i class="fa-sharp fa-solid fa-earth-americas nav-link cursor-pointer"></i>
+            {{-- config("app.locales") --}}
         </div>
 
         <!-- Hamburger -->

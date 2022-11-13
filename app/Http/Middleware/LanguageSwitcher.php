@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class LanguageSwitcher
 {
@@ -17,7 +18,10 @@ class LanguageSwitcher
     public function handle(Request $request, Closure $next)
     {
         $cookieLanguage = $request->cookie('language');
+        $cookieLanguage = 'en';
         if ($cookieLanguage) {
+            dump($cookieLanguage);
+            dump(App::getLocale());
             return self::getNextWithCookie($request, $next, $cookieLanguage);
         }
 

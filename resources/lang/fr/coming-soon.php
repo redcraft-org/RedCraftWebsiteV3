@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "title" => "Coming Soon™",
+    "title" => "Bientôt™",
 
     "main" => [
         "title" => [
