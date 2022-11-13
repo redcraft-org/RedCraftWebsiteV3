@@ -18,10 +18,7 @@ class LanguageSwitcher
     public function handle(Request $request, Closure $next)
     {
         $cookieLanguage = $request->cookie('language');
-        $cookieLanguage = 'en';
         if ($cookieLanguage) {
-            dump($cookieLanguage);
-            dump(App::getLocale());
             return self::getNextWithCookie($request, $next, $cookieLanguage);
         }
 
@@ -40,7 +37,7 @@ class LanguageSwitcher
     public static function getNextWithCookie($request, $next, $language)
     {
         app()->setLocale($language);
-        $cookie = cookie('language', $language, 60 * 24 * 7);
+        $cookie = cookie('language', $language, 60 * 24 * 7, null, null, false, false);
         return $next($request)->withCookie($cookie);
     }
 

@@ -28,18 +28,7 @@
 
 @endphp
 
-<nav x-data="{
-    mobileOpen: false,
-    languageOpen: false,
-    languageMobile: false,
-    hamburgerClick() {
-        if (this.languageMobile) {
-            this.languageMobile = false;
-            this.languageOpen = false;
-        }
-        this.mobileOpen = !this.mobileOpen;
-    }
-}" class="mx-auto px-8 block border-none min-h-0 relative container md:max-w-screen-lg navbar">
+<nav x-data="{ mobileOpen: false, languageOpen: false, languageMobile: false, ...mobileMenu }" class="mx-auto px-8 block border-none min-h-0 relative container md:max-w-screen-lg navbar">
     <div class="flex py-1 justify-between">
         <div>
             <x-jet-nav-link :href="route('home')" :active="request()->routeIs('home')">
@@ -56,7 +45,7 @@
             <button @click="languageOpen=!languageOpen"
                 class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 cursor-pointer nav-link z-20">
                 <i class="fa-sharp fa-solid fa-earth-americas" x-show="!languageOpen"></i>
-                <i class="fa-solid fa-chevron-left" x-show="languageOpen"></i>
+                <i class="fa-solid fa-xmark" x-show="languageOpen" x-cloak></i>
             </button>
 
         </div>
@@ -69,3 +58,20 @@
 
 
 </nav>
+
+
+@once
+    @push('scripts')
+        <script>
+            window.mobileMenu = {
+                hamburgerClick() {
+                    if (this.languageMobile) {
+                        this.languageMobile = false;
+                        this.languageOpen = false;
+                    }
+                    this.mobileOpen = !this.mobileOpen;
+                }
+            }
+        </script>
+    @endpush
+@endonce
