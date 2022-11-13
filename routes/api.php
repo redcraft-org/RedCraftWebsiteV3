@@ -76,8 +76,6 @@ Route::middleware('ensure_valid_jwt')->group(function () {
             });
         });
 
-        Route::get('/urls', UrlListController::class);
-        Route::post('/url', UrlCreateController::class);
 
     });
 });
