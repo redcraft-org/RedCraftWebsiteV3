@@ -21,7 +21,7 @@ $aPropos = [
 ];
 @endphp
 
-<x-section id="about" section-title="À propos" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+<x-section id="about" section-title="{{  __('home.about.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
     <div class="flex flex-col gap-y-16">
         @foreach ($aPropos as $e)
             <div x-data="{ shown: false }" x-intersect.half="shown = true">

@@ -21,7 +21,7 @@ return [
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
-            "title" => "A A flexible structure",
+            "title" => "A flexible structure",
             "description" => "RedCraft.org has been designed and thought from the beginning for robustness and adaptability. The entire project is open source, so anyone can contribute to the project!",
         ],
         "3" => [

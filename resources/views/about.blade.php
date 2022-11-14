@@ -1,8 +1,8 @@
 <x-app-layout>
 
-    <x-page-header section-title="{{ trans('about.title') }}" />
+    <x-page-header section-title="{{ __('about.title') }}" />
 
-    <x-section section-title="{{ trans('about.about.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+    <x-section section-title="{{ __('about.about.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row md:gap-8">
             <div class="grid items-center md:w-1/3">
                 <img src="{{ asset('images/red_white_grey_none_none_296.png') }}" alt="RedCraft.org Logo" class="mx-auto">
@@ -26,7 +26,7 @@
         </div>
     </x-section>
 
-    <x-section section-title="{{ trans('about.faq.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="1">
+    <x-section section-title="{{ __('about.faq.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="1">
         <div class="flex flex-col gap-8">
             <div>
                 <h5>@lang('about.faq.1.title')</h5>
@@ -71,7 +71,7 @@
         </div>
     </x-section>
 
-    <x-section section-title="{{ trans('about.licenses.title') }}" bg="bg-primary" text="text-light" wave-bg="fill-primary"
+    <x-section section-title="{{ __('about.licenses.title') }}" bg="bg-primary" text="text-light" wave-bg="fill-primary"
         wave-id="2">
         <h4>@lang('about.licenses.1.title')</h4>
         <ul>

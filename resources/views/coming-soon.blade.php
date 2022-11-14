@@ -1,8 +1,8 @@
 <x-app-layout>
 
-    <x-page-header section-title="{{ trans('coming-soon.title') }}" />
+    <x-page-header section-title="{{ __('coming-soon.title') }}" />
 
-    <x-section section-title="{{ trans('coming-soon.main.title.1') . Request::segment(1) . trans('coming-soon.main.title.2') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+    <x-section section-title="{{ __('coming-soon.main.title.1') . Request::segment(1) . __('coming-soon.main.title.2') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-2/3">
                 <p>@lang('coming-soon.main.description.1')</p>
