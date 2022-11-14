@@ -19,7 +19,7 @@
     @else
 
         @if($key == "note")
-            <div class="text-secondary">Note : {{ $rule }}</div>
+            <div class="text-secondary">@lang('rules.rules.note'){{ $rule }}</div>
         @else
             <li>{{ $rule }}</li>
         @endif
