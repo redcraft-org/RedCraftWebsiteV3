@@ -1,15 +1,15 @@
 @php
 $links = [
     [
-        'name' => 'Accueil',
+        'name' => __('footer.links.1'),
         'route' => 'home',
     ],
     [
-        'name' => 'À propos',
+        'name' => __('footer.links.2'),
         'route' => 'about',
     ],
     [
-        'name' => 'Contact',
+        'name' => __('footer.links.3'),
         'route' => 'contact',
     ],
 ];
@@ -23,9 +23,7 @@ $links = [
             </x-jet-nav-link>
         </div>
         <div class="md:w-1/2 flex flex-col">
-            <p class="pb-4">Une toute nouvelle expérience Minecraft multilingue avec une infrastructure open source de
-                serveurs
-                créatif et survie soigneusement conçus.</p>
+            <p class="pb-4">@lang('footer.description')</p>
             <div class="flex justify-between">
                 @foreach ($links as $link)
                     <x-jet-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
