@@ -49,7 +49,7 @@
             @endforeach
             <div class="text-white hover:text-white bg-base-200 block px-4 py-4 cursor-pointer"
                 @click="mobileOpen=false;languageOpen=true;languageMobile=true">
-                <i class="fa-sharp fa-solid fa-earth-americas pr-4"></i> Langue
+                <i class="fa-sharp fa-solid fa-earth-americas pr-4"></i>@lang('nav.language')
             </div>
 
         </div>

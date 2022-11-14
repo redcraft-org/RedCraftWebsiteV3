@@ -3,19 +3,19 @@
     // TODO translate navigation menu names
     $links = [
         [
-            'name' => 'Contact',
+            'name' => __('nav.links.1'),
             'route' => 'contact',
         ],
         [
-            'name' => 'Vote',
+            'name' => __('nav.links.2'),
             'route' => 'vote',
         ],
         [
-            'name' => 'Stats',
+            'name' => __('nav.links.3'),
             'route' => 'stats',
         ],
         [
-            'name' => 'Rules',
+            'name' => __('nav.links.4'),
             'route' => 'rules',
         ],
     ];
