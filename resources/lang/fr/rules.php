@@ -7,7 +7,7 @@ return [
         "title" => "Code de conduite",
         "1" => [
             "title" => "Se respecter",
-            "description" => "Le respect est la base pour avoir une atmosphère saine et constructive. N'oublions pas que tout le monde n'a pas le même niveau de connaissances, respectons ceux qui en ont moins que nous et encouragons leur curiosité. 🤝",
+            "description" => "Le respect est la base pour avoir une atmosphère saine et constructive. N'oublions pas que tout le monde n'a pas le même niveau de connaissances, respectons ceux qui en ont moins que soi et encourageons leur curiosité. 🤝",
         ],
         "2" => [
             "title" => "S'entraider",
@@ -39,7 +39,7 @@ return [
                 "6" => "La divulgation d'informations privées.",
             ],
             "2" => [
-                "title" => "Le Discord",
+                "title" => "Le serveur Discord",
                 "1" => "L'esquive de sanction en quittant le discord.",
                 "2" => "La publicité sur les canaux publics ainsi que la publicité massive via les canaux privés.",
 
@@ -49,7 +49,7 @@ return [
             "title" => "Minecraft",
             "1" => [
                 "title" => "Général",
-                "1" => "Le grief.",
+                "1" => "Le grief, c'est-à-dire la destruction d'une construction d'un autre joueur sans son accord, la mise en place de pièges attaquant un autre joueur ou encore le vol d'items.",
                 "2" => "L'utilisation de cheats, c'est-à-dire des logiciels, des mods ou l'exploitation de bugs présents dans le jeu pouvant procurer un avantage conséquent, au détriment des autres joueurs.",
                 "3" => "L'utilisation de plus d'un compte Minecraft par joueur.",
                 "4" => "L'utilisation de logiciels ou de mods destinés à récupérer/télécharger partiellement ou entièrement la map du serveur.",

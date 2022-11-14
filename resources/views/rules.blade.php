@@ -96,7 +96,7 @@
 
         <em>
             @lang('rules.rules.description.1')
-            <b>@lang('rules.rules.description.2')</b>
+            <b class="text-primary not-italic">@lang('rules.rules.description.2')</b>
             @lang('rules.rules.description.3')
         </em>
         <div class="my-3">
