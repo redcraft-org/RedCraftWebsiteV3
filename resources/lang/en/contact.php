@@ -1,29 +1,42 @@
 <?php
 
 return [
-    "title" => "Contact",
+    "title" => "Contact us",
 
-    "contact_form" => [
+    "form" => [
         "title" => "Contact form",
-        "contact_from" => "You contact us as...",
-        "player" => "Player",
+        "contacting_from" => "You are...",
+        "player" => "A player",
         "other" => "Other",
         "back" => "Back",
-        "minecraft_pseudo" => "Minecraft pseudo",
-        "discord_id" => "Discord ID (Name#0000)",
+        "minecraft_pseudo" => "Minecraft username",
+        "discord_id" => "Discord ID (username#0000)",
         "email" => "Email address",
         "subject" => "Subject",
         "message" => "Message",
-        "max_length" => "Maximum :length characters",
-        "send" => "Send the message",
+        "max_length" => ":length characters max.",
+        "send" => "Send message",
+        "done" => "Done",
         "success" => "Your message has been sent!",
         "error_title" => "Your message could not be sent",
-        "error_description" => "An error occurred"
+        "error_description" => "An error occured",
+        "messages" => [
+            "username_required" => "A Minecraft username is required.",
+            "username_min" => "This Minecraft username is too short.",
+            "discord_username_regex" => "Your Discord username must be in the following format: user#0000",
+            "email_required" => "An email address is required.",
+            "email_email" => "The email address is invalid.",
+            "subject_required" => "A subject is required.",
+            "subject_min" => "The subject is too short.",
+            "message_required" => "A message is required.",
+            "message_min" => "Your message is too short.",
+            "message_max" => "Your message is too long.",
+        ],
     ],
 
     "information" => [
-        "title" => "Information",
-        "description_1" => "This form allows you to send a message directly to the staff of RedCraft.org. The message will be sent to the administrators via Discord, so be sure to indicate your Discord name if necessary.",
-        "description_2" => "You can use this form for unban requests, complaints, claims and partnership requests.",
-    ]
+        "title" => "Infos",
+        "description_1" => "Use this form to send a direct message to the staff of RedCraft.org. Your message will be sent to the admin team through Discord, so please make sure you include your Discord username if necessary.",
+        "description_2" => "You can use this form to submit unban requests, complaints, claims or partnership requests.",
+    ],
 ];
