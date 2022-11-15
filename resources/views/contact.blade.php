@@ -1,9 +1,9 @@
 <x-app-layout>
 
-    <x-page-header section-title="@lang('contact.title')" />
+    <x-page-header section-title="{{ __('contact.title') }}" />
 
     {{-- <x-contact.contact-form /> --}}
-    <x-section section-title="@lang('contact.contact_form.title')" bg="bg-base-100" text="text-light" wave-bg="fill-base-100"
+    <x-section section-title="{{ __('contact.form.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100"
         wave-id="3">
         <div id="dynamic-height" class="duration-300">
             @livewire('contact-form')

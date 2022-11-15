@@ -3,9 +3,9 @@
 return [
     "title" => "Contact",
 
-    "contact_form" => [
+    "form" => [
         "title" => "Formulaire de contact",
-        "contact_from" => "Vous nous contactez en tant que...",
+        "contacting_from" => "Vous nous contactez en tant que...",
         "player" => "Joueur",
         "other" => "Autre",
         "back" => "Retour",
@@ -16,9 +16,22 @@ return [
         "message" => "Message",
         "max_length" => "Maximum :length caractères",
         "send" => "Envoyer le message",
+        "done" => "Terminé",
         "success" => "Votre message a bien été envoyé !",
         "error_title" => "Votre message n'a pas pu être envoyé",
-        "error_description" => "Une erreur est survenue"
+        "error_description" => "Une erreur est survenue",
+        "messages" => [
+            "username_required" => "Le pseudo Minecraft est requis.",
+            "username_min" => "Le pseudo Minecraft est trop court.",
+            "discord_username_regex" => "Le pseudo Discord doit respecter la forme user#0000.",
+            "email_required" => "L'adresse email est requise.",
+            "email_email" => "L'adresse email n'est pas valide.",
+            "subject_required" => "Le sujet est requis.",
+            "subject_min" => "Le sujet est trop court.",
+            "message_required" => "Le message est requis.",
+            "message_min" => "Le message est trop court.",
+            "message_max" => "Le message est trop long.",
+        ],
     ],
 
     "information" => [

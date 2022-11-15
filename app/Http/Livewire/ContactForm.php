@@ -18,18 +18,21 @@ class ContactForm extends Component
     public $subject;
     public $message;
 
-    protected $messages = [
-        'username.required' => 'Le pseudo Minecraft est requis.',
-        'username.min' => 'Le pseudo Minecraft est trop court.',
-        'discord_username.regex' => 'Le pseudo Discord doit respecter la forme user#0000.',
-        'email.required' => 'L\'adresse email est requise.',
-        'email.email' => 'L\'adresse email n\'est pas valide.',
-        'subject.required' => 'Le sujet est requis.',
-        'subject.min' => 'Le sujet est trop court.',
-        'message.required' => 'Le message est requis.',
-        'message.min' => 'Le message est trop court.',
-        'message.max' => 'Le message est trop long.',
-    ];
+    protected function messages()
+    {
+        return  [
+            'username.required' =>      __('contact.form.messages.username_required'),
+            'username.min' =>           __('contact.form.messages.username_min'),
+            'discord_username.regex' => __('contact.form.messages.discord_username_regex'),
+            'email.required' =>         __('contact.form.messages.email_required'),
+            'email.email' =>            __('contact.form.messages.email_email'),
+            'subject.required' =>       __('contact.form.messages.subject_required'),
+            'subject.min' =>            __('contact.form.messages.subject_min'),
+            'message.required' =>       __('contact.form.messages.message_required'),
+            'message.min' =>            __('contact.form.messages.message_min'),
+            'message.max' =>            __('contact.form.messages.message_max'),
+        ];
+    }
 
     protected function rules()
     {
@@ -51,7 +54,10 @@ class ContactForm extends Component
     public function submit()
     {
         // Validate the form
-        $this->validate();
+        $this->validate(
+            $this->rules(),
+            $this->messages(),
+        );
 
         // Send the message to discord webhook
         $response = Http::post(env('DISCORD_CONTACT_WEBHOOK_URL'), [
