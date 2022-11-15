@@ -1,6 +1,5 @@
 @php
 
-    // TODO translate navigation menu names
     $links = [
         [
             'name' => __('nav.links.1'),
@@ -20,11 +19,7 @@
         ],
     ];
 
-    // config("app.locales")
-    $langs = [
-        'en' => 'English',
-        'fr' => 'Français',
-    ];
+    $langs = config("app.locales");
 
 @endphp
 
