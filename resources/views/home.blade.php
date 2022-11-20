@@ -6,7 +6,8 @@
 
     <x-home.about />
 
-    <x-home.news />
+    {{-- TODO uncomment to show the news section on the homepage --}}
+    {{-- <x-home.news /> --}}
 
     <x-home.servers />
 
