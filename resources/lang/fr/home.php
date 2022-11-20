@@ -17,7 +17,7 @@ return [
     "about" => [
         "title" => "À propos",
         "1" => [
-            "title" => "Un serveur unique",
+            "title" => "Un système de traduction inédit",
             "description" => "Oubliez les barrières de language. Grâce à un service de traduction instantané, le serveur entier communique dans la langue de votre choix. RedCraft.org rassemble des personnes de n'importe où dans le monde.",
         ],
         "2" => [

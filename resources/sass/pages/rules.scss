@@ -5,7 +5,7 @@
 
 
     h4.code-conduct-title {
-        @apply absolute h-full flex items-center top-0 w-full m-auto duration-150 text-secondary select-none;
+        @apply absolute h-full flex items-center justify-center top-0 w-full m-auto duration-150 text-secondary select-none;
     }
 
     &.focused .code-conduct-title {

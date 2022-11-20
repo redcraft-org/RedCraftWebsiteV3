@@ -17,7 +17,7 @@ return [
     "about" => [
         "title" => "About",
         "1" => [
-            "title" => "A unique server",
+            "title" => "An innovative translation system",
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
