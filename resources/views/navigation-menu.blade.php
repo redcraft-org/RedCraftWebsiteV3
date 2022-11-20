@@ -2,24 +2,28 @@
 
     $links = [
         [
+            'type' => 'route',
             'name' => __('nav.links.1'),
-            'route' => 'contact',
+            'link' => 'contact',
         ],
         [
+            'type' => 'route',
             'name' => __('nav.links.2'),
-            'route' => 'vote',
+            'link' => 'vote',
         ],
         [
+            'type' => 'blank',
             'name' => __('nav.links.3'),
-            'route' => 'stats',
+            'link' => config('services.plan-url'),
         ],
         [
+            'type' => 'route',
             'name' => __('nav.links.4'),
-            'route' => 'rules',
+            'link' => 'rules',
         ],
     ];
 
-    $langs = config("app.locales");
+    $langs = config('app.locales');
 
 @endphp
 
@@ -32,9 +36,16 @@
         </div>
         <div class="space-x-8 px-4 hidden lg:flex lg:h-12">
             @foreach ($links as $link)
-                <x-jet-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
-                    {{ $link['name'] }}
-                </x-jet-nav-link>
+                @if ($link['type'] == 'route')
+                    <x-jet-nav-link :href="route($link['link'])" :active="request()->routeIs($link['link'])">
+                        {{ $link['name'] }}
+                    </x-jet-nav-link>
+                @elseif ($link['type'] == 'blank')
+                    <x-jet-nav-link :href="$link['link']" target="_blank">
+                        {{ $link['name'] }}
+                    </x-jet-nav-link>
+                @endif
+
             @endforeach
 
             <button @click="languageOpen=!languageOpen"

@@ -38,6 +38,7 @@ return [
         ],
     ],
     'discord-invite-url' => env('DISCORD_INVITE_URL'),
+    'plan-url' => env('PLAN_URL', 'https://stats.redcraft.org'),
     'github-organization-url' => env('GITHUB_ORGANIZATION_URL', 'https://github.com/redcraft-org'),
 
 ];
