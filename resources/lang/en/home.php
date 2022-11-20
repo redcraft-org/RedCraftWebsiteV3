@@ -13,6 +13,7 @@ return [
         "discord" => "discord",
         "players_online" => ":count player(s) online",
         "players_connected" => ":count player(s) connected",
+        "ip_copied" => "IP address copied!",
     ],
     "about" => [
         "title" => "About",

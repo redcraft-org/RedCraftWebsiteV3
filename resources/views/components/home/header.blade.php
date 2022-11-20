@@ -1,6 +1,9 @@
 <?php
 $Supportedversions = McHelper::getVersions()['supportedVersions'];
 $versions = reset($Supportedversions) . " - " . end($Supportedversions);
+
+
+
 ?>
 
 
@@ -28,10 +31,10 @@ $versions = reset($Supportedversions) . " - " . end($Supportedversions);
 
         <x-home.ctaIpCopy></x-home.ctaIpCopy>
 
-        <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="https://discord.gg/xkWE4uJ" target="_blank">
+        <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="{{ DiscordHelper::getInviteUrl(); }}" target="_blank">
             <div>
                 <div class="text-xl">@lang('home.join.join')<b> @lang('home.join.discord')</b></div>
-                <div class="text-sm">@lang('home.join.players_connected', ['count' => 69])</div>
+                <div class="text-sm">@lang('home.join.players_connected', ['count' => DiscordHelper::getPlayersConnected()])</div>
             </div>
         </a>
 

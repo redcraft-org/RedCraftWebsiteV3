@@ -10,13 +10,28 @@ class McHelper
 
     public static function getVersions()
     {
-        return Cache::remember('redcraft-bungee-json-api.endpoint.versions', config('redcraft-bungee-json-api.endpoint.time'), function () {
+        return Cache::remember('redcraft-bungee-json-api.endpoint.versions', config('services.redcraft-bungee-json-api.endpoint.versions-time'), function () {
             return Http::get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
         });
     }
 
-    public static function shout(string $string)
+    public static function getPlayers()
     {
-        return strtoupper($string);
+        return Cache::remember('redcraft-bungee-json-api.endpoint.players', config('services.redcraft-bungee-json-api.endpoint.players-time'), function () {
+            return Http::get(config('services.redcraft-bungee-json-api.endpoint.players'))->json();
+        });
+    }
+
+    public static function countPlayersConnected()
+    {
+
+        $players = McHelper::getPlayers()['players'];
+        $playersCount = 0;
+
+        foreach ($players as $server => $playersInServer) {
+            $playersCount += count($playersInServer);
+        }
+
+        return $playersCount;
     }
 }

@@ -48,7 +48,7 @@
                     @lang('about.faq.3.description.1')
                     <a href="{{ route('contact') }}">@lang('about.faq.3.description.2')</a>
                     @lang('about.faq.3.description.3')
-                    <a href="{{ config('services.discord-invite-url') }}" target="_blank">@lang('about.faq.3.description.4')</a>
+                    <a href="{{ DiscordHelper::getInviteUrl(); }}" target="_blank">@lang('about.faq.3.description.4')</a>
                     @lang('about.faq.3.description.5')
                 </p>
             </div>

@@ -34,10 +34,15 @@ return [
         'endpoint' => [
             'versions' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_VERSIONS', 'http://localhost:25580/versions.json'),
             'players' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS', 'http://localhost:25580/players.json'),
-            'time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_TIME', 900),
+            'versions-time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_VERSIONS_TIME', 900),
+            'players-time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS_TIME', 15),
         ],
     ],
-    'discord-invite-url' => env('DISCORD_INVITE_URL'),
+    'discord' => [
+        'invite-url' => env('DISCORD_INVITE_URL', 'https://discord.gg/xkWE4uJ'),
+        'json-api' => env('DISCORD_JSON_API'),
+        'json-api-time' => env('DISCORD_JSON_API_TIME', 15),
+    ],
     'plan-url' => env('PLAN_URL', 'https://stats.redcraft.org'),
     'github-organization-url' => env('GITHUB_ORGANIZATION_URL', 'https://github.com/redcraft-org'),
 

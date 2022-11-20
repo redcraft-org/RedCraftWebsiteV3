@@ -2,9 +2,9 @@
     x-on:click="$clipboard('redcraft.org'); ctaIpCopy();">
     <div :class="show ? 'invisible' : ''" x-transition>
         <div class="text-xl">@lang('home.join.join') <b>@lang('home.join.server')</b></div>
-        <div class="text-sm">@lang("home.join.players_online", ['count' => 69])</div>
+        <div class="text-sm">@lang("home.join.players_online", ['count' => McHelper::countPlayersConnected()])</div>
     </div>
-    <div class="absolute text-sm" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
+    <div class="absolute text-sm" x-show="show" x-transition x-cloak>@lang('home.join.ip_copied')</div>
 </button>
 
 @once
