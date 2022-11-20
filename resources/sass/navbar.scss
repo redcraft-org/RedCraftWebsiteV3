@@ -4,7 +4,11 @@
     }
 
     .nav-link {
-        @apply text-gray;
+        @apply text-gray duration-150 flex items-center;
+
+        &:hover {
+            @apply text-light;
+        }
 
         &.active {
             @apply text-white font-bold;

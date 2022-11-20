@@ -1,19 +1,24 @@
+<?php
+$Supportedversions = McHelper::getVersions()['supportedVersions'];
+$versions = reset($Supportedversions) . " - " . end($Supportedversions);
+?>
+
+
 <x-section id="header">
 
     {{-- Welcome header --}}
 
-    <div class="flex flex-col sm:flex-row pb-12 gap-8">
+    <div class="flex flex-col gap-8 pb-12 sm:flex-row">
 
         {{-- animated logo --}}
-        <div class="sm:w-1/2 h-fit flex justify-center my-auto">
+        <div class="flex justify-center my-auto sm:w-1/2 h-fit">
             <img src="{{ asset('images/home/rc-logo-animated.gif') }}">
         </div>
 
-        <div class="sm:w-1/2 flex flex-col justify-center">
-            <h1>Bienvenue sur <span class="text-6xl">RedCraft</span> !</h1>
-            <p>Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle
-                infrastructure Open Source.<br>Partage et Innovation seront notre crédo ! </p>
-            <b>Version : 1.xx - 1.xx</b>
+        <div class="flex flex-col justify-center sm:w-1/2">
+            <h1>@lang('home.title.welcome_to')</h1><span class="text-6xl">RedCraft !</span></h1>
+            <p>@lang('home.title.sub')</p>
+            <b>@lang('home.title.version', ['version' => $versions])</b>
         </div>
     </div>
 
@@ -25,8 +30,8 @@
 
         <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="https://discord.gg/xkWE4uJ" target="_blank">
             <div>
-                <div class="text-xl">Rejoindre le <b>Discord</b></div>
-                <div class="text-sm">420 joueurs connectés</div>
+                <div class="text-xl">@lang('home.join.join')<b> @lang('home.join.discord')</b></div>
+                <div class="text-sm">@lang('home.join.players_connected', ['count' => 69])</div>
             </div>
         </a>
 

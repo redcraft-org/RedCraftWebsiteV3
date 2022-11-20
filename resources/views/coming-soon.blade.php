@@ -1,15 +1,15 @@
 <x-app-layout>
 
-    <x-page-header section-title="Coming Soon™" />
+    <x-page-header section-title="{{ __('coming-soon.title') }}" />
 
-    <x-section section-title="La page {{ Request::segment(1) }} est en développement" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+    <x-section section-title="{{ __('coming-soon.main.title.1') . Request::segment(1) . __('coming-soon.main.title.2') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-2/3">
-                <p>Cette page est en cours de développement.</p>
-                <p>Vous souhaitez peut-être retourner sur une de ces pages :</p>
+                <p>@lang('coming-soon.main.description.1')</p>
+                <p>@lang('coming-soon.main.description.2')</p>
                 <ul>
-                    <li><a href="{{ route('home') }}">Page d'accueil</a></li>
-                    <li><a href="{{ route('contact') }}">Page de contact</a></li>
+                    <li><a href="{{ route('home') }}">@lang('coming-soon.main.description.3.1')</a></li>
+                    <li><a href="{{ route('contact') }}">@lang('coming-soon.main.description.3.2')</a></li>
                 </ul>
             </div>
             <div class="md:w-1/3 grid items-center justify-items-center">

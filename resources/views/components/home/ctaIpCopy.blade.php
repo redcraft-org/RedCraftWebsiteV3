@@ -1,10 +1,10 @@
-<button x-data="{ show: false, ...ctaAnimate }" class="btn btn-lg btn-primary flex flex-col gap-5"
-    x-on:click="$clipboard('play.redcraft.org'); ctaIpCopy();">
+<button x-data="{ show: false, ...ctaAnimate }" class="flex flex-col gap-5 btn btn-lg btn-primary"
+    x-on:click="$clipboard('redcraft.org'); ctaIpCopy();">
     <div :class="show ? 'invisible' : ''" x-transition>
-        <div class="text-xl">Rejoindre le <b>serveur</b></div>
-        <div class="text-sm">69 joueurs en ligne</div>
+        <div class="text-xl">@lang('home.join.join') <b>@lang('home.join.server')</b></div>
+        <div class="text-sm">@lang("home.join.players_online", ['count' => 69])</div>
     </div>
-    <div class="text-sm absolute" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
+    <div class="absolute text-sm" x-show="show" x-transition x-cloak>Adresse IP copiée !</div>
 </button>
 
 @once
