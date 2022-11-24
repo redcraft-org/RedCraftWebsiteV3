@@ -50,6 +50,11 @@ jobs:
           key: ${{ runner.os }}-single-buildx-${{ github.sha }}
           restore-keys: ${{ runner.os }}-single-buildx
 
+      - name: Generate CSS files
+        run: |
+          npm install
+          npm run production
+
       - name: Build & push Docker image
         env:
           RELEASE_IMAGE: ${{ env.IMAGE_NAME }}:${{ github.sha }}
