@@ -137,7 +137,7 @@
                         </p>
                         <div class="flex flex-wrap justify-evenly">
                             @foreach ($staffMember['socials'] as $social)
-                                <a class="transition ease-in-out delay-150 text-gray hover:text-white duration-300"
+                                <a class="transition ease-in-out delay-150 !text-light-gray"
                                     href={{ $social['url'] }} target="_blank">
                                     <i class="fa-brands {{ $social['logo'] }} "></i>
                                 </a>
