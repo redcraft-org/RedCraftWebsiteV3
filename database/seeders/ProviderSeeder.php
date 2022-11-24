@@ -14,7 +14,7 @@ class ProviderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('providers')->insert(
+        DB::table('providers')->insertOrIgnore(
             [
                 ['name' => 'minecraft'],
                 ['name' => 'discord']

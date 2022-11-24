@@ -21,6 +21,6 @@ class LanguageSeeder extends Seeder
             return ['code' => $key, 'name' => $value];
         }, array_keys($availableLanguages), $availableLanguages);
 
-        DB::table('languages')->insert($languages);
+        DB::table('languages')->insertOrIgnore($languages);
     }
 }
