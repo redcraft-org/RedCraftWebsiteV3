@@ -64,6 +64,11 @@ return [
             "description" => "With 128x128 plots, you have room to build any type of construction. Whether it's piston doors, resource trusses or complex logic machines, the Redstone Creative Server is ready to host your greatest technical challenges.",
         ],
     ],
-    "staff" => "Staff",
+    "staff" => [
+        "title" => "Staff",
+        "admins" => "Administrators",
+        "mods" => "Moderators",
+        "description" => ""
+    ],
 
 ];

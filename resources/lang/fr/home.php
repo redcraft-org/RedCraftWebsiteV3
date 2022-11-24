@@ -63,6 +63,15 @@ return [
             "description" => "Avec des plots de taille 128x128, vous avez la place de construire tout type de construction. Que ça soit des portes à piston, des fermes à ressource ou des machines logiques complexes, le serveur Créatif Redstone est prêt à accueillir vos plus beaux défis techniques.",
         ],
     ],
-    "staff" => "Staff",
+    "staff" => [
+        "title" => "Staff",
+        "admins" => "Administrateurs",
+        "mods" => "Modérateurs",
+        "description" => [
+            "1" => "Vous souhaitez contribuer au projet ou vous avez besoin d'aide ? N'hésitez pas à nous ",
+            "2" => "contacter",
+            "3" => " !",
+        ],
+    ],
 
 ];
