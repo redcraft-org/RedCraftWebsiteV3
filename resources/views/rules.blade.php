@@ -46,21 +46,21 @@
 
     <x-page-header section-title="{{ __('rules.title') }}" />
 
-    <x-section section-title="Code de conduite" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
-        x-data="{ open: 'respecter' }">
+    <x-section section-title="{{ __('rules.code_of_conduct.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
+        x-data="{ open: 'respect' }">
         <div class="flex flex-col md:flex-row justify-around my-4">
-            <div class="code-conduct-item" tabindex="0" @mouseover="open = 'respecter'"
-                :class="open == 'respecter' && 'focused'">
+            <div class="code-conduct-item" tabindex="0" @mouseover="open = 'respect'"
+                :class="open == 'respect' && 'focused'">
                 <i class="fas fa-hands-helping code-conduct-icon"></i>
                 <h4 class="code-conduct-title">@lang('rules.code_of_conduct.1.title')</h4>
             </div>
-            <div class="code-conduct-item" tabindex="1" @mouseover="open = 'sentraider'"
-                :class="open == 'sentraider' && 'focused'">
+            <div class="code-conduct-item" tabindex="1" @mouseover="open = 'mutualaid'"
+                :class="open == 'mutualaid' && 'focused'">
                 <i class="fas fa-people-carry code-conduct-icon"></i>
                 <h4 class="code-conduct-title">@lang('rules.code_of_conduct.2.title')</h4>
             </div>
-            <div class="code-conduct-item" tabindex="2" @mouseover="open = 'samuser'"
-                :class="open == 'samuser' && 'focused'">
+            <div class="code-conduct-item" tabindex="2" @mouseover="open = 'havefun'"
+                :class="open == 'havefun' && 'focused'">
                 <i class="fas fa-gamepad code-conduct-icon"></i>
                 <h4 class="code-conduct-title">@lang('rules.code_of_conduct.3.title')</h4>
             </div>
@@ -68,19 +68,19 @@
         <div x-cloak class="relative">
             {{-- Note: remove the `absolute w-full top-0` classes on the element with the longest text --}}
             {{--       in order to have the height of the container relative to the longest child --}}
-            <div class="code-conduct-details" :class="open != 'respecter' && 'opacity-0'">
+            <div class="code-conduct-details" :class="open != 'respect' && 'opacity-0'">
                 <div class="text text-xl">@lang('rules.code_of_conduct.1.description')</div>
             </div>
-            <div class="code-conduct-details absolute w-full top-0" :class="open != 'sentraider' && 'opacity-0'">
+            <div class="code-conduct-details absolute w-full top-0" :class="open != 'mutualaid' && 'opacity-0'">
                 <div class="text text-xl">@lang('rules.code_of_conduct.2.description')</div>
             </div>
-            <div class="code-conduct-details absolute w-full top-0" :class="open != 'samuser' && 'opacity-0'">
+            <div class="code-conduct-details absolute w-full top-0" :class="open != 'havefun' && 'opacity-0'">
                 <div class="text text-xl">@lang('rules.code_of_conduct.3.description')</div>
             </div>
         </div>
     </x-section>
 
-    <x-section section-title="Règles" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2"
+    <x-section section-title="{{ __('rules.rules.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2"
         x-data="{ open: '' }">
 
         {{-- Wall of Shame card --}}

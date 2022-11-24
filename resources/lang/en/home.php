@@ -3,7 +3,7 @@
 return [
     "title" => [
         "welcome_to" => "Welcome to",
-        "sub" => "The return of two great communities, TopRed and KingdomHills, through a whole new Open Source infrastructure. Sharing and Innovation will be our credo !",
+        "sub" => "The return of two great communities, TopRed and KingdomHills, through a whole new Open Source infrastructure. Sharing and Innovation is our way to go!",
         "version" => "Version :version",
 
     ],
@@ -68,7 +68,11 @@ return [
         "title" => "Staff",
         "admins" => "Administrators",
         "mods" => "Moderators",
-        "description" => ""
+        "description" => [
+            "1" => "You want to contribute to the project or you need help? Do not hesitate to ",
+            "2" => "contact us",
+            "3" => " !",
+        ],
     ],
 
 ];
