@@ -13,7 +13,7 @@
                 </ul>
             </div>
             <div class="md:w-1/3 grid items-center justify-items-center">
-                <img src="{{ asset('images/page-not-found.png') }}" alt="RedCraft logo question mark">
+                <img src="{{ asset('images/coming_soon/page-not-found.png') }}" alt="RedCraft logo question mark" class="drop-shadow-2xl">
             </div>
         </div>
     </x-section>

@@ -32,9 +32,10 @@ Route::get('/vote', function () {
 })->name('vote');
 
 // stats
-Route::get('/stats', function () {
-    return view('coming-soon');
-})->name('stats');
+// We currently use Plan to display our stats
+// Route::get('/stats', function () {
+//     return view('coming-soon');
+// })->name('stats');
 
 // rules
 Route::get('/rules', function () {

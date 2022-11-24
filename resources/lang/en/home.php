@@ -13,11 +13,12 @@ return [
         "discord" => "discord",
         "players_online" => ":count player(s) online",
         "players_connected" => ":count player(s) connected",
+        "ip_copied" => "IP address copied!",
     ],
     "about" => [
         "title" => "About",
         "1" => [
-            "title" => "A unique server",
+            "title" => "An innovative translation system",
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
@@ -63,6 +64,11 @@ return [
             "description" => "With 128x128 plots, you have room to build any type of construction. Whether it's piston doors, resource trusses or complex logic machines, the Redstone Creative Server is ready to host your greatest technical challenges.",
         ],
     ],
-    "staff" => "Staff",
+    "staff" => [
+        "title" => "Staff",
+        "admins" => "Administrators",
+        "mods" => "Moderators",
+        "description" => ""
+    ],
 
 ];

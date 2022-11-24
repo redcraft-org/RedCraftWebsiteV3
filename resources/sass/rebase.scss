@@ -28,7 +28,7 @@ a {
     }
 }
 
-section[bg="bg-primary"] {
+section[bg="bg-primary"], section[bg="bg-secondary"] {
     a {
         @apply text-white;
 

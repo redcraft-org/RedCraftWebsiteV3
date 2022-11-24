@@ -13,11 +13,12 @@ return [
         "discord" => "Discord",
         "players_online" => ":count joueur(s) en ligne",
         "players_connected" => ":count joueur(s) connecté(s)",
+        "ip_copied" => "Adresse IP copiée !",
     ],
     "about" => [
         "title" => "À propos",
         "1" => [
-            "title" => "Un serveur unique",
+            "title" => "Un système de traduction inédit",
             "description" => "Oubliez les barrières de language. Grâce à un service de traduction instantané, le serveur entier communique dans la langue de votre choix. RedCraft.org rassemble des personnes de n'importe où dans le monde.",
         ],
         "2" => [
@@ -62,6 +63,15 @@ return [
             "description" => "Avec des plots de taille 128x128, vous avez la place de construire tout type de construction. Que ça soit des portes à piston, des fermes à ressource ou des machines logiques complexes, le serveur Créatif Redstone est prêt à accueillir vos plus beaux défis techniques.",
         ],
     ],
-    "staff" => "Staff",
+    "staff" => [
+        "title" => "Staff",
+        "admins" => "Administrateurs",
+        "mods" => "Modérateurs",
+        "description" => [
+            "1" => "Vous souhaitez contribuer au projet ou vous avez besoin d'aide ? N'hésitez pas à nous ",
+            "2" => "contacter",
+            "3" => " !",
+        ],
+    ],
 
 ];

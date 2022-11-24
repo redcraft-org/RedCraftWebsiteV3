@@ -1,6 +1,13 @@
 <?php
-$Supportedversions = McHelper::getVersions()['supportedVersions'];
-$versions = reset($Supportedversions) . " - " . end($Supportedversions);
+$versions = McHelper::getVersions();
+if (is_array($versions)) {
+    $Supportedversions = $versions['supportedVersions'];
+    $versions = reset($Supportedversions) . " - " . end($Supportedversions);
+}
+
+$nbPlayers = DiscordHelper::getPlayersConnected();
+
+
 ?>
 
 
@@ -28,10 +35,12 @@ $versions = reset($Supportedversions) . " - " . end($Supportedversions);
 
         <x-home.ctaIpCopy></x-home.ctaIpCopy>
 
-        <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="https://discord.gg/xkWE4uJ" target="_blank">
+        <a class="btn btn-lg btn-secondary flex flex-col gap-5 hover:text-light" href="{{ DiscordHelper::getInviteUrl(); }}" target="_blank">
             <div>
                 <div class="text-xl">@lang('home.join.join')<b> @lang('home.join.discord')</b></div>
-                <div class="text-sm">@lang('home.join.players_connected', ['count' => 69])</div>
+                @if($nbPlayers >=0)
+                    <div class="text-sm">@lang('home.join.players_connected', ['count' => $nbPlayers])</div>
+                @endif
             </div>
         </a>
 

@@ -54,7 +54,8 @@ return [
         ],
         "5" => [
             "title" => "How to join the server on Minecraft Bedrock Edition?",
-            "description" => "Players on Bedrock version are not skimped! To join RedCraft.org, you need a Java account. When you log in to the server, you will be asked for your Java account information. Fill out the form and you're ready to join us in game.",
+            "description" => "Support for the Bedrock version will arrive with the release of the server beta.",
+            // "description" => "Players on Bedrock version are not skimped! To join RedCraft.org, you need a Java account. When you log in to the server, you will be asked for your Java account information. Fill out the form and you're ready to join us in game.",
         ],
     ],
 

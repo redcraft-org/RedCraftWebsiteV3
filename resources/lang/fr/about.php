@@ -54,7 +54,8 @@ return [
         ],
         "5" => [
             "title" => "Comment rejoindre le serveur sur Minecraft Bedrock Edition ?",
-            "description" => "Les joueurs sur version Bedrock ne sont pas lésinés ! Pour rejoindre RedCraft.org, vous avez besoin d'un compte Java. À la connexion au serveur, les identifiants de votre compte Java vous seront demandés. Remplissez le formulaire et vous êtes prêt à nous rejoindre en jeu.",
+            "description" => "Le support de la version Bedrock arrivera lors de la sortie de la Beta du serveur.",
+            // "description" => "Les joueurs sur version Bedrock ne sont pas lésinés ! Pour rejoindre RedCraft.org, vous avez besoin d'un compte Java. À la connexion au serveur, les identifiants de votre compte Java vous seront demandés. Remplissez le formulaire et vous êtes prêt à nous rejoindre en jeu.",
         ],
     ],
 

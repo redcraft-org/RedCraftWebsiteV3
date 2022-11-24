@@ -14,8 +14,15 @@
     <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light"
         wave-id="2">
         <div class="container">
-            <p>@lang('contact.information.description_1')</p>
-            <p>@lang('contact.information.description_2')</p>
+            <div class="flex flex-col md:flex-row md:gap-8">
+                <div class="flex flex-col gap-4 md:w-2/3">
+                    <p>@lang('contact.information.description_1')</p>
+                    <p>@lang('contact.information.description_2')</p>
+                </div>
+                <div class="grid items-center justify-items-center md:w-1/3">
+                    <img src="{{ asset('images/contact/rcc-transparent.png') }}" alt="RedCraft chat logo" class="drop-shadow-2xl w-64">
+                </div>
+
         </div>
 
         @push('scripts')

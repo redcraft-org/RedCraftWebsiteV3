@@ -18,8 +18,8 @@
                     x-transition:enter-end="opacity-100 rotate-0" x-transition:leave="transition ease-out duration-200"
                     x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-45" />
                 <!-- Back icon -->
-                <path x-show="languageOpen && languageMobile" class="inline-flex origin-center" x-cloak stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2" d="M 9 12 L 15 6 M 9 12 l 6 6"
+                <path x-show="languageOpen && languageMobile" class="inline-flex origin-center" x-cloak
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 9 12 L 15 6 M 9 12 l 6 6"
                     x-transition:enter="transition ease-out duration-200"
                     x-transition:enter-start="opacity-0 -rotate-45" x-transition:enter-end="opacity-100 rotate-0"
                     x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 rotate-0"
@@ -40,9 +40,16 @@
         x-transition:leave-end="opacity-0 scale-90 translate-x-3.5 -translate-y-3">
         <div class="w-full">
             @foreach ($links as $link)
-                <a href="{{ route($link['route']) }}" class="text-white hover:text-white no-underline block px-4 py-4">
-                    {{ $link['name'] }}
-                </a>
+                @if ($link['type'] == 'route')
+                    <a href="{{ route($link['link']) }}" class="text-white hover:text-white no-underline block px-4 py-4">
+                        {{ $link['name'] }}
+                    </a>
+                @elseif ($link['type'] == 'blank')
+                    <a href="{{ $link['link'] }}" class="text-white hover:text-white no-underline block px-4 py-4"
+                        target="_blank">
+                        {{ $link['name'] }}
+                    </a>
+                @endif
                 {{-- @if (!$loop->last) --}}
                 <hr class="text-base-100">
                 {{-- @endif --}}
