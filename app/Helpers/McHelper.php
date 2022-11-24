@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Http;
 
 class McHelper
 {
-
     public static function getVersions()
     {
         try {
             return Cache::remember('redcraft-bungee-json-api.endpoint.versions', config('services.redcraft-bungee-json-api.endpoint.versions-time'), function () {
-                return Http::get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
+                return Http::timeout(config('services.redcraft-bungee-json-api.endpoint.timeout'))->get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
             });
         } catch (ConnectionException $e) {
             //TODO Log the error with sentry
@@ -35,9 +34,10 @@ class McHelper
 
     public static function countPlayersConnected()
     {
-
         $players = McHelper::getPlayers()['players'];
-        if (!is_array($players)) return -1;
+        if (!is_array($players)) {
+            return -1;
+        }
 
         $playersCount = 0;
 

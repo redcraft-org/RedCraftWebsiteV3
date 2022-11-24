@@ -36,6 +36,7 @@ return [
             'players' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS', 'http://localhost:25580/players.json'),
             'versions-time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_VERSIONS_TIME', 900),
             'players-time' => env('REDCRAFT_BUNGEE_JSON_API_ENDPOINT_PLAYERS_TIME', 15),
+            'timeout' => env('REDCRAFT_BUNGEE_JSON_API_TIMEOUT', 3),
         ],
     ],
     'discord' => [
