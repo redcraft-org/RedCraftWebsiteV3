@@ -16,7 +16,8 @@ class McHelper
                 return Http::get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
             });
         } catch (ConnectionException $e) {
-            return ['supportedVersions' => []];
+            //TODO Log the error with sentry
+            return -1;
         }
     }
 
@@ -27,7 +28,8 @@ class McHelper
                 return Http::get(config('services.redcraft-bungee-json-api.endpoint.players'))->json();
             });
         } catch (ConnectionException $e) {
-            return ['players' => []];
+            //TODO Log the error with sentry
+            return -1;
         }
     }
 
@@ -35,6 +37,8 @@ class McHelper
     {
 
         $players = McHelper::getPlayers()['players'];
+        if (!is_array($players)) return -1;
+
         $playersCount = 0;
 
         foreach ($players as $server => $playersInServer) {

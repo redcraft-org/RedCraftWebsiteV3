@@ -16,7 +16,8 @@ class DiscordHelper
                 return Http::get(config('services.discord.json-api'))->json();
             });
         } catch (ConnectionException $e) {
-            return 0;
+            //TODO Log the error with sentry
+            return -1;
         }
 
         $members = $discordInfo['members'];
