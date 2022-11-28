@@ -26,7 +26,7 @@ return [
             "2" => "comportements interdits",
             "3" => " sur le serveur RedCraft.org. Ces règles s'appliquent à tous les joueurs, qu'ils soient membres du staff ou non.",
         ],
-        "note" => "Note : ",
+        "note" => "Remarque : ",
         "general" => [
             "title" => 'Général',
             "1" => [
@@ -59,7 +59,7 @@ return [
                     "2" => "Dont le nom ou la description enfreint la règle 1.3.",
                     "3" => [
                         "title" => "Donnant accès à des commandes auxquelles le joueur n'a normalement pas accès.",
-                        "note" => "Si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 2.1.4, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
+                        "note" => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 2.1.4, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
                     ],
                 ],
             ],
@@ -67,7 +67,7 @@ return [
                 "title" => "Créatif Redstone",
                 "1" => [
                     "title" => "La création de clocks, c'est-à-dire des systèmes provoquant une activation répétée du système sans interaction nécessaire de la part du joueur.",
-                    "note" => "Les clocks s'arrêtant automatiquement au bout d'un court instant sont tolérées tant qu'elles sont réactivables uniquement via l'interaction d'un joueur.",
+                    "note" => "les clocks s'arrêtant automatiquement au bout d'un court instant sont tolérées tant qu'elles sont réactivables uniquement via l'interaction d'un joueur.",
                 ],
                 "2" => "Le spam des systèmes redstone des autres joueurs.",
                 "3" => "L'appropriation d'une création qui n'a pas été créée par soi-même.",
