@@ -8,7 +8,7 @@ return [
         "1" => "RedCraft.org est une infrastructure de serveurs Minecraft à but non lucratif ouverte en 2022.",
         "2" => "Né de la fusion entre TopRed.fr et KingdomHills.fr, le projet RedCraft a pour but de rassembler les communautés de joueurs Minecraft, peu importe leur origine. Grâce à un système de traduction en temps réel, les barrières de la langue tombent et laissent place à une communauté soudée.",
         "3" => [
-            "1" => "L'entièretée du projet RedCraft.org est développée avec des outils modernes dans l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez toutes les sources sur notre page ",
+            "1" => "L'entièreté du projet RedCraft.org est développée avec des outils modernes dans l'objectif d'avoir une infrastructure flexible, tout en étant open source. Retrouvez toutes les sources sur notre page ",
             "2" => "GitHub",
             "3" => " !",
         ],
