@@ -37,6 +37,6 @@ return [
     "information" => [
         "title" => "Informations",
         "description_1" => "Ce formulaire vous permet d'envoyer un message directement au staff de RedCraft.org. Le message sera envoyé aux administrateurs via Discord, pensez-donc à indiquer votre pseudo Discord si nécessaire.",
-        "description_2" => "Vous pouvez utiliser ce formulaire pour les demande de unban, les plaintes, réclamations et demandes de partenariat.",
+        "description_2" => "Vous pouvez utiliser ce formulaire pour les demandes d'unban, les plaintes, réclamations et demandes de partenariat.",
     ]
 ];
