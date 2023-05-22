@@ -15,8 +15,7 @@ class McHelper
                 return Http::timeout(config('services.redcraft-bungee-json-api.endpoint.timeout'))->get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
             });
         } catch (ConnectionException $e) {
-            //TODO Log the error with sentry
-            return -1;
+            return ['players' => -1];
         }
     }
 
@@ -27,8 +26,7 @@ class McHelper
                 return Http::timeout(config('services.redcraft-bungee-json-api.endpoint.timeout'))->get(config('services.redcraft-bungee-json-api.endpoint.players'))->json();
             });
         } catch (ConnectionException $e) {
-            //TODO Log the error with sentry
-            return -1;
+            return ['players' => -1];
         }
     }
 
