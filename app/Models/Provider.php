@@ -19,4 +19,6 @@ class Provider extends Model
         }
         return $provider->id;
     }
+
+
 }

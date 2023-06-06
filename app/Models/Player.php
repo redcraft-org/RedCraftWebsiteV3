@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\PlayerInfoProvider;
-use App\Traits\Uuids;
 use Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\Uuids;
+use App\Models\PlayerMail;
+use App\Models\PlayerInfoProvider;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Player extends Model
 {
@@ -158,6 +160,33 @@ class Player extends Model
         return $this->languagesTrait->map(function ($language) {
             return $language->code;
         });
+    }
+
+    public function getMailsAttribute()
+    {
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('recipient_uuid', $uuids)->get();
+        return $mail;
+    }
+
+    public function getUnreadMailsAttribute()
+    {
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('recipient_uuid', $uuids)->where('read_at', null)->get();
+        return $mail;
+    }
+
+    public function getSentMailsAttribute()
+    {
+        $uuids = $this->playerInfoProviders->map(function ($provider) {
+            return $provider->provider_uuid;
+        });
+        $mail = PlayerMail::whereIn('sender_uuid', $uuids)->get();
+        return $mail;
     }
 
 }
