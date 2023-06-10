@@ -38,6 +38,28 @@
             __('rules.rules.minecraft.3.title') => [
                 __('rules.rules.minecraft.3.1'),
             ],
+            __('rules.rules.minecraft.4.title') => [
+                __('rules.rules.minecraft.4.1'),
+                __('rules.rules.minecraft.4.2'),
+                __('rules.rules.minecraft.4.3.title') => [
+                    'description' => __('rules.rules.minecraft.4.3.description'),
+                    'note' => [
+                        'title' => __('rules.rules.minecraft.4.3.note.title'),
+                        'table' => [
+                            'allowed' => __('rules.rules.minecraft.4.3.note.table.allowed'),
+                            'not_allowed' => __('rules.rules.minecraft.4.3.note.table.not_allowed'),
+                            'examples' => __('rules.rules.minecraft.4.3.note.table.examples'), // This assumes you have added the examples as an array in your language file.
+                        ],
+                    ],
+                    'note_2temp' => __('rules.rules.minecraft.4.3.note_2temp'),
+                ],
+                __('rules.rules.minecraft.4.4.title') => [
+                    'description' => __('rules.rules.minecraft.4.4.description'),
+                    'note' => __('rules.rules.minecraft.4.4.note'),
+                ],
+                __('rules.rules.minecraft.4.5'),
+                __('rules.rules.minecraft.4.6'),
+            ],
         ],
     ];
 @endphp
@@ -48,7 +70,7 @@
 
     <x-section section-title="{{ __('rules.code_of_conduct.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
         x-data="{ open: 'respect' }">
-        <div class="flex flex-col md:flex-row justify-around my-4">
+        <div class="flex flex-col justify-around my-4 md:flex-row">
             <div class="code-conduct-item" tabindex="0" @mouseover="open = 'respect'"
                 :class="open == 'respect' && 'focused'">
                 <i class="fas fa-hands-helping code-conduct-icon"></i>
@@ -69,13 +91,13 @@
             {{-- Note: remove the `absolute w-full top-0` classes on the element with the longest text --}}
             {{--       in order to have the height of the container relative to the longest child --}}
             <div class="code-conduct-details" :class="open != 'respect' && 'opacity-0'">
-                <div class="text text-xl">@lang('rules.code_of_conduct.1.description')</div>
+                <div class="text-xl text">@lang('rules.code_of_conduct.1.description')</div>
             </div>
-            <div class="code-conduct-details absolute w-full top-0" :class="open != 'mutualaid' && 'opacity-0'">
-                <div class="text text-xl">@lang('rules.code_of_conduct.2.description')</div>
+            <div class="absolute top-0 w-full code-conduct-details" :class="open != 'mutualaid' && 'opacity-0'">
+                <div class="text-xl text">@lang('rules.code_of_conduct.2.description')</div>
             </div>
-            <div class="code-conduct-details absolute w-full top-0" :class="open != 'havefun' && 'opacity-0'">
-                <div class="text text-xl">@lang('rules.code_of_conduct.3.description')</div>
+            <div class="absolute top-0 w-full code-conduct-details" :class="open != 'havefun' && 'opacity-0'">
+                <div class="text-xl text">@lang('rules.code_of_conduct.3.description')</div>
             </div>
         </div>
     </x-section>
@@ -85,7 +107,7 @@
 
         {{-- Wall of Shame card --}}
         {{-- Remove these comments when adding the "Wall of Shame" page --}}
-        {{-- <div class="card-wall-of-shame card border-dark float-md-right mx-md-3 my-3 col-12 col-md-6 col-lg-4"> --}}
+        {{-- <div class="my-3 card-wall-of-shame card border-dark float-md-right mx-md-3 col-12 col-md-6 col-lg-4"> --}}
         {{-- <div class="card-body"> --}}
         {{-- <h5 class="card-title">Le Mur de la Honte</h5> --}}
         {{-- <p class="card-text">Sur cette page se trouve la liste de toutes les personnes actuellement sanctionnées sur RedCraft.org, la --}}
@@ -96,7 +118,7 @@
 
         <em>
             @lang('rules.rules.description.1')
-            <b class="text-primary not-italic">@lang('rules.rules.description.2')</b>
+            <b class="not-italic text-primary">@lang('rules.rules.description.2')</b>
             @lang('rules.rules.description.3')
         </em>
         <div class="my-3">
