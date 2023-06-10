@@ -23,6 +23,9 @@ Route::get('/', function () {
     // return response()->json($response->json()['value'], 200);
 })->name('home');
 
+Route::get('/profiles', function () {
+    return view('profiles');
+})->name('profiles');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
@@ -36,6 +39,8 @@ Route::get('/vote', function () {
 // Route::get('/stats', function () {
 //     return view('coming-soon');
 // })->name('stats');
+
+
 
 // rules
 Route::get('/rules', function () {

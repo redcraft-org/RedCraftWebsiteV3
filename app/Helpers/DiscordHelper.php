@@ -19,6 +19,18 @@ class DiscordHelper
             //TODO Log the error with sentry
             return -1;
         }
+        if (!isset($discordInfo['guild_id'])) {
+            return -1;
+        }
+        if (count($discordInfo['guild_id']) == 0) {
+            return -1;
+        }
+        if (!is_array($discordInfo['guild_id'][0])) {
+            return -1;
+        }
+
+
+
 
         $members = $discordInfo['members'];
         $membersCount = 1;
