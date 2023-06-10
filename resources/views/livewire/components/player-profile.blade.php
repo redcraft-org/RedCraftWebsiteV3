@@ -1,60 +1,33 @@
-<div class="m-auto w-96">
-    {{--  @dump($playerList)  --}}
-    {{--  @foreach ($playerList as $player)
-        <img src="{{ $playerHeadUrls[$loop->index] }}" alt="{{ $player }}" >
-    @endforeach  --}}
-
-
-
-
-
-    {{--  @foreach ($filteredPlayerList as $player)
-        <div class="flex flex-col md:flex-row md:gap-4">
-            <div class="flex flex-col gap-4 md:w-2/3">
-                <img src="{{ $playerHeadUrls[$player] }}" alt="{{ $player }}" >
-            </div>
-            <div class="grid items-center justify-items-center md:w-1/3">
-                <p>{{ $player }}</p>
-            </div>
-        </div>
-    @endforeach  --}}
-    <form wire:submit.prevent="submit" class="m-auto" x-data="{ open: false }">
-        <div class="relative">
-            <input wire:model="searchTerm" type="text" name="searchTerm" id="searchTerm" x-on:click="open = true"
-                x-on:click.away="open = false"
-                class="p-2 duration-200 ease-linear transform bg-white border-b border-gray-300 rounded-t-lg text-base-100 w-96 p focus:outline-none focus:border-blue-500 focus:ring-0 transition-rounded"
-                :class="open && {{ count($filteredPlayerList) > 0 ? 'true' : 'false' }} ? 'rounded-t-lg' : 'rounded-lg'"
-
-                label="Search for a player" placeholder="Player name" />
-            <div x-show="open" class="absolute z-10 origin-top bg-white rounded-b-lg shadow-lg w-96"
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 transform scale-y-50"
-                x-transition:enter-end="opacity-100 transform scale-y-100"
-                x-transition:leave="transition ease-in duration-200"
-                x-transition:leave-end="opacity-0 transform scale-y-50"
-                x-on:transitionend="open = false"
-                >
-                 <ul
-                class="p-0 m-0 bg-white rounded-b-lg {{ count($filteredPlayerList) > 0 ? 'pb-2' : '' }} overflow-y-auto">
-                @foreach ($filteredPlayerList as $player)
-                    <li class="flex flex-col cursor-pointer over:shadow-xl ">
-                        <div class="flex flex-row p-1 hover:bg-light-gray">
-                            <img src="{{ $player['headUrl'] }}" alt="{{ $player['uuid'] }}"
-                                class="w-8 h-8 rounded-lg shadow-lg" />
-                            <div class="flex flex-col justify-center pl-2">
-                                <p class="text-sm font-bold text-base-100">
-                                    {{ $player['name'] }}
-                                </p>
-                                <p class="text-xs text-base-200">
-                                    {{ $player['uuid'] }}
-                                </p>
+<div>
+    <div wire:loading>
+        <div class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="flex justify-center min-h-screen px-4 pt-4 pb-20 text-center items end sm:block sm:p-0">
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div
+                    class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                    <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <div class="flex justify-center">
+                                    <div class="flex items center">
+                                        <i class="text-gray-500 fa-solid fa-spinner fa-spin fa-2x"></i>
+                                        <p class="ml-2 text-lg">Please be patient, the data is loading...</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </li>
-                @endforeach
+                    </div>
+
+                </div>
             </div>
         </div>
+    </div>
+    <div class="m-auto w-96 {{ $playerUUID ? 'mb-32' : '' }} transition-all duration-500 ease-in-out text-light">
 
-    </form>
+        <h2 class="text-2xl font-bold text-center">{{ \Illuminate\Support\Arr::get($playerData, 'name', 'error') }}</h2>
+        <p class="text-center">{{ $playerUUID }}</p>
+
+
+    </div>
 
 </div>

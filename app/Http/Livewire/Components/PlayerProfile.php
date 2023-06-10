@@ -8,63 +8,41 @@ use Illuminate\Support\Facades\Http;
 
 class PlayerProfile extends Component
 {
-    public $uuid;
-    public $playerStats;
+    public $playerUUID;
+    public $playerData;
 
-    public function getPlayerStats($uuid)
+    protected $listeners = ['playerSelected' => 'updateSelectedUUID'];
+
+
+
+    public function updatePlayerStats($uuid)
     {
-        $playerStats = Cache::remember('playerStats_' . $uuid, 60, function () use ($uuid) {
+        $playerStats = Cache::remember('playerStats_' . $uuid, 3600, function () use ($uuid) {
             $response = Http::get('https://plan.redcraft.org/v1/player?player=' . $uuid);
             if ($response->failed()) {
-                $this->playerStats = [];
+                $this->playerList = [];
                 return;
             }
             return $response->json();
         });
-
-        return $playerStats;
-
+        $this->playerData = $playerStats['info'];
+        dd($this->playerData);
     }
 
-    public function getPlayerHeadUrl($uuid)
-    {
-        $url = 'https://mc-heads.net/avatar/' . $uuid;
-        return $url;
-    }
-
-
-
-
-    public function getFilteredPlayerList()
-    {
-        $filteredUUIDS = array_filter($this->playerList, function ($player) {
-            return str_contains(strtolower($player['name']), strtolower($this->searchTerm));
-        });
-        $filteredPlayerList = array_slice($filteredUUIDS, 0, self::PLAYER_LIST_LIMIT);
-        return $filteredPlayerList;
-    }
-
-
-
-    public function updatedSearchTerm($searchTerm)
-    {
-        $this->searchTerm = $searchTerm;
-        $this->filteredPlayerList = $this->getFilteredPlayerList();
-        $this->emitSelf('searchTermUpdated');
-    }
 
     public function mount()
     {
-
-        info('a');
-        $this->playerList = $this->getPlayerList();
-        info('b');
-        $this->filteredPlayerList = $this->getFilteredPlayerList();
-        info('c');
+        $this->playerUUID = null;
+        $this->playerData = [];
     }
-
     public function render()
     {
         return view('livewire.components.player-profile');
+    }
+
+    public function updateSelectedUUID($uuid)
+    {
+        $this->playerUUID = $uuid;
+        $this->updatePlayerStats($uuid);
     }
 }

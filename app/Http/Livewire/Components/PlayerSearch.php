@@ -14,7 +14,6 @@ class PlayerSearch extends Component
     public $searchTerm;
     public $filteredPlayerList;
 
-    //<a class=\"link\" href=\"./player/45418653-fadb-4e6d-8dcc-8c79b90ec527\">Nano_</a>
     const UUID_REGEX = '/[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}/';
     const USERNAME_REGEX = '/(?<=\>)(.*?)(?=\<)/';
     const PLAYER_LIST_LIMIT = 5;
@@ -53,20 +52,7 @@ class PlayerSearch extends Component
 
     }
 
-    public function getPlayerStats($uuid)
-    {
-        $playerStats = Cache::remember('playerStats_' . $uuid, 60, function () use ($uuid) {
-            $response = Http::get('https://plan.redcraft.org/v1/player?player=' . $uuid);
-            if ($response->failed()) {
-                $this->playerList = [];
-                return;
-            }
-            return $response->json();
-        });
 
-        return $playerStats;
-
-    }
 
     public function getPlayerHeadUrl($uuid)
     {
@@ -98,15 +84,18 @@ class PlayerSearch extends Component
     public function mount()
     {
 
-        info('a');
         $this->playerList = $this->getPlayerList();
-        info('b');
         $this->filteredPlayerList = $this->getFilteredPlayerList();
-        info('c');
     }
 
     public function render()
     {
-        return view('livewire.components.player-profile');
+        return view('livewire.components.player-search');
+    }
+
+    public function selectPlayer($uuid)
+    {
+        $this->selectedPlayerUUID = $uuid;
+        $this->emit('playerSelected', $uuid);
     }
 }

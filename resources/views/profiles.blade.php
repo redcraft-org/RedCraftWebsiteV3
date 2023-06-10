@@ -5,7 +5,7 @@
             @livewire('components.player-search')
         </x-slot>
     </x-page-header>
-
+    @livewire('components.player-profile')
     {{-- <x-profiles.contact-form /> --}}
 
 
