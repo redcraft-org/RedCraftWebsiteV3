@@ -82,15 +82,13 @@ return [
                 '3' => [
                     'title' => 'L’abus de mécaniques non-officielles',
                     'description' => 'telle que les bugs et les glitches qui procurent un avantage déloyal par rapport aux autres joueurs est interdite.',
-                    'note' => [
-                        'title' => 'Remarque',
-                        'table' => [
-                            'allowed' => 'Autorisé',
-                            'not_allowed' => 'Interdit',
-                            'examples' => [['Duplication de TNT Exemple : machine à tunnel, quarry', 'Duplication de coffre, de shulker et de tout autres conteneurs'], ['FreeCam', 'Minage avec Xray ou en utilisant un mod FreeCam'], ['Autoclicker', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach'], ['', 'Minage automatique. Par exemple : Baritone']],
-                        ],
+
+                    'table' => [
+                        'headers' => ['Autorisé', 'Interdit'],
+                        'columns' => [['Duplication de TNT Exemple : machine à tunnel, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray ou en utilisant un mod FreeCam', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
                     ],
-                    'note_2temp' => 'Remarque : Les clients modifiés (mods) sont des mécaniques non officielles.',
+
+                    'note' => 'Remarque : Les clients modifiés (mods) sont des mécaniques non officielles.',
                 ],
                 '4' => [
                     'title' => 'Ne détruisez pas les constructions ou les biens des autres joueurs sans leur permission.',
@@ -98,7 +96,7 @@ return [
                     'note' => 'Avant de modifier le terrain ou d’emprunter les affaires d’une personne, assurez-vous d’avoir son accord. Dans le doute, demandez !',
                 ],
                 '5' => 'Voler les affaires ou les ressources d’un autre joueur est interdit.',
-                '6' => "Le kill farming, c'est-à-dire la tuerie répétée d'autres joueurs est interdit.",
+                '6' => "Le PVP non consenti est interdit. Ou tout autre form d'harcèlement.",
             ],
         ],
     ],

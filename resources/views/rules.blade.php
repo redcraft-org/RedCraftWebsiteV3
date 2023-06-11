@@ -3,55 +3,39 @@
 @php
     $rules = [
         __('rules.rules.general.title') => [
-            __('rules.rules.general.1.title') => [
-                __('rules.rules.general.1.1'),
-                __('rules.rules.general.1.2'),
-                __('rules.rules.general.1.3'),
-                __('rules.rules.general.1.4'),
-                __('rules.rules.general.1.5'),
-                __('rules.rules.general.1.6'),
-            ],
-            __('rules.rules.general.2.title') => [
-                __('rules.rules.general.2.1'),
-                __('rules.rules.general.2.2'),
-            ],
+            __('rules.rules.general.1.title') => [__('rules.rules.general.1.1'), __('rules.rules.general.1.2'), __('rules.rules.general.1.3'), __('rules.rules.general.1.4'), __('rules.rules.general.1.5'), __('rules.rules.general.1.6')],
+            __('rules.rules.general.2.title') => [__('rules.rules.general.2.1'), __('rules.rules.general.2.2')],
         ],
         __('rules.rules.minecraft.title') => [
-            __('rules.rules.minecraft.1.title') => [
-                __('rules.rules.minecraft.1.1'),
-                __('rules.rules.minecraft.1.2'),
-                __('rules.rules.minecraft.1.3'),
-                __('rules.rules.minecraft.1.4'),
-                __('rules.rules.minecraft.1.5.title') => [
-                    __('rules.rules.minecraft.1.5.1'),
-                    __('rules.rules.minecraft.1.5.2'),
-                    __('rules.rules.minecraft.1.5.3.title'),
-                    "note" => __('rules.rules.minecraft.1.5.3.note'),
-                ]
-            ],
-            __('rules.rules.minecraft.2.title') => [
-                __('rules.rules.minecraft.2.1.title'),
-                "note" => __('rules.rules.minecraft.2.1.note'),
-                __('rules.rules.minecraft.2.2'),
-                __('rules.rules.minecraft.2.3'),
-            ],
-            __('rules.rules.minecraft.3.title') => [
-                __('rules.rules.minecraft.3.1'),
-            ],
+            __('rules.rules.minecraft.1.title') => [__('rules.rules.minecraft.1.1'), __('rules.rules.minecraft.1.2'), __('rules.rules.minecraft.1.3'), __('rules.rules.minecraft.1.4'), __('rules.rules.minecraft.1.5.title') => [__('rules.rules.minecraft.1.5.1'), __('rules.rules.minecraft.1.5.2'), __('rules.rules.minecraft.1.5.3.title'), 'note' => __('rules.rules.minecraft.1.5.3.note')]],
+            __('rules.rules.minecraft.2.title') => [__('rules.rules.minecraft.2.1.title'), 'note' => __('rules.rules.minecraft.2.1.note'), __('rules.rules.minecraft.2.2'), __('rules.rules.minecraft.2.3')],
+            __('rules.rules.minecraft.3.title') => [__('rules.rules.minecraft.3.1')],
             __('rules.rules.minecraft.4.title') => [
                 __('rules.rules.minecraft.4.1'),
                 __('rules.rules.minecraft.4.2'),
                 __('rules.rules.minecraft.4.3.title') => [
                     'description' => __('rules.rules.minecraft.4.3.description'),
-                    'note' => [
-                        'title' => __('rules.rules.minecraft.4.3.note.title'),
-                        'table' => [
-                            'allowed' => __('rules.rules.minecraft.4.3.note.table.allowed'),
-                            'not_allowed' => __('rules.rules.minecraft.4.3.note.table.not_allowed'),
-                            'examples' => __('rules.rules.minecraft.4.3.note.table.examples'), // This assumes you have added the examples as an array in your language file.
+                    'table' => [
+                        'headers' => [
+                            __('rules.rules.minecraft.4.3.table.headers.0'),
+                            __('rules.rules.minecraft.4.3.table.headers.1')
                         ],
+                        'columns' => [
+                            [
+                                __('rules.rules.minecraft.4.3.table.columns.0.0'),
+                                __('rules.rules.minecraft.4.3.table.columns.0.1'),
+                                __('rules.rules.minecraft.4.3.table.columns.0.2'),
+                                __('rules.rules.minecraft.4.3.table.columns.0.3'),
+                            ],
+                            [
+                                __('rules.rules.minecraft.4.3.table.columns.1.0'),
+                                __('rules.rules.minecraft.4.3.table.columns.1.1'),
+                                __('rules.rules.minecraft.4.3.table.columns.1.2'),
+                                __('rules.rules.minecraft.4.3.table.columns.1.3'),
+                            ]
+                        ]
                     ],
-                    'note_2temp' => __('rules.rules.minecraft.4.3.note_2temp'),
+                    'note' => __('rules.rules.minecraft.4.3.note'),
                 ],
                 __('rules.rules.minecraft.4.4.title') => [
                     'description' => __('rules.rules.minecraft.4.4.description'),
@@ -68,8 +52,8 @@
 
     <x-page-header section-title="{{ __('rules.title') }}" />
 
-    <x-section section-title="{{ __('rules.code_of_conduct.title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3"
-        x-data="{ open: 'respect' }">
+    <x-section section-title="{{ __('rules.code_of_conduct.title') }}" bg="bg-base-100" text="text-light"
+        wave-bg="fill-base-100" wave-id="3" x-data="{ open: 'respect' }">
         <div class="flex flex-col justify-around my-4 md:flex-row">
             <div class="code-conduct-item" tabindex="0" @mouseover="open = 'respect'"
                 :class="open == 'respect' && 'focused'">
@@ -102,8 +86,8 @@
         </div>
     </x-section>
 
-    <x-section section-title="{{ __('rules.rules.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light" wave-id="2"
-        x-data="{ open: '' }">
+    <x-section section-title="{{ __('rules.rules.title') }}" bg="bg-light" text="text-base-100" wave-bg="fill-light"
+        wave-id="2" x-data="{ open: '' }">
 
         {{-- Wall of Shame card --}}
         {{-- Remove these comments when adding the "Wall of Shame" page --}}

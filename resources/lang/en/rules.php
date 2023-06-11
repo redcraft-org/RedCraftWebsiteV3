@@ -82,15 +82,12 @@ return [
                 '3' => [
                     'title' => 'Abuse of unofficial mechanics',
                     'description' => 'such as bugs and glitches that provide an unfair advantage over other players is prohibited.',
-                    'note' => [
-                        'title' => 'Remark',
-                        'table' => [
-                            'allowed' => 'Allowed',
-                            'not_allowed' => 'Forbidden',
-                            'examples' => [['Duplication of TNT Example: tunnel machine, quarry', 'Duplication of chest, shulker and all other containers'], ['FreeCam', 'Mining with Xray or using a FreeCam mod'], ['Autoclicker', 'Having a Mod giving an advantage over PVP, for example Kill Aura or Kill Reach'], ['', 'Automatic mining. Example: Baritone']],
-                        ],
+                    'table' => [
+                        'headers' => ['Allowed', 'Not Allowed'],
+                        'columns' => [['Duplication of TNT Example: tunnel machine, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray or using a FreeCam mod', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
                     ],
-                    'note_2temp' => 'Remark: Modified clients (mods) are unofficial mechanics.',
+
+                    'note' => 'Remark: Modified clients (mods) are unofficial mechanics.',
                 ],
                 '4' => [
                     'title' => 'Do not destroy the constructions or goods of other players without their permission.',
@@ -98,7 +95,7 @@ return [
                     'note' => 'Before modifying the terrain or borrowing someone’s belongings, make sure you have their agreement. When in doubt, ask!',
                 ],
                 '5' => 'Stealing the belongings or resources of another player is forbidden.',
-                '6' => 'Kill farming, i.e., repeatedly killing other players, is prohibited.',
+                '6' => 'Unwanted PVP is prohibited. Or any other form of harassment.',
             ],
         ],
     ],
