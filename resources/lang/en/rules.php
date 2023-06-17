@@ -23,7 +23,7 @@ return [
         'title' => 'Rules',
         'description' => [
             '1' => 'The following section describes the various ',
-            '2' => 'behaviours to be followed',
+            '2' => 'prohibited behaviors',
             '3' => ' on the RedCraft.org server. These rules are to be followed by all players, whether they are staff members or not.',
         ],
         'note' => 'Note : ',
@@ -31,31 +31,29 @@ return [
             'title' => 'General',
             '1' => [
                 'title' => 'General behaviour',
-                '1' => 'Impersonation is strictly forbidden.',
-                '2' => 'Have an nickname, name or profile picture that is not outrageous.',
-                '3' => 'Any behavior that violates the integrity of a person or group of people (insult, provocation, discrimination, harassment, homophobia, transphobia), whether by text message, voice chat, reaction with emojis or with any other form of communication is strictly forbidden.',
-                '4' => 'Don\'t spam text and voice channels and mentions to staff.',
-                '5' => 'Write your messages in a clear and readable manner. Don\t use SMS language in public channels.',
-                '6' => 'Disclosure of private information is strictly forbidden.',
+                '1' => 'Identity theft.',
+                '2' => 'Have an outrageous nickname, name or profile picture.',
+                '3' => 'Any behavior that violates the integrity of a person or group of people (insult, provocation, discrimination, harassment, homophobia, transphobia), whether by text message, voice chat, reaction with emojis or with any other form of communication.',
+                '4' => 'Spamming of text and voice channels and mentions to staff.',
+                '5' => 'The use of SMS language in public channels.',
+                '6' => 'Disclosure of private information.',
             ],
             '2' => [
                 'title' => 'The Discord server',
-                '1' => 'Don\t dodge penalties by leaving the discord.',
-                '2' => 'Keep the discussion clean, don\'t advertise on public channels as well as advertising via private channels.',
+                '1' => 'Punishment dodge by leaving the discord.',
+                '2' => 'Advertising on public channels as well as massive advertising via private channels.',
             ],
         ],
         'minecraft' => [
             'title' => 'Minecraft',
             '1' => [
                 'title' => 'General',
-                '1' => [
-                    'title' => "Griefing is forbidden. This includes destroying another player's building without their consent, setting traps that attack another player or stealing items.",
-                    'note' => 'Being a member of another player\'s plot doesn\'t mean you can modify his plot without his agreement.',
-                ],
-                '2' => 'The use of cheats, i.e. software, mods or the exploitation of bugs present in the game that can provide a significant advantage to the detriment of other players is forbidden.',
-                '3' => 'Don\'t use software or mods intended to recover/download partially or entirely the map of the server.',
-                '4' => [
-                    'title' => 'Continued possession of a modified item is forbidden. This includes items:',
+                '1' => "Griefing, i.e. destroying another player's building without his consent, setting traps that attack another player or stealing items.",
+                '2' => 'The use of cheats, i.e. software, mods or the exploitation of bugs present in the game that can provide a significant advantage, to the detriment of other players.',
+                '3' => 'The use of more than one Minecraft account per player.',
+                '4' => 'The use of software or mods intended to recover/download partially or entirely the map of the server.',
+                '5' => [
+                    'title' => 'Continued possession of a modified item',
                     '1' => 'Giving the player an advantage over the others (effect, potion, etc...).',
                     '2' => 'Having a name or description that violates rule 1.3.',
                     '3' => [
@@ -67,11 +65,11 @@ return [
             '2' => [
                 'title' => 'Creative Redstone',
                 '1' => [
-                    'title' => 'The creation of Clocks, i.e. systems that cause a repeated activation of the system without any necessary interaction by a player is forbidden.',
+                    'title' => 'The creation of Clocks, i.e. systems that cause a repeated activation of the system without any necessary interaction by a player.',
                     'note' => 'Clocks that automatically stop after a short time are tolerated as long as they can only be reactivated by player interaction.',
                 ],
-                '2' => "Don't spam other players' Redstone systems.",
-                '3' => 'Don\'t aappropriate creation you haven\'t created yourself.',
+                '2' => "Spamming other players' Redstone systems.",
+                '3' => 'The appropriation of a creation that was not created by oneself.',
             ],
             '3' => [
                 'title' => 'Creative Build',
@@ -97,7 +95,7 @@ return [
                     'note' => 'Before modifying the terrain or borrowing someone’s belongings, make sure you have their agreement. When in doubt, ask!',
                 ],
                 '5' => 'Stealing the belongings or resources of another player is forbidden.',
-                '6' => 'Unwanted PVP is prohibited.',
+                '6' => 'Unwanted PVP is prohibited. Or any other form of harassment.',
             ],
         ],
     ],
