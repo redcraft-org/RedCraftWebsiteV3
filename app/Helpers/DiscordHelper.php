@@ -20,6 +20,9 @@ class DiscordHelper
             return -1;
         }
 
+        if (!isset($discordInfo['members'])) {
+            return -1;
+        }
         $members = $discordInfo['members'];
         $membersCount = 1;
         foreach ($members as $member) {
