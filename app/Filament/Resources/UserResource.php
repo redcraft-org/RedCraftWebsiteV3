@@ -22,7 +22,33 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Form\Components\TextInput::make('name')
+                    ->autofocus()
+                    ->required()
+                    ->max(255)
+                    ->disableAutocomplete()
+                    ->placeholder(__('Name')),
+
+                Form\Components\TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->max(255)
+                    ->disableAutocomplete()
+                    ->placeholder(__('Email')),
+
+                Form\Components\TextInput::make('password')
+                    ->password()
+                    ->required()
+                    ->minLength(8)
+                    ->disableAutocomplete()
+                    ->placeholder(__('Password')),
+
+                Form\Components\TextInput::make('password_confirmation')
+                    ->password()
+                    ->required()
+                    ->minLength(8)
+                    ->disableAutocomplete()
+                    ->placeholder(__('Confirm Password')),
             ]);
     }
 
