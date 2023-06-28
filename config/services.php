@@ -45,6 +45,7 @@ return [
         'json-api-time' => env('DISCORD_JSON_API_TIME', 15),
     ],
     'plan-url' => env('PLAN_URL', 'https://stats.redcraft.org'),
+    'bluemap-url' => env('BLUEMAP_URL', 'https://map.redcraft.org'),
     'github-organization-url' => env('GITHUB_ORGANIZATION_URL', 'https://github.com/redcraft-org'),
 
 ];
