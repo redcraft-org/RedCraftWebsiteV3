@@ -1,7 +1,7 @@
 <?php
 $versions = McHelper::getVersions();
 if (is_array($versions)) {
-    $Supportedversions = $versions['supportedVersions'];
+    $Supportedversions = \Illuminate\Support\Arr::get($versions, 'supportedVersions', []);
     $versions = reset($Supportedversions) . " - " . end($Supportedversions);
 }
 
