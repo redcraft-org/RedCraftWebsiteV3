@@ -78,6 +78,17 @@
                         ],
                     ],
                 ],
+                [
+                    'displayName' => 'cmoa',
+                    'uuid' => '75253c0b-5c34-4019-aa30-82edda5dcb75',
+                    'socials' => [
+                        [
+                            'socialName' => 'youtube',
+                            'logo' => 'fa-youtube',
+                            'url' => 'https://www.youtube.com/@cmoa2161',
+                        ],
+                    ],
+                ],
             ],
         ],
         [
@@ -91,17 +102,6 @@
                             'socialName' => 'twitter',
                             'logo' => 'fa-twitter',
                             'url' => 'https://twitter.com/FulbringerS',
-                        ],
-                    ],
-                ],
-                [
-                    'displayName' => 'cmoa',
-                    'uuid' => '75253c0b-5c34-4019-aa30-82edda5dcb75',
-                    'socials' => [
-                        [
-                            'socialName' => 'youtube',
-                            'logo' => 'fa-youtube',
-                            'url' => 'https://www.youtube.com/@cmoa2161',
                         ],
                     ],
                 ],
