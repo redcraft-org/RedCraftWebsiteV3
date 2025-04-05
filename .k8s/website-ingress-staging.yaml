@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: redcraft-website
   namespace: staging
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - staging.redcraft.org

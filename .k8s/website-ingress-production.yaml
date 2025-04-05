@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: redcraft-website
   namespace: production
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
     - host: redcraft.org
       http:

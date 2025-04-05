@@ -3,31 +3,13 @@ kind: Namespace
 metadata:
   name: plan
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: redcraft-plan
-  namespace: plan
-spec:
-  dnsNames:
-    - plan.redcraft.org
-  secretName: plan-certificate
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: redcraft-plan
   namespace: plan
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
-  tls:
-    - hosts:
-        - plan.redcraft.org
-      secretName: plan-certificate
+  ingressClassName: nginx
   rules:
     - host: plan.redcraft.org
       http:
@@ -47,10 +29,10 @@ metadata:
   namespace: plan
 spec:
   ports:
-  - name: plan
-    port: 80
-    protocol: TCP
-    targetPort: 8804
+    - name: plan
+      port: 80
+      protocol: TCP
+      targetPort: 8804
   clusterIP: None
   type: ClusterIP
 ---
@@ -60,9 +42,9 @@ metadata:
   name: plan
   namespace: plan
 subsets:
-- addresses:
-  - ip: 195.201.181.21
-  ports:
-  - name: plan
-    port: 8804
-    protocol: TCP
+  - addresses:
+      - ip: 10.0.2.143
+    ports:
+      - name: plan
+        port: 8804
+        protocol: TCP
