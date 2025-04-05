@@ -1,16 +1,3 @@
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: redcraft-website
-  namespace: staging
-spec:
-  dnsNames:
-    - staging.redcraft.org
-  secretName: website-certificate
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
