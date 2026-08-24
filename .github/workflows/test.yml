@@ -13,20 +13,23 @@ jobs:
           mysql -e 'CREATE DATABASE redcraft' -uroot -proot
 
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v5
 
+      # The lock file pins laminas/laminas-diactoros, which does not run on 8.3
+      # or newer, and laravel-debugbar, which needs at least 8.1. That leaves
+      # 8.1 and 8.2, and Laravel 9 supports neither anything newer.
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.0"
+          php-version: "8.2"
           tools: composer:v2
           extensions: sqlite3
 
-      - name: Update dependencies
-        run: composer update
-
+      # install, not update. Composer blocks spiral/roadrunner over
+      # CVE-2025-22871 when it resolves from scratch, and resolving on every run
+      # meant CI never tested the versions production actually ships.
       - name: Install dependencies
-        run: composer install
+        run: composer install --no-interaction --no-progress
 
       - name: Use default .env
         run: cp .env.testing .env
