@@ -57,7 +57,11 @@ jobs:
           node-version: "22"
           cache: npm
 
+      # Builds first because one of the tests loads the compiled stylesheets in
+      # the order the page emits them, to check a page file has not started
+      # overriding a utility class that Alpine toggles.
       - name: Run front end tests
         run: |
           npm ci
+          npm run build
           npm test
