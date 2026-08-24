@@ -2,8 +2,7 @@
 
 return [
     "title" => [
-        "exclamation" => "!",
-        "welcome_to" => "Welcome to",
+        "welcome" => "Welcome to :brand!",
         "sub" => "The return of two great communities, TopRed and KingdomHills, through a whole new Open Source infrastructure. Sharing and Innovation is our way to go!",
         "version" => "Version :version",
 
