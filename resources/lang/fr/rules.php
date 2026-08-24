@@ -55,10 +55,10 @@ return [
                 '5' => [
                     'title' => "La possession continue d'un item modifié",
                     '1' => 'Donnant au joueur un avantage par rapport aux autres (effet, potion).',
-                    '2' => 'Dont le nom ou la description enfreint la règle 1.3.',
+                    '2' => 'Dont le nom ou la description enfreint la règle 1.3 de la section Général.',
                     '3' => [
                         'title' => "Donnant accès à des commandes auxquelles le joueur n'a normalement pas accès.",
-                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 2.1.4, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
+                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 1.5 ci-dessus, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
                     ],
                 ],
             ],
@@ -73,29 +73,29 @@ return [
             ],
             '3' => [
                 'title' => 'Créatif Build',
-                '1' => "Les règles de la section 2.1 s'appliquent ici.",
+                '1' => "Les règles de la section Créatif Redstone s'appliquent ici.",
             ],
             '4' => [
                 'title' => 'Survie',
-                '1' => 'Collaboration: Pour contribuer à un projet public, il faut d’abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d’autres joueurs qui construisent à proximité. Dans le doute, demandez.',
-                '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d’éviter le lag.',
+                '1' => 'Collaboration : Pour contribuer à un projet public, il faut d\'abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d\'autres joueurs qui construisent à proximité. Dans le doute, demandez.',
+                '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d\'éviter le lag.',
                 '3' => [
-                    'title' => 'L’abus de mécaniques non-officielles',
+                    'title' => 'L\'abus de mécaniques non-officielles',
                     'description' => 'telle que les bugs et les glitches qui procurent un avantage déloyal par rapport aux autres joueurs est interdite.',
 
                     'table' => [
                         'headers' => ['Autorisé', 'Interdit'],
-                        'columns' => [['Duplication de TNT Exemple : machine à tunnel, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray ou en utilisant un mod FreeCam', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
+                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam, pour regarder autour de vous en surface', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray, ou utilisation de la FreeCam pour voir sous terre', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
                     ],
 
-                    'note' => 'Remarque : Les clients modifiés (mods) sont des mécaniques non officielles.',
+                    'note' => 'Les clients modifiés (mods) sont des mécaniques non officielles.',
                 ],
                 '4' => [
                     'title' => 'Ne détruisez pas les constructions ou les biens des autres joueurs sans leur permission.',
-                    'description' => 'Respectez le travail et les efforts des autres. Ne détruisez pas ou ne modifiez pas leurs bâtiments, leurs cultures, leurs élevages ou toute autre structure. Pour toute structure abandonnée par un joueur inactif, l’autorisation devra être demandée pour utiliser l’espace.',
-                    'note' => 'Avant de modifier le terrain ou d’emprunter les affaires d’une personne, assurez-vous d’avoir son accord. Dans le doute, demandez !',
+                    'description' => 'Respectez le travail et les efforts des autres. Ne détruisez pas ou ne modifiez pas leurs bâtiments, leurs cultures, leurs élevages ou toute autre structure. Pour toute structure abandonnée par un joueur inactif, l\'autorisation devra être demandée pour utiliser l\'espace.',
+                    'note' => 'Avant de modifier le terrain ou d\'emprunter les affaires d\'une personne, assurez-vous d\'avoir son accord. Dans le doute, demandez !',
                 ],
-                '5' => 'Voler les affaires ou les ressources d’un autre joueur est interdit.',
+                '5' => 'Voler les affaires ou les ressources d\'un autre joueur est interdit.',
                 '6' => "Le PVP non consenti est interdit. Ou tout autre form d'harcèlement.",
             ],
         ],

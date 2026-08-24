@@ -47,3 +47,17 @@ jobs:
         run: |
           cp .env .env.testing
           php artisan test
+
+      # The front end has its own suite now, because the one regression that
+      # reached staging was a javascript evaluation order problem that every
+      # php test and every status code check happily reported as fine.
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Run front end tests
+        run: |
+          npm ci
+          npm test

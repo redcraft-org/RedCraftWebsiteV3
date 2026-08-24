@@ -8,15 +8,27 @@ use Illuminate\Support\Facades\Http;
 
 class McHelper
 {
+    /**
+     * Always returns an array with a supportedVersions key, even when the api
+     * is unreachable. Callers reset() and end() that list, and reset(null) is a
+     * TypeError, so handing back a different shape on failure turned an api
+     * timeout into a 500 on the about page.
+     */
     public static function getVersions()
     {
         try {
-            return Cache::remember('redcraft-bungee-json-api.endpoint.versions', config('services.redcraft-bungee-json-api.endpoint.versions-time'), function () {
+            $versions = Cache::remember('redcraft-bungee-json-api.endpoint.versions', config('services.redcraft-bungee-json-api.endpoint.versions-time'), function () {
                 return Http::timeout(config('services.redcraft-bungee-json-api.endpoint.timeout'))->get(config('services.redcraft-bungee-json-api.endpoint.versions'))->json();
             });
         } catch (ConnectionException $e) {
-            return ['players' => -1];
+            $versions = null;
         }
+
+        if (! is_array($versions) || ! is_array($versions['supportedVersions'] ?? null)) {
+            return ['supportedVersions' => []];
+        }
+
+        return $versions;
     }
 
     public static function getPlayers()

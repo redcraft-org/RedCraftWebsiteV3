@@ -55,10 +55,10 @@ return [
                 '5' => [
                     'title' => 'Continued possession of a modified item',
                     '1' => 'Giving the player an advantage over the others (effect, potion, etc...).',
-                    '2' => 'Having a name or description that violates rule 1.3.',
+                    '2' => 'Having a name or description that violates General rule 1.3.',
                     '3' => [
                         'title' => 'Giving access to commands normally out of reach of the player.',
-                        'note' => 'If a player receives or finds an altered item corresponding to Rule 2.1.4, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
+                        'note' => 'If a player receives or finds an altered item corresponding to rule 1.5 above, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
                     ],
                 ],
             ],
@@ -73,7 +73,7 @@ return [
             ],
             '3' => [
                 'title' => 'Creative Build',
-                '1' => 'The rules of section 2.1 apply here.',
+                '1' => 'The rules of the Creative Redstone section apply here.',
             ],
             '4' => [
                 'title' => 'Survival',
@@ -84,15 +84,15 @@ return [
                     'description' => 'such as bugs and glitches that provide an unfair advantage over other players is prohibited.',
                     'table' => [
                         'headers' => ['Allowed', 'Not Allowed'],
-                        'columns' => [['Duplication of TNT Example: tunnel machine, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray or using a FreeCam mod', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
+                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam, to look around above ground', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray, or using FreeCam to see underground', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
                     ],
 
-                    'note' => 'Remark: Modified clients (mods) are unofficial mechanics.',
+                    'note' => 'Modified clients (mods) are unofficial mechanics.',
                 ],
                 '4' => [
                     'title' => 'Do not destroy the constructions or goods of other players without their permission.',
                     'description' => 'Respect the work and efforts of others. Do not destroy or modify their buildings, crops, livestock, or any other structure. For any structure abandoned by an inactive player, permission must be requested to use the space.',
-                    'note' => 'Before modifying the terrain or borrowing someone’s belongings, make sure you have their agreement. When in doubt, ask!',
+                    'note' => 'Before modifying the terrain or borrowing someone\'s belongings, make sure you have their agreement. When in doubt, ask!',
                 ],
                 '5' => 'Stealing the belongings or resources of another player is forbidden.',
                 '6' => 'Unwanted PVP is prohibited. Or any other form of harassment.',
