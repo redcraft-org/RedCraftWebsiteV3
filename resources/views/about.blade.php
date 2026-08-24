@@ -56,9 +56,10 @@
                 <h5>@lang('about.faq.4.title')</h5>
                 <p>
                     @lang('about.faq.4.description.1')
-                    <strong>{{ reset(McHelper::getVersions()['supportedVersions']) }}</strong>
+                    @php($supported = McHelper::getVersions()['supportedVersions'])
+                    <strong>{{ $supported ? reset($supported) : '?' }}</strong>
                     @lang('about.faq.4.description.2')
-                    <strong>{{ end(McHelper::getVersions()['supportedVersions']) }}</strong>
+                    <strong>{{ $supported ? end($supported) : '?' }}</strong>
                     @lang('about.faq.4.description.3')
                 </p>
             </div>
