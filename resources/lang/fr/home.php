@@ -2,8 +2,7 @@
 
 return [
     "title" => [
-        "exclamation" => " !",
-        "welcome_to" => "Bienvenue sur",
+        "welcome" => "Bienvenue sur :brand !",
         "sub" => "Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle infrastructure open source. Partage et innovation seront notre crédo !",
         "version" => "Version :version",
 

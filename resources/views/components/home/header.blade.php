@@ -23,7 +23,7 @@ $nbPlayers = DiscordHelper::getPlayersConnected();
         </div>
 
         <div class="flex flex-col justify-center sm:w-1/2">
-            <h1>@lang('home.title.welcome_to') <span class="text-6xl">RedCraft{{ __('home.title.exclamation') }}</span></h1>
+            <h1>{!! __('home.title.welcome', ['brand' => '<span class="text-6xl">RedCraft</span>']) !!}</h1>
             <p>@lang('home.title.sub')</p>
             <b>@lang('home.title.version', ['version' => $versions])</b>
         </div>
