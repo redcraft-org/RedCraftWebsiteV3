@@ -77,25 +77,25 @@ return [
             ],
             '4' => [
                 'title' => 'Survie',
-                '1' => 'Collaboration: Pour contribuer à un projet public, il faut d’abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d’autres joueurs qui construisent à proximité. Dans le doute, demandez.',
-                '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d’éviter le lag.',
+                '1' => 'Collaboration : Pour contribuer à un projet public, il faut d\'abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d\'autres joueurs qui construisent à proximité. Dans le doute, demandez.',
+                '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d\'éviter le lag.',
                 '3' => [
-                    'title' => 'L’abus de mécaniques non-officielles',
+                    'title' => 'L\'abus de mécaniques non-officielles',
                     'description' => 'telle que les bugs et les glitches qui procurent un avantage déloyal par rapport aux autres joueurs est interdite.',
 
                     'table' => [
                         'headers' => ['Autorisé', 'Interdit'],
-                        'columns' => [['Duplication de TNT Exemple : machine à tunnel, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray ou en utilisant un mod FreeCam', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
+                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray ou en utilisant un mod FreeCam', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
                     ],
 
-                    'note' => 'Remarque : Les clients modifiés (mods) sont des mécaniques non officielles.',
+                    'note' => 'Les clients modifiés (mods) sont des mécaniques non officielles.',
                 ],
                 '4' => [
                     'title' => 'Ne détruisez pas les constructions ou les biens des autres joueurs sans leur permission.',
-                    'description' => 'Respectez le travail et les efforts des autres. Ne détruisez pas ou ne modifiez pas leurs bâtiments, leurs cultures, leurs élevages ou toute autre structure. Pour toute structure abandonnée par un joueur inactif, l’autorisation devra être demandée pour utiliser l’espace.',
-                    'note' => 'Avant de modifier le terrain ou d’emprunter les affaires d’une personne, assurez-vous d’avoir son accord. Dans le doute, demandez !',
+                    'description' => 'Respectez le travail et les efforts des autres. Ne détruisez pas ou ne modifiez pas leurs bâtiments, leurs cultures, leurs élevages ou toute autre structure. Pour toute structure abandonnée par un joueur inactif, l\'autorisation devra être demandée pour utiliser l\'espace.',
+                    'note' => 'Avant de modifier le terrain ou d\'emprunter les affaires d\'une personne, assurez-vous d\'avoir son accord. Dans le doute, demandez !',
                 ],
-                '5' => 'Voler les affaires ou les ressources d’un autre joueur est interdit.',
+                '5' => 'Voler les affaires ou les ressources d\'un autre joueur est interdit.',
                 '6' => "Le PVP non consenti est interdit. Ou tout autre form d'harcèlement.",
             ],
         ],

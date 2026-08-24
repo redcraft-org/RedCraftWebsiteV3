@@ -84,15 +84,15 @@ return [
                     'description' => 'such as bugs and glitches that provide an unfair advantage over other players is prohibited.',
                     'table' => [
                         'headers' => ['Allowed', 'Not Allowed'],
-                        'columns' => [['Duplication of TNT Example: tunnel machine, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray or using a FreeCam mod', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
+                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray or using a FreeCam mod', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
                     ],
 
-                    'note' => 'Remark: Modified clients (mods) are unofficial mechanics.',
+                    'note' => 'Modified clients (mods) are unofficial mechanics.',
                 ],
                 '4' => [
                     'title' => 'Do not destroy the constructions or goods of other players without their permission.',
                     'description' => 'Respect the work and efforts of others. Do not destroy or modify their buildings, crops, livestock, or any other structure. For any structure abandoned by an inactive player, permission must be requested to use the space.',
-                    'note' => 'Before modifying the terrain or borrowing someone’s belongings, make sure you have their agreement. When in doubt, ask!',
+                    'note' => 'Before modifying the terrain or borrowing someone\'s belongings, make sure you have their agreement. When in doubt, ask!',
                 ],
                 '5' => 'Stealing the belongings or resources of another player is forbidden.',
                 '6' => 'Unwanted PVP is prohibited. Or any other form of harassment.',
