@@ -60,7 +60,7 @@ return [
     ],
 
     "licenses" => [
-        "title" => "Licenses and sources",
+        "title" => "Licenses and Sources",
         "1" => [
             "title" => "Website",
             "website" => "Website",

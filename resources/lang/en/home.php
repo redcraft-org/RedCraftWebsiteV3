@@ -19,15 +19,15 @@ return [
     "about" => [
         "title" => "About",
         "1" => [
-            "title" => "An innovative translation system",
+            "title" => "An Innovative Translation System",
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
-            "title" => "A flexible structure",
+            "title" => "A Flexible Structure",
             "description" => "RedCraft.org has been designed and thought from the beginning for robustness and adaptability. The entire project is open source, so anyone can contribute to the project!",
         ],
         "3" => [
-            "title" => "Join us !",
+            "title" => "Join Us!",
             "description" => "As the first Minecraft server to truly welcome players from all over the world into the same community, we strive to maintain an inclusive and respectful environment for all.",
         ],
     ],
