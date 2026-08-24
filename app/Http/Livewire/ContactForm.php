@@ -8,6 +8,10 @@ use Livewire\Component;
 
 class ContactForm extends Component
 {
+    // The view tells the user this limit, so both read it from here and cannot
+    // drift apart
+    public const MESSAGE_MAX_LENGTH = 1500;
+
 
     public $page = 'start';
 
@@ -41,7 +45,7 @@ class ContactForm extends Component
             'email' => $this->fromPlayer ? '' : 'required|email',
             'discord_username' => 'nullable|regex:/^.{3,32}#[0-9]{4}$/',
             'subject' => 'required|min:4',
-            'message' => 'required|min:30|max:1500',
+            'message' => 'required|min:30|max:' . self::MESSAGE_MAX_LENGTH,
         ];
     }
 

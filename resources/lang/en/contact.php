@@ -1,10 +1,10 @@
 <?php
 
 return [
-    "title" => "Contact us",
+    "title" => "Contact Us",
 
     "form" => [
-        "title" => "Contact form",
+        "title" => "Contact Form",
         "contacting_from" => "You are...",
         "player" => "A player",
         "other" => "Other",

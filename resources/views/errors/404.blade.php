@@ -1,15 +1,15 @@
 <x-app-layout>
 
-    <x-page-header section-title="404 - Page introuvable" />
+    <x-page-header section-title="{{ __('errors.404.title') }}" />
 
-    <x-section section-title="La page que vous recherchez est introuvable" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
+    <x-section section-title="{{ __('errors.404.section_title') }}" bg="bg-base-100" text="text-light" wave-bg="fill-base-100" wave-id="3">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-2/3">
-                <p>Désolé ! Vous ne trouverez pas votre bonheur par ici.</p>
-                <p>Vous souhaitez peut-être retourner sur une de ces pages :</p>
+                <p>@lang('errors.404.description_1')</p>
+                <p>@lang('errors.404.description_2')</p>
                 <ul>
-                    <li><a href="{{ route('home') }}">Page d'accueil</a></li>
-                    <li><a href="{{ route('contact') }}">Page de contact</a></li>
+                    <li><a href="{{ route('home') }}">@lang('errors.404.home')</a></li>
+                    <li><a href="{{ route('contact') }}">@lang('errors.404.contact')</a></li>
                 </ul>
             </div>
             <div class="md:w-1/3 grid items-center justify-items-center">

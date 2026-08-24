@@ -26,7 +26,7 @@ return [
             '2' => 'prohibited behaviors',
             '3' => ' on the RedCraft.org server. These rules are to be followed by all players, whether they are staff members or not.',
         ],
-        'note' => 'Note : ',
+        'note' => 'Note: ',
         'general' => [
             'title' => 'General',
             '1' => [
@@ -40,7 +40,7 @@ return [
             ],
             '2' => [
                 'title' => 'The Discord server',
-                '1' => 'Punishment dodge by leaving the discord.',
+                '1' => 'Punishment dodge by leaving the Discord.',
                 '2' => 'Advertising on public channels as well as massive advertising via private channels.',
             ],
         ],

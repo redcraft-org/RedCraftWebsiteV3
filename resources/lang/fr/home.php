@@ -2,6 +2,7 @@
 
 return [
     "title" => [
+        "exclamation" => " !",
         "welcome_to" => "Bienvenue sur",
         "sub" => "Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle infrastructure open source. Partage et innovation seront notre crédo !",
         "version" => "Version :version",
@@ -11,8 +12,8 @@ return [
         "join" => "Rejoindre le",
         "server" => "serveur",
         "discord" => "Discord",
-        "players_online" => ":count joueur(s) en ligne",
-        "players_connected" => ":count joueur(s) connecté(s)",
+        "players_online" => "{0} :count joueur en ligne|{1} :count joueur en ligne|[2,*] :count joueurs en ligne",
+        "players_connected" => "{0} :count joueur connecté|{1} :count joueur connecté|[2,*] :count joueurs connectés",
         "ip_copied" => "Adresse IP copiée !",
     ],
     "about" => [
@@ -32,6 +33,7 @@ return [
     ],
     "news" => [
         "title" => "Nouveautés",
+        "see_more" => "Voir tous les articles",
         "1" => [
             "title" => "Shoes!",
             "description" => "If a dog chews shoes whose shoes does he choose?",
@@ -74,4 +76,9 @@ return [
         ],
     ],
 
+    "alt" => [
+        "staff_member" => "Membre du staff : :name",
+        "server_image" => "Capture du serveur :name",
+        "news_image" => "Illustration de la nouveauté",
+    ],
 ];

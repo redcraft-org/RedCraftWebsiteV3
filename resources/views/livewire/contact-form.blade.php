@@ -70,7 +70,7 @@
             @error('message')
                 <span class="text-error">{{ $message }}</span>
             @enderror
-            <p class="text-secondary">@lang('contact.form.max_length', ['length' => "1500"])</p>
+            <p class="text-secondary">@lang('contact.form.max_length', ['length' => \App\Http\Livewire\ContactForm::MESSAGE_MAX_LENGTH])</p>
         </div>
 
 

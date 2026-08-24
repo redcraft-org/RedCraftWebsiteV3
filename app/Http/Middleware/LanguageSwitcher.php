@@ -36,6 +36,13 @@ class LanguageSwitcher
 
     public static function getNextWithCookie($request, $next, $language)
     {
+        // Only a locale we actually ship. A browser asking for one we do not
+        // have used to be set anyway, and every string fell back to English,
+        // so a French speaker whose browser says de or es never saw French.
+        if (!array_key_exists($language, config('app.locales'))) {
+            $language = config('app.fallback_locale');
+        }
+
         app()->setLocale($language);
         $cookie = cookie('language', $language, 60 * 24 * 7, null, null, false, false);
         return $next($request)->withCookie($cookie);

@@ -1,7 +1,7 @@
 <x-section id="news" section-title="{{  __('home.news.title') }}" bg="bg-primary" text="text-neutral" wave-bg="fill-primary" wave-id="1">
     <div class="flex flex-row gap-8">
         <div class="shadow-xl card w-96 bg-neutral text-base-100">
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            <img src="https://placeimg.com/400/225/arch" alt="{{ __('home.alt.news_image') }}" />
             <div class="card-body">
                 <h2 class="card-title">@lang('home.news.1.title')</h2>
                 <p>@lang('home.news.1.description')</p>
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="shadow-xl card w-96 bg-neutral text-base-100">
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            <img src="https://placeimg.com/400/225/arch" alt="{{ __('home.alt.news_image') }}" />
             <div class="card-body">
                 <h2 class="card-title">@lang('home.news.2.title')</h2>
                 <p>@lang('home.news.2.description')</p>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="shadow-xl card w-96 bg-neutral text-base-100">
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            <img src="https://placeimg.com/400/225/arch" alt="{{ __('home.alt.news_image') }}" />
             <div class="card-body">
                 <h2 class="card-title">@lang('home.news.3.title')</h2>
                 <p>@lang('home.news.3.description')</p>

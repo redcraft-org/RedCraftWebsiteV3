@@ -47,7 +47,7 @@ return [
         "4" => [
             "title" => "What version does the server support?",
             "description" => [
-                "1" => "LThe server is accessible from version ",
+                "1" => "The server is accessible from version ",
                 "2" => " to version ",
                 "3" => ".",
             ]
@@ -60,19 +60,19 @@ return [
     ],
 
     "licenses" => [
-        "title" => "Licenses and sources",
+        "title" => "Licenses and Sources",
         "1" => [
             "title" => "Website",
             "website" => "Website",
             "and" => " and ",
             "license" => "License",
             "description" => [
-                "laravel" => " : An open-source web framework written in PHP respecting the model-view-controller principle and entirely developed in object-oriented programming.",
-                "livewire" => " : A full-stack framework for Laravel that simplifies the creation of dynamic interfaces, without leaving the comfort of Laravel.",
-                "tailwind" => " : A utility-oriented CSS framework, full of classes that can be composed to build any design, directly in your code.",
-                "alpine" => " : A robust and minimal framework to compose JavaScript behavior in your code.",
-                "sass" => " : A preprocessor scripting language that is compiled or interpreted into CSS.",
-                "fontawesome" => " : Font and icon tool based on CSS, LESS and SASS.",
+                "laravel" => ": An open-source web framework written in PHP respecting the model-view-controller principle and entirely developed in object-oriented programming.",
+                "livewire" => ": A full-stack framework for Laravel that simplifies the creation of dynamic interfaces, without leaving the comfort of Laravel.",
+                "tailwind" => ": A utility-oriented CSS framework, full of classes that can be composed to build any design, directly in your code.",
+                "alpine" => ": A robust and minimal framework to compose JavaScript behavior in your code.",
+                "sass" => ": A preprocessor scripting language that is compiled or interpreted into CSS.",
+                "fontawesome" => ": Font and icon tool based on CSS, LESS and SASS.",
             ]
         ]
     ]

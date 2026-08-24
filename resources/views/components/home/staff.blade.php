@@ -130,7 +130,7 @@
                 @foreach ($rank['members'] as $staffMember)
                     <div class="flex flex-col w-32 mx-4 gap-y-2">
                         <img class="w-16 m-auto border-4 rounded-md border-base-100 shadow-lg"
-                            alt="Membre du staff : {{ $staffMember['displayName'] }}"
+                            alt="{{ __('home.alt.staff_member', ['name' => $staffMember['displayName']]) }}"
                             src="https://mc-heads.net/avatar/{{ $staffMember['uuid'] }}">
                         <p class="flex text-xl font-bold text-center justify-evenly text-white">
                             {{ $staffMember['displayName'] }}

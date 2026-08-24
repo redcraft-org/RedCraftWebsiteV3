@@ -2,6 +2,7 @@
 
 return [
     "title" => [
+        "exclamation" => "!",
         "welcome_to" => "Welcome to",
         "sub" => "The return of two great communities, TopRed and KingdomHills, through a whole new Open Source infrastructure. Sharing and Innovation is our way to go!",
         "version" => "Version :version",
@@ -10,23 +11,23 @@ return [
     "join" => [
         "join" => "Join the",
         "server" => "server",
-        "discord" => "discord",
-        "players_online" => ":count player(s) online",
-        "players_connected" => ":count player(s) connected",
+        "discord" => "Discord",
+        "players_online" => "{0} :count players online|{1} :count player online|[2,*] :count players online",
+        "players_connected" => "{0} :count players connected|{1} :count player connected|[2,*] :count players connected",
         "ip_copied" => "IP address copied!",
     ],
     "about" => [
         "title" => "About",
         "1" => [
-            "title" => "An innovative translation system",
+            "title" => "An Innovative Translation System",
             "description" => "Forget language barriers. Thanks to an instant translation service, the entire server communicates in the language of your choice. RedCraft.org brings together people from anywhere in the world.",
         ],
         "2" => [
-            "title" => "A flexible structure",
+            "title" => "A Flexible Structure",
             "description" => "RedCraft.org has been designed and thought from the beginning for robustness and adaptability. The entire project is open source, so anyone can contribute to the project!",
         ],
         "3" => [
-            "title" => "Join us !",
+            "title" => "Join Us!",
             "description" => "As the first Minecraft server to truly welcome players from all over the world into the same community, we strive to maintain an inclusive and respectful environment for all.",
         ],
     ],
@@ -75,4 +76,9 @@ return [
         ],
     ],
 
+    "alt" => [
+        "staff_member" => "Staff member: :name",
+        "server_image" => "Screenshot of the :name server",
+        "news_image" => "News illustration",
+    ],
 ];
