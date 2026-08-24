@@ -5,10 +5,11 @@ metadata:
   namespace: staging
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - staging.redcraft.org
-      secretName: website-certificate
+  # No tls block, matching production. The proxy in front holds the real
+  # certificate and speaks plain http to the node port, so a tls block here only
+  # makes ingress-nginx apply its default ssl-redirect and bounce every request
+  # back to https, which the proxy then forwards as http again. That loop is why
+  # staging.redcraft.org answered 308 to itself.
   rules:
     - host: staging.redcraft.org
       http:
