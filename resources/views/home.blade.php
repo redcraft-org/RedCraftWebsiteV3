@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="{{ mix('css/home.css') }}">
+@push('styles')
+    @vite('resources/sass/pages/home.scss')
+@endpush
 
 <x-app-layout>
 

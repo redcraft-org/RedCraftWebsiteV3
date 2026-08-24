@@ -44,10 +44,18 @@ jobs:
           key: ${{ runner.os }}-single-buildx-${{ github.sha }}
           restore-keys: ${{ runner.os }}-single-buildx
 
-      - name: Generate CSS files
+      # Node is pinned rather than left to the runner default, and ci rather
+      # than install so the lock file decides the tree.
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Build assets
         run: |
-          npm install
-          npm run production
+          npm ci
+          npm run build
 
       - name: Build & push Docker image
         env:

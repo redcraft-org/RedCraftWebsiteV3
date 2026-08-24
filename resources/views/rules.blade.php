@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="{{ mix('css/rules.css') }}">
+@push('styles')
+    @vite('resources/sass/pages/rules.scss')
+@endpush
 
 @php
     $rules = [

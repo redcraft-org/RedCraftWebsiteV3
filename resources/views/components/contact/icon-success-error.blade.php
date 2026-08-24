@@ -5,7 +5,7 @@ icon
 
 @once
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('css/icon-success-error.css') }}">
+        @vite('resources/sass/components/icon-success-error.scss')
     @endpush
 @endonce
 

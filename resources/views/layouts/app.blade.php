@@ -15,13 +15,12 @@
 
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         @stack('styles')
 
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
