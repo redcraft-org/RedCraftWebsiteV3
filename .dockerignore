@@ -1,4 +1,7 @@
-rr
+.git
+.github
+node_modules
+vendor
 .env
 .env.testing
 .env.staging
@@ -6,3 +9,5 @@ rr
 storage/app/public/*
 storage/debugbar/*
 storage/logs/*
+tests
+.phpunit.result.cache

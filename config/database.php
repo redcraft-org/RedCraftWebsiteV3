@@ -58,8 +58,11 @@ return [
             'prefix_indexes' => true,
             'strict' => false,
             'engine' => null,
+            // Pdo\Mysql::ATTR_SSL_CA on php 8.5 and newer, where the old
+            // PDO::MYSQL_ATTR_SSL_CA constant is deprecated and warns on every
+            // worker boot. The old name is kept for anything still on 8.4.
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                (class_exists('Pdo\\Mysql') ? Pdo\Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
