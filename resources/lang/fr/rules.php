@@ -85,7 +85,7 @@ return [
 
                     'table' => [
                         'headers' => ['Autorisé', 'Interdit'],
-                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray ou en utilisant un mod FreeCam', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
+                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam, pour regarder autour de vous en surface', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray, ou utilisation de la FreeCam pour voir sous terre', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
                     ],
 
                     'note' => 'Les clients modifiés (mods) sont des mécaniques non officielles.',

@@ -84,7 +84,7 @@ return [
                     'description' => 'such as bugs and glitches that provide an unfair advantage over other players is prohibited.',
                     'table' => [
                         'headers' => ['Allowed', 'Not Allowed'],
-                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray or using a FreeCam mod', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
+                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam, to look around above ground', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray, or using FreeCam to see underground', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
                     ],
 
                     'note' => 'Modified clients (mods) are unofficial mechanics.',
