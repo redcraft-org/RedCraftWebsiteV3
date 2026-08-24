@@ -54,3 +54,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('r/{token}', ShortUrlController::class)->name('short-url');
+
+// Probed by Kubernetes. Outside the language middleware so a probe does not
+// negotiate a locale or touch the session on every hit.
+Route::get('/up', fn () => response()->json(['status' => 'ok']))
+    ->withoutMiddleware([\App\Http\Middleware\LanguageSwitcher::class])
+    ->name('health');

@@ -36,20 +36,20 @@
 <nav x-data="{ mobileOpen: false, languageOpen: false, languageMobile: false, ...mobileMenu }" class="container relative block min-h-0 px-8 mx-auto border-none md:max-w-screen-lg navbar">
     <div class="flex justify-between py-1">
         <div>
-            <x-jet-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 <img id="rc-logo-homepage" src="{{ asset('images/inline_org_color.png') }}">
-            </x-jet-nav-link>
+            </x-nav-link>
         </div>
         <div class="hidden px-4 space-x-8 lg:flex lg:h-12">
             @foreach ($links as $link)
                 @if ($link['type'] == 'route')
-                    <x-jet-nav-link :href="route($link['link'])" :active="request()->routeIs($link['link'])">
+                    <x-nav-link :href="route($link['link'])" :active="request()->routeIs($link['link'])">
                         {{ $link['name'] }}
-                    </x-jet-nav-link>
+                    </x-nav-link>
                 @elseif ($link['type'] == 'blank')
-                    <x-jet-nav-link :href="$link['link']" target="_blank">
+                    <x-nav-link :href="$link['link']" target="_blank">
                         {{ $link['name'] }}
-                    </x-jet-nav-link>
+                    </x-nav-link>
                 @endif
 
             @endforeach

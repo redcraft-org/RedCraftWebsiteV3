@@ -1,4 +1,4 @@
-<form id="contact-form" x-data="{ page: @entangle('page'), fromPlayer: @entangle('fromPlayer').defer }" class="relative" wire:submit.prevent="submit">
+<form id="contact-form" x-data="{ page: @entangle('page').live, fromPlayer: @entangle('fromPlayer') }" class="relative" wire:submit="submit">
 
 
     {{-- First page --}}
@@ -30,7 +30,7 @@
             {{-- Minecraft name --}}
             <div class="w-full">
                 <input type="text" placeholder="{{ __('contact.form.minecraft_pseudo') }}" class="input w-full"
-                    wire:model.debounce.250ms="username" />
+                    wire:model.live.debounce.250ms="username" />
                 @error('username')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -38,7 +38,7 @@
             {{-- Discord name --}}
             <div class="w-full">
                 <input type="text" placeholder="{{ __('contact.form.discord_id') }}" class="input w-full"
-                    wire:model.debounce.250ms="discord_username" />
+                    wire:model.live.debounce.250ms="discord_username" />
                 @error('discord_username')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -49,7 +49,7 @@
             {{-- Email --}}
             <div class="w-full">
                 <input type="email" placeholder="{{ __('contact.form.email') }}" class="input w-full"
-                    wire:model.debounce.250ms="email" />
+                    wire:model.live.debounce.250ms="email" />
                 @error('email')
                     <span class="text-error">{{ $message }}</span>
                 @enderror
@@ -58,7 +58,7 @@
 
         <div class="w-full">
             {{-- Subject --}}
-            <input type="text" placeholder="{{ __('contact.form.subject') }}" class="input w-full" wire:model.debounce.250ms="subject" />
+            <input type="text" placeholder="{{ __('contact.form.subject') }}" class="input w-full" wire:model.live.debounce.250ms="subject" />
             @error('subject')
                 <span class="text-error">{{ $message }}</span>
             @enderror
@@ -66,11 +66,11 @@
 
         <div class="w-full">
             {{-- Message --}}
-            <textarea class="input textarea h-32 w-full" placeholder="{{ __('contact.form.message') }}" wire:model.debounce.250ms="message"></textarea>
+            <textarea class="input textarea h-32 w-full" placeholder="{{ __('contact.form.message') }}" wire:model.live.debounce.250ms="message"></textarea>
             @error('message')
                 <span class="text-error">{{ $message }}</span>
             @enderror
-            <p class="text-secondary">@lang('contact.form.max_length', ['length' => \App\Http\Livewire\ContactForm::MESSAGE_MAX_LENGTH])</p>
+            <p class="text-secondary">@lang('contact.form.max_length', ['length' => \App\Livewire\ContactForm::MESSAGE_MAX_LENGTH])</p>
         </div>
 
 

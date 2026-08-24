@@ -1,12 +1,7 @@
-require('./bootstrap');
-
 import Alpine from 'alpinejs';
-import intersect from '@alpinejs/intersect'
+import intersect from '@alpinejs/intersect';
+import './alpineFunctions.js';
 
 window.Alpine = Alpine;
-
-require('./alpineFunctions.js');
-
-Alpine.plugin(intersect)
-
+Alpine.plugin(intersect);
 Alpine.start();

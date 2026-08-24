@@ -1,7 +1,6 @@
 /node_modules
-/public/css/*
 /public/hot
-/public/js/*
+/public/build
 /public/storage
 /storage/*.key
 /vendor
@@ -20,6 +19,3 @@ yarn-error.log
 rr
 .rr.yaml
 .history
-package-lock.json
-/public/css/*.css
-/public/mix-manifest.json

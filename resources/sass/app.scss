@@ -2,10 +2,13 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
+// Without $fa-font-path the build still succeeds but ships url(../webfonts/…),
+// which 404s and turns every icon into a blank box.
+$fa-font-path: "../../node_modules/@fortawesome/fontawesome-free/webfonts";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/brands';
 
 @import "./rebase.scss";
 @import "./navbar.scss";

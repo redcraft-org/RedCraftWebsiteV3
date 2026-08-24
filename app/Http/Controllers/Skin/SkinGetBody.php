@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Skin;
 
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Skin\SkinUtils;
