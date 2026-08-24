@@ -21,6 +21,5 @@ rr
 .rr.yaml
 .history
 package-lock.json
-composer.lock
 /public/css/*.css
 /public/mix-manifest.json
