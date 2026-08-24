@@ -55,10 +55,10 @@ return [
                 '5' => [
                     'title' => 'Continued possession of a modified item',
                     '1' => 'Giving the player an advantage over the others (effect, potion, etc...).',
-                    '2' => 'Having a name or description that violates rule 1.3.',
+                    '2' => 'Having a name or description that violates General rule 1.3.',
                     '3' => [
                         'title' => 'Giving access to commands normally out of reach of the player.',
-                        'note' => 'If a player receives or finds an altered item corresponding to Rule 2.1.4, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
+                        'note' => 'If a player receives or finds an altered item corresponding to rule 1.5 above, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
                     ],
                 ],
             ],
@@ -73,7 +73,7 @@ return [
             ],
             '3' => [
                 'title' => 'Creative Build',
-                '1' => 'The rules of section 2.1 apply here.',
+                '1' => 'The rules of the Creative Redstone section apply here.',
             ],
             '4' => [
                 'title' => 'Survival',

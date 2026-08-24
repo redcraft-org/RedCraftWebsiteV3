@@ -55,10 +55,10 @@ return [
                 '5' => [
                     'title' => "La possession continue d'un item modifié",
                     '1' => 'Donnant au joueur un avantage par rapport aux autres (effet, potion).',
-                    '2' => 'Dont le nom ou la description enfreint la règle 1.3.',
+                    '2' => 'Dont le nom ou la description enfreint la règle 1.3 de la section Général.',
                     '3' => [
                         'title' => "Donnant accès à des commandes auxquelles le joueur n'a normalement pas accès.",
-                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 2.1.4, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
+                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 1.5 ci-dessus, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
                     ],
                 ],
             ],
@@ -73,7 +73,7 @@ return [
             ],
             '3' => [
                 'title' => 'Créatif Build',
-                '1' => "Les règles de la section 2.1 s'appliquent ici.",
+                '1' => "Les règles de la section Créatif Redstone s'appliquent ici.",
             ],
             '4' => [
                 'title' => 'Survie',
