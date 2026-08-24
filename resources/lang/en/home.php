@@ -2,6 +2,7 @@
 
 return [
     "title" => [
+        "exclamation" => "!",
         "welcome_to" => "Welcome to",
         "sub" => "The return of two great communities, TopRed and KingdomHills, through a whole new Open Source infrastructure. Sharing and Innovation is our way to go!",
         "version" => "Version :version",
@@ -75,4 +76,9 @@ return [
         ],
     ],
 
+    "alt" => [
+        "staff_member" => "Staff member: :name",
+        "server_image" => "Screenshot of the :name server",
+        "news_image" => "News illustration",
+    ],
 ];

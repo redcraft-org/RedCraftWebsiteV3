@@ -2,6 +2,7 @@
 
 return [
     "title" => [
+        "exclamation" => " !",
         "welcome_to" => "Bienvenue sur",
         "sub" => "Le retour de deux grandes communautés, TopRed et KingdomHills, à travers une toute nouvelle infrastructure open source. Partage et innovation seront notre crédo !",
         "version" => "Version :version",
@@ -75,4 +76,9 @@ return [
         ],
     ],
 
+    "alt" => [
+        "staff_member" => "Membre du staff : :name",
+        "server_image" => "Capture du serveur :name",
+        "news_image" => "Illustration de la nouveauté",
+    ],
 ];

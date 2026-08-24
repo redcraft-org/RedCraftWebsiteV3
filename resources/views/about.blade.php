@@ -19,7 +19,7 @@
                     @lang('about.about.3.3')
                 </p>
                 <p>
-                    <b>@lang('about.about.4.1')</b>.
+                    <b>@lang('about.about.4.1')</b>
                     @lang('about.about.4.2')
                 </p>
             </div>

@@ -46,7 +46,7 @@ $servers = [
 
                         <h1 class="text-secondary">{{ $server['displayName'] }}</h1>
                         <p class="mt-8">{{ $server['description'] }}</p>
-                        <img class="m-auto rounded-lg" alt="Image du serveur" src="{{ $server['img'] }}">
+                        <img class="m-auto rounded-lg" alt="{{ __('home.alt.server_image', ['name' => $server['displayName']]) }}" src="{{ $server['img'] }}">
                     </div>
                 @endforeach
             </div>
