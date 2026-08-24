@@ -40,7 +40,7 @@ return [
             ],
             '2' => [
                 'title' => 'The Discord server',
-                '1' => 'Punishment dodge by leaving the discord.',
+                '1' => 'Punishment dodge by leaving the Discord.',
                 '2' => 'Advertising on public channels as well as massive advertising via private channels.',
             ],
         ],

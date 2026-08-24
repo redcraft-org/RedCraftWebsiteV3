@@ -40,7 +40,7 @@ return [
             ],
             '2' => [
                 'title' => 'Le serveur Discord',
-                '1' => "L'esquive de sanctions en quittant le discord.",
+                '1' => "L'esquive de sanctions en quittant le Discord.",
                 '2' => 'La publicité sur les canaux publics ainsi que la publicité massive via les canaux privés.',
             ],
         ],

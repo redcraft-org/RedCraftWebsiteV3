@@ -10,9 +10,9 @@ return [
     "join" => [
         "join" => "Join the",
         "server" => "server",
-        "discord" => "discord",
-        "players_online" => ":count player(s) online",
-        "players_connected" => ":count player(s) connected",
+        "discord" => "Discord",
+        "players_online" => "{0} :count players online|{1} :count player online|[2,*] :count players online",
+        "players_connected" => "{0} :count players connected|{1} :count player connected|[2,*] :count players connected",
         "ip_copied" => "IP address copied!",
     ],
     "about" => [

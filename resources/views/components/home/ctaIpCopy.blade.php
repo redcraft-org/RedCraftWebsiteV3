@@ -9,7 +9,7 @@ $nbPlayersConnected = McHelper::countPlayersConnected();
     <div :class="show ? 'invisible' : ''" x-transition>
         <div class="text-xl">@lang('home.join.join') <b>@lang('home.join.server')</b></div>
         @if ($nbPlayersConnected >= 0)
-            <div class="text-sm">@lang('home.join.players_connected', ['count' => $nbPlayersConnected])</div>
+            <div class="text-sm">@choice('home.join.players_connected', $nbPlayersConnected, ['count' => $nbPlayersConnected])</div>
         @endif
     </div>
     <div class="absolute text-sm" x-show="show" x-transition x-cloak>@lang('home.join.ip_copied')</div>

@@ -11,7 +11,7 @@
     </x-section>
 
 
-    <x-section section-title="Informations" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light"
+    <x-section section-title="{{ __('contact.information.title') }}" id="info" bg="bg-light" text="text-base-100" wave-bg="fill-light"
         wave-id="2">
         <div class="container">
             <div class="flex flex-col md:flex-row md:gap-8">

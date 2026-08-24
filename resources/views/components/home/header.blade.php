@@ -39,7 +39,7 @@ $nbPlayers = DiscordHelper::getPlayersConnected();
             <div>
                 <div class="text-xl">@lang('home.join.join')<b> @lang('home.join.discord')</b></div>
                 @if($nbPlayers >=0)
-                    <div class="text-sm">@lang('home.join.players_connected', ['count' => $nbPlayers])</div>
+                    <div class="text-sm">@choice('home.join.players_connected', $nbPlayers, ['count' => $nbPlayers])</div>
                 @endif
             </div>
         </a>

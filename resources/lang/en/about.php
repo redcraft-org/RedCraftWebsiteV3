@@ -47,7 +47,7 @@ return [
         "4" => [
             "title" => "What version does the server support?",
             "description" => [
-                "1" => "LThe server is accessible from version ",
+                "1" => "The server is accessible from version ",
                 "2" => " to version ",
                 "3" => ".",
             ]
