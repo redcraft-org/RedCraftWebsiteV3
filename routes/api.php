@@ -20,6 +20,17 @@ use App\Http\Controllers\UsernameUuid;
 use App\Models\Language;
 use Illuminate\Support\Facades\Route;
 
+Route::prefix('v1')->group(function () {
+    // Public on purpose. These turn a uuid into a png of that player's skin,
+    // which is already public through Mojang's session server, and they are
+    // embedded as plain img tags where no token can be attached.
+    Route::prefix('skin')->group(function () {
+        Route::get('/body/{uuid}{scale?}{gear?}', SkinGetBody::class);
+        Route::get('/head/{uuid}{scale?}{faceGear?}', SkinGetHead::class);
+        Route::get('/isometric/{uuid}{scale?}', SkinGetIsometric::class);
+    });
+});
+
 Route::middleware('ensure_valid_jwt')->group(function () {
     Route::prefix('v1')->group(function () {
         Route::prefix('player')->group(function () {
@@ -47,12 +58,6 @@ Route::middleware('ensure_valid_jwt')->group(function () {
             Route::get('/list', function () {
                 return response()->json(Language::all(), 200);
             });
-        });
-
-        Route::prefix('skin')->group(function () {
-            Route::get('/body/{uuid}{scale?}{gear?}', SkinGetBody::class);
-            Route::get('/head/{uuid}{scale?}{faceGear?}', SkinGetHead::class);
-            Route::get('/isometric/{uuid}{scale?}', SkinGetIsometric::class);
         });
 
         Route::get('/urls', UrlListController::class);
