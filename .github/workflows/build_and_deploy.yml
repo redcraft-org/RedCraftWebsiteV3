@@ -1,4 +1,4 @@
-name: Deploy to Kubernetes
+name: Build and push image
 
 on:
   workflow_dispatch:
@@ -12,14 +12,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
     env:
-      KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      KUBE_NAMESPACE: staging
       IMAGE_NAME: rg.fr-par.scw.cloud/redcraft/redcraft-website
       GENERIC_IMAGE_TAG: staging
 
@@ -27,10 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Production settings
+      - name: Tag master builds as latest
         if: github.ref == 'refs/heads/master'
         run: |
-          echo "KUBE_NAMESPACE=production" >> $GITHUB_ENV
           echo "GENERIC_IMAGE_TAG=latest" >> $GITHUB_ENV
 
       - name: Login to Container Registry
@@ -67,14 +64,3 @@ jobs:
 
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      - name: Update deployment
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-        run: |
-          mkdir -p ~/.kube
-          echo "$KUBE_CONFIG" | base64 -d > ~/.kube/config
-
-          kubectl set image deployment/website website-http=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
-          kubectl set image deployment/website website-queue=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
-          kubectl set image cronjob/website-cronjob website-cron=${{ env.IMAGE_NAME }}:${{ github.sha }} --namespace=${{ env.KUBE_NAMESPACE }}
