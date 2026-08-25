@@ -10,7 +10,7 @@ return [
         "other" => "Autre",
         "back" => "Retour",
         "minecraft_pseudo" => "Pseudo Minecraft",
-        "discord_id" => "Identifiant Discord (Nom#0000)",
+        "discord_id" => "Pseudo Discord",
         "email" => "Adresse email",
         "subject" => "Sujet",
         "message" => "Message",
@@ -23,7 +23,7 @@ return [
         "messages" => [
             "username_required" => "Le pseudo Minecraft est requis.",
             "username_min" => "Le pseudo Minecraft est trop court.",
-            "discord_username_regex" => "Entrez votre pseudo Discord, par exemple pseudo_123, ou l'ancien format pseudo#0000 si votre compte l'utilise encore.",
+            "discord_username_regex" => "Un pseudo Discord fait de 2 à 32 caractères, avec des lettres, des chiffres, des points et des tirets bas.",
             "email_required" => "L'adresse email est requise.",
             "email_email" => "L'adresse email n'est pas valide.",
             "subject_required" => "Le sujet est requis.",

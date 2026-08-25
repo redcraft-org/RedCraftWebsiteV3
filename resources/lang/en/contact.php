@@ -10,7 +10,7 @@ return [
         "other" => "Other",
         "back" => "Back",
         "minecraft_pseudo" => "Minecraft username",
-        "discord_id" => "Discord ID (username#0000)",
+        "discord_id" => "Discord username",
         "email" => "Email address",
         "subject" => "Subject",
         "message" => "Message",
@@ -23,7 +23,7 @@ return [
         "messages" => [
             "username_required" => "A Minecraft username is required.",
             "username_min" => "This Minecraft username is too short.",
-            "discord_username_regex" => "Enter your Discord username, for example someone_123, or the older someone#0000 format if your account still uses one.",
+            "discord_username_regex" => "A Discord username is 2 to 32 characters, using letters, numbers, dots and underscores.",
             "email_required" => "An email address is required.",
             "email_email" => "The email address is invalid.",
             "subject_required" => "A subject is required.",

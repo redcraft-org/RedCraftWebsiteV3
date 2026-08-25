@@ -46,7 +46,9 @@ class ContactForm extends Component
         return [
             'username' => !$this->fromPlayer ? '' : 'required|min:4',
             'email' => $this->fromPlayer ? '' : 'required|email',
-            'discord_username' => 'nullable|regex:/^(?:[a-zA-Z0-9_.]{2,32}|.{3,32}#[0-9]{4})$/',
+            // Discord retired the #0000 discriminator in 2023 and migrated every user
+            // account, so only the current username shape is worth accepting.
+            'discord_username' => 'nullable|regex:/^[a-zA-Z0-9._]{2,32}$/',
             'subject' => 'required|min:4',
             'message' => 'required|min:30|max:' . self::MESSAGE_MAX_LENGTH,
         ];
