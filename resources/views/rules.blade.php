@@ -9,10 +9,23 @@
             __('rules.rules.general.2.title') => [__('rules.rules.general.2.1'), __('rules.rules.general.2.2')],
         ],
         __('rules.rules.minecraft.title') => [
-            __('rules.rules.minecraft.1.title') => [__('rules.rules.minecraft.1.1'), __('rules.rules.minecraft.1.2'), __('rules.rules.minecraft.1.3'), __('rules.rules.minecraft.1.4'), __('rules.rules.minecraft.1.5.title') => [__('rules.rules.minecraft.1.5.1'), __('rules.rules.minecraft.1.5.2'), __('rules.rules.minecraft.1.5.3.title'), 'note' => __('rules.rules.minecraft.1.5.3.note')]],
+            __('rules.rules.minecraft.1.title') => [
+                __('rules.rules.minecraft.1.1'),
+                'note' => __('rules.rules.minecraft.1.1_note'),
+                __('rules.rules.minecraft.1.2'),
+                __('rules.rules.minecraft.1.3'),
+                __('rules.rules.minecraft.1.4.title') => [
+                    __('rules.rules.minecraft.1.4.1'),
+                    __('rules.rules.minecraft.1.4.2'),
+                    __('rules.rules.minecraft.1.4.3.title'),
+                    'note' => __('rules.rules.minecraft.1.4.3.note'),
+                ],
+            ],
             __('rules.rules.minecraft.2.title') => [__('rules.rules.minecraft.2.1.title'), 'note' => __('rules.rules.minecraft.2.1.note'), __('rules.rules.minecraft.2.2'), __('rules.rules.minecraft.2.3')],
             __('rules.rules.minecraft.3.title') => [__('rules.rules.minecraft.3.1')],
             __('rules.rules.minecraft.4.title') => [
+                'intro' => __('rules.rules.minecraft.4.intro'),
+                'intro_sanctions' => __('rules.rules.minecraft.4.intro_sanctions'),
                 __('rules.rules.minecraft.4.1'),
                 __('rules.rules.minecraft.4.2'),
                 __('rules.rules.minecraft.4.3.title') => [
@@ -37,6 +50,7 @@
                             ]
                         ]
                     ],
+                    'note_scope' => __('rules.rules.minecraft.4.3.note_scope'),
                     'note' => __('rules.rules.minecraft.4.3.note'),
                 ],
                 __('rules.rules.minecraft.4.4.title') => [
@@ -45,6 +59,7 @@
                 ],
                 __('rules.rules.minecraft.4.5'),
                 __('rules.rules.minecraft.4.6'),
+                __('rules.rules.minecraft.4.7'),
             ],
         ],
     ];

@@ -49,16 +49,16 @@ return [
             '1' => [
                 'title' => 'Général',
                 '1' => "Le grief, c'est-à-dire la destruction d'une construction d'un autre joueur sans son accord, la mise en place de pièges visant un autre joueur ou encore le vol d'items.",
-                '2' => "L'utilisation de cheats, c'est-à-dire des logiciels ou des mods, ou l'exploitation de bugs présents dans le jeu et pouvant procurer un avantage conséquent par rapport aux autres joueurs.",
-                '3' => "L'utilisation de plus d'un compte Minecraft par joueur.",
-                '4' => "L'utilisation de logiciels ou de mods destinés à récupérer ou télécharger partiellement ou entièrement la map du serveur.",
-                '5' => [
+                '1_note' => "Être membre du plot d'un autre joueur ne signifie pas que vous pouvez modifier son terrain sans son accord.",
+                '2' => "L'utilisation de cheats, c'est-à-dire des logiciels ou des mods, ou l'exploitation de bugs présents dans le jeu et pouvant procurer un avantage déloyal par rapport aux autres joueurs.",
+                '3' => "L'utilisation de logiciels ou de mods destinés à récupérer ou télécharger partiellement ou entièrement la map du serveur.",
+                '4' => [
                     'title' => "La possession continue d'un item modifié",
                     '1' => 'Donnant au joueur un avantage par rapport aux autres (effet, potion).',
                     '2' => 'Dont le nom ou la description enfreint la règle 1.3 de la section Général.',
                     '3' => [
                         'title' => "Donnant accès à des commandes auxquelles le joueur n'a normalement pas accès.",
-                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit par la règle 1.5 ci-dessus, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.",
+                        'note' => "si un joueur reçoit ou trouve un item modifié tel que décrit ci-dessus, il doit immédiatement avertir le staff, donner l'item à un membre du staff et s'en débarrasser par la suite.'item à un membre du staff et s'en débarrasser par la suite.",
                     ],
                 ],
             ],
@@ -77,6 +77,8 @@ return [
             ],
             '4' => [
                 'title' => 'Survie',
+                'intro' => "Le serveur Survie Vanilla a pour but d'être laxiste sur les règles afin de favoriser une expérience de jeu libre. Les sanctions sont cependant appliquées sans préavis, alors utilisez votre bon sens, et si une règle est floue n'hésitez pas à contacter un membre du staff.",
+                'intro_sanctions' => "Les sanctions sur le serveur survie sont strictes. En général la première est un ban d'un mois et la deuxième un ban définitif. En cas de violation intentionnelle, le ban définitif est privilégié comme première sanction. L'application se fait au cas par cas et le staff a le choix final.",
                 '1' => 'Collaboration : Pour contribuer à un projet public, il faut d\'abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d\'autres joueurs qui construisent à proximité. Dans le doute, demandez.',
                 '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d\'éviter le lag.',
                 '3' => [
@@ -85,9 +87,10 @@ return [
 
                     'table' => [
                         'headers' => ['Autorisé', 'Interdit'],
-                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam, pour regarder autour de vous en surface', 'Autoclicker', ''], ['Duplication de coffre, de shulker et de tout autres conteneurs', 'Minage avec Xray, ou utilisation de la FreeCam pour voir sous terre', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
+                        'columns' => [['Duplication de TNT. Exemple : machine à tunnel, quarry', 'FreeCam, pour regarder autour de vous en surface', 'Autoclicker', ''], ['Duplication de coffres, de shulkers et de tous les autres conteneurs', 'Minage avec Xray, ou utilisation de la FreeCam pour voir sous terre', 'Avoir un Mod donnant un avantage sur le PVP, par exemple Kill Aura ou Kill Reach', 'Minage automatique. Par exemple : Baritone']],
                     ],
 
+                    'note_scope' => "Le tableau suivant donne des exemples de situations autorisées et non autorisées. Cette liste n'est pas exhaustive, utilisez-la pour vous faire une idée de ce qui est autorisé ou non sur le serveur, et contactez un membre du staff si vous n'êtes pas sûr.",
                     'note' => 'Les clients modifiés (mods) sont des mécaniques non officielles.',
                 ],
                 '4' => [
@@ -96,7 +99,8 @@ return [
                     'note' => 'Avant de modifier le terrain ou d\'emprunter les affaires d\'une personne, assurez-vous d\'avoir son accord. Dans le doute, demandez !',
                 ],
                 '5' => 'Voler les affaires ou les ressources d\'un autre joueur est interdit.',
-                '6' => "Le PVP non consenti est interdit. Ou tout autre form d'harcèlement.",
+                '6' => "Le PVP non consenti est interdit.",
+                '7' => "L'utilisation de plus d'un compte Minecraft par joueur est interdite sur ce serveur.",
             ],
         ],
     ],

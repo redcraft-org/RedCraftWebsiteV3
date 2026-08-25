@@ -49,16 +49,16 @@ return [
             '1' => [
                 'title' => 'General',
                 '1' => "Griefing, i.e. destroying another player's building without his consent, setting traps that attack another player or stealing items.",
-                '2' => 'The use of cheats, i.e. software, mods or the exploitation of bugs present in the game that can provide a significant advantage, to the detriment of other players.',
-                '3' => 'The use of more than one Minecraft account per player.',
-                '4' => 'The use of software or mods intended to recover/download partially or entirely the map of the server.',
-                '5' => [
+                '1_note' => "Being a member of another player's plot does not mean you may modify their land without their consent.",
+                '2' => 'The use of cheats, i.e. software, mods or the exploitation of bugs present in the game that can provide an unfair advantage over other players.',
+                '3' => 'The use of software or mods intended to recover/download partially or entirely the map of the server.',
+                '4' => [
                     'title' => 'Continued possession of a modified item',
                     '1' => 'Giving the player an advantage over the others (effect, potion, etc...).',
                     '2' => 'Having a name or description that violates General rule 1.3.',
                     '3' => [
                         'title' => 'Giving access to commands normally out of reach of the player.',
-                        'note' => 'If a player receives or finds an altered item corresponding to rule 1.5 above, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
+                        'note' => 'If a player receives or finds an altered item as described above, he/she must immediately notify the staff, give the item to a staff member and then dispose of it.',
                     ],
                 ],
             ],
@@ -77,6 +77,8 @@ return [
             ],
             '4' => [
                 'title' => 'Survival',
+                'intro' => "The Vanilla Survival server aims to be lax on rules, to encourage a free play experience. Sanctions are applied without warning, however, so use your common sense, and if a rule is unclear do not hesitate to contact a staff member.",
+                'intro_sanctions' => "Sanctions on the survival server are strict. As a rule the first is a one month ban and the second is permanent. For a deliberate breach the permanent ban is preferred as the first sanction. Sanctions are applied case by case and the staff has the final say.",
                 '1' => 'Collaboration: To contribute to a public project, you must first refer to the player responsible for the construction. If you wish to undertake a large project, make sure not to disturb other players who are building nearby. When in doubt, ask.',
                 '2' => 'All farms must be able to be deactivated to avoid lag.',
                 '3' => [
@@ -84,9 +86,10 @@ return [
                     'description' => 'such as bugs and glitches that provide an unfair advantage over other players is prohibited.',
                     'table' => [
                         'headers' => ['Allowed', 'Not Allowed'],
-                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam, to look around above ground', 'Autoclicker', ''], ['Duplication of chest, shulker and all other containers', 'Mining with Xray, or using FreeCam to see underground', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
+                        'columns' => [['Duplication of TNT. Example: tunnel machine, quarry', 'FreeCam, to look around above ground', 'Autoclicker', ''], ['Duplication of chests, shulkers and all other containers', 'Mining with Xray, or using FreeCam to see underground', 'Having a Mod giving an advantage on PVP, for example Kill Aura or Kill Reach', 'Automatic mining. Example: Baritone']],
                     ],
 
+                    'note_scope' => "The table below gives examples of what is and is not allowed. It is not exhaustive, use it to get a sense of what goes on the server, and contact a staff member if you are unsure.",
                     'note' => 'Modified clients (mods) are unofficial mechanics.',
                 ],
                 '4' => [
@@ -95,7 +98,8 @@ return [
                     'note' => 'Before modifying the terrain or borrowing someone\'s belongings, make sure you have their agreement. When in doubt, ask!',
                 ],
                 '5' => 'Stealing the belongings or resources of another player is forbidden.',
-                '6' => 'Unwanted PVP is prohibited. Or any other form of harassment.',
+                '6' => 'Unwanted PVP is prohibited.',
+                '7' => "The use of more than one Minecraft account per player is forbidden on this server.",
             ],
         ],
     ],
