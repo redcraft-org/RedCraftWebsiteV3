@@ -47,7 +47,13 @@
             @include('components/rules/recursive-rule', ['rules' => $rule, 'level' => $level + 1])
         @else
             {{--  @dump('Not recursive ' . $key)  --}}
-            @if ($key == 'note')
+            @if (\Illuminate\Support\Str::startsWith($key, 'intro'))
+                {{-- Prose that introduces a section rather than a numbered rule.
+                     No label, and outside the ol so it is not counted. --}}
+                <div class="mb-4 text-secondary whitespace-pre-line">{{ $rule }}</div>
+            @elseif (\Illuminate\Support\Str::startsWith($key, 'note'))
+                {{-- Any key beginning with note renders as one, so a section can
+                     carry more than a single one. Array keys are unique. --}}
                 <div class="text-secondary">@lang('rules.rules.note'){{ $rule }}</div>
             @else
                 <li>{{ $rule }}</li>
