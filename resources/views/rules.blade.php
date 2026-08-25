@@ -27,6 +27,7 @@
                 'intro' => __('rules.rules.minecraft.4.intro'),
                 'intro_sanctions' => __('rules.rules.minecraft.4.intro_sanctions'),
                 __('rules.rules.minecraft.4.1'),
+                'note' => __('rules.rules.minecraft.4.1_note'),
                 __('rules.rules.minecraft.4.2'),
                 __('rules.rules.minecraft.4.3.title') => [
                     'description' => __('rules.rules.minecraft.4.3.description'),

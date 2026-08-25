@@ -23,7 +23,7 @@ return [
         "messages" => [
             "username_required" => "A Minecraft username is required.",
             "username_min" => "This Minecraft username is too short.",
-            "discord_username_regex" => "Your Discord username must be in the following format: user#0000",
+            "discord_username_regex" => "Enter your Discord username, for example someone_123, or the older someone#0000 format if your account still uses one.",
             "email_required" => "An email address is required.",
             "email_email" => "The email address is invalid.",
             "subject_required" => "A subject is required.",
