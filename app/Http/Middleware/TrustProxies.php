@@ -25,4 +25,18 @@ class TrustProxies extends Middleware
         Request::HEADER_X_FORWARDED_PORT |
         Request::HEADER_X_FORWARDED_PROTO |
         Request::HEADER_X_FORWARDED_AWS_ELB;
+
+    /**
+     * This was left null, so X-Forwarded-For was ignored and every request
+     * appeared to come from whatever spoke to us last. Behind the ingress
+     * controller that is its pod, which is why contact form reports carried a
+     * 10.1.x.x cluster address instead of the sender's.
+     */
+    public function __construct()
+    {
+        $this->proxies = array_values(array_filter(array_map(
+            'trim',
+            explode(',', (string) config('app.trusted_proxies'))
+        )));
+    }
 }

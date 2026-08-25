@@ -116,6 +116,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Trusted Proxies
+    |--------------------------------------------------------------------------
+    |
+    | Comma separated list of proxies whose X-Forwarded-* headers we believe.
+    | Two hops sit in front of the application and both have to be listed, or
+    | the walk back through X-Forwarded-For stops at the wrong one:
+    |
+    |   10.1.0.0/16   the cluster pod network, where the ingress controller runs
+    |   10.0.2.254    the openresty proxy that terminates the public address
+    |
+    | Deliberately not '*'. Anything that reaches the container by another
+    | route would then be able to announce whatever client address it liked,
+    | and that address is written straight into contact form reports.
+    |
+    */
+
+    'trusted_proxies' => env('TRUSTED_PROXIES', '10.1.0.0/16,10.0.2.254'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
