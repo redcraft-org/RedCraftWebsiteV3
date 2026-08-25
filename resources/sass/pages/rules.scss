@@ -22,5 +22,11 @@
 }
 
 .code-conduct-details {
-    @apply opacity-100 duration-150;
+    // No opacity-100 here. Alpine toggles opacity-0 on these panels, and both
+    // are single class selectors, so whichever stylesheet loads last wins.
+    // This file used to be linked above the layout's own stylesheet, so the
+    // utility won; it is pushed into the head after it now, so declaring
+    // opacity here would beat opacity-0 and show all three panels at once.
+    // They are opaque by default anyway, so there is nothing to declare.
+    @apply duration-150;
 }

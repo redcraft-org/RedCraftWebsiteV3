@@ -73,7 +73,7 @@ return [
             ],
             '3' => [
                 'title' => 'Créatif Build',
-                '1' => "Les règles de la section Créatif Redstone s'appliquent ici.",
+                '1' => "Les règles de la section Général de Minecraft s'appliquent ici.",
             ],
             '4' => [
                 'title' => 'Survie',
