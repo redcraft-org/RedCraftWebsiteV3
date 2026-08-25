@@ -14,10 +14,15 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
         <!-- Scripts -->
+        @livewireStyles
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+
+        {{-- Alpine comes from Livewire now, so every layout has to load it or
+             the pages using this one lose their interactivity entirely. --}}
+        @livewireScripts
     </body>
 </html>
