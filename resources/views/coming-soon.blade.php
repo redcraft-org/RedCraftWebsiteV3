@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="{{ __('coming-soon.title') }}">
 
     <x-page-header section-title="{{ __('coming-soon.title') }}" />
 

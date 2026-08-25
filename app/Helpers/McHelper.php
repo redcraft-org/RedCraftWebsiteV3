@@ -31,15 +31,27 @@ class McHelper
         return $versions;
     }
 
+    /**
+     * Same contract as getVersions: always an array with a players key. An
+     * empty or non-json body makes ->json() return null, and countPlayers
+     * reads ['players'] straight off it, so anything else here is a 500 on
+     * the home page the moment the api answers with something unexpected.
+     */
     public static function getPlayers()
     {
         try {
-            return Cache::remember('redcraft-bungee-json-api.endpoint.players', config('services.redcraft-bungee-json-api.endpoint.players-time'), function () {
+            $players = Cache::remember('redcraft-bungee-json-api.endpoint.players', config('services.redcraft-bungee-json-api.endpoint.players-time'), function () {
                 return Http::timeout(config('services.redcraft-bungee-json-api.endpoint.timeout'))->get(config('services.redcraft-bungee-json-api.endpoint.players'))->json();
             });
         } catch (ConnectionException $e) {
+            $players = null;
+        }
+
+        if (! is_array($players) || ! array_key_exists('players', $players)) {
             return ['players' => -1];
         }
+
+        return $players;
     }
 
     public static function countPlayersConnected()
