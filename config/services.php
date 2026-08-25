@@ -40,11 +40,13 @@ return [
         ],
     ],
     'discord' => [
-        'invite-url' => env('DISCORD_INVITE_URL', 'https://discord.gg/xkWE4uJ'),
+        'invite-url' => env('DISCORD_INVITE_URL', 'https://discord.gg/q4uB8ep5nq'),
         'json-api' => env('DISCORD_JSON_API'),
         'json-api-time' => env('DISCORD_JSON_API_TIME', 15),
     ],
-    'plan-url' => env('PLAN_URL', 'https://stats.redcraft.org'),
+    // stats.redcraft.org has no host behind it and answers 404. plan.redcraft.org
+    // is the one the cluster serves and the one every environment sets.
+    'plan-url' => env('PLAN_URL', 'https://plan.redcraft.org'),
     'bluemap-url' => env('BLUEMAP_URL', 'https://map.redcraft.org'),
     'github-organization-url' => env('GITHUB_ORGANIZATION_URL', 'https://github.com/redcraft-org'),
 

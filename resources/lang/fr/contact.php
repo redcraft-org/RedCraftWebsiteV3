@@ -23,7 +23,7 @@ return [
         "messages" => [
             "username_required" => "Le pseudo Minecraft est requis.",
             "username_min" => "Le pseudo Minecraft est trop court.",
-            "discord_username_regex" => "Le pseudo Discord doit respecter la forme user#0000.",
+            "discord_username_regex" => "Entrez votre pseudo Discord, par exemple pseudo_123, ou l'ancien format pseudo#0000 si votre compte l'utilise encore.",
             "email_required" => "L'adresse email est requise.",
             "email_email" => "L'adresse email n'est pas valide.",
             "subject_required" => "Le sujet est requis.",

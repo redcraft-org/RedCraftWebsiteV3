@@ -12,6 +12,9 @@ class ContactForm extends Component
     // drift apart
     public const MESSAGE_MAX_LENGTH = 1500;
 
+    /** Discord refuses a webhook message longer than this. */
+    private const DISCORD_CONTENT_LIMIT = 2000;
+
 
     public $page = 'start';
 
@@ -43,7 +46,7 @@ class ContactForm extends Component
         return [
             'username' => !$this->fromPlayer ? '' : 'required|min:4',
             'email' => $this->fromPlayer ? '' : 'required|email',
-            'discord_username' => 'nullable|regex:/^.{3,32}#[0-9]{4}$/',
+            'discord_username' => 'nullable|regex:/^(?:[a-zA-Z0-9_.]{2,32}|.{3,32}#[0-9]{4})$/',
             'subject' => 'required|min:4',
             'message' => 'required|min:30|max:' . self::MESSAGE_MAX_LENGTH,
         ];
@@ -72,7 +75,6 @@ class ContactForm extends Component
                 'https://crafatar.com/avatars/' . $this->username . '?size=128' :
                 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=128',
             'content' => $this->build_message_content(),
-            'applied_tags' => $this->fromPlayer ? 'Player' : 'Other',
         ]);
 
         // Error handling
@@ -83,8 +85,10 @@ class ContactForm extends Component
         } else {
 
             $this->page = 'error';
-            session()->flash('contactFormErrorCode', json_decode($response->body())->code);
-            session()->flash('contactFormErrorMessage', json_decode($response->body())->message);
+
+            $body = json_decode($response->body());
+            session()->flash('contactFormErrorCode', $body->code ?? $response->status());
+            session()->flash('contactFormErrorMessage', $body->message ?? $response->body());
         }
     }
 
@@ -98,6 +102,13 @@ class ContactForm extends Component
         $content .= '- `🦊 User Agent` : ' . Request::header('User-Agent');
         $content .= "\n\nMessage :\n";
         $content .= "```" . $this->message . "```";
+
+        // Discord rejects anything over 2000 characters outright. A full length
+        // message plus the header lands around 1800, so a long user agent is
+        // enough to push it over and turn a valid submission into an error.
+        if (mb_strlen($content) > self::DISCORD_CONTENT_LIMIT) {
+            $content = mb_substr($content, 0, self::DISCORD_CONTENT_LIMIT - 5) . "\n...`";
+        }
 
         return $content;
     }
