@@ -4,37 +4,48 @@
 import { beforeEach, expect, test, vi } from 'vitest';
 
 beforeEach(() => {
-    // Alpine starts once per module instance, so the entry point has to be
-    // re-evaluated for each test rather than served from the module cache.
     vi.resetModules();
     delete window.Alpine;
     document.body.innerHTML = '';
 });
 
-// The bug this guards against: app.js assigned window.Alpine and then imported
-// alpineFunctions.js, which reached for that global. ES imports are hoisted, so
-// the import ran first, threw on an undefined Alpine, and stopped the whole
-// bundle. Nothing surfaced as an error, Alpine just never started.
-test('importing the entry point does not throw, and Alpine ends up on window', async () => {
+// Livewire 3 ships and starts its own Alpine. This entry point must register
+// against that one and must not create a second, or Alpine reports "Detected
+// multiple instances" and @entangle stops working, which is what left the
+// contact form rendering as an empty box.
+test('the entry point imports without throwing', async () => {
     await expect(import('../app.js')).resolves.toBeDefined();
-    expect(window.Alpine).toBeDefined();
 });
 
-test('alpineFunctions registers its magic without relying on a global', async () => {
+test('it does not start an Alpine of its own', async () => {
     await import('../app.js');
-    expect(typeof window.Alpine.magic).toBe('function');
-    expect(window.Alpine.version).toBeTruthy();
+    expect(window.Alpine, 'app.js must not create a second Alpine').toBeUndefined();
 });
 
-// The regression was invisible in markup terms: Alpine never processed the DOM,
-// so everything meant to start hidden rendered at once. This asserts Alpine is
-// actually driving the document rather than merely being present on window.
-test('Alpine processes x-show, so hidden panels stay hidden', async () => {
-    document.body.innerHTML = `
-        <div x-data="{ open: false }">
-            <p id="panel" x-show="open">details</p>
-        </div>`;
+test('on alpine:init it registers the plugin and the clipboard magic', async () => {
+    const plugin = vi.fn();
+    const magic = vi.fn();
     await import('../app.js');
-    await new Promise((r) => setTimeout(r, 50));
-    expect(document.getElementById('panel').style.display).toBe('none');
+
+    window.Alpine = { plugin, magic };
+    document.dispatchEvent(new Event('alpine:init'));
+
+    // Not an exact count: each import in this file leaves its alpine:init
+    // listener on the shared jsdom document, so earlier tests add to the tally.
+    expect(plugin, 'intersect plugin not registered').toHaveBeenCalled();
+    expect(magic).toHaveBeenCalledWith('clipboard', expect.any(Function));
+});
+
+test('the clipboard magic writes to the clipboard', async () => {
+    const writeText = vi.fn();
+    Object.defineProperty(window.navigator, 'clipboard', { value: { writeText }, configurable: true });
+    const magic = vi.fn();
+    await import('../app.js');
+
+    window.Alpine = { plugin: vi.fn(), magic };
+    document.dispatchEvent(new Event('alpine:init'));
+
+    const factory = magic.mock.calls.find(([name]) => name === 'clipboard')[1];
+    factory()('hello');
+    expect(writeText).toHaveBeenCalledWith('hello');
 });
