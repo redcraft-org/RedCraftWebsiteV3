@@ -79,11 +79,12 @@ return [
                 'title' => 'Survie',
                 'intro' => "Le serveur Survie Vanilla a pour but d'être laxiste sur les règles afin de favoriser une expérience de jeu libre. Les sanctions sont cependant appliquées sans préavis, alors utilisez votre bon sens, et si une règle est floue n'hésitez pas à contacter un membre du staff.",
                 'intro_sanctions' => "Les sanctions sur le serveur survie sont strictes. En général la première est un ban d'un mois et la deuxième un ban définitif. En cas de violation intentionnelle, le ban définitif est privilégié comme première sanction. L'application se fait au cas par cas et le staff a le choix final.",
-                '1' => 'Collaboration : Pour contribuer à un projet public, il faut d\'abord se référer au joueur responsable de la construction. Si vous souhaitez entreprendre un grand projet, assurez-vous de ne pas déranger d\'autres joueurs qui construisent à proximité. Dans le doute, demandez.',
-                '2' => 'Toutes les fermes doivent pouvoir être désactivées afin d\'éviter le lag.',
+                '1' => 'La contribution à un projet public sans s\'être d\'abord référé au joueur responsable de la construction, ou le lancement d\'un grand projet qui dérange les joueurs construisant à proximité.',
+                '1_note' => 'Dans le doute, demandez.',
+                '2' => 'Les fermes qui ne peuvent pas être désactivées et qui provoquent du lag.',
                 '3' => [
                     'title' => 'L\'abus de mécaniques non-officielles',
-                    'description' => 'telle que les bugs et les glitches qui procurent un avantage déloyal par rapport aux autres joueurs est interdite.',
+                    'description' => 'telles que les bugs et les glitches qui procurent un avantage déloyal par rapport aux autres joueurs.',
 
                     'table' => [
                         'headers' => ['Autorisé', 'Interdit'],
@@ -94,13 +95,13 @@ return [
                     'note' => 'Les clients modifiés (mods) sont des mécaniques non officielles.',
                 ],
                 '4' => [
-                    'title' => 'Ne détruisez pas les constructions ou les biens des autres joueurs sans leur permission.',
+                    'title' => 'La destruction ou la modification des constructions ou des biens d\'un autre joueur sans sa permission.',
                     'description' => 'Respectez le travail et les efforts des autres. Ne détruisez pas ou ne modifiez pas leurs bâtiments, leurs cultures, leurs élevages ou toute autre structure. Pour toute structure abandonnée par un joueur inactif, l\'autorisation devra être demandée pour utiliser l\'espace.',
                     'note' => 'Avant de modifier le terrain ou d\'emprunter les affaires d\'une personne, assurez-vous d\'avoir son accord. Dans le doute, demandez !',
                 ],
-                '5' => 'Voler les affaires ou les ressources d\'un autre joueur est interdit.',
-                '6' => "Le PVP non consenti est interdit.",
-                '7' => "L'utilisation de plus d'un compte Minecraft par joueur est interdite sur ce serveur.",
+                '5' => 'Le vol des affaires ou des ressources d\'un autre joueur.',
+                '6' => "Le PVP non consenti.",
+                '7' => "L'utilisation de plus d'un compte Minecraft par joueur sur ce serveur.",
             ],
         ],
     ],
