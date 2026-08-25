@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="{{ __('errors.404.title') }}">
 
     <x-page-header section-title="{{ __('errors.404.title') }}" />
 

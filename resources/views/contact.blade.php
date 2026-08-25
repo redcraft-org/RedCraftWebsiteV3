@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="{{ __('contact.title') }}">
 
     <x-page-header section-title="{{ __('contact.title') }}" />
 

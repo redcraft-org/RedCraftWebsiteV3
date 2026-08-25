@@ -2,7 +2,7 @@
     $mapUrl = config('services.bluemap-url');
 @endphp
 
-<x-app-layout>
+<x-app-layout title="{{ __('maps.title') }}">
 
     <x-page-header section-title="{{ __('maps.title') }}" />
 

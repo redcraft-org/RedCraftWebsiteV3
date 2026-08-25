@@ -9,7 +9,7 @@
     $planLocale = strtoupper(app()->getLocale());
 @endphp
 
-<x-app-layout>
+<x-app-layout title="{{ __('stats.title') }}">
 
     <x-page-header section-title="{{ __('stats.title') }}" />
 

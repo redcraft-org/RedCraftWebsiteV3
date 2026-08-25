@@ -66,7 +66,7 @@
     ];
 @endphp
 
-<x-app-layout>
+<x-app-layout title="{{ __('rules.title') }}">
 
     <x-page-header section-title="{{ __('rules.title') }}" />
 
