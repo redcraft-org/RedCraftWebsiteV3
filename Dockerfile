@@ -81,6 +81,7 @@ EXPOSE 8000
 # affects generated urls, so it stays true in the environment.
 ENTRYPOINT ["php", "artisan", "octane:start", \
             "--server=frankenphp", \
+            "--caddyfile=/app/docker/Caddyfile", \
             "--host=0.0.0.0", \
             "--port=8000", \
             "--admin-port=2019", \

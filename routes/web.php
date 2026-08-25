@@ -37,6 +37,16 @@ Route::get('/vote', function () {
 //     return view('coming-soon');
 // })->name('stats');
 
+// stats
+Route::get('/stats', function () {
+    return view('stats');
+})->name('stats');
+
+// maps
+Route::get('/maps', function () {
+    return view('maps');
+})->name('maps');
+
 // rules
 Route::get('/rules', function () {
     return view('rules');

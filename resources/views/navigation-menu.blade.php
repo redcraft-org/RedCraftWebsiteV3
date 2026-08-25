@@ -12,14 +12,14 @@
             'link' => 'vote',
         ],
         [
-            'type' => 'blank',
+            'type' => 'route',
             'name' => __('nav.links.5'),
-            'link' => config('services.bluemap-url'),
+            'link' => 'maps',
         ],
         [
-            'type' => 'blank',
+            'type' => 'route',
             'name' => __('nav.links.3'),
-            'link' => config('services.plan-url'),
+            'link' => 'stats',
         ],
         [
             'type' => 'route',
