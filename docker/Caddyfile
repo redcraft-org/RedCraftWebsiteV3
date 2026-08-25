@@ -47,6 +47,13 @@
 	# /pageExtensionApi.js as absolute paths, which is why those are proxied
 	# too. The site claims none of them, its own assets are under /build.
 	handle_path /stats/* {
+		# Plan derives its API base from Webserver.Alternative_IP and always
+		# prefixes it with its own protocol, which is http since TLS terminates
+		# out here rather than inside Plan. This page is served over https, so
+		# those XHRs would be refused as mixed content. Upgrading them is much
+		# cheaper than running a keystore inside the plugin.
+		header Content-Security-Policy "upgrade-insecure-requests"
+
 		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
