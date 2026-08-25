@@ -17,14 +17,19 @@ class TrustProxies extends Middleware
     /**
      * The headers that should be used to detect proxies.
      *
+     * X-Forwarded-Port is deliberately absent, and AWS_ELB with it, since that
+     * constant bundles the port bit. The proxy terminates tls and speaks to the
+     * cluster over port 80, so the forwarded port is 80 while the forwarded
+     * scheme is https. Honouring both builds every asset url as
+     * https://redcraft.org:80, which nothing serves. The scheme on its own
+     * already implies the right port.
+     *
      * @var int
      */
     protected $headers =
         Request::HEADER_X_FORWARDED_FOR |
         Request::HEADER_X_FORWARDED_HOST |
-        Request::HEADER_X_FORWARDED_PORT |
-        Request::HEADER_X_FORWARDED_PROTO |
-        Request::HEADER_X_FORWARDED_AWS_ELB;
+        Request::HEADER_X_FORWARDED_PROTO;
 
     /**
      * This was left null, so X-Forwarded-For was ignored and every request

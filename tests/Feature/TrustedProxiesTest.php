@@ -57,6 +57,27 @@ class TrustedProxiesTest extends TestCase
         );
     }
 
+    /**
+     * The proxy terminates tls and forwards over port 80, so a request arrives
+     * claiming scheme https and port 80 at the same time. Believing both built
+     * every asset url as https://redcraft.org:80 and took the stylesheets down.
+     */
+    public function test_the_forwarded_port_does_not_reach_the_asset_urls()
+    {
+        $request = Request::create('https://redcraft.org/contact', 'GET', [], [], [], [
+            'REMOTE_ADDR' => '10.1.158.216',
+            'HTTP_HOST' => 'redcraft.org',
+            'HTTP_X_FORWARDED_FOR' => '203.0.113.7, 10.0.2.254',
+            'HTTP_X_FORWARDED_PROTO' => 'https',
+            'HTTP_X_FORWARDED_PORT' => '80',
+        ]);
+
+        (new TrustProxies())->handle($request, fn ($request) => response(''));
+
+        $this->assertSame('https://redcraft.org', $request->getSchemeAndHttpHost());
+        $this->assertSame('203.0.113.7', $request->ip());
+    }
+
     public function test_both_hops_are_configured()
     {
         $this->assertSame('10.1.0.0/16,10.0.2.254', config('app.trusted_proxies'));
