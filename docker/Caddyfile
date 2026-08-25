@@ -1,0 +1,83 @@
+# Octane's own FrankenPHP Caddyfile with one addition, kept placeholder for
+# placeholder so everything Octane injects through the environment still works.
+#
+# The addition is the /stats proxy. Plan is a separate application on its own
+# host, and its dashboard picks its language from localStorage with no query
+# parameter or Accept-Language path. Serving it from this origin means the site
+# and the dashboard share that storage, so the language can be set from the
+# session without modifying anything inside Plan.
+#
+# Caddy proxies it in Go. Routing a megabyte of dashboard bundle through PHP
+# would be the wrong tool.
+{
+	{$CADDY_GLOBAL_OPTIONS}
+
+	admin {$CADDY_SERVER_ADMIN_HOST}:{$CADDY_SERVER_ADMIN_PORT}
+
+	frankenphp {
+		worker {
+			file "{$APP_PUBLIC_PATH}/frankenphp-worker.php"
+			{$CADDY_SERVER_WORKER_DIRECTIVE}
+			{$CADDY_SERVER_WATCH_DIRECTIVES}
+		}
+	}
+}
+
+{$CADDY_EXTRA_CONFIG}
+
+{$CADDY_SERVER_SERVER_NAME} {
+	log {
+		level {$CADDY_SERVER_LOG_LEVEL}
+
+		# Redact the authorization query parameter that can be set by Mercure...
+		format filter {
+			wrap {$CADDY_SERVER_LOGGER}
+			fields {
+				uri query {
+					replace authorization REDACTED
+				}
+			}
+		}
+	}
+
+	# Plan, served from this origin so it shares localStorage with the site.
+	#
+	# handle_path strips the /stats prefix, so Plan still answers from its own
+	# root. Its bundle then asks for /static, /v1, /manifest.json and
+	# /pageExtensionApi.js as absolute paths, which is why those are proxied
+	# too. The site claims none of them, its own assets are under /build.
+	handle_path /stats/* {
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+	}
+
+	handle /static/* {
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+	}
+
+	handle /v1/* {
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+	}
+
+	handle /auth/* {
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+	}
+
+	handle /pageExtensionApi.js {
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+	}
+
+	route {
+		root * "{$APP_PUBLIC_PATH}"
+		encode zstd br gzip
+
+		# Mercure configuration is injected here...
+		{$CADDY_SERVER_EXTRA_DIRECTIVES}
+
+		php_server {
+			index frankenphp-worker.php
+			try_files {path} frankenphp-worker.php
+			# Required for the public/storage/ directory...
+			resolve_root_symlink
+		}
+	}
+}
