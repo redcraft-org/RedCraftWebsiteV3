@@ -47,23 +47,23 @@
 	# /pageExtensionApi.js as absolute paths, which is why those are proxied
 	# too. The site claims none of them, its own assets are under /build.
 	handle_path /stats/* {
-		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
 	handle /static/* {
-		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
 	handle /v1/* {
-		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
 	handle /auth/* {
-		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
 	handle /pageExtensionApi.js {
-		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:80}
+		reverse_proxy {$PLAN_UPSTREAM:plan.plan.svc.cluster.local:8804}
 	}
 
 	route {
