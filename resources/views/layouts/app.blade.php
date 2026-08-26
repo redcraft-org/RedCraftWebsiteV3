@@ -9,6 +9,11 @@
              when the site name leads every one of them. --}}
         <title>{{ $title ? $title . ' | ' . config('app.name', 'RedCraft') : config('app.name', 'RedCraft') }}</title>
 
+
+        <link rel="icon" href="/favicon.ico" sizes="48x48">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link rel="preconnect" href="https://fonts.googleapis.com">
