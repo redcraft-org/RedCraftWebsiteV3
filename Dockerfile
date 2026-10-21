@@ -3,7 +3,7 @@
 ##############################################################################
 # Shared base: php extensions, used by both the dependency and runtime stages.
 ##############################################################################
-FROM dunglas/frankenphp:1.12-php8.5-trixie AS base
+FROM dunglas/frankenphp:1.13-php8.5-trixie AS base
 
 # pcntl is what lets octane:start and queue:work see SIGTERM, so a rolling
 # restart drains instead of being killed. gd is new: the skin endpoints call
